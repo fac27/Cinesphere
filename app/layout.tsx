@@ -20,9 +20,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={ibmPlexMono.className}>
-        <Header/>
+        <Header />
         {children}
-        </body>
+      </body>
     </html>
   );
 }
