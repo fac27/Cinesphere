@@ -1,4 +1,4 @@
-import { h2style } from "@/Styles/Tailwind-Styles";
+import { h1style, h2style } from "@/Styles/Tailwind-Styles";
 import { CinemaType } from "@/Types/Object-Interfaces";
 import Image from "next/image";
 
@@ -15,7 +15,7 @@ const Cinema = ({ cinema }: Props) => {
         src={cinema.images.exterior}
         alt="External cinema"
       />
-      <h1>{cinema.cinemaName}</h1>
+      <h1 className={h1style}>{cinema.cinemaName}</h1>
       <p>DESCRIPTION: {cinema.about}</p>
 
       {cinema.bar && (
