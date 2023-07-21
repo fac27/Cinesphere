@@ -4,23 +4,19 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 
 import { getFilmData } from "@/Utils/getFilmData";
-
-const imdb_id_temp_arr = [
-  "tt14230388",
-  "tt9603212",
-  "tt15398776",
-  "tt1517268",
-  "tt12758486",
-];
+import screenings from "@/Data/Screenings";
+import { getImdbIds } from "@/Utils/getImdbIds";
 
 const FilmCard: FC = () => {
   const [filmData, setFilmData] = useState<any[]>([]);
 
   useEffect(() => {
+    const imdb_id_arr = getImdbIds(screenings);
+
     const fetchData = async () => {
       try {
         const filmDataArr = await Promise.all(
-          imdb_id_temp_arr.map((element) => getFilmData(element))
+          imdb_id_arr.map((element: any) => getFilmData(element))
         );
         setFilmData(filmDataArr);
       } catch (error) {
@@ -44,8 +40,7 @@ const FilmCard: FC = () => {
             src={`https://image.tmdb.org/t/p/w500${film.backdrop_path}`}
           ></Image>
           <h1>{film.title}</h1>
-          <h2>*GENRE* / {film.release_date} / *LENGTH*</h2>
-          <h2>*DIRECTOR*</h2>
+          <h2>{film.release_date}</h2>
         </div>
       ))}
     </div>
