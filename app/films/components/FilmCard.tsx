@@ -37,7 +37,12 @@ const FilmCard: FC = () => {
           key={film.id}
           className={`my-2 bg-[url('https://image.tmdb.org/t/p/w500${film.backdrop_path}')] w-72`}
         >
-          <Image width="300" height="200" alt="whatever" src={`https://image.tmdb.org/t/p/w500${film.backdrop_path}`}></Image>
+          <Image
+            width="300"
+            height="200"
+            alt="whatever"
+            src={`https://image.tmdb.org/t/p/w500${film.backdrop_path}`}
+          ></Image>
           <h1>{film.title}</h1>
           <h2>*GENRE* / {film.release_date} / *LENGTH*</h2>
           <h2>*DIRECTOR*</h2>
