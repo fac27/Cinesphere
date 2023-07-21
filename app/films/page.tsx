@@ -1,7 +1,7 @@
-import FilmCard from "./components/FilmCard"
+import FilmCard from "./components/FilmCard";
 
 const Films = () => {
-  return <FilmCard/>
-}
+  return <FilmCard />;
+};
 
-export default Films
+export default Films;
