@@ -1,23 +1,19 @@
 "use client";
 import { FC } from "react";
-import Image from "next/image";
 import { useState, useEffect } from "react";
 
 import { getFilmData } from "@/Utils/getFilmData";
 
-const genre: string = "comedy";
-
-const length: string = "109 mins";
-const director: string = "Wes Anderson";
+const imdb_id_temp_arr = ["tt14230388", "tt9603212", "tt15398776", "tt1517268", "tt12758486"]
 
 const FilmCard: FC = () => {
-  const [filmData, setFilmData] = useState<any>("");
+  const [filmData, setFilmData] = useState<any[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await getFilmData("tt1462764");
-        setFilmData(data);
+        const filmDataArr = await Promise.all(imdb_id_temp_arr.map(element => getFilmData(element)));
+        setFilmData(filmDataArr);
       } catch (error) {
         console.error(error);
       }
@@ -26,18 +22,17 @@ const FilmCard: FC = () => {
   }, []);
 
   return (
-    <div>
-      <h1>{filmData.title}</h1>
-      <h2>*GENRE* / {filmData.release_date} / *LENGTH*</h2>
-      <h2>{director}</h2>
-      <Image
-        alt="backdrop"
-        width="500"
-        height="300"
-        src={`https://image.tmdb.org/t/p/w500${filmData.backdrop_path}`}
-      ></Image>
+    <div className="flex-col flex  items-center">
+      {filmData.map(data => (
+          <div key={data.imdb_id} className="my-2 text-white bg-backdrop-film w-72 h-48">
+            <h1>{data.title}</h1>
+            <h2>*GENRE* / {data.release_date} / *LENGTH*</h2>
+            <h2>*DIRECTOR*</h2>
+          </div>
+      ))}
     </div>
   );
 };
+
 
 export default FilmCard;

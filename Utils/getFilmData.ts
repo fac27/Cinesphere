@@ -1,5 +1,5 @@
-const imdb_id_elemental = "tt15789038";
-const imdb_id_indiana = "tt1462764";
+// const imdb_id_elemental = "tt15789038";
+// const imdb_id_indiana = "tt1462764";
 
 export const getFilmData = async (imdb_film_id: string) => {
   try {
