@@ -22,6 +22,8 @@ export const getFilmData = async (imdb_film_id: string) => {
     const data = await response.json();
     const filmData = data.movie_results[0];
 
+    console.log(filmData)
+
     return filmData;
   } catch (err) {
     console.error(err);

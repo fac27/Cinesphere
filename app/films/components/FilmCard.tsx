@@ -1,6 +1,7 @@
 "use client";
 import { FC } from "react";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 import { getFilmData } from "@/Utils/getFilmData";
 
@@ -31,13 +32,14 @@ const FilmCard: FC = () => {
 
   return (
     <div className="flex-col flex  items-center">
-      {filmData.map((data) => (
+      {filmData.map((film) => (
         <div
-          key={data.imdb_id}
-          className="my-2 text-white bg-backdrop-film w-72 h-48"
+          key={film.id}
+          className={`my-2 bg-[url('https://image.tmdb.org/t/p/w500${film.backdrop_path}')] w-72`}
         >
-          <h1>{data.title}</h1>
-          <h2>*GENRE* / {data.release_date} / *LENGTH*</h2>
+          <Image width="300" height="200" alt="whatever" src={`https://image.tmdb.org/t/p/w500${film.backdrop_path}`}></Image>
+          <h1>{film.title}</h1>
+          <h2>*GENRE* / {film.release_date} / *LENGTH*</h2>
           <h2>*DIRECTOR*</h2>
         </div>
       ))}
