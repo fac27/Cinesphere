@@ -1,6 +1,5 @@
 const imdb_id_elemental = "tt15789038";
-const imdb_id_indiana = "tt1462764"
-
+const imdb_id_indiana = "tt1462764";
 
 export const getFilmData = async (imdb_film_id: string) => {
   try {
@@ -17,21 +16,15 @@ export const getFilmData = async (imdb_film_id: string) => {
     );
 
     if (!response.ok) {
-      throw new Error('Network response was not ok');
+      throw new Error("Network response was not ok");
     }
 
     const data = await response.json();
-    const overview = data.movie_results[0].overview;
-    console.log(overview); 
+    const filmData = data.movie_results[0];
 
-    // return data;
+    return filmData;
   } catch (err) {
     console.error(err);
-    return null; //  handle the error or return a default value if needed
+    return null;
   }
-}
-
-
-
-
-
+};
