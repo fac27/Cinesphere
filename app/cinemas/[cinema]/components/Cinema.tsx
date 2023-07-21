@@ -1,6 +1,12 @@
+import { h2style } from "@/Styles/Tailwind-Styles";
+import { CinemaType } from "@/Types/Object-Interfaces";
 import Image from "next/image";
 
-export function Cinema({ cinema }) {
+interface Props {
+  cinema: CinemaType;
+}
+
+const Cinema = ({ cinema }: Props) => {
   return (
     <>
       <Image
@@ -14,7 +20,7 @@ export function Cinema({ cinema }) {
 
       {cinema.bar && (
         <>
-          <h1>Bar</h1>
+          <h2 className={h2style}>Bar</h2>
           <p>
             {cinema.cinemaName} has an on-site bar which serves alcoholic and
             soft drinks.
@@ -23,42 +29,42 @@ export function Cinema({ cinema }) {
       )}
       {cinema.cafe && (
         <>
-          <h1>Cafe</h1>
+          <h2 className={h2style}>Cafe</h2>
           <p>{cinema.cinemaName} has a cafe which serves food and hot drinks</p>
         </>
       )}
 
       {cinema.audioDescription && (
         <>
-          <h1>Audio Description</h1>
+          <h2 className={h2style}>Audio Description</h2>
           <p>{cinema.visualImpairmentDetails}</p>
         </>
       )}
       {cinema.closedCaptions && (
         <>
-          <h1>Closed Captions</h1>
+          <h2 className={h2style}>Closed Captions</h2>
           <p>{cinema.HoHDetails}</p>
         </>
       )}
       {cinema.relaxedScreenings && (
         <>
-          <h1>Relaxed Screenings</h1>
+          <h2 className={h2style}>Relaxed Screenings</h2>
           <p>{cinema.neurodiverseDetails}</p>
         </>
       )}
       {cinema.wheelchairAccessible && (
         <>
-          <h1>Wheelchair Accessibility</h1>
+          <h2 className={h2style}>Wheelchair Accessibility</h2>
           <p>{cinema.wheelchairDetails}</p>
         </>
       )}
       {cinema.freeCarerTickets && (
         <>
-          <h1>Free Carer Tickets</h1>
+          <h2 className={h2style}>Free Carer Tickets</h2>
           <p>{cinema.freeCarerTicketsDetails}</p>
         </>
       )}
-      <h1>Contact</h1>
+      <h2 className={h2style}>Contact</h2>
       <p>{cinema.address}</p>
 
       <Image
@@ -83,4 +89,6 @@ export function Cinema({ cinema }) {
       </div>
     </>
   );
-}
+};
+
+export default Cinema;

@@ -1,11 +1,6 @@
-import Cinema from "..Types/Object-interface.ts"; // Import the defined Cinema interface
+import { CinemaType } from "@/Types/Object-Interfaces";
 
-export const cinemas: Cinema[] = [
-  // Your cinema objects here...
-];
-
-
-export const cinemas = [
+export const cinemas: CinemaType[] = [
   {
     cinemaName: "The Lexi Cinema",
     about:
