@@ -1,3 +1,1 @@
-const CinemaFeaturesList = () => {
-    
-}
+const CinemaFeaturesList = () => {};
