@@ -8,8 +8,17 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        "backdrop-film": "url('https://image.tmdb.org/t/p/w500/1E5baAaEse26fej7uHcjOgEE2t2.jpg')",
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+        "gradient-conic":
+          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        filmUrl:
+          "url(https://images.pexels.com/photos/3056056/pexels-photo-3056056.jpeg?cs=srgb&dl=pexels-collis-3056056.jpg&fm=jpg)",
       },
+      // backgroundImage: {
+      //   "backdrop-film":
+      //     "url('https://image.tmdb.org/t/p/w500/1E5baAaEse26fej7uHcjOgEE2t2.jpg')",
+      // },
+
       colors: {
         bgColour1: "#FFC700",
         bgColour2: "#FFEFB5",
