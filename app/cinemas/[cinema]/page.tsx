@@ -1,15 +1,13 @@
-import { blackBtnStyle } from "@/Styles/Tailwind-Styles";
+import Buttons from "./components/Buttons";
 import Cinema from "./components/Cinema";
 import cinemas from "@/Data/Cinemas";
 
+// eslint-disable-next-line no-unused-vars
 const Page = ({ params }: { params: { cinema: string } }) => {
   const cinema = cinemas[3];
   return (
     <>
-      <div className="flex justify-around">
-        <button>Back</button>
-        <button className={blackBtnStyle}>Listings</button>
-      </div>
+      <Buttons />
       <Cinema cinema={cinema} />
     </>
   );

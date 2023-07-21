@@ -1,4 +1,10 @@
-const CinemaCard = ({ cinema }) => {
+import { CinemaType } from "@/Types/Object-Interfaces";
+
+interface Props {
+  cinema: CinemaType;
+}
+
+const CinemaCard = ({ cinema }: Props) => {
   return (
     <div
       className="relative w-5/6 bg-cover bg-center rounded-2xl"
