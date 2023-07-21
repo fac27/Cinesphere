@@ -3,7 +3,6 @@ import React from "react";
 import type { Metadata } from "next";
 import { IBM_Plex_Mono } from "next/font/google";
 import Header from "./components/Header";
-import React from "react";
 
 const ibmPlexMono = IBM_Plex_Mono({ weight: ["400", "500", "600", "700"], subsets: ["latin"] });
 

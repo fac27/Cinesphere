@@ -1,5 +1,6 @@
 import {BiSliderAlt} from "react-icons/bi"
 import CinemaCard from "./components/CinemaCard"
+import {cinemas} from "../../Data/Cinemas"
 
 const Cinemas = () => {
   return (
@@ -12,7 +13,9 @@ const Cinemas = () => {
       <button type="button" className="p-2 flex items-center gap-1 rounded-lg border border-black"><BiSliderAlt />Filter</button>
     </div>
     <div className="flex flex-col items-center">
-      <CinemaCard />
+      {cinemas.map((cinema) => (
+            <CinemaCard key={cinema.cinemaName} cinema={cinema} />
+      ))}
     </div>
   </>
   )
