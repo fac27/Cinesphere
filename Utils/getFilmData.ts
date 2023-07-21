@@ -1,6 +1,3 @@
-// const imdb_id_elemental = "tt15789038";
-// const imdb_id_indiana = "tt1462764";
-
 export const getFilmData = async (imdb_film_id: string) => {
   try {
     const response = await fetch(
@@ -21,8 +18,6 @@ export const getFilmData = async (imdb_film_id: string) => {
 
     const data = await response.json();
     const filmData = data.movie_results[0];
-
-    console.log(filmData)
 
     return filmData;
   } catch (err) {
