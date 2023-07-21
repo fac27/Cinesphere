@@ -2,7 +2,6 @@ import "./globals.css";
 import React from "react";
 import type { Metadata } from "next";
 import { IBM_Plex_Mono } from "next/font/google";
-import React from "react";
 
 import Header from "./components/Header";
 
