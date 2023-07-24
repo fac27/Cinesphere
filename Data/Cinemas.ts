@@ -1,4 +1,4 @@
-import {CinemaType} from "../Types/Object-Interfaces"; 
+import { CinemaType } from "../Types/Object-Interfaces";
 
 const cinemas: CinemaType[] = [
   {

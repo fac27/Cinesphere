@@ -1,19 +1,19 @@
-import {FC} from "react";
-import {CinemaType} from "@/Types/Object-Interfaces";
-import {LiaCocktailSolid} from "react-icons/lia"
-import {IoMdCafe} from "react-icons/io"
-import {FaAudioDescription} from "react-icons/fa"
-import {BiSolidCaptions} from "react-icons/bi"
-import {FaWheelchair} from "react-icons/fa"
-import {BsFillTicketPerforatedFill} from "react-icons/bs"
+import { FC } from "react";
+import { CinemaType } from "@/Types/Object-Interfaces";
+import { LiaCocktailSolid } from "react-icons/lia";
+import { IoMdCafe } from "react-icons/io";
+import { FaAudioDescription } from "react-icons/fa";
+import { BiSolidCaptions } from "react-icons/bi";
+import { FaWheelchair } from "react-icons/fa";
+import { BsFillTicketPerforatedFill } from "react-icons/bs";
+import { FaInfinity } from "react-icons/fa";
 import Image from "next/image";
 
-
 interface CinemaCardProps {
-    cinema: CinemaType;
+  cinema: CinemaType;
 }
 
-const CinemaFeaturesList:FC<CinemaCardProps> = ({ cinema }) => {
+const CinemaFeaturesList: FC<CinemaCardProps> = ({ cinema }) => {
   const features = [];
 
   if (cinema.bar) {
@@ -64,7 +64,7 @@ const CinemaFeaturesList:FC<CinemaCardProps> = ({ cinema }) => {
     features.push(
       <li key="relaxedScreenings" className="flex items-center">
         <span role="img" aria-label="Relaxed Screenings">
-            <Image src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Pastel_Neurodiversity_Symbol.png" alt="Neurodiversity symbol" width="20" height="20" />
+            <FaInfinity />
         </span>
         Relaxed Screenings
       </li>
@@ -73,9 +73,9 @@ const CinemaFeaturesList:FC<CinemaCardProps> = ({ cinema }) => {
 
   if (cinema.wheelchairAccessible) {
     const wheelchairAccessibility =
-    cinema.wheelchairAccessible === "Partial"
-      ? "Some wheelchair access"
-      : "Full wheelchair access";
+      cinema.wheelchairAccessible === "Partial"
+        ? "Some wheelchair access"
+        : "Full wheelchair access";
     features.push(
       <li key="wheelchairAccessible" className="flex items-center">
         <span role="img" aria-label="Wheelchair Accessible">
@@ -97,14 +97,9 @@ const CinemaFeaturesList:FC<CinemaCardProps> = ({ cinema }) => {
     );
   }
 
-
   // Add more conditions and features as needed...
 
-  return (
-    <ul>
-      {features.map((feature) => feature)}
-    </ul>
-  );
+  return <ul>{features.map((feature) => feature)}</ul>;
 };
 
 export default CinemaFeaturesList;

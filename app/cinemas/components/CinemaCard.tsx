@@ -1,12 +1,12 @@
-import {FC} from "react";
-import {CinemaType} from "@/Types/Object-Interfaces";
-import CinemaFeaturesList from "./CinemaFeaturesList"
+import { FC } from "react";
+import { CinemaType } from "@/Types/Object-Interfaces";
+import CinemaFeaturesList from "./CinemaFeaturesList";
 
 interface CinemaCardProps {
-    cinema: CinemaType;
+  cinema: CinemaType;
 }
 
-const CinemaCard:FC<CinemaCardProps> = ({ cinema }) => {
+const CinemaCard: FC<CinemaCardProps> = ({ cinema }) => {
   return (
     <div
       className="relative w-5/6 bg-cover bg-center rounded-2xl"
@@ -17,7 +17,7 @@ const CinemaCard:FC<CinemaCardProps> = ({ cinema }) => {
         <h2 className="text-2xl font-bold">{cinema.cinemaName}</h2>
         <h3 className="mb-10">{cinema.area}</h3>
         <p>{cinema.about}</p>
-        <CinemaFeaturesList cinema={cinema}/>
+        <CinemaFeaturesList cinema={cinema} />
       </div>
     </div>
   );
