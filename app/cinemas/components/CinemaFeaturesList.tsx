@@ -7,7 +7,6 @@ import { BiSolidCaptions } from "react-icons/bi";
 import { FaWheelchair } from "react-icons/fa";
 import { BsFillTicketPerforatedFill } from "react-icons/bs";
 import { FaInfinity } from "react-icons/fa";
-import Image from "next/image";
 
 interface CinemaCardProps {
   cinema: CinemaType;
