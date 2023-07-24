@@ -14,10 +14,14 @@ const FilmCard: FC = () => {
     const imdb_id_arr = getImdbIds(screenings);
 
     const fetchData = async () => {
+      try {
         const filmDataArr = await Promise.all(
           imdb_id_arr.map((element: any) => getFilmData(element))
         );
         setFilmData(filmDataArr);
+      } catch (error) {
+        console.error(error);
+      }
     };
     fetchData();
   }, []);
