@@ -2,6 +2,12 @@
 const nextConfig = {
   images: {
     domains: ["upload.wikimedia.org"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "image.tmdb.org",
+      },
+    ],
   },
 };
 
