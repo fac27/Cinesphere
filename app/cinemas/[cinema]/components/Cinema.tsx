@@ -1,4 +1,3 @@
-import { h1style, h2style } from "@/Styles/Tailwind-Styles";
 import { CinemaType } from "@/Types/Object-Interfaces";
 import { LiaCocktailSolid } from "react-icons/lia";
 import { IoMdCafe } from "react-icons/io";
@@ -22,13 +21,13 @@ const Cinema = ({ cinema }: Props) => {
       >
         <Image
           className="absolute top-0 left-0 w-full h-full object-cover"
-          layout="fill"
+          fill={true}
           src={cinema.images.exterior}
           alt="External cinema"
         />
       </div>
 
-      <h1 className={h1style}>{cinema.cinemaName}</h1>
+      <h1 className="text-4xl font-bold">{cinema.cinemaName}</h1>
       <p>DESCRIPTION: {cinema.about}</p>
 
       {cinema.bar && (
@@ -88,7 +87,7 @@ const Cinema = ({ cinema }: Props) => {
       >
         <Image
           className="absolute top-0 left-0 w-full h-full object-cover"
-          layout="fill"
+          fill={true}
           src={cinema.images.Interior1}
           alt="External cinema"
         />
@@ -101,7 +100,7 @@ const Cinema = ({ cinema }: Props) => {
         >
           <Image
             className="absolute top-0 left-0 w-full h-full object-cover"
-            layout="fill"
+            fill={true}
             alt="interior2"
             src={cinema.images.Interior2}
           />
@@ -112,7 +111,7 @@ const Cinema = ({ cinema }: Props) => {
         >
           <Image
             className="absolute top-0 left-0 w-full h-full object-cover"
-            layout="fill"
+            fill={true}
             alt="interior2"
             src={cinema.images.Interior3}
           />
