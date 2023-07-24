@@ -19,13 +19,19 @@ const Home = () => {
 
         <div className="mt-6 flex gap-10">
           <Link href={"/films"}>
-            <div className="bg-[url(https://images.pexels.com/photos/3056056/pexels-photo-3056056.jpeg?cs=srgb&dl=pexels-collis-3056056.jpg&fm=jpg)] bg-cover">
-              Films
+            <div className="bg-[url(https://images.pexels.com/photos/3056056/pexels-photo-3056056.jpeg?cs=srgb&dl=pexels-collis-3056056.jpg&fm=jpg)] bg-cover w-32 h-32 rounded relative">
+              <div className="absolute top-0 left-0 w-full h-full bg-black opacity-40 rounded-2xl" />
+              <p className="relative text-white text-xl text-center pt-10">
+                Films
+              </p>
             </div>
           </Link>
           <Link href={"/cinemas"}>
-            <div className="bg-[url(https://i2-prod.dailyrecord.co.uk/incoming/article18847157.ece/ALTERNATES/s1200b/2_IMG_1823.jpg)] bg-cover">
-              Cinemas
+            <div className="bg-[url(https://i2-prod.dailyrecord.co.uk/incoming/article18847157.ece/ALTERNATES/s1200b/2_IMG_1823.jpg)] bg-cover w-32 h-32 rounded relative">
+              <div className="absolute top-0 left-0 w-full h-full bg-black opacity-40 rounded-2xl" />
+              <p className="relative text-white text-xl text-center pt-10">
+                Cinemas
+              </p>
             </div>
           </Link>
         </div>

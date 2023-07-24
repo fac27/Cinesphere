@@ -1,3 +1,7 @@
 export default function Cinemas() {
-  return <div>Cinemas</div>;
+  return (
+    <div>
+      <h1>Cinemas Page</h1>
+    </div>
+  );
 }

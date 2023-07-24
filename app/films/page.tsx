@@ -2,10 +2,11 @@ import FilmCard from "./components/FilmCard";
 
 const Films = () => {
   return (
-  <>
-  <FilmCard />
-  </>
-  )
+    <>
+      <h1>Films Page</h1>
+      <FilmCard />
+    </>
+  );
 };
 
 export default Films;
