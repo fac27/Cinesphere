@@ -1,10 +1,8 @@
-import Header from "./components/Header";
 import Link from "next/link";
 
 const Home = () => {
   return (
     <>
-      <Header />
       <div className="mt-10 mr-auto ml-auto w-80 bg-bgColour2 p-4 rounded-2xl border border-black">
         <h1 className="text-2xl font-bold">Cinesphere</h1>
         <p className="mt-5">
