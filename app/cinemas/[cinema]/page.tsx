@@ -4,7 +4,8 @@ import cinemas from "@/Data/Cinemas";
 
 // eslint-disable-next-line no-unused-vars
 const Page = ({ params }: { params: { cinema: string } }) => {
-  const paramsCinema = params.cinema.replaceAll("-", " ");
+  const paramsCinema = params.cinema.replaceAll("%20", " ");
+  console.log(paramsCinema);
   const cinema = cinemas.find(
     (cinema) => cinema.cinemaName.toLowerCase() === paramsCinema.toLowerCase()
   );
