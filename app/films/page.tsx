@@ -4,6 +4,7 @@ import { BiSliderAlt } from "react-icons/bi";
 const Films = () => {
   return (
     <>
+      <h1>Films Page</h1>
       <div className="flex flex-row justify-center mt-4">
         <input
           type="text"
