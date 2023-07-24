@@ -1,3 +1,4 @@
+"use client";
 import { ScreeningType } from "@/Types/Object-Interfaces";
 
 interface Props {
@@ -55,7 +56,6 @@ const getScreeningsByDateAndFilm = (screenings: ScreeningType[]) => {
 
 const Screenings = ({ screenings }: Props) => {
   const sortedScreenings = getScreeningsByDateAndFilm(screenings);
-  console.log(sortedScreenings);
   return (
     <div>
       <h2 className="text-3xl regular">SCREENINGS</h2>
@@ -64,7 +64,12 @@ const Screenings = ({ screenings }: Props) => {
           <div className="border-t border-gray" key={index}>
             <h3>{date.date}</h3>
             {date.films.map((film, index) => (
-              <h3 key={index}>{film.filmName}</h3>
+              <>
+                <h3 key={index}>{film.filmName}</h3>
+                {film.screenings.map((fil, index) => (
+                  <h3 key={index}>{film.screenings[0].dateTime}</h3>
+                ))}
+              </>
             ))}
           </div>
         ))}
