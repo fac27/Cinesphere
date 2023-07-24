@@ -1,9 +1,25 @@
-import FilmCard from "./components/FilmCard";
 import { BiSliderAlt } from "react-icons/bi";
 
+import FilmCard from "./components/FilmCard";
+import Filter from "../components/Filter"
+
+
 const Films = () => {
+
+  const genres = [
+    "Action",
+    "Horror",
+    "Thriller",
+    "Arthouse",
+    "Sci-Fi",
+    "Drama",
+    "Period",
+    "Comedy",
+  ]
+
   return (
     <>
+    <Filter genres={genres}/>
       <h1>Films Page</h1>
       <div className="flex flex-row justify-center mt-4">
         <input
