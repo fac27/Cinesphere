@@ -14,16 +14,9 @@ const Header = () => {
         <h1 className="underline text-2xl">cinesphere</h1>
       </div>
 
-      <FiMenu
-        className="cursor-pointer mr-3"
-        onClick={() => setOpen(!open)}
-      />
+      <FiMenu className="cursor-pointer mr-3" onClick={() => setOpen(!open)} />
 
-      <nav
-        className={`${
-          open ? "block" : "hidden"
-        } flex flex-column `}
-      >
+      <nav className={`${open ? "block" : "hidden"} flex flex-column `}>
         <ul>
           <li className="lg:px-5">
             <a href="/">Home</a>
