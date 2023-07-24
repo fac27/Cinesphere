@@ -7,6 +7,7 @@ import { BiSolidCaptions } from "react-icons/bi";
 import { FaWheelchair } from "react-icons/fa";
 import { BsFillTicketPerforatedFill } from "react-icons/bs";
 import Image from "next/image";
+import InfoSection from "./InfoSection";
 
 interface Props {
   cinema: CinemaType;
@@ -31,58 +32,56 @@ const Cinema = ({ cinema }: Props) => {
       <p>DESCRIPTION: {cinema.about}</p>
 
       {cinema.bar && (
-        <>
-          <h2 className={h2style}>Bar</h2> <LiaCocktailSolid />
-          <p>
-            {cinema.cinemaName} has an on-site bar which serves alcoholic and
-            soft drinks.
-          </p>
-        </>
+        <InfoSection
+          title="Bar"
+          IconComponent={LiaCocktailSolid}
+          description={`${cinema.cinemaName} has an on-site bar which serves alcoholic and
+        soft drinks.`}
+        />
       )}
       {cinema.cafe && (
-        <>
-          <h2 className={h2style}>Cafe</h2>
-          <IoMdCafe />
-          <p>{cinema.cinemaName} has a cafe which serves food and hot drinks</p>
-        </>
+        <InfoSection
+          title="Cafe"
+          IconComponent={IoMdCafe}
+          description={`${cinema.cinemaName} has a cafe which serves food and hot drinks`}
+        />
       )}
 
       {cinema.audioDescription && (
-        <>
-          <h2 className={h2style}>Audio Description</h2>
-          <FaAudioDescription />
-          <p>{cinema.visualImpairmentDetails}</p>
-        </>
+        <InfoSection
+          title="Audio Description"
+          IconComponent={FaAudioDescription}
+          description={cinema.visualImpairmentDetails as string}
+        />
       )}
       {cinema.closedCaptions && (
-        <>
-          <h2 className={h2style}>Closed Captions</h2>
-          <BiSolidCaptions />
-          <p>{cinema.HoHDetails}</p>
-        </>
+        <InfoSection
+          title="Closed Captions"
+          IconComponent={BiSolidCaptions}
+          description={cinema.HoHDetails as string}
+        />
       )}
       {cinema.relaxedScreenings && (
-        <>
-          <h2 className={h2style}>Relaxed Screenings</h2>
-          <p>{cinema.neurodiverseDetails}</p>
-        </>
+        <InfoSection
+          title="Relaxed Screenings"
+          description={cinema.neurodiverseDetails as string}
+        />
       )}
       {cinema.wheelchairAccessible && (
-        <>
-          <h2 className={h2style}>Wheelchair Accessibility</h2>
-          <FaWheelchair />
-          <p>{cinema.wheelchairDetails}</p>
-        </>
+        <InfoSection
+          title="Weelchair Accessibility"
+          IconComponent={FaWheelchair}
+          description={cinema.wheelchairDetails as string}
+        />
       )}
       {cinema.freeCarerTickets && (
-        <>
-          <h2 className={h2style}>Free Carer Tickets</h2>
-          <BsFillTicketPerforatedFill />
-          <p>{cinema.freeCarerTicketsDetails}</p>
-        </>
+        <InfoSection
+          title="Free Carer Tickets"
+          IconComponent={BsFillTicketPerforatedFill}
+          description={cinema.freeCarerTicketsDetails as string}
+        />
       )}
-      <h2 className={h2style}>Contact</h2>
-      <p>{cinema.address}</p>
+      <InfoSection title="Contact" description={cinema.address} />
       <div
         className="relative w-full overflow-hidden"
         style={{ paddingTop: "56.25%" }}
