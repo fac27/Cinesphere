@@ -23,22 +23,31 @@ const getScreeningsByDateAndFilm = (screenings: ScreeningType[]) => {
       (obj) => obj.date === formattedDate
     );
 
-    // If the date does not exist in the array, create a new date object
+    // If the date does not exist in the array, create a new date object and add it to the array
     if (!dateObj) {
       dateObj = {
         date: formattedDate,
-        films: {},
+        films: [],
       };
       screeningsByDateAndFilm.push(dateObj);
     }
 
-    // If the filmName is not yet a key under the date, add it
-    if (!dateObj.films[screening.filmName]) {
-      dateObj.films[screening.filmName] = [];
+    // Check if the filmName already exists in the films array
+    let filmObj = dateObj.films.find(
+      (obj) => obj.filmName === screening.filmName
+    );
+
+    // If the filmName does not exist in the films array, create a new film object and add it to the films array
+    if (!filmObj) {
+      filmObj = {
+        filmName: screening.filmName,
+        screenings: [],
+      };
+      dateObj.films.push(filmObj);
     }
 
     // Push the screening information into the right place in the result object
-    dateObj.films[screening.filmName].push(screening);
+    filmObj.screenings.push(screening);
   });
 
   return screeningsByDateAndFilm;
@@ -46,7 +55,7 @@ const getScreeningsByDateAndFilm = (screenings: ScreeningType[]) => {
 
 const Screenings = ({ screenings }: Props) => {
   const sortedScreenings = getScreeningsByDateAndFilm(screenings);
-
+  console.log(sortedScreenings);
   return (
     <div>
       <h2 className="text-3xl regular">SCREENINGS</h2>
@@ -54,6 +63,9 @@ const Screenings = ({ screenings }: Props) => {
         {sortedScreenings.map((date, index) => (
           <div className="border-t border-gray" key={index}>
             <h3>{date.date}</h3>
+            {date.films.map((film, index) => (
+              <h3 key={index}>{film.filmName}</h3>
+            ))}
           </div>
         ))}
       </div>
