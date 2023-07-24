@@ -23,3 +23,16 @@ export interface CinemaType {
     Interior3: string;
   };
 }
+
+export interface ScreeningType {
+  cinema: string;
+  releaseYear?: string;
+  dateTime: string;
+  filmName: string;
+  audioDescription: boolean;
+  closedCaptions: boolean;
+  subtitles: boolean;
+  relaxedScreening: boolean;
+  babyFriendly: boolean;
+  imdbId: string;
+}
