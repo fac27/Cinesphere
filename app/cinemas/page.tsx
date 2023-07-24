@@ -1,8 +1,32 @@
+'use client'
+
+import { useState } from "react";
+
 import { BiSliderAlt } from "react-icons/bi";
 import CinemaCard from "./components/CinemaCard";
 import cinemas from "../../Data/Cinemas";
+import { filterLabels } from "@/Data/FilteringCodes";
 
 const Cinemas = () => {
+  const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
+  
+  const handleFilterChange = (filter: string) => {
+    setSelectedFilters((prevFilters: string[]) =>
+      prevFilters.includes(filter)
+        ? prevFilters.filter((item: string) => item !== filter)
+        : [...prevFilters, filter]
+    );
+  };
+
+  const filteredCinemas = cinemas.filter((cinema) =>
+  selectedFilters.every((filter) => {
+    if (filter === "wheelchairAccessible") {
+      return cinema[filter] === true || cinema[filter] === "Partial";
+    }
+    return cinema[filter] === true;
+  })
+);
+  
   return (
     <>
       <h1>Cinemas Page</h1>
@@ -25,8 +49,20 @@ const Cinemas = () => {
           Filter
         </button>
       </div>
+      <div>
+        {Object.entries(filterLabels).map(([key, label]) => (
+          <label key={key}>
+            <input
+              type="checkbox"
+              checked={selectedFilters.includes(key)}
+              onChange={() => handleFilterChange(key)}
+            />
+            {label}
+          </label>
+        ))}
+      </div>
       <div className="flex flex-col items-center">
-        {cinemas.map((cinema) => (
+        {filteredCinemas.map((cinema) => (
           <CinemaCard key={cinema.cinemaName} cinema={cinema} />
         ))}
       </div>

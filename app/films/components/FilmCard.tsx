@@ -6,7 +6,7 @@ import Image from "next/image";
 import { getFilmData } from "@/Utils/getFilmData";
 import screenings from "@/Data/Screenings";
 import { getImdbIds } from "@/Utils/getImdbIds";
-import {genreCodes, languageCodes} from "@/Data/MovieDBCodes"
+import { genreCodes, languageCodes } from "@/Data/MovieDBCodes";
 
 const FilmCard: FC = () => {
   const [filmData, setFilmData] = useState<any[]>([]);
@@ -40,7 +40,7 @@ const FilmCard: FC = () => {
           imdb_id_arr.map((element: any) => getFilmData(element))
         );
         setFilmData(filmDataArr);
-        console.log(filmDataArr)
+        console.log(filmDataArr);
       } catch (error) {
         console.error(error);
       }
@@ -58,8 +58,8 @@ const FilmCard: FC = () => {
         film.release_date <= `${Number(selectedDecade) + 9}-12-31`);
 
     const isLanguageMatch =
-    selectedLanguage === null || film.original_language === selectedLanguage;
-    
+      selectedLanguage === null || film.original_language === selectedLanguage;
+
     return isGenreMatch && isDecadeMatch && isLanguageMatch;
   });
 

@@ -22,4 +22,5 @@ export interface CinemaType {
     Interior2: string;
     Interior3: string;
   };
+  [key: string]: any;
 }
