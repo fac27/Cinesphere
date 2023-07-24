@@ -6,6 +6,7 @@ import { useState } from "react";
 const Header = () => {
   const [open, setOpen] = useState(false);
   return (
+    <>
     <div className="h-14 flex items-center justify-between bg-bgColour1">
       <div className="flex gap-1 items-center">
         <span className="text-2xl ml-3">
@@ -15,9 +16,10 @@ const Header = () => {
       </div>
 
       <FiMenu className="cursor-pointer mr-3" onClick={() => setOpen(!open)} />
+      </div>
 
-      <nav className={`${open ? "block" : "hidden"} flex flex-column `}>
-        <ul>
+      <nav className={`${open ? "flex" : "hidden"} flex-column justify-end mr-2`}>
+        <ul className="my-4">
           <li className="lg:px-5">
             <a href="/">Home</a>
           </li>
@@ -32,7 +34,8 @@ const Header = () => {
           </li>
         </ul>
       </nav>
-    </div>
+      </>
+    
   );
 };
 
