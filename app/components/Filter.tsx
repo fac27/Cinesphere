@@ -1,7 +1,14 @@
+import React from "react"
+
 import FilterTag from "./FilterTag"
 const genres = ["Action", "Horror", "Thriller", "Arthouse", "Sci-Fi", "Drama", "Period", "Comedy"]
 
-const Filter = () => {
+
+type FilterProps = {
+  genre: string
+}
+
+const Filter:React.FC<FilterProps> = () => {
   return (
   <>
   <div className="bg-black text-white text-center p-2">
