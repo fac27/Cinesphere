@@ -6,6 +6,7 @@ import Image from "next/image";
 import { getFilmData } from "@/Utils/getFilmData";
 import screenings from "@/Data/Screenings";
 import { getImdbIds } from "@/Utils/getImdbIds";
+import Link from "next/link";
 
 const FilmCard: FC = () => {
   const [filmData, setFilmData] = useState<any[]>([]);
@@ -17,27 +18,32 @@ const FilmCard: FC = () => {
       const filmDataArr = await Promise.all(
         imdb_id_arr.map((element: any) => getFilmData(element))
       );
+
       setFilmData(filmDataArr);
     };
+
     fetchData();
   }, []);
+
+  console.log(filmData);
 
   return (
     <div className="flex-col flex items-center mt-4">
       {filmData.map((film) => (
-        <div
-          key={film.id}
-          className={`my-2 bg-[url('https://image.tmdb.org/t/p/w500${film.backdrop_path}')] w-72`}
-        >
-          <Image
-            width="300"
-            height="200"
-            alt="whatever"
-            src={`https://image.tmdb.org/t/p/w500${film.backdrop_path}`}
-          ></Image>
-          <h1>{film.title}</h1>
-          <h2>{film.release_date}</h2>
-        </div>
+        <Link href={`/films/${film.title.toLowerCase()}`} key={film.id}>
+          <div
+            className={`my-2 bg-[url('https://image.tmdb.org/t/p/w500${film.backdrop_path}')] w-72`}
+          >
+            <Image
+              width="300"
+              height="200"
+              alt="whatever"
+              src={`https://image.tmdb.org/t/p/w500${film.backdrop_path}`}
+            ></Image>
+            <h1>{film.title}</h1>
+            <h2>{film.release_date}</h2>
+          </div>
+        </Link>
       ))}
     </div>
   );
