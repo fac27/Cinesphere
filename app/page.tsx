@@ -1,8 +1,9 @@
+import React from "react";
 import Header from "./components/Header";
 import Link from "next/link";
 import Image from "next/image";
 
-const Home = () => {
+const Home: React.FC = (): React.JSX.Element => {
   return (
     <>
       <Header />
@@ -37,7 +38,7 @@ const Home = () => {
             </div>
           </Link>
 
-          <Link href={"/films"}>
+          <Link href={"/cinemas"}>
             <div className="relative w-32 h-32">
               <Image
                 className="rounded"
