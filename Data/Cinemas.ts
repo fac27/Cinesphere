@@ -1,6 +1,6 @@
 import { CinemaType } from "../Types/Object-Interfaces";
 
-const cinemas: CinemaType[] = [
+export const cinemas: CinemaType[] = [
   {
     cinemaName: "The Lexi",
     about:
