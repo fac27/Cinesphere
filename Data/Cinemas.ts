@@ -35,7 +35,7 @@ const cinemas: CinemaType[] = [
   {
     cinemaName: "The David Lean Cinema",
     about:
-      "A community interest company staffed by volunteers based in the Croydon Clocktower",
+      "The David Lean cinema is a 68 seat arts cinema based in the Croydon Clocktower arts complex. It is run by a non-profit community interest company and staffed by volunteers.",
     address:
       "The David Lean Cinema, Croydon Clocktower, Katharine Street, Croydon, CR9 1ET",
     area: "Croydon",
@@ -65,7 +65,7 @@ const cinemas: CinemaType[] = [
   {
     cinemaName: "ArtHouse",
     about:
-      "The former Salvation Army Hall (Music Palace) in Crouch End, North London has been transformed into a dynamic new cultural venue that will tear down the perceived fourth wall between genres of Art that currently exist in isolation, confined to their own specific buildings. By challenging the status quo that divides our cultural landscape, we hope to attract a mixed audience where class, race, gender, sexuality and religion can be celebrated and discussed in an open minded, creative atmosphere. We aim to develop new and classic works that reflect the multi-cultural and multi-faceted nature of city life. We are committed to collaborating with actors, writers, directors, filmmakers and investors from the vast array of diversity that reflect our lives and our communities.\nBy mixing the world of film, fine art, live music, discussion groups, theatre, live streaming, workshops, dance, comedy and whatever else that inspires, we strive to create a unique hub in North London for both Artists to feel at home in and lovers of art to be thoroughly entertained in.",
+      "A former Salvation Army Hall that has been transformed into a dynamic new cultural venue for film, fine art, live music, discussion groups, theatre, live streaming, workshops, dance, comedy and more.",
     address: "159A Tottenham Lane, N8 9BT",
     area: "Crouch End",
     website: "https://www.arthousecrouchend.co.uk/",
@@ -92,7 +92,7 @@ const cinemas: CinemaType[] = [
   {
     cinemaName: "ActOne",
     about:
-      "Our story begins with an empty building on Acton High Street, and a group of local residents - all of whom felt passionately about the fate of the historic Passmore Edwards Old Library. This group campaigned for over four years to return the building back to community use, and in April 2021 the lease was signed with the London Borough of Ealing, and the work began.\n\nA team of over one hundred volunteers leapt into action and helped clear, clean, and paint the building before our contractors moved in to build our first screen. With the operational support of the Rio Cinema in Dalston, ActOne Cinema officially opened on 8th October 2021.\nThe building remains at the heart of our project - despite its iconic appearance, its status as an Asset of Community Value, its history and its central location, it has not been of any benefit to the community since it closed in 2014. That is, until now!\nWe have two 60-seat screening rooms fully equipped with the latest digital technology, a beautiful lounge where the children’s library once was, and a café ready to serve you with drinks and snacks to take into the cinema.",
+      "A community-led cinema and café, nestled in Acton’s historic Passmore Edwards Library with two 60-seat screening rooms fully equipped with the latest digital technology and a beautiful lounge.",
     address: "ActOne Cinema\n119 - 121 High Street\nLondon, W3 6NA",
     area: "Acton",
     website: "https://actonecinema.co.uk/",
@@ -121,7 +121,7 @@ const cinemas: CinemaType[] = [
   {
     cinemaName: "Catford Mews",
     about:
-      "Welcome to Catford Mews, a brand new independent entertainment venue in Lewisham, South London. With a strong focus on the local community, our three cinema screens are only part of a wider offering, which also includes a café, a bar, and five local food vendors, plus a space for community events, live music and more.\n\nCatford Mews opened its doors to the public in September 2019; its name pays tribute to the original Catford Mews, an indoor market which was closed years ago before a Poundland moved in. The building is now home to a three-screen cinema, a bar and a spacious foyer, a café run by Compound Coffee, as well as a food court where you can find a number of independent local food vendors.\nFrom the early planning stages we've had a few starting points we don't want to lose focus on – to be truly inclusive: a cinema for Catford and its community, to offer an exciting programme of films and events, and to serve as a platform for local talent and entrepreneurs.",
+      "Catford Mews is a brand new independent entertainment venue in Lewisham with three cinema screens and a spacious foyer containing a food court with a number of independent local food vendors.",
     address: "32 Winslade Way\nCatford Centre\nLondon\nSE6 4JU London",
     area: "Catford",
     website: "https://catford-mews.co.uk/",
@@ -151,7 +151,7 @@ const cinemas: CinemaType[] = [
   {
     cinemaName: "Chiswick Cinema",
     about:
-      "The newly opened Chiswick Cinema offers five screens, a restaurant and a private Members’ restaurant and bar. Enjoy a mixture of current releases, family screenings and event cinema in luxurious surroundings.",
+      "Chiswick Cinema offers five screens, a restaurant and a private Members’ restaurant and bar. Enjoy a mixture of current releases, family screenings and event cinema in luxurious surroundings.",
     address: "The Chiswick Cinema,\n94 – 96 Chiswick High Road,\nW4 1SH",
     area: "Chiswick",
     website: "https://www.chiswickcinema.co.uk/",
@@ -180,7 +180,7 @@ const cinemas: CinemaType[] = [
   {
     cinemaName: "The Prince Charles",
     about:
-      "We are The Prince Charles Cinema, the last of the independents still operating in London’s cine-famous ‘West End’. The site itself sprang to life as a Theatre back in 1962 before making the rather interesting shift to becoming a film-house of ill repute, which just so happened to host the UK’s longest theatrical runs of both Emmanuelle & Caligula! Then in 1991, the early seeds of The Prince Charles Cinema were planted and from there this mighty little cine-behemoth began to grow. We now find ourselves as one of the most popular Independent Cinema’s in the UK (if not THE WORLD!).\n\n\n\nSo what kind of films do we screen? To the uninitiated you may think we only allow the Back To The Future and Indiana Jones movies to reach our screen, but that’s merely the tip of the cinematic iceberg. In the past we’ve seen seasons dedicated to Paul Thomas Anderson run in the same month as an all-nighter dedicated to the Jurassic Park series (yes, even the bad ones). We’ve had Jacques Rivette & Ingmar Bergman ‘sampler’ seasons run alongside those for 007 and Studio Ghibli. Epic 70mm presentaions of 2001 : A SPACE ODYSSEY in one screen whilst people Aca-Alonged to Pitch Perfect in the other. To put it plainly; we screen everything!\n\n\n\nFrom cinema’s origins through to the present day, from all corners of the globe, and presented from a variety of formats including; 35mm, 70mm and Digital [which includes Digital Cinema Package [or DCP], BluRay, DVD, DVCAM and DigiBeta.].* If it’s a film that we believe our audience wants or would enjoy seeing on the big-screen, we’ll run it. Don’t see your favourite film in our listings? Tell us! But being the only independent venue in cinema’s busiest square-mile immediately makes you the underdog of the industry, which is why at a glance our programme tends to be a little different to what you might expect to see in the West End.",
+      "The last of the independents still operating in London’s cine-famous ‘West End’ and one of the most popular independent cinemas in the UK, screening a huge variety of films past and present.",
     address: "7 Leicester Pl\n\nLondon\n\nWC2H 7BY",
     area: "Leicester Square",
     website: "https://princecharlescinema.com/",

@@ -19,7 +19,7 @@ const CinemaFeaturesList: FC<CinemaCardProps> = ({ cinema }) => {
   if (cinema.bar) {
     features.push(
       <li key="bar" className="flex items-center">
-        <span role="img" aria-label="Bar">
+        <span role="img" aria-label="Bar" className="mr-2">
           <LiaCocktailSolid />
         </span>
         Bar
@@ -30,7 +30,7 @@ const CinemaFeaturesList: FC<CinemaCardProps> = ({ cinema }) => {
   if (cinema.cafe) {
     features.push(
       <li key="cafe" className="flex items-center">
-        <span role="img" aria-label="Cafe">
+        <span role="img" aria-label="Cafe" className="mr-2">
           <IoMdCafe />
         </span>
         Cafe
@@ -41,7 +41,7 @@ const CinemaFeaturesList: FC<CinemaCardProps> = ({ cinema }) => {
   if (cinema.audioDescription) {
     features.push(
       <li key="audioDescription" className="flex items-center">
-        <span role="img" aria-label="Audio Description">
+        <span role="img" aria-label="Audio Description" className="mr-2">
           <FaAudioDescription />
         </span>
         Audio Description
@@ -52,7 +52,7 @@ const CinemaFeaturesList: FC<CinemaCardProps> = ({ cinema }) => {
   if (cinema.closedCaptions) {
     features.push(
       <li key="closedCaptions" className="flex items-center">
-        <span role="img" aria-label="Closed Captions">
+        <span role="img" aria-label="Closed Captions" className="mr-2">
           <BiSolidCaptions />
         </span>
         Closed Captions
@@ -63,8 +63,8 @@ const CinemaFeaturesList: FC<CinemaCardProps> = ({ cinema }) => {
   if (cinema.relaxedScreenings) {
     features.push(
       <li key="relaxedScreenings" className="flex items-center">
-        <span role="img" aria-label="Relaxed Screenings">
-            <FaInfinity />
+        <span role="img" aria-label="Relaxed Screenings" className="mr-2">
+          <FaInfinity />
         </span>
         Relaxed Screenings
       </li>
@@ -78,7 +78,7 @@ const CinemaFeaturesList: FC<CinemaCardProps> = ({ cinema }) => {
         : "Full wheelchair access";
     features.push(
       <li key="wheelchairAccessible" className="flex items-center">
-        <span role="img" aria-label="Wheelchair Accessible">
+        <span role="img" aria-label="Wheelchair Accessible" className="mr-2">
           <FaWheelchair />
         </span>
         {wheelchairAccessibility}
@@ -89,7 +89,7 @@ const CinemaFeaturesList: FC<CinemaCardProps> = ({ cinema }) => {
   if (cinema.freeCarerTickets) {
     features.push(
       <li key="freeCarerTickets" className="flex items-center">
-        <span role="img" aria-label="Free Carer Tickets">
+        <span role="img" aria-label="Free Carer Tickets" className="mr-2">
           <BsFillTicketPerforatedFill />
         </span>
         Free tickets for carers
