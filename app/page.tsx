@@ -1,13 +1,10 @@
 import React from "react";
-import Header from "./components/Header";
 import Link from "next/link";
 import Image from "next/image";
 
 const Home: React.FC = (): React.JSX.Element => {
   return (
     <>
-      <Header />
-
       <div className="mt-10 mr-auto ml-auto w-80 bg-bgColour2 p-4 rounded-2xl border border-black">
         <h1 className="text-2xl font-bold">Cinesphere</h1>
         <p className="mt-5">
@@ -21,7 +18,7 @@ const Home: React.FC = (): React.JSX.Element => {
         <p>I want to browse</p>
 
         <div className="mt-6 flex gap-10">
-          <Link href={"/films"}>
+          <Link href={"/films"} className="films__container">
             <div className="relative w-32 h-32">
               <Image
                 className="rounded"
@@ -38,7 +35,7 @@ const Home: React.FC = (): React.JSX.Element => {
             </div>
           </Link>
 
-          <Link href={"/cinemas"}>
+          <Link href={"/cinemas"} className="cinemas__container">
             <div className="relative w-32 h-32">
               <Image
                 className="rounded"

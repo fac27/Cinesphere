@@ -14,20 +14,16 @@ const FilmCard: FC = () => {
     const imdb_id_arr = getImdbIds(screenings);
 
     const fetchData = async () => {
-      try {
-        const filmDataArr = await Promise.all(
-          imdb_id_arr.map((element: any) => getFilmData(element))
-        );
-        setFilmData(filmDataArr);
-      } catch (error) {
-        console.error(error);
-      }
+      const filmDataArr = await Promise.all(
+        imdb_id_arr.map((element: any) => getFilmData(element))
+      );
+      setFilmData(filmDataArr);
     };
     fetchData();
   }, []);
 
   return (
-    <div className="flex-col flex  items-center">
+    <div className="flex-col flex items-center mt-4">
       {filmData.map((film) => (
         <div
           key={film.id}

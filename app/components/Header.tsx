@@ -1,20 +1,45 @@
+"use client";
 import { PiFilmReelLight } from "react-icons/pi";
 import { FiMenu } from "react-icons/fi";
+import { useState } from "react";
 
 const Header = () => {
+  const [open, setOpen] = useState(false);
   return (
-    <div className="mr-auto ml-auto flex gap-10 bg-bgColour1 p-6 items-center">
-      <button className="text-2xl">
-        <FiMenu />
-      </button>
+    <>
+      <div className="h-14 flex items-center justify-between bg-bgColour1">
+        <div className="flex gap-1 items-center">
+          <span className="text-2xl ml-3">
+            <PiFilmReelLight />
+          </span>
+          <h1 className="underline text-2xl">cinesphere</h1>
+        </div>
 
-      <div className="flex gap-1 items-center">
-        <span className="text-2xl">
-          <PiFilmReelLight />
-        </span>
-        <h1 className="underline text-2xl">cinesphere</h1>
+        <FiMenu
+          className="cursor-pointer mr-3"
+          onClick={() => setOpen(!open)}
+        />
       </div>
-    </div>
+
+      <nav
+        className={`${open ? "flex" : "hidden"} flex-column justify-end mr-2`}
+      >
+        <ul className="my-4">
+          <li className="lg:px-5">
+            <a href="/">Home</a>
+          </li>
+          <li className="lg:px-5">
+            <a href="/films">Films</a>
+          </li>
+          <li className="lg:px-5">
+            <a href="/cinemas">Cinemas</a>
+          </li>
+          <li className="lg:px-5">
+            <a href="/contact">Contact</a>
+          </li>
+        </ul>
+      </nav>
+    </>
   );
 };
 

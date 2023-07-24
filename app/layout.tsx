@@ -2,8 +2,12 @@ import "./globals.css";
 import React from "react";
 import type { Metadata } from "next";
 import { IBM_Plex_Mono } from "next/font/google";
+import Header from "./components/Header";
 
-const ibmPlexMono = IBM_Plex_Mono({ weight: "400", subsets: ["latin"] });
+const ibmPlexMono = IBM_Plex_Mono({
+  weight: ["400", "500", "600", "700"],
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   title: "Cinesphere",
@@ -17,7 +21,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={ibmPlexMono.className}>{children}</body>
+      <body className={ibmPlexMono.className}>
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }
