@@ -6,25 +6,25 @@ import { useState } from "react";
 const Header = () => {
   const [open, setOpen] = useState(false);
   return (
-    <div className="flex items-center justify-between xl:max-w-7xl xl:mx-auto max-w-full bg-bgColour1 flex-wrap w-full">
+    <div className="h-14 flex items-center justify-between bg-bgColour1">
       <div className="flex gap-1 items-center">
-        <span className="text-2xl">
+        <span className="text-2xl ml-3">
           <PiFilmReelLight />
         </span>
         <h1 className="underline text-2xl">cinesphere</h1>
       </div>
 
       <FiMenu
-        className="lg:hidden block cursor-pointer"
+        className="cursor-pointer mr-3"
         onClick={() => setOpen(!open)}
       />
 
       <nav
         className={`${
           open ? "block" : "hidden"
-        } w-full lg:flex lg:w-auto lg:items-center`}
+        } flex flex-column `}
       >
-        <ul className="flex justify-between">
+        <ul>
           <li className="lg:px-5">
             <a href="/">Home</a>
           </li>
