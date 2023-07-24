@@ -1,12 +1,11 @@
 import { BiSliderAlt } from "react-icons/bi";
 import CinemaCard from "./components/CinemaCard";
 import cinemas from "../../Data/Cinemas";
-import { Cinema } from "@/Types/Object-Interfaces";
 
 const Cinemas = () => {
   return (
     <>
-      <div className="m-5 flex justify-between">
+      <div className="m-5 mb-10 flex justify-between">
         <div className="flex items-center gap-1">
           <input
             type="text"
