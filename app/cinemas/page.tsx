@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { useState } from "react";
 
@@ -9,7 +9,7 @@ import { filterLabels } from "@/Data/FilteringCodes";
 
 const Cinemas = () => {
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
-  
+
   const handleFilterChange = (filter: string) => {
     setSelectedFilters((prevFilters: string[]) =>
       prevFilters.includes(filter)
@@ -19,14 +19,14 @@ const Cinemas = () => {
   };
 
   const filteredCinemas = cinemas.filter((cinema) =>
-  selectedFilters.every((filter) => {
-    if (filter === "wheelchairAccessible") {
-      return cinema[filter] === true || cinema[filter] === "Partial";
-    }
-    return cinema[filter] === true;
-  })
-);
-  
+    selectedFilters.every((filter) => {
+      if (filter === "wheelchairAccessible") {
+        return cinema[filter] === true || cinema[filter] === "Partial";
+      }
+      return cinema[filter] === true;
+    })
+  );
+
   return (
     <>
       <h1>Cinemas Page</h1>
