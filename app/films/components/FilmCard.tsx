@@ -27,7 +27,7 @@ const FilmCard: FC = () => {
   }, []);
 
   return (
-    <div className="flex-col flex  items-center">
+    <div className="flex-col flex items-center mt-4">
       {filmData.map((film) => (
         <div
           key={film.id}
