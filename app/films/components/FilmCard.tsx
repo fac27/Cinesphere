@@ -1,38 +1,18 @@
 "use client";
 import { FC, useState, useEffect } from "react";
-import React from "react"
+import React from "react";
 import Image from "next/image";
 
 import { getFilmData } from "@/Utils/getFilmData";
 import screenings from "@/Data/Screenings";
 import { getImdbIds } from "@/Utils/getImdbIds";
-
-const genreCodes = {
-  "Action": 28,
-  "Adventure": 12,
-  "Animation": 16,
-  "Comedy": 35,
-  "Crime": 80,
-  "Documentary": 99,
-  "Drama": 18,
-  "Family": 10751,
-  "Fantasy": 14,
-  "History": 36,
-  "Horror": 27,
-  "Music": 10402,
-  "Mystery": 9648,
-  "Romance": 10749,
-  "Science Fiction": 878,
-  "TV Movie": 10770,
-  "Thriller": 53,
-  "War": 10752,
-  "Western": 37,
-};
+import {genreCodes, languageCodes} from "@/Data/MovieDBCodes"
 
 const FilmCard: FC = () => {
   const [filmData, setFilmData] = useState<any[]>([]);
   const [selectedGenre, setSelectedGenre] = useState<number | null>(null);
   const [selectedDecade, setSelectedDecade] = useState<string | null>(null);
+  const [selectedLanguage, setSelectedLanguage] = useState<string | null>(null);
 
   const handleGenreChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const genreCode = parseInt(event.target.value);
@@ -44,6 +24,13 @@ const FilmCard: FC = () => {
     setSelectedDecade(decade);
   };
 
+  const handleLanguageChange = (
+    event: React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    const languageCode = event.target.value;
+    setSelectedLanguage(languageCode);
+  };
+
   useEffect(() => {
     const imdb_id_arr = getImdbIds(screenings);
 
@@ -53,6 +40,7 @@ const FilmCard: FC = () => {
           imdb_id_arr.map((element: any) => getFilmData(element))
         );
         setFilmData(filmDataArr);
+        console.log(filmDataArr)
       } catch (error) {
         console.error(error);
       }
@@ -69,7 +57,10 @@ const FilmCard: FC = () => {
       (film.release_date >= `${selectedDecade}-01-01` &&
         film.release_date <= `${Number(selectedDecade) + 9}-12-31`);
 
-    return isGenreMatch && isDecadeMatch;
+    const isLanguageMatch =
+    selectedLanguage === null || film.original_language === selectedLanguage;
+    
+    return isGenreMatch && isDecadeMatch && isLanguageMatch;
   });
 
   return (
@@ -96,6 +87,19 @@ const FilmCard: FC = () => {
         {Array.from({ length: 10 }, (_, i) => 1930 + i * 10).map((decade) => (
           <option key={decade} value={decade}>
             {decade}s
+          </option>
+        ))}
+      </select>
+
+      <select
+        value={selectedLanguage || ""}
+        onChange={handleLanguageChange}
+        className="mb-4"
+      >
+        <option value="">All Languages</option>
+        {Object.entries(languageCodes).map(([code, language]) => (
+          <option key={code} value={code}>
+            {language}
           </option>
         ))}
       </select>
