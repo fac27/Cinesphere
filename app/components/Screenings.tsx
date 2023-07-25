@@ -1,72 +1,45 @@
 import { ScreeningType } from "@/Types/Object-Interfaces";
+import getScreeningsByDateAndFilm from "../../Utils/getScreeningsByDateAndFilm";
+import Icons from "./Icons";
 
 interface Props {
   screenings: ScreeningType[];
 }
 
-const getScreeningsByDateAndFilm = (screenings: ScreeningType[]) => {
-  const screeningsByDateAndFilm = [];
-
-  screenings.forEach((screening) => {
-    const date = new Date(screening.dateTime);
-
-    const formattedDate = date.toLocaleString("en-GB", {
-      day: "numeric",
-      month: "long",
-      year: "numeric",
-    });
-
-    const formattedTime = date.toLocaleTimeString("en-Gb", {
-      hour: "2-digit",
-      minute: "2-digit",
-    });
-
-    let dateObj = screeningsByDateAndFilm.find(
-      (obj) => obj.date === formattedDate
-    );
-
-    if (!dateObj) {
-      dateObj = {
-        date: formattedDate,
-        films: [],
-      };
-      screeningsByDateAndFilm.push(dateObj);
-    }
-
-    let filmObj = dateObj.films.find(
-      (obj) => obj.filmName === screening.filmName
-    );
-
-    if (!filmObj) {
-      filmObj = {
-        filmName: screening.filmName,
-        screenings: [],
-      };
-      dateObj.films.push(filmObj);
-    }
-
-    filmObj.screenings.push({ ...screening, time: formattedTime });
-  });
-
-  return screeningsByDateAndFilm;
-};
-
 const Screenings = ({ screenings }: Props) => {
   const sortedScreenings = getScreeningsByDateAndFilm(screenings);
   return (
-    <div>
-      <h2 className="text-3xl regular">SCREENINGS</h2>
-      <div className="border-b-4 flex flex-col gap-1">
+    <div className="m-4">
+      <div className="flex justify-around align-middle mb-4">
+        <h2 className="text-3xl regular">SCREENINGS</h2>
+        <button>Filter</button>
+      </div>
+
+      <div className="border-b-4 flex flex-col gap-8">
         {sortedScreenings.map((date, index) => (
-          <div className="border-t border-gray" key={index}>
-            <h3>{date.date}</h3>
+          <div
+            className="border-t border-black flex flex-col gap-4"
+            key={index}
+          >
+            <h3 className="text-xl border-b border-gray">{date.date}</h3>
             {date.films.map((film, index) => (
-              <>
-                <h3 key={index}>{film.filmName}</h3>
-                {film.screenings.map((screening, index) => {
-                  return <h3 key={index}>{screening.time}</h3>;
-                })}
-              </>
+              <div className="bg-slate-50 p-5" key={index}>
+                <h3 className="text-md font-bold mb-3">{film.filmName}</h3>
+                <div className="flex gap-2">
+                  {film.screenings.map((screening, index) => {
+                    return (
+                      <div
+                        className="flex justify-center align-middle gap-2"
+                        key={index}
+                      >
+                        <h3> {screening.time}</h3>
+                        <Icons screening={screening} />
+                        <h3>/</h3>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
             ))}
           </div>
         ))}

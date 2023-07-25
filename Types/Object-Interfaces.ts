@@ -28,6 +28,7 @@ export interface ScreeningType {
   cinema: string;
   releaseYear?: string;
   dateTime: string;
+  time?: string;
   filmName: string;
   audioDescription: boolean;
   closedCaptions: boolean;
