@@ -1,13 +1,25 @@
+"use client";
+
 import React from "react";
 
-// import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { BsArrowLeftCircle } from "react-icons/bs";
+import { FilmType } from "@/Types/Object-Interfaces";
+import { useSearchParams } from "next/navigation";
+import { v4 as uuidv4 } from "uuid";
 
-const page: React.FC = (): React.JSX.Element => {
-  //   const pathname = usePathname();
-  //   console.log(pathname);
+const Page: React.FC<{}> = (): React.JSX.Element => {
+  const searchParams = useSearchParams();
+  const param = searchParams.get("data");
+  const film: FilmType | null = param ? JSON.parse(param) : null;
+
+  const genreElements = film?.genres.map((genre) => {
+    return <span key={uuidv4()}>{genre.name} | </span>;
+  });
+
+  console.log(film);
+
   return (
     <div>
       <div className="flex justify-between w-80 mt-7 mr-auto ml-auto">
@@ -25,7 +37,7 @@ const page: React.FC = (): React.JSX.Element => {
 
       <div className="relative mt-5 w-100 h-56">
         <Image
-          src={"/assets/film-images/trailer.png"}
+          src={`https://image.tmdb.org/t/p/w500${film?.backdrop_path}`}
           alt={"a snapshot of the film asteroid city"}
           layout="fill"
           objectFit="cover"
@@ -33,26 +45,26 @@ const page: React.FC = (): React.JSX.Element => {
       </div>
 
       <div className="p-3 flex flex-col gap-2">
-        <h1 className="uppercase font-bold">asteroid city</h1>
+        <h1 className="uppercase font-bold">{film?.title}</h1>
         <p className="text-gray-500">
-          <span>2023</span> · <span>12A</span> · <span>1h 45m</span>
+          <span>{film?.release_date.split("-")[0]}</span> · <span>12A</span> ·{" "}
+          <span>
+            {Math.trunc(film?.runtime / 60)}h {film?.runtime % 60}m
+          </span>
         </p>
-        <p>Comedy</p>
+        <p>{genreElements}</p>
         <p>
           <span className="font-medium">Director</span>: Wes Anderson
         </p>
         <p className="mt-2">
-          <span className="uppercase font-medium">Description</span>: Lorem
-          ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-          veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-          ea commodo consequat.
+          <span className="uppercase font-medium">Description</span>:{" "}
+          {film?.overview}
         </p>
       </div>
 
-      <div className="relative mt-5 w-100 h-40">
+      <div className="relative mt-5 w-100 h-56">
         <Image
-          src={"/assets/film-images/asteroid-2.png"}
+          src={`https://image.tmdb.org/t/p/w500${film?.poster_path}`}
           alt={"a snapshot of the film asteroid city"}
           layout="fill"
           objectFit="cover"
@@ -62,4 +74,4 @@ const page: React.FC = (): React.JSX.Element => {
   );
 };
 
-export default page;
+export default Page;

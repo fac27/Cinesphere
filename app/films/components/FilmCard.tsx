@@ -8,31 +8,14 @@ import Link from "next/link";
 import { FilmType } from "@/Types/Object-Interfaces";
 
 const FilmCard: FC<{ film: FilmType }> = ({ film }): React.JSX.Element => {
-  const handleClick: React.MouseEventHandler<HTMLDivElement> = async () => {
-    try {
-      const response = await fetch("/api/filmdata", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-
-        body: JSON.stringify(film),
-      });
-
-      if (!response.ok) {
-        throw new Error("Failed to make the POST request.");
-      }
-
-      const data = await response.json();
-      console.log("POST request successful", data);
-    } catch (error) {
-      console.error("Error making the POST request:", error);
-    }
-  };
+  const data = JSON.stringify(film);
 
   return (
-    <div onClick={handleClick} className="flex-col flex items-center mt-4">
-      <Link href={`/films/${film.imdb_id}`} key={film.id}>
+    <div className="flex-col flex items-center mt-4">
+      <Link
+        href={`/films/${film.title}?data=${encodeURIComponent(data)}`}
+        key={film.id}
+      >
         <div
           className={`my-2 bg-[url('https://image.tmdb.org/t/p/w500${film.backdrop_path}')] w-72`}
         >
