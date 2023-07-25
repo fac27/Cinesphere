@@ -8,9 +8,9 @@ interface Props {
   isVisible: boolean;
 }
 
-const Filter = ({ filters, category, isVisible }: Props) => {
+const Filter = ({ filters, category}: Props) => {
   return (
-    <div className={`${isVisible ? "block" : "hidden"}`}>
+    <div>
       <div className={`bg-black text-white text-center py-2 px-1`}>
         <h1>{category}</h1>
       </div>
