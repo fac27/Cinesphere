@@ -3,13 +3,19 @@ import { BiSliderAlt } from "react-icons/bi";
 import { useState } from "react";
 
 import FilmCard from "./components/FilmCard";
-import Modal from "../components/Modal"
+import Modal from "../components/Modal";
 
 const Films = () => {
-  const [isVisible, setIsVisible] = useState(false)
+  const [isVisible, setIsVisible] = useState(false);
+  const [selectedGenres, setSelectedGenres] = useState<string[]>([]);
+
   return (
     <>
-    <Modal isVisible={isVisible}/>
+      <Modal
+        isVisible={isVisible}
+        selectedGenres={selectedGenres}
+        setSelectedGenres={setSelectedGenres}
+      />
       <div className="flex flex-row justify-center mt-4">
         <input
           type="text"
@@ -27,7 +33,7 @@ const Films = () => {
           Filter
         </button>
       </div>
-      <FilmCard />
+      <FilmCard selectedGenres={selectedGenres} />
     </>
   );
 };

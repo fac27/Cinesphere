@@ -8,16 +8,15 @@ import screenings from "@/Data/Screenings";
 import { getImdbIds } from "@/Utils/getImdbIds";
 import { genreCodes, languageCodes } from "@/Data/FilteringCodes";
 
-const FilmCard: FC = () => {
+const FilmCard: FC<{ selectedGenres: string[] }> = ({ selectedGenres }) => {
   const [filmData, setFilmData] = useState<any[]>([]);
-  const [selectedGenre, setSelectedGenre] = useState<number | null>(null);
   const [selectedDecade, setSelectedDecade] = useState<string | null>(null);
   const [selectedLanguage, setSelectedLanguage] = useState<string | null>(null);
 
-  const handleGenreChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const genreCode = parseInt(event.target.value);
-    setSelectedGenre(genreCode);
-  };
+  // const handleGenreChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+  //   const genreCode = parseInt(event.target.value);
+  //   setSelectedGenre(genreCode);
+  // };
 
   const handleDecadeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const decade = event.target.value;
@@ -49,8 +48,13 @@ const FilmCard: FC = () => {
   }, []);
 
   const filteredFilmData = filmData.filter((film) => {
+    const genreCodesArr = selectedGenres.map(
+      (genreName) => genreCodes[genreName]
+    );
+
     const isGenreMatch =
-      selectedGenre === null || film.genre_ids.includes(Number(selectedGenre));
+      selectedGenres.length === 0 ||
+      genreCodesArr.some((genreCode) => film.genre_ids.includes(genreCode));
 
     const isDecadeMatch =
       selectedDecade === null ||
@@ -65,7 +69,7 @@ const FilmCard: FC = () => {
 
   return (
     <>
-      <select
+      {/* <select
         value={selectedGenre || ""}
         onChange={handleGenreChange}
         className="mb-4"
@@ -76,7 +80,7 @@ const FilmCard: FC = () => {
             {genre}
           </option>
         ))}
-      </select>
+      </select> */}
 
       <select
         value={selectedDecade || ""}
