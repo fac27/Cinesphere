@@ -1,18 +1,16 @@
-import React from "react";
-
 type Props = {
   filter: string;
-  onClick: () => void;
+  selectFilter: () => string[];
   isSelected: boolean;
 };
 
-const FilterTag = ({ filter, onClick, isSelected }: Props) => {
+const FilterTag = ({ filter, selectFilter, isSelected }: Props) => {
   return (
     <button
       className={`bg-slate-300 rounded border-black mx-1 my-1 p-0.5 ${
-        isSelected ? "bg-purple-700 text-white" : ""
+        isSelected ? " bg-purple-600 text-white" : ""
       }`}
-      onClick={onClick}
+      onClick={selectFilter}
     >
       {filter}
     </button>

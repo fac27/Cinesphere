@@ -8,10 +8,14 @@ import screenings from "@/Data/Screenings";
 import { getImdbIds } from "@/Utils/getImdbIds";
 import { genreCodes, languageCodes } from "@/Data/FilteringCodes";
 
-const FilmCard: FC<{ selectedGenres: string[] }> = ({
+const FilmCard: FC<{ 
+  selectedGenres: string[] 
+  selectedLanguages: string[]
+  selectedDecades: string[]  
+}> = ({
   selectedGenres,
   selectedLanguages,
-  selectedDecades
+  selectedDecades,
 }) => {
   const [filmData, setFilmData] = useState<any[]>([]);
 
@@ -33,11 +37,10 @@ const FilmCard: FC<{ selectedGenres: string[] }> = ({
   }, []);
 
   const filteredFilmData = filmData.filter((film) => {
-    
     const genreCodesArr = selectedGenres.map(
       (genreName) => genreCodes[genreName]
     );
-    
+
     const languageCodesArr = selectedLanguages.map((languageName) => {
       for (const code in languageCodes) {
         if (languageCodes[code] === languageName) {
@@ -47,7 +50,7 @@ const FilmCard: FC<{ selectedGenres: string[] }> = ({
       return null;
     });
 
-    console.log(selectedDecades)
+    console.log(selectedDecades);
 
     const isGenreMatch =
       selectedGenres.length === 0 ||
@@ -60,16 +63,16 @@ const FilmCard: FC<{ selectedGenres: string[] }> = ({
       );
 
     const isDecadeMatch =
-    selectedDecades.length === 0 ||
-    selectedDecades.some((decade) => {
-      const filmReleaseYear = parseInt(film.release_date.substring(0, 4));
-      const selectedDecadeStartYear = parseInt(decade);
-      return (
-        filmReleaseYear >= selectedDecadeStartYear &&
-        filmReleaseYear <= selectedDecadeStartYear + 9
-      );
-    });
-      
+      selectedDecades.length === 0 ||
+      selectedDecades.some((decade) => {
+        const filmReleaseYear = parseInt(film.release_date.substring(0, 4));
+        const selectedDecadeStartYear = parseInt(decade);
+        return (
+          filmReleaseYear >= selectedDecadeStartYear &&
+          filmReleaseYear <= selectedDecadeStartYear + 9
+        );
+      });
+
     return isGenreMatch && isDecadeMatch && isLanguageMatch;
   });
 

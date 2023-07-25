@@ -6,7 +6,7 @@ import FilmCard from "./components/FilmCard";
 import Modal from "../components/Modal";
 
 const Films = () => {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState<boolean>(false);
   const [selectedGenres, setSelectedGenres] = useState<string[]>([]);
   const [selectedLanguages, setSelectedLanguages] = useState<string[]>([]);
   const [selectedDecades, setSelectedDecades] = useState<string[]>([]);

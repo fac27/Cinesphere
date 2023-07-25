@@ -1,18 +1,10 @@
+import React, { FC } from "react";
+
 import Filter from "./Filter";
 // eslint-disable-next-line no-unused-vars
 import { genres, languages, ageRating, era, score } from "@/Data/Filters";
 
-interface Props {
-  isVisible: boolean;
-  selectedGenres: string[];
-  setSelectedGenres: (selectedGenres: string[]) => void;
-  selectedLanguages: string[];
-  setSelectedLanguages: (selectedLanguages: string[]) => void;
-  selectedDecades: string[];
-  setSelectedDecades: (selectedDecades: string[]) => void;
-}
-
-const Modal = ({
+const Modal: FC = ({
   isVisible,
   selectedGenres,
   setSelectedGenres,
@@ -20,15 +12,16 @@ const Modal = ({
   setSelectedLanguages,
   selectedDecades,
   setSelectedDecades,
-}: Props) => {
+}: any): React.JSX.Element => {
+  
   return (
-    <dialog open={isVisible ? true : undefined} className="text-center my-4">
+    <dialog open={isVisible} className="text-center my-4">
       <Filter
         filters={genres}
         category="GENRE"
         selectedFilters={selectedGenres}
-        onFilterClick={(filter: string) =>
-          setSelectedGenres((prevGenres) =>
+        selectFilter={(filter: string) =>
+          setSelectedGenres((prevGenres: string[]) =>
             prevGenres.includes(filter)
               ? prevGenres.filter((g) => g !== filter)
               : [...prevGenres, filter]
@@ -39,8 +32,8 @@ const Modal = ({
         filters={languages}
         category="LANGUAGE"
         selectedFilters={selectedLanguages}
-        onFilterClick={(filter: string) =>
-          setSelectedLanguages((prevLanguages) =>
+        selectFilter={(filter: string) =>
+          setSelectedLanguages((prevLanguages: string[]) =>
             prevLanguages.includes(filter)
               ? prevLanguages.filter((l) => l !== filter)
               : [...prevLanguages, filter]
@@ -48,21 +41,17 @@ const Modal = ({
         }
       />
       <Filter
-        filters={era} 
+        filters={era}
         category="ERA"
         selectedFilters={selectedDecades}
-        onFilterClick={(filter: string) =>
-          setSelectedDecades((prevDecades) =>
+        selectFilter={(filter: string) =>
+          setSelectedDecades((prevDecades: string[]) =>
             prevDecades.includes(filter)
               ? prevDecades.filter((d) => d !== filter)
               : [...prevDecades, filter]
           )
         }
       />
-      
-      
-      {/* <Filter filters={ageRating} category="AGE RATING" />
-      <Filter filters={score} category="SCORE" /> */}
       <form method="dialog">
         <button type="submit" className="p-2 text-white bg-black rounded-lg">
           Done
