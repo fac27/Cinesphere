@@ -1,10 +1,15 @@
-import FilmCard from "./components/FilmCard";
+"use client"
 import { BiSliderAlt } from "react-icons/bi";
+import { useState } from "react";
+
+import FilmCard from "./components/FilmCard";
+import Modal from "../components/Modal"
 
 const Films = () => {
+  const [isVisible, setIsVisible] = useState(false)
   return (
     <>
-      <h1>Films Page</h1>
+    <Modal isVisible={isVisible}/>
       <div className="flex flex-row justify-center mt-4">
         <input
           type="text"
@@ -12,6 +17,9 @@ const Films = () => {
           placeholder="search"
         ></input>
         <button
+          onClick={() => {
+            setIsVisible(!isVisible)
+          }}
           type="button"
           className="p-2 flex items-center gap-1 rounded-lg border border-black ml-3"
         >
