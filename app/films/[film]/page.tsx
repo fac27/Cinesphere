@@ -15,10 +15,8 @@ const Page: React.FC<{}> = (): React.JSX.Element => {
   const film: FilmType | null = param ? JSON.parse(param) : null;
 
   const genreElements = film?.genres.map((genre) => {
-    return <span key={uuidv4()}>{genre.name} | </span>;
+    return <span key={uuidv4()}>{genre.name} | </span> ?? null;
   });
-
-  console.log(film);
 
   return (
     <div>
@@ -49,7 +47,9 @@ const Page: React.FC<{}> = (): React.JSX.Element => {
         <p className="text-gray-500">
           <span>{film?.release_date.split("-")[0]}</span> · <span>12A</span> ·{" "}
           <span>
-            {Math.trunc(film?.runtime / 60)}h {film?.runtime % 60}m
+            {film
+              ? `${Math.trunc(film.runtime / 60)}h ${film.runtime % 60}m`
+              : "Unknown"}
           </span>
         </p>
         <p>{genreElements}</p>

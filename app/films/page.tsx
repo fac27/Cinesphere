@@ -20,9 +20,9 @@ const Films = () => {
     fetchData();
   }, []);
 
-  const filmCardElements: React.ReactNode[] = filmData?.map(
-    (film: FilmType) => <FilmCard key={film.id} film={film} />
-  );
+  const filmCardElements: React.ReactNode[] =
+    filmData?.map((film: FilmType) => <FilmCard key={film.id} film={film} />) ??
+    [];
 
   return (
     <>
