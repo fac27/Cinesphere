@@ -10,10 +10,15 @@ const getScreeningsByDateAndFilm = (screenings: ScreeningType[]) => {
   screenings.forEach((screening) => {
     const date = new Date(screening.dateTime);
 
-    const formattedDate = date.toLocaleString("en-US", {
+    const formattedDate = date.toLocaleString("en-GB", {
       day: "numeric",
       month: "long",
       year: "numeric",
+    });
+
+    const formattedTime = date.toLocaleTimeString("en-Gb", {
+      hour: "2-digit",
+      minute: "2-digit",
     });
 
     let dateObj = screeningsByDateAndFilm.find(
@@ -40,7 +45,7 @@ const getScreeningsByDateAndFilm = (screenings: ScreeningType[]) => {
       dateObj.films.push(filmObj);
     }
 
-    filmObj.screenings.push(screening);
+    filmObj.screenings.push({ ...screening, time: formattedTime });
   });
 
   return screeningsByDateAndFilm;
@@ -58,9 +63,9 @@ const Screenings = ({ screenings }: Props) => {
             {date.films.map((film, index) => (
               <>
                 <h3 key={index}>{film.filmName}</h3>
-                {film.screenings.map((screening, index) => (
-                  <h3 key={index}>{screening.dateTime}</h3>
-                ))}
+                {film.screenings.map((screening, index) => {
+                  return <h3 key={index}>{screening.time}</h3>;
+                })}
               </>
             ))}
           </div>
