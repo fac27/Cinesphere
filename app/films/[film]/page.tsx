@@ -1,10 +1,13 @@
 import React from "react";
 
+// import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { BsArrowLeftCircle } from "react-icons/bs";
 
 const page: React.FC = (): React.JSX.Element => {
+  //   const pathname = usePathname();
+  //   console.log(pathname);
   return (
     <div>
       <div className="flex justify-between w-80 mt-7 mr-auto ml-auto">

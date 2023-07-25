@@ -1,7 +1,17 @@
+import React from "react";
+
 import FilmCard from "./components/FilmCard";
 import { BiSliderAlt } from "react-icons/bi";
+import { getAllFilms } from "@/Utils/getAllFilms";
+import { FilmType } from "@/Types/Object-Interfaces";
 
-const Films = () => {
+const Films = async () => {
+  const filmData: FilmType[] = await getAllFilms();
+
+  const filmCardElements: React.ReactNode[] = filmData.map((film: FilmType) => (
+    <FilmCard key={film.id} film={film} />
+  ));
+
   return (
     <>
       <div className="film__searchbar flex flex-row justify-center mt-4">
@@ -18,7 +28,8 @@ const Films = () => {
           Filter
         </button>
       </div>
-      <FilmCard />
+
+      {filmCardElements}
     </>
   );
 };

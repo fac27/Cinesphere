@@ -1,50 +1,52 @@
 "use client";
+
+import React from "react";
+
 import { FC } from "react";
-import { useState, useEffect } from "react";
 import Image from "next/image";
-
-import { getFilmData } from "@/Utils/getFilmData";
-import screenings from "@/Data/Screenings";
-import { getImdbIds } from "@/Utils/getImdbIds";
 import Link from "next/link";
+import { FilmType } from "@/Types/Object-Interfaces";
 
-const FilmCard: FC = () => {
-  const [filmData, setFilmData] = useState<any[]>([]);
+const FilmCard: FC<{ film: FilmType }> = ({ film }): React.JSX.Element => {
+  const handleClick: React.MouseEventHandler<HTMLDivElement> = async () => {
+    try {
+      const response = await fetch("/api/filmdata", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
 
-  useEffect(() => {
-    const imdb_id_arr = getImdbIds(screenings);
+        body: JSON.stringify(film),
+      });
 
-    const fetchData = async () => {
-      const filmDataArr = await Promise.all(
-        imdb_id_arr.map((element: any) => getFilmData(element))
-      );
+      if (!response.ok) {
+        throw new Error("Failed to make the POST request.");
+      }
 
-      setFilmData(filmDataArr);
-    };
-
-    fetchData();
-  }, []);
-
-  console.log(filmData);
+      const data = await response.json();
+      console.log("POST request successful", data);
+    } catch (error) {
+      console.error("Error making the POST request:", error);
+    }
+  };
 
   return (
-    <div className="flex-col flex items-center mt-4">
-      {filmData.map((film) => (
-        <Link href={`/films/${film.title.toLowerCase()}`} key={film.id}>
-          <div
-            className={`my-2 bg-[url('https://image.tmdb.org/t/p/w500${film.backdrop_path}')] w-72`}
-          >
-            <Image
-              width="300"
-              height="200"
-              alt="whatever"
-              src={`https://image.tmdb.org/t/p/w500${film.backdrop_path}`}
-            ></Image>
-            <h1>{film.title}</h1>
-            <h2>{film.release_date}</h2>
-          </div>
-        </Link>
-      ))}
+    <div onClick={handleClick} className="flex-col flex items-center mt-4">
+      <Link href={`/films/${film.imdb_id}`} key={film.id}>
+        <div
+          className={`my-2 bg-[url('https://image.tmdb.org/t/p/w500${film.backdrop_path}')] w-72`}
+        >
+          <Image
+            width="300"
+            height="200"
+            alt="whatever"
+            src={`https://image.tmdb.org/t/p/w500${film.backdrop_path}`}
+          ></Image>
+
+          <h1>{film.title}</h1>
+          <h2>{film.release_date}</h2>
+        </div>
+      </Link>
     </div>
   );
 };
