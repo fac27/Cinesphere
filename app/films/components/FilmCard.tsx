@@ -8,26 +8,12 @@ import screenings from "@/Data/Screenings";
 import { getImdbIds } from "@/Utils/getImdbIds";
 import { genreCodes, languageCodes } from "@/Data/FilteringCodes";
 
-const FilmCard: FC<{ selectedGenres: string[] }> = ({ selectedGenres, selectedLanguages }) => {
+const FilmCard: FC<{ selectedGenres: string[] }> = ({
+  selectedGenres,
+  selectedLanguages,
+  selectedDecades
+}) => {
   const [filmData, setFilmData] = useState<any[]>([]);
-  const [selectedDecade, setSelectedDecade] = useState<string | null>(null);
-
-  // const handleGenreChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-  //   const genreCode = parseInt(event.target.value);
-  //   setSelectedGenre(genreCode);
-  // };
-
-  const handleDecadeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const decade = event.target.value;
-    setSelectedDecade(decade);
-  };
-
-  // const handleLanguageChange = (
-  //   event: React.ChangeEvent<HTMLSelectElement>
-  // ) => {
-  //   const languageCode = event.target.value;
-  //   setSelectedLanguages(languageCode);
-  // };
 
   useEffect(() => {
     const imdb_id_arr = getImdbIds(screenings);
@@ -47,9 +33,11 @@ const FilmCard: FC<{ selectedGenres: string[] }> = ({ selectedGenres, selectedLa
   }, []);
 
   const filteredFilmData = filmData.filter((film) => {
+    
     const genreCodesArr = selectedGenres.map(
       (genreName) => genreCodes[genreName]
     );
+    
     const languageCodesArr = selectedLanguages.map((languageName) => {
       for (const code in languageCodes) {
         if (languageCodes[code] === languageName) {
@@ -57,7 +45,9 @@ const FilmCard: FC<{ selectedGenres: string[] }> = ({ selectedGenres, selectedLa
         }
       }
       return null;
-    }); 
+    });
+
+    console.log(selectedDecades)
 
     const isGenreMatch =
       selectedGenres.length === 0 ||
@@ -65,57 +55,26 @@ const FilmCard: FC<{ selectedGenres: string[] }> = ({ selectedGenres, selectedLa
 
     const isLanguageMatch =
       selectedLanguages.length === 0 ||
-      languageCodesArr.some((languageCode) => film.original_language.includes(languageCode));
+      languageCodesArr.some((languageCode) =>
+        film.original_language.includes(languageCode)
+      );
 
     const isDecadeMatch =
-      selectedDecade === null ||
-      (film.release_date >= `${selectedDecade}-01-01` &&
-        film.release_date <= `${Number(selectedDecade) + 9}-12-31`);
-
+    selectedDecades.length === 0 ||
+    selectedDecades.some((decade) => {
+      const filmReleaseYear = parseInt(film.release_date.substring(0, 4));
+      const selectedDecadeStartYear = parseInt(decade);
+      return (
+        filmReleaseYear >= selectedDecadeStartYear &&
+        filmReleaseYear <= selectedDecadeStartYear + 9
+      );
+    });
+      
     return isGenreMatch && isDecadeMatch && isLanguageMatch;
   });
 
   return (
     <>
-      {/* <select
-        value={selectedGenre || ""}
-        onChange={handleGenreChange}
-        className="mb-4"
-      >
-        <option value="">All Genres</option>
-        {Object.entries(genreCodes).map(([genre, code]) => (
-          <option key={code} value={code}>
-            {genre}
-          </option>
-        ))}
-      </select> */}
-
-      <select
-        value={selectedDecade || ""}
-        onChange={handleDecadeChange}
-        className="mb-4"
-      >
-        <option value="">All Decades</option>
-        {Array.from({ length: 10 }, (_, i) => 1930 + i * 10).map((decade) => (
-          <option key={decade} value={decade}>
-            {decade}s
-          </option>
-        ))}
-      </select>
-
-      {/* <select
-        value={selectedLanguage || ""}
-        onChange={handleLanguageChange}
-        className="mb-4"
-      >
-        <option value="">All Languages</option>
-        {Object.entries(languageCodes).map(([code, language]) => (
-          <option key={code} value={code}>
-            {language}
-          </option>
-        ))}
-      </select> */}
-
       <div className="flex-col flex items-center mt-4">
         {filteredFilmData.map((film) => (
           <div

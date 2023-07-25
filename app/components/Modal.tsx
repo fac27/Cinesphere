@@ -8,10 +8,19 @@ interface Props {
   setSelectedGenres: (selectedGenres: string[]) => void;
   selectedLanguages: string[];
   setSelectedLanguages: (selectedLanguages: string[]) => void;
+  selectedDecades: string[];
+  setSelectedDecades: (selectedDecades: string[]) => void;
 }
 
-const Modal = ({ isVisible, selectedGenres, setSelectedGenres, selectedLanguages, setSelectedLanguages }: Props) => {
-
+const Modal = ({
+  isVisible,
+  selectedGenres,
+  setSelectedGenres,
+  selectedLanguages,
+  setSelectedLanguages,
+  selectedDecades,
+  setSelectedDecades,
+}: Props) => {
   return (
     <dialog open={isVisible ? true : undefined} className="text-center my-4">
       <Filter
@@ -26,10 +35,9 @@ const Modal = ({ isVisible, selectedGenres, setSelectedGenres, selectedLanguages
           )
         }
       />
-
-      <Filter 
-        filters={languages} 
-        category="LANGUAGE" 
+      <Filter
+        filters={languages}
+        category="LANGUAGE"
         selectedFilters={selectedLanguages}
         onFilterClick={(filter: string) =>
           setSelectedLanguages((prevLanguages) =>
@@ -37,12 +45,23 @@ const Modal = ({ isVisible, selectedGenres, setSelectedGenres, selectedLanguages
               ? prevLanguages.filter((l) => l !== filter)
               : [...prevLanguages, filter]
           )
-        }  
+        }
       />
-
-
+      <Filter
+        filters={era} 
+        category="ERA"
+        selectedFilters={selectedDecades}
+        onFilterClick={(filter: string) =>
+          setSelectedDecades((prevDecades) =>
+            prevDecades.includes(filter)
+              ? prevDecades.filter((d) => d !== filter)
+              : [...prevDecades, filter]
+          )
+        }
+      />
+      
+      
       {/* <Filter filters={ageRating} category="AGE RATING" />
-      <Filter filters={era} category="ERA" />
       <Filter filters={score} category="SCORE" /> */}
       <form method="dialog">
         <button type="submit" className="p-2 text-white bg-black rounded-lg">

@@ -9,6 +9,7 @@ const Films = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [selectedGenres, setSelectedGenres] = useState<string[]>([]);
   const [selectedLanguages, setSelectedLanguages] = useState<string[]>([]);
+  const [selectedDecades, setSelectedDecades] = useState<string[]>([]);
 
   return (
     <>
@@ -18,6 +19,8 @@ const Films = () => {
         setSelectedGenres={setSelectedGenres}
         selectedLanguages={selectedLanguages}
         setSelectedLanguages={setSelectedLanguages}
+        selectedDecades={selectedDecades}
+        setSelectedDecades={setSelectedDecades}
       />
       <div className="flex flex-row justify-center mt-4">
         <input
@@ -36,7 +39,11 @@ const Films = () => {
           Filter
         </button>
       </div>
-      <FilmCard selectedGenres={selectedGenres} selectedLanguages={selectedLanguages} />
+      <FilmCard
+        selectedGenres={selectedGenres}
+        selectedLanguages={selectedLanguages}
+        selectedDecades={selectedDecades}
+      />
     </>
   );
 };

@@ -28,6 +28,7 @@ module.exports = {
       colors: {
         bgColour1: "#FFC700",
         bgColour2: "#FFEFB5",
+        bgColour3: "#8f00ff"
       },
     },
   },
