@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { BiSliderAlt } from "react-icons/bi";
 import { useState } from "react";
 
@@ -6,7 +6,7 @@ import FilmCard from "./components/FilmCard";
 import Filter from "../components/Filter";
 
 const Films = () => {
-  const [isVisible, setIsVisible] = useState(false)
+  const [isVisible, setIsVisible] = useState(false);
 
   const genres = [
     "Action",
@@ -49,11 +49,11 @@ const Films = () => {
 
   return (
     <>
-      <Filter filters={genres} category="GENRE" isVisible={isVisible}/>
-      <Filter filters={languages} category="LANGUAGE" isVisible={isVisible}/>
-      <Filter filters={ageRating} category="AGE RATING" isVisible={isVisible}/>
-      <Filter filters={era} category="ERA" isVisible={isVisible}/>
-      <Filter filters={score} category="SCORE" isVisible={isVisible}/>
+      <Filter filters={genres} category="GENRE" isVisible={isVisible} />
+      <Filter filters={languages} category="LANGUAGE" isVisible={isVisible} />
+      <Filter filters={ageRating} category="AGE RATING" isVisible={isVisible} />
+      <Filter filters={era} category="ERA" isVisible={isVisible} />
+      <Filter filters={score} category="SCORE" isVisible={isVisible} />
 
       <div className="flex flex-row justify-center mt-4">
         <input
@@ -63,7 +63,7 @@ const Films = () => {
         ></input>
         <button
           onClick={() => {
-            setIsVisible(!isVisible)
+            setIsVisible(!isVisible);
           }}
           type="button"
           className="p-2 flex items-center gap-1 rounded-lg border border-black ml-3"

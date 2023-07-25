@@ -5,7 +5,7 @@ import FilterTag from "./FilterTag";
 interface Props {
   filters: string[];
   category: string;
-  isVisible: boolean
+  isVisible: boolean;
 }
 
 const Filter = ({ filters, category, isVisible }: Props) => {
@@ -15,8 +15,8 @@ const Filter = ({ filters, category, isVisible }: Props) => {
         <h1>{category}</h1>
       </div>
       <div className="flex flex-wrap justify-center my-2">
-      {filters.map((filter: string) => (
-        <FilterTag key={filter} filter={filter} />
+        {filters.map((filter: string) => (
+          <FilterTag key={filter} filter={filter} />
         ))}
       </div>
     </div>
