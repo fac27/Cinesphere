@@ -1,19 +1,37 @@
+"use client"
 import { BiSliderAlt } from "react-icons/bi";
+import { useState } from "react"
+
 import CinemaCard from "./components/CinemaCard";
 import cinemas from "../../Data/Cinemas";
 
 const Cinemas = () => {
+  const [postcode, setPostcode] = useState("")
+  
+  const updatePostcode = (event:any) => {
+    setPostcode(event.target.value)
+  }
+
+
+  const search = async () => {
+    const distance = await fetch("/app/api/coordinates")
+    console.log("distance", distance)
+  }
+
+
   return (
     <>
-      <h1>Cinemas Page</h1>
       <div className="m-5 mb-10 flex justify-between">
         <div className="flex items-center gap-1">
           <input
             type="text"
             className="p-2 w-40 flex border border-black rounded-lg"
             placeholder="postcode"
+            value={postcode}
+            onChange={updatePostcode}
           ></input>
-          <button type="submit" className="p-2 text-white bg-black rounded-lg">
+          <button onClick={search} 
+          type="submit" className="p-2 text-white bg-black rounded-lg">
             Search
           </button>
         </div>
@@ -27,7 +45,7 @@ const Cinemas = () => {
       </div>
       <div className="flex flex-col items-center">
         {cinemas.map((cinema) => (
-          <CinemaCard key={cinema.cinemaName} cinema={cinema} />
+          <CinemaCard key={cinema.cinemaName} cinema={cinema} postcode={postcode}/>
         ))}
       </div>
     </>
