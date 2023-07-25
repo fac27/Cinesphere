@@ -7,15 +7,15 @@ interface Props {
   category: string;
 }
 
-const Filter = ({ filters, category}: Props) => {
+const Filter = ({ filters, category }: Props) => {
   return (
     <div>
       <div className={`bg-black text-white text-center py-2 px-1`}>
         <h1>{category}</h1>
       </div>
       <div className="flex flex-wrap justify-center my-2">
-      {filters.map((filter: string) => (
-        <FilterTag key={filter} filter={filter} />
+        {filters.map((filter: string) => (
+          <FilterTag key={filter} filter={filter} />
         ))}
       </div>
     </div>

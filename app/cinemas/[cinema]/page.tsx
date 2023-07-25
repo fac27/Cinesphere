@@ -11,8 +11,9 @@ const Page = ({ params }: { params: { cinema: string } }) => {
     (cinema) => cinema.cinemaName.toLowerCase() === paramsCinema.toLowerCase()
   );
   const screeningsFiltered = screenings.filter(
-    (screening) => screening.cinema == "The Lexi Cinema"
+    (screening) => screening.cinema == paramsCinema
   );
+
   if (!cinema)
     return (
       <>

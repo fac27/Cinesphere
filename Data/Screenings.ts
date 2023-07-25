@@ -1082,7 +1082,7 @@ const screenings: ScreeningType[] = [
     imdbId: "tt1517268",
   },
   {
-    cinema: "The Lexi Cinema",
+    cinema: "The Lexi",
     imdbId: "tt14230388",
     filmName: "ASTEROID CITY",
     audioDescription: true,
@@ -1093,7 +1093,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-02T18:00:00.000Z",
   },
   {
-    cinema: "The Lexi Cinema",
+    cinema: "The Lexi",
     imdbId: "tt9603212",
     filmName: "MISSION: IMPOSSIBLE - DEAD RECKONING ONE",
     audioDescription: false,
@@ -1104,7 +1104,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-02T19:00:00.000Z",
   },
   {
-    cinema: "The Lexi Cinema",
+    cinema: "The Lexi",
     imdbId: "tt15398776",
     filmName: "OPPENHEIMER",
     audioDescription: false,
@@ -1115,7 +1115,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-03T18:30:00.000Z",
   },
   {
-    cinema: "The Lexi Cinema",
+    cinema: "The Lexi",
     imdbId: "tt15398776",
     filmName: "OPPENHEIMER",
     audioDescription: false,
@@ -1126,7 +1126,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-03T19:30:00.000Z",
   },
   {
-    cinema: "The Lexi Cinema",
+    cinema: "The Lexi",
     imdbId: "tt15398776",
     filmName: "OPPENHEIMER",
     audioDescription: false,
@@ -1137,7 +1137,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-04T15:00:00.000Z",
   },
   {
-    cinema: "The Lexi Cinema",
+    cinema: "The Lexi",
     imdbId: "tt15398776",
     filmName: "OPPENHEIMER",
     audioDescription: false,
@@ -1148,7 +1148,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-04T18:30:00.000Z",
   },
   {
-    cinema: "The Lexi Cinema",
+    cinema: "The Lexi",
     imdbId: "tt15398776",
     filmName: "OPPENHEIMER",
     audioDescription: false,
@@ -1159,7 +1159,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-04T19:00:00.000Z",
   },
   {
-    cinema: "The Lexi Cinema",
+    cinema: "The Lexi",
     imdbId: "tt15398776",
     filmName: "OPPENHEIMER",
     audioDescription: false,
@@ -1170,7 +1170,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-05T15:00:00.000Z",
   },
   {
-    cinema: "The Lexi Cinema",
+    cinema: "The Lexi",
     imdbId: "tt15398776",
     filmName: "OPPENHEIMER",
     audioDescription: false,
@@ -1181,7 +1181,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-05T18:30:00.000Z",
   },
   {
-    cinema: "The Lexi Cinema",
+    cinema: "The Lexi",
     imdbId: "tt15398776",
     filmName: "OPPENHEIMER",
     audioDescription: false,
@@ -1192,7 +1192,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-05T19:00:00.000Z",
   },
   {
-    cinema: "The Lexi Cinema",
+    cinema: "The Lexi",
     imdbId: "tt9603212",
     filmName: "MISSION: IMPOSSIBLE - DEAD RECKONING ONE",
     audioDescription: false,
@@ -1203,7 +1203,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-06T11:20:00.000Z",
   },
   {
-    cinema: "The Lexi Cinema",
+    cinema: "The Lexi",
     imdbId: "tt9603212",
     filmName: "MISSION: IMPOSSIBLE - DEAD RECKONING ONE",
     audioDescription: false,
@@ -1214,7 +1214,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-06T14:35:00.000Z",
   },
   {
-    cinema: "The Lexi Cinema",
+    cinema: "The Lexi",
     imdbId: "tt9603212",
     filmName: "MISSION: IMPOSSIBLE - DEAD RECKONING ONE",
     audioDescription: false,
@@ -1225,7 +1225,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-06T20:20:00.000Z",
   },
   {
-    cinema: "The Lexi Cinema",
+    cinema: "The Lexi",
     imdbId: "tt15398776",
     filmName: "OPPENHEIMER",
     audioDescription: false,
@@ -1236,7 +1236,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-06T11:00:00.000Z",
   },
   {
-    cinema: "The Lexi Cinema",
+    cinema: "The Lexi",
     imdbId: "tt15398776",
     filmName: "OPPENHEIMER",
     audioDescription: false,
@@ -1247,7 +1247,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-06T15:00:00.000Z",
   },
   {
-    cinema: "The Lexi Cinema",
+    cinema: "The Lexi",
     imdbId: "tt15398776",
     filmName: "OPPENHEIMER",
     audioDescription: false,
@@ -1258,7 +1258,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-06T19:00:00.000Z",
   },
   {
-    cinema: "The Lexi Cinema",
+    cinema: "The Lexi",
     imdbId: "tt21352686",
     filmName: "THE DAMNED DON'T CRY",
     audioDescription: false,
@@ -1269,7 +1269,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-06T18:00:00.000Z",
   },
   {
-    cinema: "The Lexi Cinema",
+    cinema: "The Lexi",
     imdbId: "tt9603212",
     filmName: "MISSION: IMPOSSIBLE - DEAD RECKONING ONE",
     audioDescription: false,
@@ -1280,7 +1280,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-07T20:20:00.000Z",
   },
   {
-    cinema: "The Lexi Cinema",
+    cinema: "The Lexi",
     imdbId: "tt15398776",
     filmName: "OPPENHEIMER",
     audioDescription: false,
@@ -1291,7 +1291,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-07T19:00:00.000Z",
   },
   {
-    cinema: "The Lexi Cinema",
+    cinema: "The Lexi",
     imdbId: "tt21352686",
     filmName: "THE DAMNED DON'T CRY",
     audioDescription: false,
@@ -1302,7 +1302,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-07T18:00:00.000Z",
   },
   {
-    cinema: "The Lexi Cinema",
+    cinema: "The Lexi",
     imdbId: "tt9603212",
     filmName: "MISSION: IMPOSSIBLE - DEAD RECKONING ONE",
     audioDescription: false,
@@ -1313,7 +1313,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-08T14:35:00.000Z",
   },
   {
-    cinema: "The Lexi Cinema",
+    cinema: "The Lexi",
     imdbId: "tt9603212",
     filmName: "MISSION: IMPOSSIBLE - DEAD RECKONING ONE",
     audioDescription: false,
@@ -1324,7 +1324,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-08T20:20:00.000Z",
   },
   {
-    cinema: "The Lexi Cinema",
+    cinema: "The Lexi",
     imdbId: "tt15398776",
     filmName: "OPPENHEIMER",
     audioDescription: false,
@@ -1335,7 +1335,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-08T19:00:00.000Z",
   },
   {
-    cinema: "The Lexi Cinema",
+    cinema: "The Lexi",
     imdbId: "tt21352686",
     filmName: "THE DAMNED DON'T CRY",
     audioDescription: false,
@@ -1346,7 +1346,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-08T18:00:00.000Z",
   },
   {
-    cinema: "The Lexi Cinema",
+    cinema: "The Lexi",
     imdbId: "tt27155038",
     filmName: "RUBY GILLMAN, TEENAGE KRAKEN",
     audioDescription: false,
@@ -1357,7 +1357,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-08T16:15:00.000Z",
   },
   {
-    cinema: "ArtHouse Crouch End",
+    cinema: "ArtHouse",
     imdbId: "tt14230388",
     filmName: "ASTEROID CITY",
     audioDescription: false,
@@ -1368,7 +1368,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-02T15:30:00.000Z",
   },
   {
-    cinema: "ArtHouse Crouch End",
+    cinema: "ArtHouse",
     imdbId: "tt14230388",
     filmName: "ASTEROID CITY",
     audioDescription: false,
@@ -1379,7 +1379,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-02T17:30:00.000Z",
   },
   {
-    cinema: "ArtHouse Crouch End",
+    cinema: "ArtHouse",
     imdbId: "tt14230388",
     filmName: "ASTEROID CITY",
     audioDescription: false,
@@ -1390,7 +1390,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-02T20:30:00.000Z",
   },
   {
-    cinema: "ArtHouse Crouch End",
+    cinema: "ArtHouse",
     imdbId: "tt10850264",
     filmName: "SQUARING THE CIRCLE (THE STORY OF HIPGNOSIS)",
     audioDescription: false,
@@ -1401,7 +1401,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-02T12:45:00.000Z",
   },
   {
-    cinema: "ArtHouse Crouch End",
+    cinema: "ArtHouse",
     imdbId: "tt10850264",
     filmName: "SQUARING THE CIRCLE (THE STORY OF HIPGNOSIS)",
     audioDescription: false,
@@ -1412,7 +1412,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-02T18:00:00.000Z",
   },
   {
-    cinema: "ArtHouse Crouch End",
+    cinema: "ArtHouse",
     imdbId: "tt21352686",
     filmName: "THE DAMNED DON'T CRY",
     audioDescription: false,
@@ -1423,7 +1423,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-02T13:00:00.000Z",
   },
   {
-    cinema: "ArtHouse Crouch End",
+    cinema: "ArtHouse",
     imdbId: "tt21818816",
     filmName: "WHILE WE WATCHED",
     audioDescription: false,
@@ -1434,7 +1434,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-02T15:15:00.000Z",
   },
   {
-    cinema: "ArtHouse Crouch End",
+    cinema: "ArtHouse",
     imdbId: "tt15398776",
     filmName: "OPPENHEIMER",
     audioDescription: false,
@@ -1445,7 +1445,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-03T12:00:00.000Z",
   },
   {
-    cinema: "ArtHouse Crouch End",
+    cinema: "ArtHouse",
     imdbId: "tt15398776",
     filmName: "OPPENHEIMER",
     audioDescription: false,
@@ -1456,7 +1456,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-03T15:45:00.000Z",
   },
   {
-    cinema: "ArtHouse Crouch End",
+    cinema: "ArtHouse",
     imdbId: "tt15398776",
     filmName: "OPPENHEIMER",
     audioDescription: false,
@@ -1467,7 +1467,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-03T19:30:00.000Z",
   },
   {
-    cinema: "ArtHouse Crouch End",
+    cinema: "ArtHouse",
     imdbId: "tt1517268",
     filmName: "BARBIE",
     audioDescription: false,
@@ -1478,7 +1478,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-03T13:00:00.000Z",
   },
   {
-    cinema: "ArtHouse Crouch End",
+    cinema: "ArtHouse",
     imdbId: "tt1517268",
     filmName: "BARBIE",
     audioDescription: false,
@@ -1489,7 +1489,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-03T15:40:00.000Z",
   },
   {
-    cinema: "ArtHouse Crouch End",
+    cinema: "ArtHouse",
     imdbId: "tt1517268",
     filmName: "BARBIE",
     audioDescription: false,
@@ -1500,7 +1500,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-03T18:15:00.000Z",
   },
   {
-    cinema: "ArtHouse Crouch End",
+    cinema: "ArtHouse",
     imdbId: "tt1517268",
     filmName: "BARBIE",
     audioDescription: false,
@@ -1511,7 +1511,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-03T20:45:00.000Z",
   },
   {
-    cinema: "ArtHouse Crouch End",
+    cinema: "ArtHouse",
     imdbId: "tt15398776",
     filmName: "OPPENHEIMER",
     audioDescription: false,
@@ -1522,7 +1522,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-04T12:00:00.000Z",
   },
   {
-    cinema: "ArtHouse Crouch End",
+    cinema: "ArtHouse",
     imdbId: "tt15398776",
     filmName: "OPPENHEIMER",
     audioDescription: false,
@@ -1533,7 +1533,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-04T15:45:00.000Z",
   },
   {
-    cinema: "ArtHouse Crouch End",
+    cinema: "ArtHouse",
     imdbId: "tt15398776",
     filmName: "OPPENHEIMER",
     audioDescription: false,
@@ -1544,7 +1544,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-04T19:30:00.000Z",
   },
   {
-    cinema: "ArtHouse Crouch End",
+    cinema: "ArtHouse",
     imdbId: "tt1517268",
     filmName: "BARBIE",
     audioDescription: false,
@@ -1555,7 +1555,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-04T13:00:00.000Z",
   },
   {
-    cinema: "ArtHouse Crouch End",
+    cinema: "ArtHouse",
     imdbId: "tt1517268",
     filmName: "BARBIE",
     audioDescription: false,
@@ -1566,7 +1566,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-04T15:40:00.000Z",
   },
   {
-    cinema: "ArtHouse Crouch End",
+    cinema: "ArtHouse",
     imdbId: "tt1517268",
     filmName: "BARBIE",
     audioDescription: false,
@@ -1577,7 +1577,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-04T18:15:00.000Z",
   },
   {
-    cinema: "ArtHouse Crouch End",
+    cinema: "ArtHouse",
     imdbId: "tt1517268",
     filmName: "BARBIE",
     audioDescription: false,
@@ -1588,7 +1588,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-04T20:45:00.000Z",
   },
   {
-    cinema: "ArtHouse Crouch End",
+    cinema: "ArtHouse",
     imdbId: "tt15398776",
     filmName: "OPPENHEIMER",
     audioDescription: false,
@@ -1599,7 +1599,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-05T12:00:00.000Z",
   },
   {
-    cinema: "ArtHouse Crouch End",
+    cinema: "ArtHouse",
     imdbId: "tt15398776",
     filmName: "OPPENHEIMER",
     audioDescription: false,
@@ -1610,7 +1610,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-05T15:45:00.000Z",
   },
   {
-    cinema: "ArtHouse Crouch End",
+    cinema: "ArtHouse",
     imdbId: "tt15398776",
     filmName: "OPPENHEIMER",
     audioDescription: false,
@@ -1621,7 +1621,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-05T19:30:00.000Z",
   },
   {
-    cinema: "ArtHouse Crouch End",
+    cinema: "ArtHouse",
     imdbId: "tt1517268",
     filmName: "BARBIE",
     audioDescription: false,
@@ -1632,7 +1632,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-05T13:00:00.000Z",
   },
   {
-    cinema: "ArtHouse Crouch End",
+    cinema: "ArtHouse",
     imdbId: "tt1517268",
     filmName: "BARBIE",
     audioDescription: false,
@@ -1643,7 +1643,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-05T15:40:00.000Z",
   },
   {
-    cinema: "ArtHouse Crouch End",
+    cinema: "ArtHouse",
     imdbId: "tt1517268",
     filmName: "BARBIE",
     audioDescription: false,
@@ -1654,7 +1654,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-05T20:45:00.000Z",
   },
   {
-    cinema: "ArtHouse Crouch End",
+    cinema: "ArtHouse",
     imdbId: "tt15398776",
     filmName: "OPPENHEIMER",
     audioDescription: false,
@@ -1665,7 +1665,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-06T12:00:00.000Z",
   },
   {
-    cinema: "ArtHouse Crouch End",
+    cinema: "ArtHouse",
     imdbId: "tt15398776",
     filmName: "OPPENHEIMER",
     audioDescription: false,
@@ -1676,7 +1676,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-06T15:15:00.000Z",
   },
   {
-    cinema: "ArtHouse Crouch End",
+    cinema: "ArtHouse",
     imdbId: "tt15398776",
     filmName: "OPPENHEIMER",
     audioDescription: false,
@@ -1687,7 +1687,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-06T18:00:00.000Z",
   },
   {
-    cinema: "ArtHouse Crouch End",
+    cinema: "ArtHouse",
     imdbId: "tt1517268",
     filmName: "BARBIE",
     audioDescription: false,
@@ -1698,7 +1698,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-06T13:00:00.000Z",
   },
   {
-    cinema: "ArtHouse Crouch End",
+    cinema: "ArtHouse",
     imdbId: "tt1517268",
     filmName: "BARBIE",
     audioDescription: false,
@@ -1709,7 +1709,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-06T20:30:00.000Z",
   },
   {
-    cinema: "ArtHouse Crouch End",
+    cinema: "ArtHouse",
     imdbId: "tt1517268",
     filmName: "BARBIE",
     audioDescription: false,
@@ -1720,7 +1720,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-06T19:30:00.000Z",
   },
   {
-    cinema: "ArtHouse Crouch End",
+    cinema: "ArtHouse",
     imdbId: "tt15398776",
     filmName: "OPPENHEIMER",
     audioDescription: false,
@@ -1731,7 +1731,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-07T12:00:00.000Z",
   },
   {
-    cinema: "ArtHouse Crouch End",
+    cinema: "ArtHouse",
     imdbId: "tt15398776",
     filmName: "OPPENHEIMER",
     audioDescription: false,
@@ -1742,7 +1742,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-07T15:15:00.000Z",
   },
   {
-    cinema: "ArtHouse Crouch End",
+    cinema: "ArtHouse",
     imdbId: "tt15398776",
     filmName: "OPPENHEIMER",
     audioDescription: false,
@@ -1753,7 +1753,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-07T18:00:00.000Z",
   },
   {
-    cinema: "ArtHouse Crouch End",
+    cinema: "ArtHouse",
     imdbId: "tt1517268",
     filmName: "BARBIE",
     audioDescription: false,
@@ -1764,7 +1764,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-07T12:30:00.000Z",
   },
   {
-    cinema: "ArtHouse Crouch End",
+    cinema: "ArtHouse",
     imdbId: "tt1517268",
     filmName: "BARBIE",
     audioDescription: false,
@@ -1775,7 +1775,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-07T20:30:00.000Z",
   },
   {
-    cinema: "ArtHouse Crouch End",
+    cinema: "ArtHouse",
     imdbId: "tt1517268",
     filmName: "BARBIE",
     audioDescription: false,
@@ -1786,7 +1786,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-07T19:30:00.000Z",
   },
   {
-    cinema: "ArtHouse Crouch End",
+    cinema: "ArtHouse",
     imdbId: "tt15398776",
     filmName: "OPPENHEIMER",
     audioDescription: false,
@@ -1797,7 +1797,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-08T12:00:00.000Z",
   },
   {
-    cinema: "ArtHouse Crouch End",
+    cinema: "ArtHouse",
     imdbId: "tt15398776",
     filmName: "OPPENHEIMER",
     audioDescription: false,
@@ -1808,7 +1808,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-08T15:45:00.000Z",
   },
   {
-    cinema: "ArtHouse Crouch End",
+    cinema: "ArtHouse",
     imdbId: "tt15398776",
     filmName: "OPPENHEIMER",
     audioDescription: false,
@@ -1819,7 +1819,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-08T18:00:00.000Z",
   },
   {
-    cinema: "ArtHouse Crouch End",
+    cinema: "ArtHouse",
     imdbId: "tt1517268",
     filmName: "BARBIE",
     audioDescription: false,
@@ -1830,7 +1830,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-08T12:30:00.000Z",
   },
   {
-    cinema: "ArtHouse Crouch End",
+    cinema: "ArtHouse",
     imdbId: "tt1517268",
     filmName: "BARBIE",
     audioDescription: false,
@@ -1841,7 +1841,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-08T20:30:00.000Z",
   },
   {
-    cinema: "ArtHouse Crouch End",
+    cinema: "ArtHouse",
     imdbId: "tt1517268",
     filmName: "BARBIE",
     audioDescription: false,
@@ -2061,7 +2061,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-17T01:30:00.000Z",
   },
   {
-    cinema: "ActOne Cinema",
+    cinema: "ActOne",
     imdbId: "tt14230388",
     filmName: "ASTEROID CITY",
     audioDescription: false,
@@ -2072,7 +2072,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-02T18:15:00.000Z",
   },
   {
-    cinema: "ActOne Cinema",
+    cinema: "ActOne",
     imdbId: "tt14230388",
     filmName: "ASTEROID CITY",
     audioDescription: false,
@@ -2083,7 +2083,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-02T20:45:00.000Z",
   },
   {
-    cinema: "ActOne Cinema",
+    cinema: "ActOne",
     imdbId: "tt1462764",
     filmName: "INDIANA JONES AND THE DIAL OF DESTINY",
     audioDescription: false,
@@ -2094,7 +2094,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-02T20:15:00.000Z",
   },
   {
-    cinema: "ActOne Cinema",
+    cinema: "ActOne",
     imdbId: "tt15398776",
     filmName: "OPPENHEIMER",
     audioDescription: false,
@@ -2105,7 +2105,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-03T15:45:00.000Z",
   },
   {
-    cinema: "ActOne Cinema",
+    cinema: "ActOne",
     imdbId: "tt15398776",
     filmName: "OPPENHEIMER",
     audioDescription: false,
@@ -2116,7 +2116,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-03T19:45:00.000Z",
   },
   {
-    cinema: "ActOne Cinema",
+    cinema: "ActOne",
     imdbId: "tt1517268",
     filmName: "BARBIE",
     audioDescription: false,
@@ -2127,7 +2127,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-03T15:15:00.000Z",
   },
   {
-    cinema: "ActOne Cinema",
+    cinema: "ActOne",
     imdbId: "tt1517268",
     filmName: "BARBIE",
     audioDescription: false,
@@ -2138,7 +2138,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-03T18:00:00.000Z",
   },
   {
-    cinema: "ActOne Cinema",
+    cinema: "ActOne",
     imdbId: "tt1517268",
     filmName: "BARBIE",
     audioDescription: false,
@@ -2149,7 +2149,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-03T20:45:00.000Z",
   },
   {
-    cinema: "ActOne Cinema",
+    cinema: "ActOne",
     imdbId: "tt15398776",
     filmName: "OPPENHEIMER",
     audioDescription: false,
@@ -2160,7 +2160,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-04T12:15:00.000Z",
   },
   {
-    cinema: "ActOne Cinema",
+    cinema: "ActOne",
     imdbId: "tt15398776",
     filmName: "OPPENHEIMER",
     audioDescription: false,
@@ -2171,7 +2171,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-04T16:00:00.000Z",
   },
   {
-    cinema: "ActOne Cinema",
+    cinema: "ActOne",
     imdbId: "tt15398776",
     filmName: "OPPENHEIMER",
     audioDescription: false,
@@ -2182,7 +2182,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-04T19:45:00.000Z",
   },
   {
-    cinema: "ActOne Cinema",
+    cinema: "ActOne",
     imdbId: "tt1517268",
     filmName: "BARBIE",
     audioDescription: false,
@@ -2193,7 +2193,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-04T12:30:00.000Z",
   },
   {
-    cinema: "ActOne Cinema",
+    cinema: "ActOne",
     imdbId: "tt1517268",
     filmName: "BARBIE",
     audioDescription: false,
@@ -2204,7 +2204,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-04T15:15:00.000Z",
   },
   {
-    cinema: "ActOne Cinema",
+    cinema: "ActOne",
     imdbId: "tt1517268",
     filmName: "BARBIE",
     audioDescription: false,
@@ -2215,7 +2215,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-04T18:00:00.000Z",
   },
   {
-    cinema: "ActOne Cinema",
+    cinema: "ActOne",
     imdbId: "tt1517268",
     filmName: "BARBIE",
     audioDescription: false,
@@ -2226,7 +2226,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-04T20:45:00.000Z",
   },
   {
-    cinema: "ActOne Cinema",
+    cinema: "ActOne",
     imdbId: "tt15398776",
     filmName: "OPPENHEIMER",
     audioDescription: false,
@@ -2237,7 +2237,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-05T12:15:00.000Z",
   },
   {
-    cinema: "ActOne Cinema",
+    cinema: "ActOne",
     imdbId: "tt15398776",
     filmName: "OPPENHEIMER",
     audioDescription: false,
@@ -2248,7 +2248,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-05T16:00:00.000Z",
   },
   {
-    cinema: "ActOne Cinema",
+    cinema: "ActOne",
     imdbId: "tt15398776",
     filmName: "OPPENHEIMER",
     audioDescription: false,
@@ -2259,7 +2259,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-05T19:45:00.000Z",
   },
   {
-    cinema: "ActOne Cinema",
+    cinema: "ActOne",
     imdbId: "tt1517268",
     filmName: "BARBIE",
     audioDescription: false,
@@ -2270,7 +2270,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-05T14:45:00.000Z",
   },
   {
-    cinema: "ActOne Cinema",
+    cinema: "ActOne",
     imdbId: "tt1517268",
     filmName: "BARBIE",
     audioDescription: false,
@@ -2281,7 +2281,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-05T16:00:00.000Z",
   },
   {
-    cinema: "ActOne Cinema",
+    cinema: "ActOne",
     imdbId: "tt1517268",
     filmName: "BARBIE",
     audioDescription: false,
@@ -2292,7 +2292,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-05T19:45:00.000Z",
   },
   {
-    cinema: "ActOne Cinema",
+    cinema: "ActOne",
     imdbId: "tt15398776",
     filmName: "OPPENHEIMER",
     audioDescription: false,
@@ -2303,7 +2303,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-06T15:45:00.000Z",
   },
   {
-    cinema: "ActOne Cinema",
+    cinema: "ActOne",
     imdbId: "tt15398776",
     filmName: "OPPENHEIMER",
     audioDescription: false,
@@ -2314,7 +2314,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-06T19:45:00.000Z",
   },
   {
-    cinema: "ActOne Cinema",
+    cinema: "ActOne",
     imdbId: "tt1517268",
     filmName: "BARBIE",
     audioDescription: false,
@@ -2325,7 +2325,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-06T18:00:00.000Z",
   },
   {
-    cinema: "ActOne Cinema",
+    cinema: "ActOne",
     imdbId: "tt1517268",
     filmName: "BARBIE",
     audioDescription: false,
@@ -2336,7 +2336,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-08-06T20:45:00.000Z",
   },
   {
-    cinema: "ActOne Cinema",
+    cinema: "ActOne",
     imdbId: "tt15398776",
     filmName: "OPPENHEIMER",
     audioDescription: false,
@@ -2347,7 +2347,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-09-07T15:45:00.000Z",
   },
   {
-    cinema: "ActOne Cinema",
+    cinema: "ActOne",
     imdbId: "tt15398776",
     filmName: "OPPENHEIMER",
     audioDescription: false,
@@ -2358,7 +2358,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-09-07T19:45:00.000Z",
   },
   {
-    cinema: "ActOne Cinema",
+    cinema: "ActOne",
     imdbId: "tt1517268",
     filmName: "BARBIE",
     audioDescription: false,
@@ -2369,7 +2369,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-09-07T15:15:00.000Z",
   },
   {
-    cinema: "ActOne Cinema",
+    cinema: "ActOne",
     imdbId: "tt1517268",
     filmName: "BARBIE",
     audioDescription: false,
@@ -2380,7 +2380,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-09-07T18:00:00.000Z",
   },
   {
-    cinema: "ActOne Cinema",
+    cinema: "ActOne",
     imdbId: "tt1517268",
     filmName: "BARBIE",
     audioDescription: false,
@@ -2391,7 +2391,7 @@ const screenings: ScreeningType[] = [
     dateTime: "2023-09-07T20:45:00.000Z",
   },
   {
-    cinema: "ActOne Cinema",
+    cinema: "ActOne",
     imdbId: "tt1517268",
     filmName: "BARBIE",
     audioDescription: false,
