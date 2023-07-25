@@ -8,6 +8,7 @@ import Modal from "../components/Modal";
 const Films = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [selectedGenres, setSelectedGenres] = useState<string[]>([]);
+  const [selectedLanguages, setSelectedLanguages] = useState<string[]>([]);
 
   return (
     <>
@@ -15,6 +16,8 @@ const Films = () => {
         isVisible={isVisible}
         selectedGenres={selectedGenres}
         setSelectedGenres={setSelectedGenres}
+        selectedLanguages={selectedLanguages}
+        setSelectedLanguages={setSelectedLanguages}
       />
       <div className="flex flex-row justify-center mt-4">
         <input
@@ -33,7 +36,7 @@ const Films = () => {
           Filter
         </button>
       </div>
-      <FilmCard selectedGenres={selectedGenres} />
+      <FilmCard selectedGenres={selectedGenres} selectedLanguages={selectedLanguages} />
     </>
   );
 };

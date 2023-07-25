@@ -8,10 +8,9 @@ import screenings from "@/Data/Screenings";
 import { getImdbIds } from "@/Utils/getImdbIds";
 import { genreCodes, languageCodes } from "@/Data/FilteringCodes";
 
-const FilmCard: FC<{ selectedGenres: string[] }> = ({ selectedGenres }) => {
+const FilmCard: FC<{ selectedGenres: string[] }> = ({ selectedGenres, selectedLanguages }) => {
   const [filmData, setFilmData] = useState<any[]>([]);
   const [selectedDecade, setSelectedDecade] = useState<string | null>(null);
-  const [selectedLanguage, setSelectedLanguage] = useState<string | null>(null);
 
   // const handleGenreChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
   //   const genreCode = parseInt(event.target.value);
@@ -23,12 +22,12 @@ const FilmCard: FC<{ selectedGenres: string[] }> = ({ selectedGenres }) => {
     setSelectedDecade(decade);
   };
 
-  const handleLanguageChange = (
-    event: React.ChangeEvent<HTMLSelectElement>
-  ) => {
-    const languageCode = event.target.value;
-    setSelectedLanguage(languageCode);
-  };
+  // const handleLanguageChange = (
+  //   event: React.ChangeEvent<HTMLSelectElement>
+  // ) => {
+  //   const languageCode = event.target.value;
+  //   setSelectedLanguages(languageCode);
+  // };
 
   useEffect(() => {
     const imdb_id_arr = getImdbIds(screenings);
@@ -51,18 +50,27 @@ const FilmCard: FC<{ selectedGenres: string[] }> = ({ selectedGenres }) => {
     const genreCodesArr = selectedGenres.map(
       (genreName) => genreCodes[genreName]
     );
+    const languageCodesArr = selectedLanguages.map((languageName) => {
+      for (const code in languageCodes) {
+        if (languageCodes[code] === languageName) {
+          return code;
+        }
+      }
+      return null;
+    }); 
 
     const isGenreMatch =
       selectedGenres.length === 0 ||
       genreCodesArr.some((genreCode) => film.genre_ids.includes(genreCode));
 
+    const isLanguageMatch =
+      selectedLanguages.length === 0 ||
+      languageCodesArr.some((languageCode) => film.original_language.includes(languageCode));
+
     const isDecadeMatch =
       selectedDecade === null ||
       (film.release_date >= `${selectedDecade}-01-01` &&
         film.release_date <= `${Number(selectedDecade) + 9}-12-31`);
-
-    const isLanguageMatch =
-      selectedLanguage === null || film.original_language === selectedLanguage;
 
     return isGenreMatch && isDecadeMatch && isLanguageMatch;
   });
@@ -95,7 +103,7 @@ const FilmCard: FC<{ selectedGenres: string[] }> = ({ selectedGenres }) => {
         ))}
       </select>
 
-      <select
+      {/* <select
         value={selectedLanguage || ""}
         onChange={handleLanguageChange}
         className="mb-4"
@@ -106,7 +114,7 @@ const FilmCard: FC<{ selectedGenres: string[] }> = ({ selectedGenres }) => {
             {language}
           </option>
         ))}
-      </select>
+      </select> */}
 
       <div className="flex-col flex items-center mt-4">
         {filteredFilmData.map((film) => (

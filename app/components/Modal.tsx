@@ -6,16 +6,11 @@ interface Props {
   isVisible: boolean;
   selectedGenres: string[];
   setSelectedGenres: (selectedGenres: string[]) => void;
+  selectedLanguages: string[];
+  setSelectedLanguages: (selectedLanguages: string[]) => void;
 }
 
-const Modal = ({ isVisible, selectedGenres, setSelectedGenres }: Props) => {
-  // const handleGenreClick = (genre: string) => {
-  //   setSelectedGenres((prevGenres) =>
-  //     prevGenres.includes(genre)
-  //       ? prevGenres.filter((g) => g !== genre)
-  //       : [...prevGenres, genre]
-  //   );
-  // };
+const Modal = ({ isVisible, selectedGenres, setSelectedGenres, selectedLanguages, setSelectedLanguages }: Props) => {
 
   return (
     <dialog open={isVisible ? true : undefined} className="text-center my-4">
@@ -32,8 +27,21 @@ const Modal = ({ isVisible, selectedGenres, setSelectedGenres }: Props) => {
         }
       />
 
-      {/* <Filter filters={languages} category="LANGUAGE" />
-      <Filter filters={ageRating} category="AGE RATING" />
+      <Filter 
+        filters={languages} 
+        category="LANGUAGE" 
+        selectedFilters={selectedLanguages}
+        onFilterClick={(filter: string) =>
+          setSelectedLanguages((prevLanguages) =>
+            prevLanguages.includes(filter)
+              ? prevLanguages.filter((l) => l !== filter)
+              : [...prevLanguages, filter]
+          )
+        }  
+      />
+
+
+      {/* <Filter filters={ageRating} category="AGE RATING" />
       <Filter filters={era} category="ERA" />
       <Filter filters={score} category="SCORE" /> */}
       <form method="dialog">
