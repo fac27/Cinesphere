@@ -1,15 +1,15 @@
-"use client"
+"use client";
 import { BiSliderAlt } from "react-icons/bi";
 import { useState } from "react";
 
 import FilmCard from "./components/FilmCard";
-import Modal from "../components/Modal"
+import Modal from "../components/Modal";
 
 const Films = () => {
-  const [isVisible, setIsVisible] = useState(false)
+  const [isVisible, setIsVisible] = useState(false);
   return (
     <>
-    <Modal isVisible={isVisible}/>
+      <Modal isVisible={isVisible} />
       <div className="flex flex-row justify-center mt-4">
         <input
           type="text"
@@ -18,7 +18,7 @@ const Films = () => {
         ></input>
         <button
           onClick={() => {
-            setIsVisible(!isVisible)
+            setIsVisible(!isVisible);
           }}
           type="button"
           className="p-2 flex items-center gap-1 rounded-lg border border-black ml-3"
