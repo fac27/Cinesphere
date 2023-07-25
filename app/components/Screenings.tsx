@@ -1,5 +1,6 @@
 import { ScreeningType } from "@/Types/Object-Interfaces";
 import getScreeningsByDateAndFilm from "../../Utils/getScreeningsByDateAndFilm";
+import { BiSliderAlt } from "react-icons/bi";
 import Icons from "./Icons";
 
 interface Props {
@@ -12,7 +13,10 @@ const Screenings = ({ screenings }: Props) => {
     <div className="m-4">
       <div className="flex justify-around align-middle mb-4">
         <h2 className="text-3xl regular">SCREENINGS</h2>
-        <button>Filter</button>
+        <button className="p-2 flex items-center gap-1 rounded-lg border border-black ml-3">
+          <BiSliderAlt />
+          Filter
+        </button>
       </div>
 
       <div className="border-b-4 flex flex-col gap-8">
