@@ -1,4 +1,3 @@
-"use client";
 import { ScreeningType } from "@/Types/Object-Interfaces";
 
 interface Props {
@@ -9,22 +8,18 @@ const getScreeningsByDateAndFilm = (screenings: ScreeningType[]) => {
   const screeningsByDateAndFilm = [];
 
   screenings.forEach((screening) => {
-    // Convert dateTime to a Date object
     const date = new Date(screening.dateTime);
 
-    // Format date as 'Day Month Year' using toLocaleString
     const formattedDate = date.toLocaleString("en-US", {
       day: "numeric",
       month: "long",
       year: "numeric",
     });
 
-    // Check if the date already exists in the array
     let dateObj = screeningsByDateAndFilm.find(
       (obj) => obj.date === formattedDate
     );
 
-    // If the date does not exist in the array, create a new date object and add it to the array
     if (!dateObj) {
       dateObj = {
         date: formattedDate,
@@ -33,12 +28,10 @@ const getScreeningsByDateAndFilm = (screenings: ScreeningType[]) => {
       screeningsByDateAndFilm.push(dateObj);
     }
 
-    // Check if the filmName already exists in the films array
     let filmObj = dateObj.films.find(
       (obj) => obj.filmName === screening.filmName
     );
 
-    // If the filmName does not exist in the films array, create a new film object and add it to the films array
     if (!filmObj) {
       filmObj = {
         filmName: screening.filmName,
@@ -47,7 +40,6 @@ const getScreeningsByDateAndFilm = (screenings: ScreeningType[]) => {
       dateObj.films.push(filmObj);
     }
 
-    // Push the screening information into the right place in the result object
     filmObj.screenings.push(screening);
   });
 
@@ -66,8 +58,8 @@ const Screenings = ({ screenings }: Props) => {
             {date.films.map((film, index) => (
               <>
                 <h3 key={index}>{film.filmName}</h3>
-                {film.screenings.map((fil, index) => (
-                  <h3 key={index}>{film.screenings[0].dateTime}</h3>
+                {film.screenings.map((screening, index) => (
+                  <h3 key={index}>{screening.dateTime}</h3>
                 ))}
               </>
             ))}
