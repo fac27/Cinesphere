@@ -35,7 +35,7 @@ const Page: React.FC<{}> = (): React.JSX.Element => {
         </Link>
       </div>
 
-      <div className="relative mt-5 w-100 h-56">
+      <div className="relative mt-5 w-100 h-56 lg:h-full">
         <Image
           src={`https://image.tmdb.org/t/p/w500${film?.backdrop_path}`}
           alt={"a snapshot of the film asteroid city"}

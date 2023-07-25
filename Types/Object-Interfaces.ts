@@ -56,3 +56,17 @@ export interface FilmType {
   vote_average: number;
   vote_count: number;
 }
+
+export interface ScreeningType {
+  cinema: string;
+  releaseYear?: string;
+  dateTime: string;
+  time?: string;
+  filmName: string;
+  audioDescription: boolean;
+  closedCaptions: boolean;
+  subtitles: boolean;
+  relaxedScreening: boolean;
+  babyFriendly: boolean;
+  imdbId: string;
+}
