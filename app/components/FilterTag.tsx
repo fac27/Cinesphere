@@ -25,7 +25,6 @@ const FilterTag = ({ filter, category }: Props) => {
           React.SetStateAction<string[]>
         >;
       filterByCategory(selectedLanguages, setSelectedLanguages, filter);
-      console.log(selectedLanguages);
     }
     if (category == "ERA") {
       const selectedDecades = filterContext?.selectedDecades as string[];
@@ -34,7 +33,6 @@ const FilterTag = ({ filter, category }: Props) => {
           React.SetStateAction<string[]>
         >;
       filterByCategory(selectedDecades, setSelectedDecades, filter);
-      console.log(selectedDecades);
     }
   };
 
