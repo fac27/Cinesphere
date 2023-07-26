@@ -6,6 +6,7 @@ import { BiSliderAlt } from "react-icons/bi";
 
 import CinemaCard from "./components/CinemaCard";
 import cinemas from "../../Data/Cinemas";
+import { filterLabels } from "@/Data/FilteringCodes";
 import { haversine } from "@/Utils/haversine";
 
 const Cinemas = () => {
@@ -14,6 +15,24 @@ const Cinemas = () => {
   const [distances, setDistances] = useState<
     { cinema: string; distance: string }[]
   >([]);
+  const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
+
+  const handleFilterChange = (filter: string) => {
+    setSelectedFilters((prevFilters: string[]) =>
+      prevFilters.includes(filter)
+        ? prevFilters.filter((item: string) => item !== filter)
+        : [...prevFilters, filter]
+    );
+  };
+
+  const filteredCinemas = cinemas.filter((cinema) =>
+    selectedFilters.every((filter) => {
+      if (filter === "wheelchairAccessible") {
+        return cinema[filter] === true || cinema[filter] === "Partial";
+      }
+      return cinema[filter] === true;
+    })
+  );
 
   const handlePostcode = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -60,7 +79,7 @@ const Cinemas = () => {
     getDistances();
   }, [userPostcode]);
 
-  const cinemaCardElements = cinemas.map((cinema) => (
+  const cinemaCardElements = filteredCinemas.map((cinema) => (
     <CinemaCard
       key={cinema.cinemaName}
       cinema={cinema}
@@ -96,6 +115,20 @@ const Cinemas = () => {
           Filter
         </button>
       </div>
+
+      <div>
+        {Object.entries(filterLabels).map(([key, label]) => (
+          <label key={key}>
+            <input
+              type="checkbox"
+              checked={selectedFilters.includes(key)}
+              onChange={() => handleFilterChange(key)}
+            />
+            {label}
+          </label>
+        ))}
+      </div>
+
       <div className="flex flex-col items-center">{cinemaCardElements}</div>
     </>
   );

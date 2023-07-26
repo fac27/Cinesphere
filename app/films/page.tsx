@@ -1,32 +1,14 @@
 "use client";
-import React, { useState, useEffect } from "react";
-
-import FilmCard from "./components/FilmCard";
 import { BiSliderAlt } from "react-icons/bi";
-import { getAllFilms } from "@/Utils/getAllFilms";
-import { FilmType } from "@/Types/Object-Interfaces";
+import { useState } from "react";
+import FilmsContainer from "./components/FilmsContainer";
 import Modal from "../components/Modal";
 
 const Films = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const [filmData, setFilmData] = useState<FilmType[] | null>(null);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const data = await getAllFilms();
-      setFilmData(data);
-    };
-
-    fetchData();
-  }, []);
-
-  const filmCardElements: React.ReactNode[] =
-    filmData?.map((film: FilmType) => <FilmCard key={film.id} film={film} />) ??
-    [];
-
+  const [isVisible, setIsVisible] = useState<boolean>(false);
   return (
     <>
-      <Modal isVisible={isVisible} />
+      <Modal isVisible={isVisible} setIsVisible={setIsVisible} />
       <div className="flex flex-row justify-center mt-4">
         <input
           type="text"
@@ -35,7 +17,7 @@ const Films = () => {
         ></input>
         <button
           onClick={() => {
-            setIsVisible(!isVisible);
+            setIsVisible((prev) => !prev);
           }}
           type="button"
           className="p-2 flex items-center gap-1 rounded-lg border border-black ml-3"
@@ -44,8 +26,7 @@ const Films = () => {
           Filter
         </button>
       </div>
-
-      {filmCardElements}
+      <FilmsContainer />
     </>
   );
 };
