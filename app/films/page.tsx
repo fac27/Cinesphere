@@ -8,7 +8,7 @@ const Films = () => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
   return (
     <>
-      <Modal isVisible={isVisible} />
+      <Modal isVisible={isVisible} setIsVisible={setIsVisible} />
       <div className="flex flex-row justify-center mt-4">
         <input
           type="text"
@@ -17,7 +17,7 @@ const Films = () => {
         ></input>
         <button
           onClick={() => {
-            setIsVisible(!isVisible);
+            setIsVisible((prev) => !prev);
           }}
           type="button"
           className="p-2 flex items-center gap-1 rounded-lg border border-black ml-3"
