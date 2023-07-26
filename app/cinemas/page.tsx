@@ -17,20 +17,20 @@ const Cinemas = () => {
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch("/api/coordinates", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      }, 
-      
-      body: "m146wp"
-    });
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
 
-    // const test = await response.json()
-    console.log(response)
-    }
+        body: "m146wp",
+      });
 
-    fetchData()
-  }, [])
+      const test = await response.json();
+      console.log(test);
+    };
+
+    fetchData();
+  }, []);
 
   // const search = async () => {
   //   const response = await fetch("/api/coordinates", {
@@ -39,7 +39,6 @@ const Cinemas = () => {
   //       "Content-type": "application/json"
   //     }, body: JSON.stringify("m146wp")
   //   });
-
 
   //   console.log("distance", response);
   // };
