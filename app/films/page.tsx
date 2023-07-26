@@ -1,7 +1,7 @@
 "use client";
 import { BiSliderAlt } from "react-icons/bi";
 import { useState } from "react";
-import FilmCard from "./components/FilmCard";
+import FilmsContainer from "./components/FilmsContainer";
 import Modal from "../components/Modal";
 
 const Films = () => {
@@ -26,8 +26,7 @@ const Films = () => {
           Filter
         </button>
       </div>
-
-      {filmCardElements}
+      <FilmsContainer />
     </>
   );
 };

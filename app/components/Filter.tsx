@@ -1,5 +1,3 @@
-import { FC } from "react";
-
 import FilterTag from "./FilterTag";
 
 interface Props {

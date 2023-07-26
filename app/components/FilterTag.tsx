@@ -58,7 +58,7 @@ const FilterTag = ({ filter, category }: Props) => {
   return (
     <button
       className={`bg-slate-300 rounded border-black mx-1 my-1 p-0.5 ${
-        isSelected ? "bg-purple-600 text-white" : ""
+        isSelected ? "bg-purple-500 text-white" : ""
       }`}
       onClick={() => selectFilter(category)}
     >
