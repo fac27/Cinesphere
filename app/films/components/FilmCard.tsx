@@ -5,15 +5,9 @@ import Image from "next/image";
 import { getFilmData } from "@/Utils/getFilmData";
 import screenings from "@/Data/Screenings";
 import { getImdbIds } from "@/Utils/getImdbIds";
-import { genreCodes, languageCodes } from "@/Data/FilteringCodes";
-import { useFilters } from "@/app/Context/store";
 
 const FilmCard: FC = () => {
   const [filmData, setFilmData] = useState<any[]>([]);
-
-  const selectedGenres = useFilters();
-  const selectedDecades = useFilters();
-  const selectedLanguages = useFilters();
 
   useEffect(() => {
     const imdb_id_arr = getImdbIds(screenings);
