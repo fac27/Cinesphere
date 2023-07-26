@@ -26,7 +26,8 @@ const Films = () => {
           Filter
         </button>
       </div>
-      <FilmCard />
+
+      {filmCardElements}
     </>
   );
 };

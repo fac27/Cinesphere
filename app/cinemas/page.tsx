@@ -29,9 +29,8 @@ const Cinemas = () => {
 
   return (
     <>
-      <h1>Cinemas Page</h1>
       <div className="m-5 mb-10 flex justify-between">
-        <div className="flex items-center gap-1">
+        <div className="cinemas__searchbar flex items-center gap-1">
           <input
             type="text"
             className="p-2 w-40 flex border border-black rounded-lg"

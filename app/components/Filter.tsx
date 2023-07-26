@@ -7,7 +7,7 @@ interface Props {
   category: string;
 }
 
-const Filter: FC<Props> = ({ filters, category }: Props) => {
+const Filter = ({ filters, category }: Props) => {
   return (
     <div>
       <div className={`bg-black text-white text-center py-2 px-1`}>

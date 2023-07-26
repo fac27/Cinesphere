@@ -1,6 +1,6 @@
-import React, { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction } from "react";
 import Filter from "./Filter";
-import { genres, languages, era } from "@/Data/Filters";
+import { genres, languages, ageRating, era, score } from "@/Data/Filters";
 
 interface Props {
   isVisible: boolean;
