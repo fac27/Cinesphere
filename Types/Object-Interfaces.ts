@@ -24,3 +24,7 @@ export interface CinemaType {
   };
   [key: string]: any;
 }
+
+export interface FilterCodeObjType {
+  [filtercode: string]: string;
+}

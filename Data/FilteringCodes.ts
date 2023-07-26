@@ -1,4 +1,6 @@
-export const genreCodes = {
+import { FilterCodeObjType } from "@/Types/Object-Interfaces";
+
+export const genreCodes: FilterCodeObjType = {
   "Action": "28",
   "Adventure": "12",
   "Animation": "16",
@@ -20,7 +22,7 @@ export const genreCodes = {
   "Western": "37",
 };
 
-export const languageCodes = {
+export const languageCodes: FilterCodeObjType = {
   "aa": "Afar",
   "ab": "Abkhazian",
   "ae": "Avestan",
@@ -208,7 +210,7 @@ export const languageCodes = {
 };
 
 
-export const filterLabels = {
+export const filterLabels: FilterCodeObjType = {
   "bar": "Bar",
   "cafe": "Cafe",
   "audioDescription": "Audio Description",

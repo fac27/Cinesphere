@@ -1,4 +1,4 @@
-import {FC} from "react";
+import { FC } from "react";
 
 import FilterTag from "./FilterTag";
 
@@ -6,6 +6,7 @@ interface Props {
   filters: string[];
   category: string;
   selectedFilters: string[];
+  // eslint-disable-next-line no-unused-vars
   selectFilter: (filter: string) => string[];
 }
 
