@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useEffect } from "react";
 import { BiSliderAlt } from "react-icons/bi";
 
@@ -9,6 +9,7 @@ import cinemas from "../../Data/Cinemas";
 import { haversine } from "@/Utils/haversine";
 
 const Cinemas = () => {
+  const postcodeInputRef = useRef<HTMLInputElement>(null);
   const [userPostcode, setUserPostcode] = useState<string>("");
   const [distances, setDistances] = useState<
     { cinema: string; distance: string }[]
@@ -16,8 +17,7 @@ const Cinemas = () => {
 
   const handlePostcode = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const postcode = event.target.elements[0].value;
-
+    const postcode = postcodeInputRef.current?.value || "";
     setUserPostcode(postcode);
   };
 
@@ -60,6 +60,16 @@ const Cinemas = () => {
     getDistances();
   }, [userPostcode]);
 
+  const cinemaCardElements = cinemas.map((cinema) => (
+    <CinemaCard
+      key={cinema.cinemaName}
+      cinema={cinema}
+      distance={distances.find(
+        (distance) => distance.cinema === cinema.cinemaName
+      )}
+    />
+  ));
+
   return (
     <>
       <div className="m-5 mb-10 flex justify-between">
@@ -71,6 +81,7 @@ const Cinemas = () => {
             type="text"
             className="p-2 w-40 flex border border-black rounded-lg"
             placeholder="postcode"
+            ref={postcodeInputRef}
           ></input>
           <button type="submit" className="p-2 text-white bg-black rounded-lg">
             Search
@@ -85,17 +96,7 @@ const Cinemas = () => {
           Filter
         </button>
       </div>
-      <div className="flex flex-col items-center">
-        {cinemas.map((cinema) => (
-          <CinemaCard
-            key={cinema.cinemaName}
-            cinema={cinema}
-            distance={distances.find(
-              (distance) => distance.cinema === cinema.cinemaName
-            )}
-          />
-        ))}
-      </div>
+      <div className="flex flex-col items-center">{cinemaCardElements}</div>
     </>
   );
 };
