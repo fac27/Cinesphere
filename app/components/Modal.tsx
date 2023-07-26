@@ -1,23 +1,27 @@
+import React, { Dispatch, SetStateAction } from "react";
 import Filter from "./Filter";
-import { genres, languages, ageRating, era, score } from "@/Data/Filters";
+import { genres, languages, era } from "@/Data/Filters";
 
 interface Props {
   isVisible: boolean;
+  setIsVisible: Dispatch<SetStateAction<boolean>>;
 }
 
-const Modal = ({ isVisible }: Props) => {
+const Modal = ({ isVisible, setIsVisible }: Props): React.JSX.Element => {
   return (
-    <dialog open={isVisible ? true : undefined} className="text-center my-4">
+    <dialog open={isVisible} className="text-center my-4">
       <Filter filters={genres} category="GENRE" />
       <Filter filters={languages} category="LANGUAGE" />
-      <Filter filters={ageRating} category="AGE RATING" />
       <Filter filters={era} category="ERA" />
-      <Filter filters={score} category="SCORE" />
-      <form method="dialog">
-        <button type="submit" className="p-2 text-white bg-black rounded-lg">
-          Done
-        </button>
-      </form>
+      <button
+        type="button"
+        onClick={() => {
+          setIsVisible(false);
+        }}
+        className="p-2 text-white bg-black rounded-lg"
+      >
+        Done
+      </button>
     </dialog>
   );
 };

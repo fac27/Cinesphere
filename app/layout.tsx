@@ -3,6 +3,7 @@ import React from "react";
 import type { Metadata } from "next";
 import { IBM_Plex_Mono } from "next/font/google";
 import Header from "./components/Header";
+import { FilterProvider } from "./Context/store";
 
 const ibmPlexMono = IBM_Plex_Mono({
   weight: ["400", "500", "600", "700"],
@@ -21,10 +22,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`h-screen ${ibmPlexMono.className}`}>
-        <Header />
-        {children}
-      </body>
+      <FilterProvider>
+        <body className={ibmPlexMono.className}>
+          <Header />
+          {children}
+        </body>
+      </FilterProvider>
     </html>
   );
 }

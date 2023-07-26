@@ -22,6 +22,15 @@ export interface CinemaType {
     Interior2: string;
     Interior3: string;
   };
+  [key: string]: any;
+}
+
+export interface LanguageCodeObjType {
+  [languageName: string]: string;
+}
+
+export interface GenreCodeObjType {
+  [genreName: string]: number;
 }
 
 export interface FilmType {
