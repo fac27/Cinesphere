@@ -22,7 +22,6 @@ export const languages = [
 
 export const ageRating = ["U", "PG", "12A", "12", "15", "18", "R18"];
 
-
 export const era = [
   "1930s",
   "1940s",
