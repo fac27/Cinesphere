@@ -21,7 +21,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={ibmPlexMono.className}>
+      <body className={`h-screen ${ibmPlexMono.className}`}>
         <Header />
         {children}
       </body>
