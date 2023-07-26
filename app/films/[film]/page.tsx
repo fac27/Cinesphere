@@ -19,7 +19,7 @@ const Page: React.FC<{}> = (): React.JSX.Element => {
   });
 
   return (
-    <div>
+    <div className="md:w-2/3 ml-auto mr-auto mb-2">
       <div className="flex justify-between w-80 mt-7 mr-auto ml-auto">
         <Link href={"/films"} className="uppercase flex gap-2 items-center">
           <span>
@@ -33,7 +33,7 @@ const Page: React.FC<{}> = (): React.JSX.Element => {
         </Link>
       </div>
 
-      <div className="relative mt-5 w-100 h-56 lg:h-full">
+      <div className="relative mt-5 w-100 h-56 md:h-96">
         <Image
           src={`https://image.tmdb.org/t/p/w500${film?.backdrop_path}`}
           alt={"a snapshot of the film asteroid city"}
@@ -62,7 +62,7 @@ const Page: React.FC<{}> = (): React.JSX.Element => {
         </p>
       </div>
 
-      <div className="relative mt-5 w-100 h-56">
+      <div className="relative mt-5 w-100 h-56 md:hidden">
         <Image
           src={`https://image.tmdb.org/t/p/w500${film?.poster_path}`}
           alt={"a snapshot of the film asteroid city"}

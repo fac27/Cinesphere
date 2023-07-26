@@ -20,10 +20,6 @@ module.exports = {
         filmUrl:
           "url(https://images.pexels.com/photos/3056056/pexels-photo-3056056.jpeg?cs=srgb&dl=pexels-collis-3056056.jpg&fm=jpg)",
       },
-      // backgroundImage: {
-      //   "backdrop-film":
-      //     "url('https://image.tmdb.org/t/p/w500/1E5baAaEse26fej7uHcjOgEE2t2.jpg')",
-      // },
 
       colors: {
         bgColour1: "#FFC700",
