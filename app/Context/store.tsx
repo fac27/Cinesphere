@@ -1,14 +1,28 @@
 "use client";
 
-import { useContext, createContext, useState } from "react";
+import React, { useContext, createContext, useState, ReactNode } from "react";
 
-const FilterContext = createContext<string[]>(["string"]);
+interface FilterContextProps {
+  selectedGenres: string[];
+  setSelectedGenres: React.Dispatch<React.SetStateAction<string[]>>;
+  selectedLanguages: string[];
+  setSelectedLanguages: React.Dispatch<React.SetStateAction<string[]>>;
+  selectedDecades: string[];
+  setSelectedDecades: React.Dispatch<React.SetStateAction<string[]>>;
+}
+
+const FilterContext = createContext<FilterContextProps | undefined>(undefined);
 
 export const FilterProvider = ({ children }: { children: ReactNode }) => {
-  //state stuff
-  const [selectedGenres, setSelectedGenres] = useState<string[]>([]);
-  const [selectedLanguages, setSelectedLanguages] = useState<string[]>([]);
-  const [selectedDecades, setSelectedDecades] = useState<string[]>([]);
+  const [selectedGenres, setSelectedGenres] = useState<string[]>(
+    [] as string[]
+  );
+  const [selectedLanguages, setSelectedLanguages] = useState<string[]>(
+    [] as string[]
+  );
+  const [selectedDecades, setSelectedDecades] = useState<string[]>(
+    [] as string[]
+  );
 
   return (
     <FilterContext.Provider

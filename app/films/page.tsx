@@ -1,13 +1,11 @@
 "use client";
 import { BiSliderAlt } from "react-icons/bi";
 import { useState } from "react";
-
 import FilmCard from "./components/FilmCard";
 import Modal from "../components/Modal";
 
 const Films = () => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
-
   return (
     <>
       <Modal isVisible={isVisible} />

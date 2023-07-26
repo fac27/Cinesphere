@@ -2,18 +2,18 @@
 import { FC, useState, useEffect } from "react";
 import React from "react";
 import Image from "next/image";
-
 import { getFilmData } from "@/Utils/getFilmData";
 import screenings from "@/Data/Screenings";
 import { getImdbIds } from "@/Utils/getImdbIds";
 import { genreCodes, languageCodes } from "@/Data/FilteringCodes";
+import { useFilters } from "@/app/Context/store";
 
-const FilmCard: FC<{
-  selectedGenres: string[];
-  selectedLanguages: string[];
-  selectedDecades: string[];
-}> = ({ selectedGenres, selectedLanguages, selectedDecades }) => {
+const FilmCard: FC = () => {
   const [filmData, setFilmData] = useState<any[]>([]);
+
+  const selectedGenres = useFilters();
+  const selectedDecades = useFilters();
+  const selectedLanguages = useFilters();
 
   useEffect(() => {
     const imdb_id_arr = getImdbIds(screenings);
@@ -24,53 +24,14 @@ const FilmCard: FC<{
           imdb_id_arr.map((element: any) => getFilmData(element))
         );
         setFilmData(filmDataArr);
-        console.log(filmDataArr);
-      } catch (error) {
+      } catch (error: unknown) {
         console.error(error);
       }
     };
     fetchData();
   }, []);
 
-  const filteredFilmData = filmData.filter((film) => {
-    const genreCodesArr = selectedGenres.map(
-      (genreName) => genreCodes[genreName]
-    );
-
-    const languageCodesArr = selectedLanguages.map((languageName) => {
-      for (const code in languageCodes) {
-        if (languageCodes[code] === languageName) {
-          return code;
-        }
-      }
-      return null;
-    });
-
-    console.log(selectedDecades);
-
-    const isGenreMatch =
-      selectedGenres.length === 0 ||
-      genreCodesArr.some((genreCode) => film.genre_ids.includes(genreCode));
-
-    const isLanguageMatch =
-      selectedLanguages.length === 0 ||
-      languageCodesArr.some((languageCode) =>
-        film.original_language.includes(languageCode)
-      );
-
-    const isDecadeMatch =
-      selectedDecades.length === 0 ||
-      selectedDecades.some((decade) => {
-        const filmReleaseYear = parseInt(film.release_date.substring(0, 4));
-        const selectedDecadeStartYear = parseInt(decade);
-        return (
-          filmReleaseYear >= selectedDecadeStartYear &&
-          filmReleaseYear <= selectedDecadeStartYear + 9
-        );
-      });
-
-    return isGenreMatch && isDecadeMatch && isLanguageMatch;
-  });
+  const filteredFilmData = filmData;
 
   return (
     <>
