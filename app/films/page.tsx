@@ -7,21 +7,10 @@ import Modal from "../components/Modal";
 
 const Films = () => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
-  const [selectedGenres, setSelectedGenres] = useState<string[]>([]);
-  const [selectedLanguages, setSelectedLanguages] = useState<string[]>([]);
-  const [selectedDecades, setSelectedDecades] = useState<string[]>([]);
 
   return (
     <>
-      <Modal
-        isVisible={isVisible}
-        selectedGenres={selectedGenres}
-        setSelectedGenres={setSelectedGenres}
-        selectedLanguages={selectedLanguages}
-        setSelectedLanguages={setSelectedLanguages}
-        selectedDecades={selectedDecades}
-        setSelectedDecades={setSelectedDecades}
-      />
+      <Modal isVisible={isVisible} />
       <div className="flex flex-row justify-center mt-4">
         <input
           type="text"
@@ -39,11 +28,7 @@ const Films = () => {
           Filter
         </button>
       </div>
-      <FilmCard
-        selectedGenres={selectedGenres}
-        selectedLanguages={selectedLanguages}
-        selectedDecades={selectedDecades}
-      />
+      <FilmCard />
     </>
   );
 };

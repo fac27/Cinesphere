@@ -2,9 +2,9 @@
 
 import { useContext, createContext, useState } from "react";
 
-const FilterContext = createContext<null | string[]>(null);
+const FilterContext = createContext<string[]>(["string"]);
 
-const FilterProvider = ({ children }: { children: ReactNode }) => {
+export const FilterProvider = ({ children }: { children: ReactNode }) => {
   //state stuff
   const [selectedGenres, setSelectedGenres] = useState<string[]>([]);
   const [selectedLanguages, setSelectedLanguages] = useState<string[]>([]);

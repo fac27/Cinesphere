@@ -8,15 +8,11 @@ import screenings from "@/Data/Screenings";
 import { getImdbIds } from "@/Utils/getImdbIds";
 import { genreCodes, languageCodes } from "@/Data/FilteringCodes";
 
-const FilmCard: FC<{ 
-  selectedGenres: string[] 
-  selectedLanguages: string[]
-  selectedDecades: string[]  
-}> = ({
-  selectedGenres,
-  selectedLanguages,
-  selectedDecades,
-}) => {
+const FilmCard: FC<{
+  selectedGenres: string[];
+  selectedLanguages: string[];
+  selectedDecades: string[];
+}> = ({ selectedGenres, selectedLanguages, selectedDecades }) => {
   const [filmData, setFilmData] = useState<any[]>([]);
 
   useEffect(() => {
