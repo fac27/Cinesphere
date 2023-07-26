@@ -1,23 +1,28 @@
 "use client";
 
+import React, { useState } from "react";
 import { useEffect } from "react";
 import { BiSliderAlt } from "react-icons/bi";
-import { useState } from "react";
 
 import CinemaCard from "./components/CinemaCard";
 import cinemas from "../../Data/Cinemas";
 import { haversine } from "@/Utils/calculateDistance";
 
 const Cinemas = () => {
-  const [postcode, setPostcode] = useState("");
-  const [distances, setDistances] = useState([]);
+  const [userPostcode, setUserPostcode] = useState<string>("");
+  const [distances, setDistances] = useState<
+    { cinema: string; distance: string }[]
+  >([]);
 
-  const updatePostcode = (event: any) => {
-    setPostcode(event.target.value);
+  const handlePostcode = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const postcode = event.target.elements[0].value;
+
+    setUserPostcode(postcode);
   };
 
   useEffect(() => {
-    const getCoordinates = async (postcode) => {
+    const getCoordinates = async (postcode: string) => {
       const response = await fetch("/api/coordinates", {
         method: "POST",
         headers: {
@@ -34,7 +39,7 @@ const Cinemas = () => {
       const distances = cinemas.map(async (cinema) => {
         const cinemaPostcode = cinema.postcode;
 
-        const userCoordinates = await getCoordinates("M146WP");
+        const userCoordinates = await getCoordinates(userPostcode);
         const cinemaCoordinates = await getCoordinates(cinemaPostcode);
 
         const distance = haversine(
@@ -44,7 +49,7 @@ const Cinemas = () => {
           cinemaCoordinates.lon
         );
 
-        return distance;
+        return { cinema: cinema.cinemaName, distance: distance };
       });
 
       Promise.all(distances).then((resolvedDistances) => {
@@ -53,29 +58,25 @@ const Cinemas = () => {
     };
 
     getDistances();
-  }, []);
-
-  console.log(distances);
+  }, [userPostcode]);
 
   return (
     <>
       <div className="m-5 mb-10 flex justify-between">
-        <div className="cinemas__searchbar flex items-center gap-1">
+        <form
+          onSubmit={handlePostcode}
+          className="cinemas__searchbar flex items-center gap-1"
+        >
           <input
             type="text"
             className="p-2 w-40 flex border border-black rounded-lg"
             placeholder="postcode"
-            value={postcode}
-            onChange={updatePostcode}
           ></input>
-          <button
-            // onClick={search}
-            type="submit"
-            className="p-2 text-white bg-black rounded-lg"
-          >
+          <button type="submit" className="p-2 text-white bg-black rounded-lg">
             Search
           </button>
-        </div>
+        </form>
+
         <button
           type="button"
           className="p-2 flex items-center gap-1 rounded-lg border border-black"
@@ -89,7 +90,9 @@ const Cinemas = () => {
           <CinemaCard
             key={cinema.cinemaName}
             cinema={cinema}
-            postcode={postcode}
+            distance={distances.find(
+              (distance) => distance.cinema === cinema.cinemaName
+            )}
           />
         ))}
       </div>
