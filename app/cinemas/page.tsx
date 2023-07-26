@@ -6,42 +6,56 @@ import { useState } from "react";
 
 import CinemaCard from "./components/CinemaCard";
 import cinemas from "../../Data/Cinemas";
+import { haversine } from "@/Utils/calculateDistance";
 
 const Cinemas = () => {
   const [postcode, setPostcode] = useState("");
+  const [distances, setDistances] = useState([]);
 
   const updatePostcode = (event: any) => {
     setPostcode(event.target.value);
   };
 
   useEffect(() => {
-    const fetchData = async () => {
+    const getCoordinates = async (postcode) => {
       const response = await fetch("/api/coordinates", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
 
-        body: "m146wp",
+        body: JSON.stringify({ postcode }),
       });
 
-      const test = await response.json();
-      console.log(test);
+      return await response.json();
     };
 
-    fetchData();
+    const getDistances = async () => {
+      const distances = cinemas.map(async (cinema) => {
+        const cinemaPostcode = cinema.postcode;
+
+        const userCoordinates = await getCoordinates("M146WP");
+        const cinemaCoordinates = await getCoordinates(cinemaPostcode);
+
+        const distance = haversine(
+          userCoordinates.lat,
+          userCoordinates.lon,
+          cinemaCoordinates.lat,
+          cinemaCoordinates.lon
+        );
+
+        return distance;
+      });
+
+      Promise.all(distances).then((resolvedDistances) => {
+        setDistances(resolvedDistances);
+      });
+    };
+
+    getDistances();
   }, []);
 
-  // const search = async () => {
-  //   const response = await fetch("/api/coordinates", {
-  //     method: 'POST',
-  //     headers: {
-  //       "Content-type": "application/json"
-  //     }, body: JSON.stringify("m146wp")
-  //   });
-
-  //   console.log("distance", response);
-  // };
+  console.log(distances);
 
   return (
     <>

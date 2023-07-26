@@ -36,7 +36,7 @@ export const haversine = (
 
   // Calculate the distance using the Haversine formula.
   const distance = R * c;
-  console.log("haversine function distance", distance.toFixed(2) + "km");
+  // console.log("haversine function distance", distance.toFixed(2) + "km");
   return distance.toFixed(2) + "km";
 };
 
