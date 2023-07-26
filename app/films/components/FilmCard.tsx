@@ -1,36 +1,22 @@
 "use client";
+
+import React from "react";
+
 import { FC } from "react";
-import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { FilmType } from "@/Types/Object-Interfaces";
 
-import { getFilmData } from "@/Utils/getFilmData";
-import screenings from "@/Data/Screenings";
-import { getImdbIds } from "@/Utils/getImdbIds";
-
-const FilmCard: FC = () => {
-  const [filmData, setFilmData] = useState<any[]>([]);
-
-  useEffect(() => {
-    const imdb_id_arr = getImdbIds(screenings);
-
-    const fetchData = async () => {
-      try {
-        const filmDataArr = await Promise.all(
-          imdb_id_arr.map((element: any) => getFilmData(element))
-        );
-        setFilmData(filmDataArr);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    fetchData();
-  }, []);
+const FilmCard: FC<{ film: FilmType }> = ({ film }): React.JSX.Element => {
+  const data = JSON.stringify(film);
 
   return (
     <div className="flex-col flex items-center mt-4">
-      {filmData.map((film) => (
+      <Link
+        href={`/films/${film.title}?data=${encodeURIComponent(data)}`}
+        key={film.id}
+      >
         <div
-          key={film.id}
           className={`my-2 bg-[url('https://image.tmdb.org/t/p/w500${film.backdrop_path}')] w-72`}
         >
           <Image
@@ -39,10 +25,11 @@ const FilmCard: FC = () => {
             alt="whatever"
             src={`https://image.tmdb.org/t/p/w500${film.backdrop_path}`}
           ></Image>
+
           <h1>{film.title}</h1>
           <h2>{film.release_date}</h2>
         </div>
-      ))}
+      </Link>
     </div>
   );
 };
