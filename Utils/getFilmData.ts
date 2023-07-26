@@ -1,7 +1,7 @@
 export const getFilmData = async (imdb_film_id: string) => {
   try {
     const response = await fetch(
-      `https://api.themoviedb.org/3/find/${imdb_film_id}?external_source=imdb_id`,
+      `https://api.themoviedb.org/3/movie/${imdb_film_id}`,
       {
         method: "GET",
         headers: {
@@ -16,8 +16,7 @@ export const getFilmData = async (imdb_film_id: string) => {
       throw new Error("Network response was not ok");
     }
 
-    const data = await response.json();
-    const filmData = data.movie_results[0];
+    const filmData = await response.json();
 
     return filmData;
   } catch (err) {
