@@ -6,7 +6,7 @@ import { BiSliderAlt } from "react-icons/bi";
 
 import CinemaCard from "./components/CinemaCard";
 import cinemas from "../../Data/Cinemas";
-import { haversine } from "@/Utils/calculateDistance";
+import { haversine } from "@/Utils/haversine";
 
 const Cinemas = () => {
   const [userPostcode, setUserPostcode] = useState<string>("");

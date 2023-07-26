@@ -1,23 +1,3 @@
-// export const getCoordinates = async (postcode: any) => {
-//   const response = await fetch(
-//     `https://api.postcodes.io/postcodes/${postcode}`
-//   );
-//   const data = await response.json();
-//   const lon = data.result.longitude;
-//   const lat = data.result.latitude;
-//   console.log("LONG COORDINATES", lon, "LAT COORDINATES", lat);
-//   return [lon, lat];
-// };
-
-// export const calculateDistance = async (
-//   userPostcode: string,
-//   cinPostcode: string
-// ) => {
-//   const [userLon, userLat] = await getCoordinates(userPostcode);
-//   const [cinLon, cinLat] = await getCoordinates(cinPostcode);
-//   return haversine(userLon, userLat, cinLon, cinLat);
-// };
-
 export const haversine = (
   lat1: number,
   lon1: number,

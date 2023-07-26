@@ -26,9 +26,7 @@ const CinemaCard: FC<CinemaCardProps> = ({ cinema, distance }) => {
       <Link href={`/cinemas/${cinema.cinemaName}`}>
         <div className="p-5 lg:p-10 mt-5 pb-15 absolute top-0 left-0 text-white">
           <h2 className="text-2xl font-bold">{cinema.cinemaName}</h2>
-          <h3 className="mb-10">
-            {distance.distance === "NaNkm" ? "" : distance.distance}
-          </h3>
+          <h3 className="mb-10">{distance ? distance.distance : ""}</h3>
           <h3 className="mb-10">{cinema.area}</h3>
           <p className="mb-10">{cinema.about}</p>
           <CinemaFeaturesList cinema={cinema} />
