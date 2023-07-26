@@ -1,14 +1,20 @@
 export const getCoordinates = async (postcode: any) => {
-  const response = await fetch (`https://api.postcodes.io/postcodes/${postcode}`)
+  const response = await fetch(
+    `https://api.postcodes.io/postcodes/${postcode}`
+  );
   const data = await response.json();
-  const lon = data.result.longitude
-  const lat = data.result.latitude
-  console.log("LONG COORDINATES", lon, "LAT COORDINATES", lat)
-  return [lon, lat]
-}
+  const lon = data.result.longitude;
+  const lat = data.result.latitude;
+  console.log("LONG COORDINATES", lon, "LAT COORDINATES", lat);
+  return [lon, lat];
+};
 
-
-export const haversine = (lat1: number, lon1:number, lat2:number, lon2:number) => {
+export const haversine = (
+  lat1: number,
+  lon1: number,
+  lat2: number,
+  lon2: number
+) => {
   // Earth's radius in kilometers.
   const R = 6371;
 
@@ -21,28 +27,24 @@ export const haversine = (lat1: number, lon1:number, lat2:number, lon2:number) =
   const a =
     Math.sin(dLat / 2) * Math.sin(dLat / 2) +
     Math.cos(lat1 * (Math.PI / 180)) *
-    Math.cos(lat2 * (Math.PI / 180)) *
-    Math.sin(dLon / 2) *
-    Math.sin(dLon / 2);
+      Math.cos(lat2 * (Math.PI / 180)) *
+      Math.sin(dLon / 2) *
+      Math.sin(dLon / 2);
 
   // Calculate the central angle (in radians) between the two points.
   const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 
   // Calculate the distance using the Haversine formula.
   const distance = R * c;
-  console.log("haversine function distance", distance.toFixed(2) + "km")
-  return (distance.toFixed(2) + "km")
-  
-}
+  console.log("haversine function distance", distance.toFixed(2) + "km");
+  return distance.toFixed(2) + "km";
+};
 
-
-export const calculateDistance = async (userPostcode:string, cinPostcode:string) => {
-  const [userLon, userLat] = await getCoordinates(userPostcode)
-  const [cinLon, cinLat] = await getCoordinates(cinPostcode)
-  return haversine(userLon, userLat, cinLon, cinLat)
-}
-
-
-
-
-
+export const calculateDistance = async (
+  userPostcode: string,
+  cinPostcode: string
+) => {
+  const [userLon, userLat] = await getCoordinates(userPostcode);
+  const [cinLon, cinLat] = await getCoordinates(cinPostcode);
+  return haversine(userLon, userLat, cinLon, cinLat);
+};

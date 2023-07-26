@@ -37,7 +37,8 @@ export const cinemas: CinemaType[] = [
     cinemaName: "The David Lean Cinema",
     about:
       "The David Lean cinema is a 68 seat arts cinema based in the Croydon Clocktower arts complex. It is run by a non-profit community interest company and staffed by volunteers.",
-    address: "The David Lean Cinema, Croydon Clocktower, Katharine Street, Croydon, CR9 1ET",
+    address:
+      "The David Lean Cinema, Croydon Clocktower, Katharine Street, Croydon, CR9 1ET",
     postcode: "CR9 1ET",
     area: "Croydon",
     website: "https://www.davidleancinema.org.uk/",

@@ -5,15 +5,12 @@ import CinemaFeaturesList from "./CinemaFeaturesList";
 import Image from "next/image";
 import Link from "next/link";
 
-
 interface CinemaCardProps {
   cinema: CinemaType;
   postcode: string;
 }
 
-
 const CinemaCard: FC<CinemaCardProps> = ({ cinema }) => {
-
   return (
     <div className="mb-10 relative w-5/6 rounded-2xl overflow-hidden cursor-pointer">
       <div className="relative h-0 pb-[195%] xs:pb-[170%] sm:pb-[75%] md:pb-[45%]">
