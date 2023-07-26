@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useFilters } from "../Context/store";
 
 type Props = {
@@ -7,6 +7,8 @@ type Props = {
 };
 
 const FilterTag = ({ filter, category }: Props) => {
+  const [isSelected, setIsSelected] = useState(false);
+
   const filterContext = useFilters();
 
   const selectFilter = (category: string): void => {
@@ -36,9 +38,28 @@ const FilterTag = ({ filter, category }: Props) => {
     }
   };
 
+  function filterByCategory(
+    state: string[],
+    setState: React.Dispatch<React.SetStateAction<string[]>>,
+    filter: string
+  ) {
+    const isInArr = state.find((genre: string) => genre === filter);
+    if (isInArr) {
+      setState((prevGenres: string[]) =>
+        prevGenres.filter((genre: string) => genre !== filter)
+      );
+      setIsSelected(false);
+    } else {
+      setState((prevGenres: string[]) => [...prevGenres, filter]);
+      setIsSelected(true);
+    }
+  }
+
   return (
     <button
-      className={`bg-slate-300 rounded border-black mx-1 my-1 p-0.5`}
+      className={`bg-slate-300 rounded border-black mx-1 my-1 p-0.5 ${
+        isSelected ? "bg-purple-700 text-white" : ""
+      }`}
       onClick={() => selectFilter(category)}
     >
       {filter}
@@ -47,18 +68,3 @@ const FilterTag = ({ filter, category }: Props) => {
 };
 
 export default FilterTag;
-
-function filterByCategory(
-  state: string[],
-  setState: React.Dispatch<React.SetStateAction<string[]>>,
-  filter: string
-) {
-  const isInArr = state.find((genre: string) => genre === filter);
-  if (isInArr) {
-    setState((prevGenres: string[]) =>
-      prevGenres.filter((genre: string) => genre !== filter)
-    );
-  } else {
-    setState((prevGenres: string[]) => [...prevGenres, filter]);
-  }
-}
