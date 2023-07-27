@@ -77,7 +77,7 @@ const Cinemas = () => {
 
   const filterArr = [
     { name: "AMENITIES", filters: amenities },
-    { name: "ACCESSIBBILITY", filters: accessibility },
+    { name: "ACCESSIBILITY", filters: accessibility },
   ];
 
   return (

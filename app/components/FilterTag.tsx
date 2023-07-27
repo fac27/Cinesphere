@@ -36,6 +36,15 @@ const FilterTag = ({ filter, category }: Props) => {
         >;
       filterByCategory(selectedDecades, setSelectedDecades, filter);
     }
+    if (category.toUpperCase() == "ACCESSIBILITY") {
+      const selectedAccessibility =
+        filterContext?.selectedAccessibility as string[];
+      const setSelectedAccessibility =
+        filterContext?.setSelectedAccessibility as React.Dispatch<
+          React.SetStateAction<string[]>
+        >;
+      filterByCategory(selectedAccessibility, setSelectedAccessibility, filter);
+    }
   };
 
   function filterByCategory(
@@ -57,8 +66,8 @@ const FilterTag = ({ filter, category }: Props) => {
 
   return (
     <button
-      className={`bg-slate-300 rounded border-black mx-1 my-1 p-0.5 ${
-        isSelected ? "bg-purple-500 text-white" : ""
+      className={`rounded border-black mx-1 my-1 p-0.5 ${
+        isSelected ? "bg-purple-700 text-white" : "bg-slate-300 "
       }`}
       onClick={() => selectFilter(category)}
     >
