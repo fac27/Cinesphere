@@ -201,7 +201,7 @@ export const cinemas: CinemaType[] = [
     HoHDetails:
       "Select screenings have subtitles. Foreign language films have subtitles.",
     visualImpairmentDetails:
-      "Dolby Fidelio offers Hearing Impaired and Visually Impaired options. Check availability.",
+      "Dolby Fidelio system offers Hearing Impaired and Visually Impaired options. Check availability.",
     neurodiverseDetails: false,
     freeCarerTicketsDetails:
      "CEA cardholders get free carer ticket. Book online or in-person.",
