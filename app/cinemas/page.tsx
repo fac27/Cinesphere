@@ -2,12 +2,13 @@
 
 import React, { useState, useRef } from "react";
 import { useEffect } from "react";
-import { BiSliderAlt } from "react-icons/bi";
 
 import CinemaCard from "./components/CinemaCard";
 import cinemas from "../../Data/Cinemas";
 import { filterLabels } from "@/Data/FilteringCodes";
 import { haversine } from "@/Utils/haversine";
+import FilterModal from "../components/FilterModal";
+import FilterBar from "../components/FilterBar";
 
 const Cinemas = () => {
   const postcodeInputRef = useRef<HTMLInputElement>(null);
@@ -15,24 +16,9 @@ const Cinemas = () => {
   const [distances, setDistances] = useState<
     { cinema: string; distance: string }[]
   >([]);
-  const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
+  const [isVisible, setIsVisible] = useState(false);
 
-  const handleFilterChange = (filter: string) => {
-    setSelectedFilters((prevFilters: string[]) =>
-      prevFilters.includes(filter)
-        ? prevFilters.filter((item: string) => item !== filter)
-        : [...prevFilters, filter]
-    );
-  };
-
-  const filteredCinemas = cinemas.filter((cinema) =>
-    selectedFilters.every((filter) => {
-      if (filter === "wheelchairAccessible") {
-        return cinema[filter] === true || cinema[filter] === "Partial";
-      }
-      return cinema[filter] === true;
-    })
-  );
+  const filteredCinemas = cinemas;
 
   const handlePostcode = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -91,6 +77,8 @@ const Cinemas = () => {
 
   return (
     <>
+      <FilterModal isVisible={isVisible} setIsVisible={setIsVisible} />
+      <FilterBar setIsVisible={setIsVisible} />
       <div className="m-5 mb-10 flex justify-between">
         <form
           onSubmit={handlePostcode}
@@ -106,27 +94,6 @@ const Cinemas = () => {
             Search
           </button>
         </form>
-
-        <button
-          type="button"
-          className="p-2 flex items-center gap-1 rounded-lg border border-black"
-        >
-          <BiSliderAlt />
-          Filter
-        </button>
-      </div>
-
-      <div>
-        {Object.entries(filterLabels).map(([key, label]) => (
-          <label key={key}>
-            <input
-              type="checkbox"
-              checked={selectedFilters.includes(key)}
-              onChange={() => handleFilterChange(key)}
-            />
-            {label}
-          </label>
-        ))}
       </div>
 
       <div className="flex flex-col items-center">{cinemaCardElements}</div>
