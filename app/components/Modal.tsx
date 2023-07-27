@@ -1,23 +1,16 @@
 import React, { Dispatch, SetStateAction } from "react";
 
 import Filter from "./Filter";
-import { exampleGenres, languages, era } from "@/Data/Filters";
-import { useFilters } from "@/app/Context/store";
+import { languages, era } from "@/Data/Filters";
+
 
 interface Props {
   isVisible: boolean;
   setIsVisible: Dispatch<SetStateAction<boolean>>;
+  genres: string[]
 }
 
-const Modal = ({ isVisible, setIsVisible }: Props): React.JSX.Element => {
-
-  const filterContext = useFilters();
-  const genres = filterContext?.genres as string[];
-  const setGenres = filterContext?.setGenres as React.Dispatch<React.SetStateAction<string[]>>;
-
-  setGenres(exampleGenres)
-  // setGenres(genres)
-
+const Modal = ({ isVisible, setIsVisible, genres }: Props): React.JSX.Element => {
 
   return (
     <dialog open={isVisible} className="text-center my-4">
