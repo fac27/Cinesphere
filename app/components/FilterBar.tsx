@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Dispatch, SetStateAction } from "react";
 import { BiSliderAlt } from "react-icons/bi";
 
 interface Props {

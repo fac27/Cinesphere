@@ -1,6 +1,5 @@
-import { FilterBar } from "./../components/FilterBar";
 ("use client");
-import { BiSliderAlt } from "react-icons/bi";
+import FilterBar from "../components/FilterBar";
 import { useState } from "react";
 import FilmsContainer from "./components/FilmsContainer";
 import Modal from "../components/Modal";
