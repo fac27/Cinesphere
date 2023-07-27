@@ -6,6 +6,8 @@ import Modal from "../components/Modal";
 
 const Films = () => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
+  
+
   return (
     <>
       <Modal isVisible={isVisible} setIsVisible={setIsVisible} />
