@@ -1,23 +1,47 @@
 "use client";
 
+import React, { useState, useRef } from "react";
 import { useEffect } from "react";
 import { BiSliderAlt } from "react-icons/bi";
-import { useState } from "react";
 
 import CinemaCard from "./components/CinemaCard";
 import cinemas from "../../Data/Cinemas";
-import { haversine } from "@/Utils/calculateDistance";
+import { filterLabels } from "@/Data/FilteringCodes";
+import { haversine } from "@/Utils/haversine";
 
 const Cinemas = () => {
-  const [postcode, setPostcode] = useState("");
-  const [distances, setDistances] = useState([]);
+  const postcodeInputRef = useRef<HTMLInputElement>(null);
+  const [userPostcode, setUserPostcode] = useState<string>("");
+  const [distances, setDistances] = useState<
+    { cinema: string; distance: string }[]
+  >([]);
+  const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
 
-  const updatePostcode = (event: any) => {
-    setPostcode(event.target.value);
+  const handleFilterChange = (filter: string) => {
+    setSelectedFilters((prevFilters: string[]) =>
+      prevFilters.includes(filter)
+        ? prevFilters.filter((item: string) => item !== filter)
+        : [...prevFilters, filter]
+    );
+  };
+
+  const filteredCinemas = cinemas.filter((cinema) =>
+    selectedFilters.every((filter) => {
+      if (filter === "wheelchairAccessible") {
+        return cinema[filter] === true || cinema[filter] === "Partial";
+      }
+      return cinema[filter] === true;
+    })
+  );
+
+  const handlePostcode = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const postcode = postcodeInputRef.current?.value || "";
+    setUserPostcode(postcode);
   };
 
   useEffect(() => {
-    const getCoordinates = async (postcode) => {
+    const getCoordinates = async (postcode: string) => {
       const response = await fetch("/api/coordinates", {
         method: "POST",
         headers: {
@@ -34,7 +58,7 @@ const Cinemas = () => {
       const distances = cinemas.map(async (cinema) => {
         const cinemaPostcode = cinema.postcode;
 
-        const userCoordinates = await getCoordinates("M146WP");
+        const userCoordinates = await getCoordinates(userPostcode);
         const cinemaCoordinates = await getCoordinates(cinemaPostcode);
 
         const distance = haversine(
@@ -44,7 +68,7 @@ const Cinemas = () => {
           cinemaCoordinates.lon
         );
 
-        return distance;
+        return { cinema: cinema.cinemaName, distance: distance };
       });
 
       Promise.all(distances).then((resolvedDistances) => {
@@ -53,29 +77,36 @@ const Cinemas = () => {
     };
 
     getDistances();
-  }, []);
+  }, [userPostcode]);
 
-  console.log(distances);
+  const cinemaCardElements = filteredCinemas.map((cinema) => (
+    <CinemaCard
+      key={cinema.cinemaName}
+      cinema={cinema}
+      distance={distances.find(
+        (distance) => distance.cinema === cinema.cinemaName
+      )}
+    />
+  ));
 
   return (
     <>
       <div className="m-5 mb-10 flex justify-between">
-        <div className="cinemas__searchbar flex items-center gap-1">
+        <form
+          onSubmit={handlePostcode}
+          className="cinemas__searchbar flex items-center gap-1"
+        >
           <input
             type="text"
             className="p-2 w-40 flex border border-black rounded-lg"
             placeholder="postcode"
-            value={postcode}
-            onChange={updatePostcode}
+            ref={postcodeInputRef}
           ></input>
-          <button
-            // onClick={search}
-            type="submit"
-            className="p-2 text-white bg-black rounded-lg"
-          >
+          <button type="submit" className="p-2 text-white bg-black rounded-lg">
             Search
           </button>
-        </div>
+        </form>
+
         <button
           type="button"
           className="p-2 flex items-center gap-1 rounded-lg border border-black"
@@ -84,15 +115,21 @@ const Cinemas = () => {
           Filter
         </button>
       </div>
-      <div className="flex flex-col items-center">
-        {cinemas.map((cinema) => (
-          <CinemaCard
-            key={cinema.cinemaName}
-            cinema={cinema}
-            postcode={postcode}
-          />
+
+      <div>
+        {Object.entries(filterLabels).map(([key, label]) => (
+          <label key={key}>
+            <input
+              type="checkbox"
+              checked={selectedFilters.includes(key)}
+              onChange={() => handleFilterChange(key)}
+            />
+            {label}
+          </label>
         ))}
       </div>
+
+      <div className="flex flex-col items-center">{cinemaCardElements}</div>
     </>
   );
 };
