@@ -13,7 +13,7 @@ interface CinemaCardProps {
 const CinemaCard: FC<CinemaCardProps> = ({ cinema, distance }) => {
   return (
     <div className="mb-10 md:w-1/2 relative w-5/6 rounded-2xl overflow-hidden cursor-pointer">
-      <div className="relative h-0 pb-[195%] xs:pb-[170%] sm:pb-[75%] md:pb-[68%]">
+      <div className="relative h-0 pb-[200%] xs:pb-[180%] sm:pb-[80%] md:pb-[75%]">
         <Image
           className="bg-cover bg-center"
           src={cinema.images.Interior2}

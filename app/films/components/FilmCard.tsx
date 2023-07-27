@@ -2,7 +2,6 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FilmType } from "@/Types/Object-Interfaces";
-import Link from "next/link";
 
 interface Props {
   film: FilmType;
