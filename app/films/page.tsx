@@ -1,14 +1,14 @@
-("use client");
+"use client";
 import FilterBar from "../components/FilterBar";
 import { useState } from "react";
 import FilmsContainer from "./components/FilmsContainer";
-import Modal from "../components/Modal";
+import FilterModal from "../components/FilterModal";
 
 const Films = () => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
   return (
     <>
-      <Modal isVisible={isVisible} setIsVisible={setIsVisible} />
+      <FilterModal isVisible={isVisible} setIsVisible={setIsVisible} />
       <FilterBar setIsVisible={setIsVisible} />
       <FilmsContainer />
     </>
