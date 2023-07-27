@@ -1,19 +1,21 @@
 "use client";
+import { useState } from "react";
+
 import { PiFilmReelLight } from "react-icons/pi";
 import { FiMenu } from "react-icons/fi";
-import { useState } from "react";
+import Link from "next/link";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
   return (
     <>
       <div className="h-14 flex items-center justify-between bg-bgColour1">
-        <div className="flex gap-1 items-center">
+        <Link href={"/"} className="flex gap-1 items-center">
           <span className="text-2xl ml-3">
             <PiFilmReelLight />
           </span>
           <h1 className="underline text-2xl">cinesphere</h1>
-        </div>
+        </Link>
 
         <FiMenu
           className="cursor-pointer mr-3"

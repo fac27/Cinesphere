@@ -68,7 +68,7 @@ const FilmsContainer = () => {
 
     return isGenreMatch && isDecadeMatch && isLanguageMatch;
   });
-  console.log(filteredFilmData);
+
   return (
     <>
       <div className="flex-col flex items-center mt-4">
