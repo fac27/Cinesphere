@@ -5,9 +5,10 @@ import { useEffect } from "react";
 
 import CinemaCard from "./components/CinemaCard";
 import cinemas from "../../Data/Cinemas";
-import { haversine } from "@/Utils/haversine";
 import FilterModal from "../components/FilterModal";
 import FilterBar from "../components/FilterBar";
+import { haversine } from "@/Utils/haversine";
+import { accessibility, amenities } from "@/Data/Filters";
 
 const Cinemas = () => {
   const postcodeInputRef = useRef<HTMLInputElement>(null);
@@ -74,9 +75,18 @@ const Cinemas = () => {
     />
   ));
 
+  const filterArr = [
+    { name: "AMENITIES", filters: amenities },
+    { name: "ACCESSIBBILITY", filters: accessibility },
+  ];
+
   return (
     <>
-      <FilterModal isVisible={isVisible} setIsVisible={setIsVisible} />
+      <FilterModal
+        filterArr={filterArr}
+        isVisible={isVisible}
+        setIsVisible={setIsVisible}
+      />
       <FilterBar setIsVisible={setIsVisible} />
       <div className="m-5 mb-10 flex justify-between">
         <form

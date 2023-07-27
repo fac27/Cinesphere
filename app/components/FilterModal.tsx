@@ -1,19 +1,17 @@
 import React, { Dispatch, SetStateAction } from "react";
 import Filter from "./Filter";
-import { genres, languages, eras } from "@/Data/Filters";
 
 interface Props {
   isVisible: boolean;
   setIsVisible: Dispatch<SetStateAction<boolean>>;
-  filterArr?: string[];
+  filterArr: { name: string; filters: string[] }[];
 }
 
-const FilterModal = ({ isVisible, setIsVisible }: Props): React.JSX.Element => {
-  const filterArr = [
-    { name: "GENRES", filters: genres },
-    { name: "LANGUAGES", filters: languages },
-    { name: "ERAS", filters: eras },
-  ];
+const FilterModal = ({
+  isVisible,
+  setIsVisible,
+  filterArr,
+}: Props): React.JSX.Element => {
   return (
     <dialog open={isVisible} className="text-center my-4 z-50">
       {filterArr.map((filter, index) => {
