@@ -12,10 +12,10 @@ import { haversine } from "@/Utils/haversine";
 const Cinemas = () => {
   const postcodeInputRef = useRef<HTMLInputElement>(null);
   const [userPostcode, setUserPostcode] = useState<string>("");
+  const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
   const [distances, setDistances] = useState<
     { cinema: string; distance: string }[]
   >([]);
-  const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
 
   const handleFilterChange = (filter: string) => {
     setSelectedFilters((prevFilters: string[]) =>
