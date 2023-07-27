@@ -15,15 +15,15 @@ export const cinemas: CinemaType[] = [
     wheelchairAccessible: "Partial",
     freeCarerTickets: true,
     wheelchairDetails:
-    "The Lexi Cinema’s retrofitted Edwardian building presents access challenges, but we're committed to improving access. Wheelchair seats can be booked by phone or at the box office. Accessible gender-neutral toilets are available.",
+      "The Lexi Cinema’s retrofitted Edwardian building presents access challenges, but we're committed to improving access. Wheelchair seats can be booked by phone or at the box office. Accessible gender-neutral toilets are available.",
     HoHDetails:
-    "Hearing loop upgraded to Dolby Fidelio system. Headsets available. Check program for closed caption and audio described screenings.",
+      "Hearing loop upgraded to Dolby Fidelio system. Headsets available. Check program for closed caption and audio described screenings.",
     visualImpairmentDetails:
-    "Dolby Fidelio offers audio description for some films. Guide dogs welcome.",
+      "Dolby Fidelio offers audio description for some films. Guide dogs welcome.",
     neurodiverseDetails:
-    "Relaxed Screenings offer autism-friendly environment with no ads/trailers, lower volume/lighting. Download Visual Guide for first-time visits.",
+      "Relaxed Screenings offer autism-friendly environment with no ads/trailers, lower volume/lighting. Download Visual Guide for first-time visits.",
     freeCarerTicketsDetails:
-    "Free carer tickets available. Book in advance or in-person, no ID required.",
+      "Free carer tickets available. Book in advance or in-person, no ID required.",
     bar: true,
     cafe: false,
     images: {
@@ -110,9 +110,9 @@ export const cinemas: CinemaType[] = [
     HoHDetails: false,
     visualImpairmentDetails: false,
     neurodiverseDetails:
-     "Relaxed Screenings offer autism-friendly environment. Informal setting, exit anytime.",
+      "Relaxed Screenings offer autism-friendly environment. Informal setting, exit anytime.",
     freeCarerTicketsDetails:
-     "Carers get free ticket. Book in advance via email or in-person.",
+      "Carers get free ticket. Book in advance via email or in-person.",
     bar: true,
     cafe: true,
     images: {
@@ -173,7 +173,7 @@ export const cinemas: CinemaType[] = [
       "Narration track through headset for some films. Check availability before visit.",
     neurodiverseDetails: false,
     freeCarerTicketsDetails:
-     "CEA cardholders get free carer ticket. Book online, in-person, or over the phone.",
+      "CEA cardholders get free carer ticket. Book online, in-person, or over the phone.",
     bar: true,
     cafe: true,
     images: {
@@ -197,14 +197,14 @@ export const cinemas: CinemaType[] = [
     wheelchairAccessible: false,
     freeCarerTickets: true,
     wheelchairDetails:
-     "No full wheelchair access due to narrow stairwell. Updates will be provided if possible changes.",
+      "No full wheelchair access due to narrow stairwell. Updates will be provided if possible changes.",
     HoHDetails:
       "Select screenings have subtitles. Foreign language films have subtitles.",
     visualImpairmentDetails:
       "Dolby Fidelio system offers Hearing Impaired and Visually Impaired options. Check availability.",
     neurodiverseDetails: false,
     freeCarerTicketsDetails:
-     "CEA cardholders get free carer ticket. Book online or in-person.",
+      "CEA cardholders get free carer ticket. Book online or in-person.",
     bar: true,
     cafe: false,
     images: {
