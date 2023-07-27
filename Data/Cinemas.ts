@@ -48,9 +48,9 @@ export const cinemas: CinemaType[] = [
     wheelchairAccessible: true,
     freeCarerTickets: true,
     wheelchairDetails:
-      "The cinema is accessible by ramp and lift. Up to 2 wheelchair spaces are available – advance booking is recommended as these will be re-assigned to standard seating if demand for a screening is high and they remain unbooked.",
+      "Cinema accessible by ramp and lift. Up to 2 wheelchair spaces available.",
     HoHDetails:
-      "Infrared receivers with personal loop are available for those with impaired hearing (note that this facility is not available at all screenings as the Council Chamber has a similar facility which may cause interference during meetings). At least one film a month is scheduled with subtitles for hard of hearing patrons. See film listings for details. Most months also have foreign language film screenings which deploy English sub titles.",
+      "Infrared receivers with personal loop provided. Monthly subtitled screenings.",
     visualImpairmentDetails: false,
     neurodiverseDetails: false,
     freeCarerTicketsDetails:
@@ -78,7 +78,7 @@ export const cinemas: CinemaType[] = [
     wheelchairAccessible: true,
     freeCarerTickets: true,
     wheelchairDetails:
-      "To book the designated space and adjoining seat, please email info@arthousecrouchend.co.uk or visit us in person at the venue. The wheelchair position and neighbouring seat are available at all performances and will be released for general sale 24hours prior to performance if not booked.",
+      "To book designated space and adjoining seat, email info@arthousecrouchend.co.uk or visit in person. Spaces released if unbooked 24h prior.",
     HoHDetails: false,
     visualImpairmentDetails: false,
     neurodiverseDetails: false,
@@ -106,13 +106,13 @@ export const cinemas: CinemaType[] = [
     wheelchairAccessible: true,
     freeCarerTickets: true,
     wheelchairDetails:
-      "All areas of our venue are wheelchair accessible. A ramp from street level brings you to the main entrance of ActOne CInema. From there, there is level access to the Box Office, Cafe/Bar, Screen 1, Screen 2 and the disabled toilets.\nWheelchair seats for Screen 1 and Screen 2 can be booked through our online booking system.\nAccessible gender-neutral toilets. These are found immediately inside the main entrance.",
+      "Fully wheelchair-accessible. Ramp from street level. Wheelchair seats bookable online. Accessible gender-neutral toilets.",
     HoHDetails: false,
     visualImpairmentDetails: false,
     neurodiverseDetails:
-      "Our Relaxed Screenings are autism-friendly and include films from our main programme in a more relaxed environment, with no adverts or trailers, better lighting and lower sound volumes. Relaxed Screenings are tailored for a neurodiverse audience but also for anyone who would appreciate a more informal cinema setting, where you are able to exit the screening at any time if you need a breakout space.",
+     "Relaxed Screenings offer autism-friendly environment. Informal setting, exit anytime.",
     freeCarerTicketsDetails:
-      "Those with access needs will be charged the usual price for any screening. However, if you have a carer who needs to accompany you, they are entitled to a free ticket. These can be booked in advance if you contact us via email, or in person at the box office.",
+     "Carers get free ticket. Book in advance via email or in-person.",
     bar: true,
     cafe: true,
     images: {
@@ -136,9 +136,9 @@ export const cinemas: CinemaType[] = [
     wheelchairAccessible: true,
     freeCarerTickets: true,
     wheelchairDetails:
-      "We are fully wheelchair-accessible. and all of our screens have at least one permanent wheelchair space. If you require a wheelchair space please let us know in advance and we'll reserve it for you. Wheelchair spaces are located in the front row of each screen. Assistance dogs may be taken into the cinema – please tell us when booking to ensure your seat has enough space.\nWe have two accessible toilets in the building.",
+      "Fully wheelchair-accessible. Wheelchair spaces in front row. Assistance dogs welcome.",
     HoHDetails:
-      "we screen captioned screenings throughout the week. This is both for new releases, and when possible for older films. The screenings are clearly marked as ‘Subtitled’ or ‘Captioned’ on our What’s On page and in our printed listings.",
+      "Screenings with subtitles for Deaf and Hard of Hearing. Foreign language films have subtitles.",
     visualImpairmentDetails: false,
     neurodiverseDetails:
       "We host relaxed screenings of older family films and of new releases. In these screenings the lights are slightly raised and the volume is lower than usual, for a gentler cinema experience. We aim to offer at least one relaxed screening a week, but it’s best to confirm the film and times on our website which will clearly mark any relaxed screening.",
@@ -167,13 +167,13 @@ export const cinemas: CinemaType[] = [
     wheelchairAccessible: true,
     freeCarerTickets: true,
     wheelchairDetails:
-      "The Chiswick Cinema is fully accessible to wheelchair users or anyone with limited mobility. There are lifts to all levels and step-free access to all screens, as well as the bar, restaurant and café. Each of our screens have step-free rows.\n\nWhen you arrive at the cinema, please let a member of staff know if there is anything we can assist you with. Whether it’s moving your booked tickets to another part of the auditorium, information on our Audio Description headsets or helping you to your seat, we’ll assist you wherever we can. A passenger lift services all floors of the cinema including both bars and restaurants.",
+      "Fully accessible to wheelchair users. Lifts to all levels, step-free access to screens, bar, restaurant, and café. Assistance dogs allowed.",
     HoHDetails: false,
     visualImpairmentDetails:
-      "or selected films, a narration track is played through a special headset and fills the gaps between dialogue by describing what’s happening on screen. The track is undetectable to anyone not wearing a headset and so doesn’t affect their viewing experience.\n\nMost new films are offered with Audio Description available so please do reach out to the team to check it is available for you in advance of your visit. If you need the induction loop or a headset, please ask a member of staff when you arrive – we can also recommend the best seats to use in the screen.",
+      "Narration track through headset for some films. Check availability before visit.",
     neurodiverseDetails: false,
     freeCarerTicketsDetails:
-      "We can only take CEA bookings at the Chiswick Cinema Main Bar for the time being. If you wish to book your tickets in advance, please book the total number of tickets you require, and visit the box office when you arrive at the cinema to get the carer ticket refunded.",
+     "CEA cardholders get free carer ticket. Book online, in-person, or over the phone.",
     bar: true,
     cafe: true,
     images: {
@@ -197,14 +197,14 @@ export const cinemas: CinemaType[] = [
     wheelchairAccessible: false,
     freeCarerTickets: true,
     wheelchairDetails:
-      "We do not have wheelchair access throughout the entire building due to rejections from the council to add in a ramp or stair lift in our stairwell, as it's too narrow. Sadly, the mechanics of the problem make it look like this may never be possible to fix, but should that change we will update this section of the website.",
+     "No full wheelchair access due to narrow stairwell. Updates will be provided if possible changes.",
     HoHDetails:
-      "Select screenings are presented with Subtitles for Deaf and Hard of Hearing, these will be marked with 'SDH' next to the performance time. \n\n\n\nForeign Language live action feature films and animated titles are presented with Subtitles, unless otherwise stated. We may on occasion state SUB (Subtitled) next to animated titles, this would usually be due to the film being on general release and our need to differentiate our shows from those taking place elsewhere.",
+      "Select screenings have subtitles. Foreign language films have subtitles.",
     visualImpairmentDetails:
-      "We've installed Dolby Fidelio at the PCC - a wireless audio system that delivers both Hearing Impaired audio (HI) for hard-of-hearing patrons, and Visually Impaired Narration (VI) for visually impaired patrons. We have four transmitters available for free use during performances.\n\n\n\nWhen in use, the headset can provide a HI or VI stream to both ears, or HI and VI together (one for each ear). You can use the supplied plug-in headphones or bring along your own if you'd prefer. It connects with a typical stereo phono plug. You control the volume on the device yourself.\n\n\n\nFor our digital screenings, there's a 95% chance we have an audio description track that can be transmitted for the performance. Please check with us before travelling if audio description is available for your chosen screening.\n\n\n\nFor our film screenings, which you can see listed as 35mm and 70mm, there are no audio description capabilities.",
+      "Dolby Fidelio offers Hearing Impaired and Visually Impaired options. Check availability.",
     neurodiverseDetails: false,
     freeCarerTicketsDetails:
-      "An in-date CEA card provides one free ticket alongside a paid for ticket.\n\n\n\nYou can book online, in person or over the phone.\n\n\n\nThe process for using your CEA card to make a booking online is below.\n\n\n\n1. When buying tickets you will have the option to choose a Carer (CEA Card) ticket type alongside your regular ticket type. Click Add to Order\n\n\n\n2. On the next screen there is a button that says CEA CARD NUMBERS. Please click Apply CEA Card .\n\n\n\n3. On the following pop up window please enter in a valid CEA Card number and click the Apply button to qualify for the discount.\n\n\n\n4. You should now see that the Carer (CEA Card) ticket has zero cost amd you can now move to the payment screen with a free carer ticket.\n\n\n\nPlease note that only one Carer ticket can be discounted per booking. If you wish to book for multiple films please do so in separate transactions or call our box office on the number below.\n\n\n\nAny issues please call 0207 494 3654 or drop by in person.",
+     "CEA cardholders get free carer ticket. Book online or in-person.",
     bar: true,
     cafe: false,
     images: {
