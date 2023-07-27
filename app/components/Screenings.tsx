@@ -10,7 +10,7 @@ interface Props {
 const Screenings = ({ screenings }: Props) => {
   const sortedScreenings = getScreeningsByDateAndFilm(screenings);
   return (
-    <div className="m-4">
+    <div className="m-4 md:w-1/2 md:mx-auto ">
       <div className="flex justify-around align-middle mb-4">
         <h2 className="text-3xl regular">SCREENINGS</h2>
         <button className="p-2 flex items-center gap-1 rounded-lg border border-black ml-3">

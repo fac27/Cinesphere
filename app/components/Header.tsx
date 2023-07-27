@@ -22,19 +22,19 @@ const Header = () => {
       </div>
 
       <nav
-        className={`${open ? "flex" : "hidden"} flex-column justify-end mr-2`}
+        className={`absolute right-0 ${open ? "flex" : "hidden"} flex-column justify-end mr-2 z-50`}
       >
-        <ul className="my-4">
-          <li className="lg:px-5">
+        <ul className="my-4 bg-white text-center">
+          <li className="p-2.5 border border-black">
             <a href="/">Home</a>
           </li>
-          <li className="lg:px-5">
+          <li className="p-2.5 border border-black">
             <a href="/films">Films</a>
           </li>
-          <li className="lg:px-5">
+          <li className="p-2.5 border border-black">
             <a href="/cinemas">Cinemas</a>
           </li>
-          <li className="lg:px-5">
+          <li className="p-2.5 border border-black">
             <a href="/contact">Contact</a>
           </li>
         </ul>

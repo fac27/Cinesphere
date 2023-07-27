@@ -1,7 +1,7 @@
 import { CinemaType } from "@/Types/Object-Interfaces";
 import { LiaCocktailSolid } from "react-icons/lia";
 import { IoMdCafe } from "react-icons/io";
-import { FaAudioDescription } from "react-icons/fa";
+import { FaAudioDescription, FaInfinity } from "react-icons/fa";
 import { BiSolidCaptions } from "react-icons/bi";
 import { FaWheelchair } from "react-icons/fa";
 import { BsFillTicketPerforatedFill } from "react-icons/bs";
@@ -14,7 +14,7 @@ interface Props {
 
 const Cinema = ({ cinema }: Props) => {
   return (
-    <>
+    <div className="mx-5 md:w-1/2 md:mx-auto flex flex-col gap-5">
       <div
         className="relative w-full overflow-hidden"
         style={{ paddingTop: "56.25%" }}
@@ -63,12 +63,13 @@ const Cinema = ({ cinema }: Props) => {
       {cinema.relaxedScreenings && (
         <InfoSection
           title="Relaxed Screenings"
+          IconComponent={FaInfinity}
           description={cinema.neurodiverseDetails as string}
         />
       )}
       {cinema.wheelchairAccessible && (
         <InfoSection
-          title="Weelchair Accessibility"
+          title="Wheelchair Accessibility"
           IconComponent={FaWheelchair}
           description={cinema.wheelchairDetails as string}
         />
@@ -117,7 +118,7 @@ const Cinema = ({ cinema }: Props) => {
           />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

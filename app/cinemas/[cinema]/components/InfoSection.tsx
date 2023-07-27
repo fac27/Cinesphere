@@ -13,8 +13,10 @@ const InfoSection: React.FC<InfoSectionProps> = ({
   description,
 }) => (
   <>
-    <h2 className={h2style}>{title}</h2>
-    {IconComponent && <IconComponent />}
+    <div className="flex items-center">
+      {IconComponent && <IconComponent className="text-2xl"/>}
+      <h2 className={`ml-2 ${h2style}`}>{title}</h2>
+    </div>
     <p>{description}</p>
   </>
 );
