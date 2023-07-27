@@ -12,7 +12,7 @@ const FilterTag = ({ filter, category }: Props) => {
   const filterContext = useFilters();
 
   const selectFilter = (category: string): void => {
-    if (category === "GENRE") {
+    if (category.toUpperCase() === "GENRES") {
       const selectedGenres = filterContext?.selectedGenres as string[];
       const setSelectedGenres =
         filterContext?.setSelectedGenres as React.Dispatch<
@@ -20,7 +20,7 @@ const FilterTag = ({ filter, category }: Props) => {
         >;
       filterByCategory(selectedGenres, setSelectedGenres, filter);
     }
-    if (category == "LANGUAGE") {
+    if (category.toUpperCase() == "LANGUAGES") {
       const selectedLanguages = filterContext?.selectedLanguages as string[];
       const setSelectedLanguages =
         filterContext?.setSelectedLanguages as React.Dispatch<
@@ -28,7 +28,7 @@ const FilterTag = ({ filter, category }: Props) => {
         >;
       filterByCategory(selectedLanguages, setSelectedLanguages, filter);
     }
-    if (category == "ERA") {
+    if (category.toUpperCase() == "ERAS") {
       const selectedDecades = filterContext?.selectedDecades as string[];
       const setSelectedDecades =
         filterContext?.setSelectedDecades as React.Dispatch<

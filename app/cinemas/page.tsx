@@ -5,7 +5,6 @@ import { useEffect } from "react";
 
 import CinemaCard from "./components/CinemaCard";
 import cinemas from "../../Data/Cinemas";
-import { filterLabels } from "@/Data/FilteringCodes";
 import { haversine } from "@/Utils/haversine";
 import FilterModal from "../components/FilterModal";
 import FilterBar from "../components/FilterBar";
