@@ -2,6 +2,7 @@ export interface CinemaType {
   cinemaName: string;
   about: string;
   address: string;
+  postcode: string;
   area: string;
   website: string;
   audioDescription: boolean;

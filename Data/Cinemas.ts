@@ -6,6 +6,7 @@ export const cinemas: CinemaType[] = [
     about:
       "The Lexi is London's only social enterprise cinema, a volunteer-run picture palace with strong links not just to our local community, but to a unique charity project thousands of miles away in South Africa.",
     address: "194b Chamberlayne Road, Kensal Rise\nLondon NW10 3JU",
+    postcode: "NW10 3JU",
     area: "Kensal Rise",
     website: "https://thelexicinema.co.uk/",
     audioDescription: true,
@@ -38,6 +39,7 @@ export const cinemas: CinemaType[] = [
       "The David Lean cinema is a 68 seat arts cinema based in the Croydon Clocktower arts complex. It is run by a non-profit community interest company and staffed by volunteers.",
     address:
       "The David Lean Cinema, Croydon Clocktower, Katharine Street, Croydon, CR9 1ET",
+    postcode: "CR9 1ET",
     area: "Croydon",
     website: "https://www.davidleancinema.org.uk/",
     audioDescription: false,
@@ -67,6 +69,7 @@ export const cinemas: CinemaType[] = [
     about:
       "A former Salvation Army Hall that has been transformed into a dynamic new cultural venue for film, fine art, live music, discussion groups, theatre, live streaming, workshops, dance, comedy and more.",
     address: "159A Tottenham Lane, N8 9BT",
+    postcode: "N8 9BT",
     area: "Crouch End",
     website: "https://www.arthousecrouchend.co.uk/",
     audioDescription: false,
@@ -94,6 +97,7 @@ export const cinemas: CinemaType[] = [
     about:
       "A community-led cinema and café, nestled in Acton’s historic Passmore Edwards Library with two 60-seat screening rooms fully equipped with the latest digital technology and a beautiful lounge.",
     address: "ActOne Cinema\n119 - 121 High Street\nLondon, W3 6NA",
+    postcode: "W3 6NA",
     area: "Acton",
     website: "https://actonecinema.co.uk/",
     audioDescription: false,
@@ -123,6 +127,7 @@ export const cinemas: CinemaType[] = [
     about:
       "Catford Mews is a brand new independent entertainment venue in Lewisham with three cinema screens and a spacious foyer containing a food court with a number of independent local food vendors.",
     address: "32 Winslade Way\nCatford Centre\nLondon\nSE6 4JU London",
+    postcode: "SE6 4JU",
     area: "Catford",
     website: "https://catford-mews.co.uk/",
     audioDescription: false,
@@ -153,6 +158,7 @@ export const cinemas: CinemaType[] = [
     about:
       "Chiswick Cinema offers five screens, a restaurant and a private Members’ restaurant and bar. Enjoy a mixture of current releases, family screenings and event cinema in luxurious surroundings.",
     address: "The Chiswick Cinema,\n94 – 96 Chiswick High Road,\nW4 1SH",
+    postcode: "W4 1SH",
     area: "Chiswick",
     website: "https://www.chiswickcinema.co.uk/",
     audioDescription: true,
@@ -182,6 +188,7 @@ export const cinemas: CinemaType[] = [
     about:
       "The last of the independents still operating in London’s cine-famous ‘West End’ and one of the most popular independent cinemas in the UK, screening a huge variety of films past and present.",
     address: "7 Leicester Pl\n\nLondon\n\nWC2H 7BY",
+    postcode: "WC2H 7BY",
     area: "Leicester Square",
     website: "https://princecharlescinema.com/",
     audioDescription: true,
