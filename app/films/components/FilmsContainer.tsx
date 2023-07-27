@@ -1,14 +1,19 @@
 import { getImdbIds } from "@/Utils/getImdbIds";
 import FilmCard from "./FilmCard";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+
 import { getFilmData } from "@/Utils/getFilmData";
 import { useFilters } from "@/app/Context/store";
 import { FilmType } from "@/Types/Object-Interfaces";
 import screenings from "@/Data/Screenings";
 import { genreCodes, languageCodes } from "@/Data/FilteringCodes";
+import { BiSliderAlt } from "react-icons/bi";
+import Modal from "@/app/components/Modal";
+// import { exampleGenres } from "@/Data/Filters";
 
 const FilmsContainer = () => {
   const [filmData, setFilmData] = useState<any[]>([]);
+  const [isVisible, setIsVisible] = useState<boolean>(false);
 
   useEffect(() => {
     const imdb_id_arr = getImdbIds(screenings);
@@ -27,6 +32,25 @@ const FilmsContainer = () => {
   }, []);
 
   const filterContext = useFilters();
+
+  // get genres and update genre state
+
+  const genres = filterContext?.genres as string[];
+  const setGenres = filterContext?.setGenres as React.Dispatch<React.SetStateAction<string[]>>;
+
+  
+
+  console.log(genres)
+  const genreSet = new Set()
+  filmData.forEach(film => genreSet.add(film.genres[0].name))
+  const genreArr:any = Array.from(genreSet)
+  console.log("FILM GENRES DATA", genreArr)
+
+  setGenres(genreArr)
+
+  //
+
+
 
   const filteredFilmData = filmData.filter((film) => {
     const selectedGenres = filterContext?.selectedGenres as string[];
@@ -71,6 +95,24 @@ const FilmsContainer = () => {
 
   return (
     <>
+          <Modal isVisible={isVisible} setIsVisible={setIsVisible} genres={genres}/>
+      <div className="flex flex-row justify-center mt-4">
+        <input
+          type="text"
+          className="p-2 w-40 flex border border-black rounded-lg"
+          placeholder="search"
+        ></input>
+        <button
+          onClick={() => {
+            setIsVisible((prev) => !prev);
+          }}
+          type="button"
+          className="p-2 flex items-center gap-1 rounded-lg border border-black ml-3"
+        >
+          <BiSliderAlt />
+          Filter
+        </button>
+      </div>
       <div className="flex-col flex items-center mt-4">
         {filteredFilmData.map((film: FilmType) => (
           <FilmCard key={film.id} film={film} />

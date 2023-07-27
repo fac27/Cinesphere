@@ -7,7 +7,8 @@ import { languages, era } from "@/Data/Filters";
 interface Props {
   isVisible: boolean;
   setIsVisible: Dispatch<SetStateAction<boolean>>;
-  genres: string[]
+  genres: string[];
+
 }
 
 const Modal = ({ isVisible, setIsVisible, genres }: Props): React.JSX.Element => {
