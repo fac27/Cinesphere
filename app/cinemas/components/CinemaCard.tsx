@@ -12,8 +12,8 @@ interface CinemaCardProps {
 
 const CinemaCard: FC<CinemaCardProps> = ({ cinema, distance }) => {
   return (
-    <div className="mb-10 relative w-5/6 rounded-2xl overflow-hidden cursor-pointer">
-      <div className="relative h-0 pb-[195%] xs:pb-[170%] sm:pb-[75%] md:pb-[45%]">
+    <div className="mb-10 md:w-1/2 relative w-5/6 rounded-2xl overflow-hidden cursor-pointer">
+      <div className="relative h-0 pb-[200%] xs:pb-[180%] sm:pb-[80%] md:pb-[75%]">
         <Image
           className="bg-cover bg-center"
           src={cinema.images.Interior2}
@@ -24,7 +24,7 @@ const CinemaCard: FC<CinemaCardProps> = ({ cinema, distance }) => {
         <div className="absolute inset-0 bg-black opacity-50 rounded-2xl" />
       </div>
       <Link href={`/cinemas/${cinema.cinemaName}`}>
-        <div className="p-5 lg:p-10 mt-5 pb-15 absolute top-0 left-0 text-white">
+        <div className="p-5 md:p-10 mt-5 pb-15 absolute top-0 left-0 text-white">
           <h2 className="text-2xl font-bold">{cinema.cinemaName}</h2>
           <h3 className="mb-10">
             {distance === "Nankm" ? distance.distance : ""}
