@@ -9,9 +9,23 @@ import { FilmType } from "@/Types/Object-Interfaces";
 import { getFilmData } from "@/Utils/getFilmData";
 import { getFilmCredits } from "@/Utils/getFilmCredits";
 
+interface DirectorType {
+  adult: boolean;
+  credit_id: string;
+  department: string;
+  gender: number;
+  id: number;
+  job: string;
+  known_for_department: string;
+  name: string;
+  original_name: string;
+  popularity: number;
+  profile_path: string;
+}
+
 const Page: React.FC<{}> = (): React.JSX.Element => {
   const [filmData, setFilmData] = useState<FilmType | null>(null);
-  const [director, setDirector] = useState<string | null>(null);
+  const [director, setDirector] = useState<DirectorType | null>(null);
 
   useEffect(() => {
     const link = window.location.href.split("/");
@@ -22,7 +36,7 @@ const Page: React.FC<{}> = (): React.JSX.Element => {
         const filmDataArr = await getFilmData(imdbId);
         const filmCredits = await getFilmCredits(imdbId);
 
-        filmCredits.crew.map((person) => {
+        filmCredits.crew.map((person: DirectorType) => {
           if (person.job === "Director") {
             setDirector(person);
           }
@@ -43,8 +57,6 @@ const Page: React.FC<{}> = (): React.JSX.Element => {
           return <span key={uuidv4()}>{genre.name} | </span>;
         })
       : null;
-
-  console.log(director);
 
   return (
     <div className="md:w-2/3 ml-auto mr-auto mb-2">
