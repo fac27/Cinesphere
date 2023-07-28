@@ -19,6 +19,9 @@ const FilmsContainer = () => {
   const setGenres = filterContext?.setGenres as React.Dispatch<
     React.SetStateAction<string[]>
   >;
+  const setLanguages = filterContext?.setLanguages as React.Dispatch<
+  React.SetStateAction<string[]>
+  >;
 
   useEffect(() => {
     const imdb_id_arr = getImdbIds(screenings);
@@ -38,6 +41,12 @@ const FilmsContainer = () => {
       filmData.forEach((film) => genreSet.add(film.genres[0].name));
       const genreArr: any = Array.from(genreSet);
       setGenres(genreArr);
+
+      // set language filters
+      const languageSet = new Set()
+      filmData.forEach((film) => (languageSet.add(film.original_language)))
+      const languageCodeArr: any = Array.from(languageSet)
+      setLanguages(languageCodeArr)
 
     };
     fetchData();

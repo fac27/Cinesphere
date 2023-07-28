@@ -5,6 +5,8 @@ import React, { useContext, createContext, useState, ReactNode } from "react";
 interface FilterContextProps {
   genres: string[];
   setGenres: React.Dispatch<React.SetStateAction<string[]>>;
+  languages: string[];
+  setLanguages: React.Dispatch<React.SetStateAction<string[]>>;
   selectedGenres: string[];
   setSelectedGenres: React.Dispatch<React.SetStateAction<string[]>>;
   selectedLanguages: string[];
@@ -16,6 +18,8 @@ interface FilterContextProps {
 const FilterContext = createContext<FilterContextProps | undefined>(undefined);
 
 export const FilterProvider = ({ children }: { children: ReactNode }) => {
+  const [languages, setLanguages] = useState<string[]>(
+    [] as string[]);
   const [genres, setGenres] = useState<string[]>(
     [] as string[]
   );
@@ -32,6 +36,8 @@ export const FilterProvider = ({ children }: { children: ReactNode }) => {
   return (
     <FilterContext.Provider
       value={{
+        languages,
+        setLanguages,
         genres,
         setGenres,
         selectedGenres,
