@@ -56,7 +56,7 @@ const FilmsContainer = () => {
       const dateSet = new Set()
       filmData.forEach(film => (dateSet.add(film.release_date)))
       const dateArr = Array.from(dateSet);
-      const decadeSet = new Set(dateArr.map(date => String(Math.floor(Number(date.slice(0, 4)) / 10) * 10)));
+      const decadeSet = new Set(dateArr.map((date: any) => String(Math.floor(Number(date.slice(0, 4)) / 10) * 10)));
       const sortedDecades = Array.from(decadeSet).sort((a, b) => parseInt(a) - parseInt(b));
       setEras(sortedDecades)
 
