@@ -45,6 +45,14 @@ const FilterTag = ({ filter, category }: Props) => {
         >;
       filterByCategory(selectedAccessibility, setSelectedAccessibility, filter);
     }
+    if (category.toUpperCase() == "AMENITIES") {
+      const selectedAmenities = filterContext?.selectedAmenities as string[];
+      const setSelectedAmenities =
+        filterContext?.setSelectedAmenities as React.Dispatch<
+          React.SetStateAction<string[]>
+        >;
+      filterByCategory(selectedAmenities, setSelectedAmenities, filter);
+    }
   };
 
   function filterByCategory(
