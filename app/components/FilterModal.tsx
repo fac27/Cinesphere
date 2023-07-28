@@ -11,7 +11,7 @@ interface Props {
 
 }
 
-const Modal = ({ isVisible, setIsVisible, genres }: Props): React.JSX.Element => {
+const FilterModal = ({ isVisible, setIsVisible, genres }: Props): React.JSX.Element => {
 
   return (
     <dialog open={isVisible} className="text-center my-4">
@@ -31,4 +31,4 @@ const Modal = ({ isVisible, setIsVisible, genres }: Props): React.JSX.Element =>
   );
 };
 
-export default Modal;
+export default FilterModal;

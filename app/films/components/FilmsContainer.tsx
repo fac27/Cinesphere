@@ -8,7 +8,7 @@ import { useFilters } from "@/app/Context/store";
 import { FilmType } from "@/Types/Object-Interfaces";
 import screenings from "@/Data/Screenings";
 import { genreCodes, languageCodes } from "@/Data/FilteringCodes";
-import Modal from "@/app/components/Modal";
+import FilterModal from "@/app/components/FilterModal";
 
 const FilmsContainer = () => {
   const [filmData, setFilmData] = useState<any[]>([]);
@@ -86,7 +86,7 @@ const FilmsContainer = () => {
 
   return (
     <>
-      <Modal
+      <FilterModal
         isVisible={isVisible}
         setIsVisible={setIsVisible}
         genres={genres}
