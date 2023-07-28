@@ -13,7 +13,7 @@ const Filter = ({ filters, category }: Props) => {
       </div>
       <div className="flex flex-wrap justify-center my-2">
         {filters.map((filter: string) => (
-          <FilterTag key={Math.random()} filter={filter} category={category} />
+          <FilterTag key={filter} filter={filter} category={category} />
         ))}
       </div>
     </div>
