@@ -1,7 +1,6 @@
 import { getImdbIds } from "@/Utils/getImdbIds";
 import FilmCard from "./FilmCard";
 import React, { useEffect, useState } from "react";
-import { BiSliderAlt } from "react-icons/bi";
 
 import { getFilmData } from "@/Utils/getFilmData";
 import { useFilters } from "@/app/Context/store";
@@ -9,6 +8,7 @@ import { FilmType } from "@/Types/Object-Interfaces";
 import screenings from "@/Data/Screenings";
 import { genreCodes, languageCodes } from "@/Data/FilteringCodes";
 import FilterModal from "@/app/components/FilterModal";
+import FilterBar from "@/app/components/FilterBar";
 
 const FilmsContainer = () => {
   const [filmData, setFilmData] = useState<any[]>([]);
@@ -99,23 +99,7 @@ const FilmsContainer = () => {
         isVisible={isVisible}
         setIsVisible={setIsVisible}
       />
-      <div className="flex flex-row justify-center mt-4">
-        <input
-          type="text"
-          className="p-2 w-40 flex border border-black rounded-lg"
-          placeholder="search"
-        ></input>
-        <button
-          onClick={() => {
-            setIsVisible((prev) => !prev);
-          }}
-          type="button"
-          className="p-2 flex items-center gap-1 rounded-lg border border-black ml-3"
-        >
-          <BiSliderAlt />
-          Filter
-        </button>
-      </div>
+      <FilterBar setIsVisible={setIsVisible}/>
       <div className="flex-col flex items-center mt-4">
         {filteredFilmData.map((film: FilmType) => (
           <FilmCard key={film.id} film={film} />
