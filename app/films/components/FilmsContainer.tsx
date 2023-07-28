@@ -1,3 +1,4 @@
+"use client";
 import { getImdbIds } from "@/Utils/getImdbIds";
 import FilmCard from "./FilmCard";
 import React, { useEffect, useState } from "react";
@@ -9,6 +10,7 @@ import screenings from "@/Data/Screenings";
 import { genreCodes, languageCodes } from "@/Data/FilteringCodes";
 import FilterModal from "@/app/components/FilterModal";
 import FilterBar from "@/app/components/FilterBar";
+
 
 const FilmsContainer = () => {
   const [filmData, setFilmData] = useState<any[]>([]);
@@ -25,7 +27,6 @@ const FilmsContainer = () => {
 
   useEffect(() => {
     const imdb_id_arr = getImdbIds(screenings);
-
     const fetchData = async () => {
       try {
         const filmDataArr = await Promise.all(

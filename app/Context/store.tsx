@@ -13,6 +13,10 @@ interface FilterContextProps {
   setSelectedLanguages: React.Dispatch<React.SetStateAction<string[]>>;
   selectedDecades: string[];
   setSelectedDecades: React.Dispatch<React.SetStateAction<string[]>>;
+  selectedAmenities: string[];
+  setSelectedAmenities: React.Dispatch<React.SetStateAction<string[]>>;
+  selectedAccessibility: string[];
+  setSelectedAccessibility: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
 const FilterContext = createContext<FilterContextProps | undefined>(undefined);
@@ -32,6 +36,12 @@ export const FilterProvider = ({ children }: { children: ReactNode }) => {
   const [selectedDecades, setSelectedDecades] = useState<string[]>(
     [] as string[]
   );
+  const [selectedAccessibility, setSelectedAccessibility] = useState<string[]>(
+    [] as string[]
+  );
+  const [selectedAmenities, setSelectedAmenities] = useState<string[]>(
+    [] as string[]
+  );
 
   return (
     <FilterContext.Provider
@@ -46,6 +56,10 @@ export const FilterProvider = ({ children }: { children: ReactNode }) => {
         setSelectedLanguages,
         selectedDecades,
         setSelectedDecades,
+        selectedAmenities,
+        setSelectedAmenities,
+        selectedAccessibility,
+        setSelectedAccessibility,
       }}
     >
       {children}

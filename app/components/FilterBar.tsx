@@ -28,3 +28,6 @@ const FilterBar = ({ setIsVisible }: Props) => {
 };
 
 export default FilterBar;
+
+
+
