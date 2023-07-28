@@ -12,10 +12,15 @@ interface Props {
 
 const FilterModal = ({ isVisible, setIsVisible }: Props): React.JSX.Element => {
 
-
   const filterContext = useFilters();
   const genres = filterContext?.genres as string[];
   const languages = filterContext?.languages as string[];
+
+  const filterArr = [
+    { name: "GENRES", filters: genres },
+    { name: "LANGUAGES", filters: languages },
+    { name: "ERAS", filters: era },
+  ];
 
   return (
     <dialog open={isVisible} className="text-center my-4 z-50">
