@@ -9,8 +9,7 @@ import { FilmType } from "@/Types/Object-Interfaces";
 import screenings from "@/Data/Screenings";
 import { genreCodes, languageCodes } from "@/Data/FilteringCodes";
 import FilterModal from "@/app/components/FilterModal";
-import FilterBar from "@/app/components/FilterBar";
-
+import FilterBar from "./FilterBar";
 
 const FilmsContainer = () => {
   const [filmData, setFilmData] = useState<any[]>([]);
@@ -62,7 +61,7 @@ const FilmsContainer = () => {
 
     };
     fetchData();
-  }, [filmData, setGenres]);
+  }, [filmData, setGenres, setEras, setLanguages]);
 
   // create filterArr
 

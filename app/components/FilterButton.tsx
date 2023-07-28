@@ -5,14 +5,8 @@ interface Props {
   setIsVisible: Dispatch<SetStateAction<boolean>>;
 }
 
-const FilterBar = ({ setIsVisible }: Props) => {
+const FilterButton = ({ setIsVisible }: Props) => {
   return (
-    <div className="flex flex-row justify-center mt-4">
-      <input
-        type="text"
-        className="p-2 w-40 flex border border-black rounded-lg"
-        placeholder="search"
-      ></input>
       <button
         onClick={() => {
           setIsVisible((prev: boolean) => !prev);
@@ -23,11 +17,7 @@ const FilterBar = ({ setIsVisible }: Props) => {
         <BiSliderAlt />
         Filter
       </button>
-    </div>
   );
 };
 
-export default FilterBar;
-
-
-
+export default FilterButton;
