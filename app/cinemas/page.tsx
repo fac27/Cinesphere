@@ -7,7 +7,6 @@ import FilterModal from "../components/FilterModal";
 import CinemaSearchBar from "./components/CinemaSearchBar";
 import { accessibility, amenities } from "@/Data/Filters";
 import CinemaContainer from "./components/CinemaContainer";
-import FilterButton from "../components/FilterButton";
 
 const Cinemas = () => {
   const [postcodeInput, setPostcodeInput] = useState<string>("");

@@ -3,7 +3,6 @@
 import { ScreeningType} from "@/Types/Object-Interfaces";
 import getScreeningsByDateAndFilm from "../../Utils/getScreeningsByDateAndFilm";
 import getScreeningsByDateAndCinema from "@/Utils/getScreeningsByDateAndCinema";
-import { BiSliderAlt } from "react-icons/bi";
 import Icons from "./Icons";
 import FilterButton from "./FilterButton";
 import { useState } from "react";

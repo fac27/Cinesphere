@@ -2,7 +2,6 @@ import cinemas from "@/Data/Cinemas";
 import { haversine } from "@/Utils/haversine";
 import FilterButton from "@/app/components/FilterButton";
 import React, { Dispatch, SetStateAction } from "react";
-import { BiSliderAlt } from "react-icons/bi";
 
 interface Props {
   postcodeInput: string;
