@@ -10,8 +10,9 @@ import screenings from "@/Data/Screenings";
 import { genreCodes, languageCodes } from "@/Data/FilteringCodes";
 import FilterModal from "@/app/components/FilterModal";
 import FilterBar from "./FilterBar";
+import { convertCodesToNames } from "@/Data/FilteringCodes";
 
-const FilmsPage = () => {
+const FilmsContainer = () => {
   const [filmData, setFilmData] = useState<any[]>([]);
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
@@ -48,8 +49,10 @@ const FilmsPage = () => {
       // set language filters
       const languageSet = new Set()
       filmData.forEach(film => (languageSet.add(film.original_language)))
-      const languageCodeArr: any = Array.from(languageSet)
-      setLanguages(languageCodeArr)
+      const langCodeArr: any = Array.from(languageSet)
+      const langNameArr = convertCodesToNames(langCodeArr)
+      setLanguages(langNameArr)
+      
 
       // set era filters
       const dateSet = new Set()
@@ -133,4 +136,4 @@ const FilmsPage = () => {
   );
 };
 
-export default FilmsPage;
+export default FilmsContainer;
