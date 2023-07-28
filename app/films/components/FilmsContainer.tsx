@@ -16,7 +16,6 @@ const FilmsContainer = () => {
 
   const filterContext = useFilters();
 
-  const genres = filterContext?.genres as string[];
   const setGenres = filterContext?.setGenres as React.Dispatch<
     React.SetStateAction<string[]>
   >;
@@ -33,6 +32,7 @@ const FilmsContainer = () => {
       } catch (error: unknown) {
         console.error(error);
       }
+      
       // set genre filters 
       const genreSet = new Set();
       filmData.forEach((film) => genreSet.add(film.genres[0].name));
@@ -89,7 +89,6 @@ const FilmsContainer = () => {
       <FilterModal
         isVisible={isVisible}
         setIsVisible={setIsVisible}
-        genres={genres}
       />
       <div className="flex flex-row justify-center mt-4">
         <input
