@@ -1,31 +1,25 @@
 "use client";
-import { BiSliderAlt } from "react-icons/bi";
+import FilterBar from "../components/FilterBar";
 import { useState } from "react";
 import FilmsContainer from "./components/FilmsContainer";
-import Modal from "../components/Modal";
+import FilterModal from "../components/FilterModal";
+import { genres, languages, eras } from "@/Data/Filters";
 
 const Films = () => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
+  const filterArr = [
+    { name: "GENRES", filters: genres },
+    { name: "LANGUAGES", filters: languages },
+    { name: "ERAS", filters: eras },
+  ];
   return (
     <>
-      <Modal isVisible={isVisible} setIsVisible={setIsVisible} />
-      <div className="flex flex-row justify-center mt-4">
-        <input
-          type="text"
-          className="p-2 w-40 flex border border-black rounded-lg"
-          placeholder="search"
-        ></input>
-        <button
-          onClick={() => {
-            setIsVisible((prev) => !prev);
-          }}
-          type="button"
-          className="p-2 flex items-center gap-1 rounded-lg border border-black ml-3"
-        >
-          <BiSliderAlt />
-          Filter
-        </button>
-      </div>
+      <FilterModal
+        filterArr={filterArr}
+        isVisible={isVisible}
+        setIsVisible={setIsVisible}
+      />
+      <FilterBar setIsVisible={setIsVisible} />
       <FilmsContainer />
     </>
   );
