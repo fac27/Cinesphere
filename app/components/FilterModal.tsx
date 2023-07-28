@@ -1,7 +1,7 @@
 import React, { Dispatch, SetStateAction } from "react";
 
 import Filter from "./Filter";
-import { eras } from "@/Data/Filters";
+// import { eras } from "@/Data/Filters";
 import { useFilters } from "../Context/store";
 
 interface Props {
@@ -17,6 +17,7 @@ const FilterModal = ({
   const filterContext = useFilters();
   const genres = filterContext?.genres as string[];
   const languages = filterContext?.languages as string[];
+  const eras = filterContext?.eras as string[];
 
   const filterArr = [
     { name: "GENRES", filters: genres },

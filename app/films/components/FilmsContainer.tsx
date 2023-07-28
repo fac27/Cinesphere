@@ -24,6 +24,9 @@ const FilmsContainer = () => {
   const setLanguages = filterContext?.setLanguages as React.Dispatch<
   React.SetStateAction<string[]>
   >;
+  const setEras = filterContext?.setEras as React.Dispatch<
+  React.SetStateAction<string[]>
+  >;
 
   useEffect(() => {
     const imdb_id_arr = getImdbIds(screenings);
@@ -39,15 +42,23 @@ const FilmsContainer = () => {
       
       // set genre filters 
       const genreSet = new Set();
-      filmData.forEach((film) => genreSet.add(film.genres[0].name));
+      filmData.forEach(film => genreSet.add(film.genres[0].name));
       const genreArr: any = Array.from(genreSet);
       setGenres(genreArr);
 
       // set language filters
       const languageSet = new Set()
-      filmData.forEach((film) => (languageSet.add(film.original_language)))
+      filmData.forEach(film => (languageSet.add(film.original_language)))
       const languageCodeArr: any = Array.from(languageSet)
       setLanguages(languageCodeArr)
+
+      // set era filters
+      const dateSet = new Set()
+      filmData.forEach(film => (dateSet.add(film.release_date)))
+      const dateArr = Array.from(dateSet);
+      const decadeSet = new Set(dateArr.map(date => String(Math.floor(Number(date.slice(0, 4)) / 10) * 10)));
+      const sortedDecades = Array.from(decadeSet).sort((a, b) => parseInt(a) - parseInt(b));
+      setEras(sortedDecades)
 
     };
     fetchData();
