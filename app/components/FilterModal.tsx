@@ -2,28 +2,21 @@ import React, { Dispatch, SetStateAction } from "react";
 
 import Filter from "./Filter";
 // import { eras } from "@/Data/Filters";
-import { useFilters } from "../Context/store";
+// import { useFilters } from "../Context/store";
 
 interface Props {
   isVisible: boolean;
   setIsVisible: Dispatch<SetStateAction<boolean>>;
+  filterArr: { name: string; filters: string[] }[];
 }
 
 const FilterModal = ({
   isVisible,
-  setIsVisible
+  setIsVisible,
+  filterArr
 }: Props): React.JSX.Element => {
 
-  const filterContext = useFilters();
-  const genres = filterContext?.genres as string[];
-  const languages = filterContext?.languages as string[];
-  const eras = filterContext?.eras as string[];
 
-  const filterArr = [
-    { name: "GENRES", filters: genres },
-    { name: "LANGUAGES", filters: languages },
-    { name: "ERAS", filters: eras },
-  ];
 
   
   return (

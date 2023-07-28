@@ -64,6 +64,18 @@ const FilmsContainer = () => {
     fetchData();
   }, [filmData, setGenres]);
 
+  // create filterArr
+
+  const genres = filterContext?.genres as string[];
+  const languages = filterContext?.languages as string[];
+  const eras = filterContext?.eras as string[];
+
+  const filterArr = [
+    { name: "GENRES", filters: genres },
+    { name: "LANGUAGES", filters: languages },
+    { name: "ERAS", filters: eras },
+  ];
+
   const filteredFilmData = filmData.filter((film) => {
     const selectedGenres = filterContext?.selectedGenres as string[];
     const selectedLanguages = filterContext?.selectedLanguages as string[];
@@ -110,6 +122,7 @@ const FilmsContainer = () => {
       <FilterModal
         isVisible={isVisible}
         setIsVisible={setIsVisible}
+        filterArr={filterArr}
       />
       <FilterBar setIsVisible={setIsVisible}/>
       <div className="flex-col flex items-center mt-4">

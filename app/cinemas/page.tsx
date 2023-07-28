@@ -6,7 +6,7 @@ import cinemas from "../../Data/Cinemas";
 import FilterModal from "../components/FilterModal";
 import FilterBar from "../components/FilterBar";
 import CinemaSearchBar from "./components/CinemaSearchBar";
-// import { accessibility, amenities } from "@/Data/Filters";
+import { accessibility, amenities } from "@/Data/Filters";
 import CinemaContainer from "./components/CinemaContainer";
 
 const Cinemas = () => {
@@ -18,15 +18,15 @@ const Cinemas = () => {
 
   const filteredCinemas = cinemas;
 
-  // const filterArr = [
-  //   { name: "AMENITIES", filters: amenities },
-  //   { name: "ACCESSIBILITY", filters: accessibility },
-  // ];
+  const filterArr = [
+    { name: "AMENITIES", filters: amenities },
+    { name: "ACCESSIBILITY", filters: accessibility },
+  ];
 
   return (
     <>
       <FilterModal
-        // filterArr={filterArr}
+        filterArr={filterArr}
         isVisible={isVisible}
         setIsVisible={setIsVisible}
       />
