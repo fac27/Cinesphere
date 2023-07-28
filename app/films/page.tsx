@@ -1,10 +1,10 @@
 "use client";
-import FilmsContainer from "./components/FilmsContainer";
+import FilmsPage from "./components/FilmsPage";
 
 const Films = () => {
   return (
     <>
-      <FilmsContainer />
+      <FilmsPage />
     </>
   );
 };

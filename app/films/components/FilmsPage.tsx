@@ -11,7 +11,7 @@ import { genreCodes, languageCodes } from "@/Data/FilteringCodes";
 import FilterModal from "@/app/components/FilterModal";
 import FilterBar from "./FilterBar";
 
-const FilmsContainer = () => {
+const FilmsPage = () => {
   const [filmData, setFilmData] = useState<any[]>([]);
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
@@ -133,4 +133,4 @@ const FilmsContainer = () => {
   );
 };
 
-export default FilmsContainer;
+export default FilmsPage;
