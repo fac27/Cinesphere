@@ -24,8 +24,8 @@ export const cinemas: CinemaType[] = [
       "Relaxed Screenings offer autism-friendly environment with no ads/trailers, lower volume/lighting. Download Visual Guide for first-time visits.",
     freeCarerTicketsDetails:
       "Free carer tickets available. Book in advance or in-person, no ID required.",
-    bar: true,
-    cafe: false,
+    "Bar": true,
+    "Cafe": false,
     images: {
       exterior: "/assets/cinema-images/the-lexi-exterior.jpeg",
       Interior1: "/assets/cinema-images/the-lexi-interior-1.jpeg",
@@ -56,8 +56,8 @@ export const cinemas: CinemaType[] = [
     neurodiverseDetails: false,
     freeCarerTicketsDetails:
       "There is dedicated disabled parking available nearby",
-    bar: true,
-    cafe: true,
+    "Bar": true,
+    "Cafe": true,
     images: {
       exterior: "/assets/cinema-images/david-lean-exterior.jpeg",
       Interior1: "/assets/cinema-images/david-lean-interior-1.jpeg",
@@ -84,8 +84,8 @@ export const cinemas: CinemaType[] = [
     visualImpairmentDetails: false,
     neurodiverseDetails: false,
     freeCarerTicketsDetails: false,
-    bar: true,
-    cafe: true,
+    "Bar": true,
+    "Cafe": true,
     images: {
       exterior: "/assets/cinema-images/art-house-exterior.jpeg",
       Interior1: "/assets/cinema-images/art-house-interior-1.jpeg",
@@ -114,8 +114,8 @@ export const cinemas: CinemaType[] = [
       "Relaxed Screenings offer autism-friendly environment. Informal setting, exit anytime.",
     freeCarerTicketsDetails:
       "Carers get free ticket. Book in advance via email or in-person.",
-    bar: true,
-    cafe: true,
+    "Bar": true,
+    "Cafe": true,
     images: {
       exterior: "/assets/cinema-images/actone-exterior.jpeg",
       Interior1: "/assets/cinema-images/actone-interior-1.jpeg",
@@ -145,8 +145,8 @@ export const cinemas: CinemaType[] = [
       "We host relaxed screenings of older family films and of new releases. In these screenings the lights are slightly raised and the volume is lower than usual, for a gentler cinema experience. We aim to offer at least one relaxed screening a week, but it’s best to confirm the film and times on our website which will clearly mark any relaxed screening.",
     freeCarerTicketsDetails:
       "CEA cardholders can bring a carer free of charge to any screening they’re purchasing a ticket for. Please ensure that you bring your CEA card to present to a member of staff.",
-    bar: true,
-    cafe: true,
+    "Bar": true,
+    "Cafe": true,
     images: {
       exterior: "/assets/cinema-images/catford-mews-exterior.jpeg",
       Interior1: "/assets/cinema-images/catford-mews-interior-1.jpeg",
@@ -157,7 +157,7 @@ export const cinemas: CinemaType[] = [
   {
     cinemaName: "Chiswick Cinema",
     about:
-      "Chiswick Cinema offers five screens, a restaurant and a private Members’ restaurant and bar. Enjoy a mixture of current releases, family screenings and event cinema in luxurious surroundings.",
+      "Chiswick Cinema offers five screens, a restaurant and a private Members’ restaurant and "Bar". Enjoy a mixture of current releases, family screenings and event cinema in luxurious surroundings.",
     address: "The Chiswick Cinema,\n94 – 96 Chiswick High Road,\nW4 1SH",
     postcode: "W4 1SH",
     area: "Chiswick",
@@ -168,15 +168,15 @@ export const cinemas: CinemaType[] = [
     "Wheelchair Accessible": true,
     "Free Carer Tickets": true,
     wheelchairDetails:
-      "Fully accessible to wheelchair users. Lifts to all levels, step-free access to screens, bar, restaurant, and café. Assistance dogs allowed.",
+      "Fully accessible to wheelchair users. Lifts to all levels, step-free access to screens, "Bar", restaurant, and café. Assistance dogs allowed.",
     HoHDetails: false,
     visualImpairmentDetails:
       "Narration track through headset for some films. Check availability before visit.",
     neurodiverseDetails: false,
     freeCarerTicketsDetails:
       "CEA cardholders get free carer ticket. Book online, in-person, or over the phone.",
-    bar: true,
-    cafe: true,
+    "Bar": true,
+    "Cafe": true,
     images: {
       exterior: "/assets/cinema-images/chiswick-exterior.jpeg",
       Interior1: "/assets/cinema-images/chiswick-interior-1.jpeg",
@@ -206,8 +206,8 @@ export const cinemas: CinemaType[] = [
     neurodiverseDetails: false,
     freeCarerTicketsDetails:
       "CEA cardholders get free carer ticket. Book online or in-person.",
-    bar: true,
-    cafe: false,
+    "Bar": true,
+    "Cafe": false,
     images: {
       exterior: "/assets/cinema-images/prince-charles-exterior.jpeg",
       Interior1: "/assets/cinema-images/prince-charles-interior-1.jpeg",

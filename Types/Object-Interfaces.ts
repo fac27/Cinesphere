@@ -15,8 +15,8 @@ export interface CinemaType {
   visualImpairmentDetails?: string | boolean; // Optional property, and one cinema has a "boolean" value for this property
   neurodiverseDetails?: string | boolean; // Optional property
   freeCarerTicketsDetails?: string | boolean; // Optional property
-  bar: boolean;
-  cafe: boolean;
+  Bar: boolean;
+  Cafe: boolean;
   images: {
     exterior: string;
     Interior1: string;
