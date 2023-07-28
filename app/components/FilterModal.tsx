@@ -5,6 +5,7 @@ interface Props {
   isVisible: boolean;
   setIsVisible: Dispatch<SetStateAction<boolean>>;
   filterArr: { name: string; filters: string[] }[];
+  showOnPage?: string
 }
 
 const FilterModal = ({
