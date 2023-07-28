@@ -44,7 +44,6 @@ const CinemaSearchBar = ({
       });
 
       Promise.all(distances).then((resolvedDistances) => {
-        console.log(resolvedDistances);
         setDistances(resolvedDistances);
       });
     };

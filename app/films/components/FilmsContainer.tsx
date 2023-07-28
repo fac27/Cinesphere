@@ -1,3 +1,4 @@
+"use client";
 import { getImdbIds } from "@/Utils/getImdbIds";
 import FilmCard from "./FilmCard";
 import { useEffect, useState } from "react";
@@ -9,10 +10,8 @@ import { genreCodes, languageCodes } from "@/Data/FilteringCodes";
 
 const FilmsContainer = () => {
   const [filmData, setFilmData] = useState<any[]>([]);
-
   useEffect(() => {
     const imdb_id_arr = getImdbIds(screenings);
-
     const fetchData = async () => {
       try {
         const filmDataArr = await Promise.all(
@@ -27,7 +26,6 @@ const FilmsContainer = () => {
   }, []);
 
   const filterContext = useFilters();
-
   const filteredFilmData = filmData.filter((film) => {
     const selectedGenres = filterContext?.selectedGenres as string[];
     const selectedLanguages = filterContext?.selectedLanguages as string[];
