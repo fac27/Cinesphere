@@ -24,7 +24,7 @@ const Page = ({ params }: { params: { cinema: string } }) => {
     <>
       <Buttons />
       <Cinema cinema={cinema} />
-      <Screenings screenings={screeningsFiltered} />
+      <Screenings screenings={screeningsFiltered} showOnPage="cinema" />
     </>
   );
 };

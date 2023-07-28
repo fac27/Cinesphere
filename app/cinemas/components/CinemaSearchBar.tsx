@@ -1,5 +1,6 @@
 import cinemas from "@/Data/Cinemas";
 import { haversine } from "@/Utils/haversine";
+import FilterButton from "@/app/components/FilterButton";
 import React, { Dispatch, SetStateAction } from "react";
 
 interface Props {
@@ -8,12 +9,14 @@ interface Props {
   setDistances: Dispatch<
     SetStateAction<{ cinema: string; distance: string }[]>
   >;
+  setIsVisible: Dispatch<SetStateAction<boolean>>;
 }
 
 const CinemaSearchBar = ({
   setDistances,
   postcodeInput,
   setPostcodeInput,
+  setIsVisible
 }: Props) => {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -68,6 +71,7 @@ const CinemaSearchBar = ({
           Search
         </button>
       </form>
+      <FilterButton setIsVisible={setIsVisible} />
     </div>
   );
 };
