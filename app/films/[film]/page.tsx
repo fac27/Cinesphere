@@ -8,6 +8,8 @@ import { v4 as uuidv4 } from "uuid";
 import { FilmType } from "@/Types/Object-Interfaces";
 import { getFilmData } from "@/Utils/getFilmData";
 import { getFilmCredits } from "@/Utils/getFilmCredits";
+import screenings from "@/Data/Screenings";
+import Screenings from "@/app/components/Screenings";
 
 interface DirectorType {
   adult: boolean;
@@ -50,6 +52,11 @@ const Page: React.FC<{}> = (): React.JSX.Element => {
 
     fetchData();
   }, []);
+
+  const title = filmData?.original_title
+  const screeningsFiltered = screenings.filter(
+  (screening) => screening.filmName == title?.toUpperCase()
+  );
 
   const genreElements =
     filmData && filmData.genres
@@ -112,6 +119,7 @@ const Page: React.FC<{}> = (): React.JSX.Element => {
               objectFit="cover"
             />
           </div>
+          <Screenings screenings={screeningsFiltered} showOnPage="film"/>
         </>
       ) : (
         ""
