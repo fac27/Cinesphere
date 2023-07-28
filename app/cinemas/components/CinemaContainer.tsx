@@ -8,9 +8,22 @@ interface Props {
   distances: { cinema: string; distance: string }[];
 }
 
+function getTrueKeys(obj: CinemaType) {
+  var keys = [];
+  for (var key in obj) {
+    if (obj.hasOwnProperty(key) && obj[key] === true) {
+      keys.push(key);
+    }
+  }
+  return keys;
+}
+
 const CinemaContainer = ({ distances }: Props) => {
-  //const filterContext = useFilters();
-  /* const filteredCinemas = cinemas.filter((cinema) => {
+  const filterContext = useFilters();
+  const filteredCinemas = cinemas.filter((cinema) => {
+    console.log(cinema.cinemaName, cinema.Cafe);
+    const cinemaAccessibility = getTrueKeys(cinema);
+    const cinemaAmenities = getTrueKeys(cinema);
     const selectedAmenities = filterContext?.selectedAmenities as string[];
     const selectedAccessibility =
       filterContext?.selectedAccessibility as string[];
@@ -20,10 +33,9 @@ const CinemaContainer = ({ distances }: Props) => {
     const isAcccessibilityMatch =
       selectedAccessibility.length === 0 ||
       selectedAccessibility.some((item) => cinemaAccessibility.includes(item));
-    return isAmenityMatch;
-  }); */
-
-  const filteredCinemas = cinemas;
+    console.log(isAmenityMatch, isAcccessibilityMatch);
+    return isAmenityMatch && isAcccessibilityMatch;
+  });
 
   return (
     <div>
