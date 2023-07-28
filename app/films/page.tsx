@@ -1,5 +1,5 @@
 "use client";
-import FilterBar from "../components/FilterBar";
+import FilterBar from "./components/FilterBar";
 import { useState } from "react";
 import FilmsContainer from "./components/FilmsContainer";
 import FilterModal from "../components/FilterModal";

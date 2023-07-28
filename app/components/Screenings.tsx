@@ -1,8 +1,13 @@
+'use client'
+
 import { ScreeningType} from "@/Types/Object-Interfaces";
 import getScreeningsByDateAndFilm from "../../Utils/getScreeningsByDateAndFilm";
 import getScreeningsByDateAndCinema from "@/Utils/getScreeningsByDateAndCinema";
 import { BiSliderAlt } from "react-icons/bi";
 import Icons from "./Icons";
+import FilterButton from "./FilterButton";
+import { useState } from "react";
+import FilterModal from "./FilterModal";
 
 interface Props {
   screenings: ScreeningType[];
@@ -44,16 +49,16 @@ const renderScreenings = (showOnPage: string, sortedScreenings: any[]) => {
 };
 
 const Screenings = ({ screenings, showOnPage }: Props) => {
+  const [isVisible, setIsVisible] = useState<boolean>(false);
   let sortedScreenings = [];
   showOnPage === "cinema" ? sortedScreenings = getScreeningsByDateAndFilm(screenings) : sortedScreenings = getScreeningsByDateAndCinema(screenings)
+  const filterArr: {name: string, filters: string[]}[]  = [{name: "", filters: [""]}]
   return (
       <div className="m-4 md:w-1/2 md:mx-auto ">
         <div className="flex justify-around align-middle mb-4">
           <h2 className="text-3xl regular">SCREENINGS</h2>
-          <button className="p-2 flex items-center gap-1 rounded-lg border border-black ml-3">
-            <BiSliderAlt />
-            Filter
-          </button>
+          <FilterModal filterArr={filterArr} isVisible={isVisible} setIsVisible={setIsVisible}/>
+        <FilterButton setIsVisible={setIsVisible}/>
         </div>
         <div className="border-b-4 flex flex-col gap-8">
           {renderScreenings(showOnPage, sortedScreenings)}

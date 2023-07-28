@@ -66,7 +66,8 @@ const Page: React.FC<{}> = (): React.JSX.Element => {
       : null;
 
   return (
-    <div className="md:w-2/3 ml-auto mr-auto mb-2">
+    <>
+    <div className="md:w-1/2 ml-auto mr-auto mb-2">
       {filmData && director ? (
         <>
           <div className="flex justify-between w-80 mt-7 mr-auto ml-auto">
@@ -119,12 +120,13 @@ const Page: React.FC<{}> = (): React.JSX.Element => {
               objectFit="cover"
             />
           </div>
-          <Screenings screenings={screeningsFiltered} showOnPage="film"/>
         </>
       ) : (
         ""
       )}
     </div>
+    <Screenings screenings={screeningsFiltered} showOnPage="film"/>
+    </>
   );
 };
 

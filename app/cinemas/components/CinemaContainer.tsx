@@ -7,11 +7,15 @@ interface Props {
 }
 
 const CinemaContainer = ({ filteredCinemas, distances }: Props) => {
-  return filteredCinemas.map((cinema) => (
+  return (
+  <div>
+  {filteredCinemas.map((cinema) => (
     <div key={cinema.cinemaName} className="flex flex-col items-center">
       <CinemaCard cinema={cinema} distances={distances} />
-    </div>
-  ));
-};
+      </div>
+  ))}
+  </div>
+  )
+}
 
 export default CinemaContainer;

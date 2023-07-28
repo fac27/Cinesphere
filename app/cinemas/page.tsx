@@ -4,10 +4,10 @@ import React, { useState } from "react";
 
 import cinemas from "../../Data/Cinemas";
 import FilterModal from "../components/FilterModal";
-import FilterBar from "../components/FilterBar";
 import CinemaSearchBar from "./components/CinemaSearchBar";
 import { accessibility, amenities } from "@/Data/Filters";
 import CinemaContainer from "./components/CinemaContainer";
+import FilterButton from "../components/FilterButton";
 
 const Cinemas = () => {
   const [postcodeInput, setPostcodeInput] = useState<string>("");
@@ -30,11 +30,11 @@ const Cinemas = () => {
         isVisible={isVisible}
         setIsVisible={setIsVisible}
       />
-      <FilterBar setIsVisible={setIsVisible} />
       <CinemaSearchBar
         setDistances={setDistances}
         postcodeInput={postcodeInput}
         setPostcodeInput={setPostcodeInput}
+        setIsVisible={setIsVisible}
       />
       <CinemaContainer
         distances={distances}
