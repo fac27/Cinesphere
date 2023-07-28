@@ -5,12 +5,12 @@ interface CinemaArrType {
   screenings: ScreeningType[];
 }
 
-interface DateArrType {
+interface FilmPageDateArrType {
   date: string;
   cinema: CinemaArrType[];
 }
 
-interface CinemaScheduleData extends Array<DateArrType> {}
+interface CinemaScheduleData extends Array<FilmPageDateArrType> {}
 
 const getScreeningsByDateAndCinema = (screenings: ScreeningType[]) => {
   const screeningsByDateAndCinema: CinemaScheduleData = [];

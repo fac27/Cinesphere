@@ -1,21 +1,21 @@
 import { ScreeningType } from "@/Types/Object-Interfaces";
 
-interface FilmArrType {
+export interface FilmArrType {
   filmName: string;
   screenings: ScreeningType[];
 }
 
-interface DateArrType {
+interface CinemaPageDateArrType {
   date: string;
   films: FilmArrType[];
 }
 
-interface CinemaScheduleData extends Array<DateArrType> {}
+export interface CinemaScheduleData extends Array<CinemaPageDateArrType> {}
 
 const getScreeningsByDateAndFilm = (screenings: ScreeningType[]) => {
   const screeningsByDateAndFilm: CinemaScheduleData = [];
 
-  screenings.forEach((screening) => {
+  screenings.forEach((screening: ScreeningType) => {
     const date = new Date(screening.dateTime);
 
     const formattedDate = date.toLocaleString("en-GB", {
