@@ -6,6 +6,7 @@ import Image from "next/image";
 import { BsArrowLeftCircle } from "react-icons/bs";
 import { v4 as uuidv4 } from "uuid";
 import { FilmType } from "@/Types/Object-Interfaces";
+import { getAllFilms } from "@/Utils/getAllFilms";
 import { getFilmData } from "@/Utils/getFilmData";
 import { getFilmCredits } from "@/Utils/getFilmCredits";
 import screenings from "@/Data/Screenings";
@@ -28,6 +29,8 @@ interface DirectorType {
 const Page: React.FC<{}> = (): React.JSX.Element => {
   const [filmData, setFilmData] = useState<FilmType | null>(null);
   const [director, setDirector] = useState<DirectorType | null>(null);
+
+  getAllFilms()
 
   useEffect(() => {
     const link = window.location.href.split("/");
