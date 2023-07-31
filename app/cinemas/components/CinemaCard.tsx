@@ -18,7 +18,7 @@ const CinemaCard: FC<CinemaCardProps> = ({ cinema, distances }) => {
       <div className="relative h-0 pb-[200%] xs:pb-[180%] sm:pb-[80%] md:pb-[75%]">
         <Image
           className="bg-cover bg-center"
-          src={cinema.images.Interior2}
+          src={cinema.img_interior_2}
           alt={`a photo of the interior of ${cinema}`}
           fill={true}
           objectFit="cover"

@@ -1,5 +1,8 @@
 import React, { Dispatch, SetStateAction } from "react";
+
 import Filter from "./Filter";
+// import { eras } from "@/Data/Filters";
+// import { useFilters } from "../Context/store";
 
 interface Props {
   isVisible: boolean;
@@ -11,8 +14,12 @@ interface Props {
 const FilterModal = ({
   isVisible,
   setIsVisible,
-  filterArr,
+  filterArr
 }: Props): React.JSX.Element => {
+
+
+
+  
   return (
     <dialog open={isVisible} className="text-center my-4 z-50">
       {filterArr.map((filter, index) => {

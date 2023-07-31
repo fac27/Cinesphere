@@ -46,35 +46,35 @@ const Cinema = ({ cinema }: Props) => {
         />
       )}
 
-      {cinema.audioDescription && (
+      {cinema["Audio Description"] && (
         <InfoSection
           title="Audio Description"
           IconComponent={FaAudioDescription}
           description={cinema.visualImpairmentDetails as string}
         />
       )}
-      {cinema.closedCaptions && (
+      {cinema["Closed Captions"] && (
         <InfoSection
           title="Closed Captions"
           IconComponent={BiSolidCaptions}
           description={cinema.HoHDetails as string}
         />
       )}
-      {cinema.relaxedScreenings && (
+      {cinema["Relaxed Screenings"] && (
         <InfoSection
           title="Relaxed Screenings"
           IconComponent={FaInfinity}
           description={cinema.neurodiverseDetails as string}
         />
       )}
-      {cinema.wheelchairAccessible && (
+      {cinema["Wheelchair Accessible"] && (
         <InfoSection
           title="Wheelchair Accessibility"
           IconComponent={FaWheelchair}
           description={cinema.wheelchairDetails as string}
         />
       )}
-      {cinema.freeCarerTickets && (
+      {cinema["Free Carer Tickets"] && (
         <InfoSection
           title="Free Carer Tickets"
           IconComponent={BsFillTicketPerforatedFill}
@@ -89,7 +89,7 @@ const Cinema = ({ cinema }: Props) => {
         <Image
           className="absolute top-0 left-0 w-full h-full object-cover"
           fill={true}
-          src={cinema.images.Interior1}
+          src={cinema.img_interior_1}
           alt="External cinema"
         />
       </div>
@@ -103,7 +103,7 @@ const Cinema = ({ cinema }: Props) => {
             className="absolute top-0 left-0 w-full h-full object-cover"
             fill={true}
             alt="interior2"
-            src={cinema.images.Interior2}
+            src={cinema.img.interior_2}
           />
         </div>
         <div
@@ -114,7 +114,7 @@ const Cinema = ({ cinema }: Props) => {
             className="absolute top-0 left-0 w-full h-full object-cover"
             fill={true}
             alt="interior2"
-            src={cinema.images.Interior3}
+            src={cinema.img.interior_3}
           />
         </div>
       </div>
