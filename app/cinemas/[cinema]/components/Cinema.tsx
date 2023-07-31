@@ -1,7 +1,7 @@
 import { CinemaType } from "@/Types/Object-Interfaces";
 import { LiaCocktailSolid } from "react-icons/lia";
 import { IoMdCafe } from "react-icons/io";
-import { FaAudioDescription } from "react-icons/fa";
+import { FaAudioDescription, FaInfinity } from "react-icons/fa";
 import { BiSolidCaptions } from "react-icons/bi";
 import { FaWheelchair } from "react-icons/fa";
 import { BsFillTicketPerforatedFill } from "react-icons/bs";
@@ -14,7 +14,7 @@ interface Props {
 
 const Cinema = ({ cinema }: Props) => {
   return (
-    <>
+    <div className="mx-5 md:w-1/2 md:mx-auto flex flex-col gap-5">
       <div
         className="relative w-full overflow-hidden"
         style={{ paddingTop: "56.25%" }}
@@ -46,34 +46,35 @@ const Cinema = ({ cinema }: Props) => {
         />
       )}
 
-      {cinema.audioDescription && (
+      {cinema["Audio Description"] && (
         <InfoSection
           title="Audio Description"
           IconComponent={FaAudioDescription}
           description={cinema.visualImpairmentDetails as string}
         />
       )}
-      {cinema.closedCaptions && (
+      {cinema["Closed Captions"] && (
         <InfoSection
           title="Closed Captions"
           IconComponent={BiSolidCaptions}
           description={cinema.HoHDetails as string}
         />
       )}
-      {cinema.relaxedScreenings && (
+      {cinema["Relaxed Screenings"] && (
         <InfoSection
           title="Relaxed Screenings"
+          IconComponent={FaInfinity}
           description={cinema.neurodiverseDetails as string}
         />
       )}
-      {cinema.wheelchairAccessible && (
+      {cinema["Wheelchair Accessible"] && (
         <InfoSection
-          title="Weelchair Accessibility"
+          title="Wheelchair Accessibility"
           IconComponent={FaWheelchair}
           description={cinema.wheelchairDetails as string}
         />
       )}
-      {cinema.freeCarerTickets && (
+      {cinema["Free Carer Tickets"] && (
         <InfoSection
           title="Free Carer Tickets"
           IconComponent={BsFillTicketPerforatedFill}
@@ -117,7 +118,7 @@ const Cinema = ({ cinema }: Props) => {
           />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

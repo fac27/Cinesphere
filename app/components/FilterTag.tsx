@@ -12,7 +12,7 @@ const FilterTag = ({ filter, category }: Props) => {
   const filterContext = useFilters();
 
   const selectFilter = (category: string): void => {
-    if (category === "GENRE") {
+    if (category.toUpperCase() === "GENRES") {
       const selectedGenres = filterContext?.selectedGenres as string[];
       const setSelectedGenres =
         filterContext?.setSelectedGenres as React.Dispatch<
@@ -20,7 +20,7 @@ const FilterTag = ({ filter, category }: Props) => {
         >;
       filterByCategory(selectedGenres, setSelectedGenres, filter);
     }
-    if (category == "LANGUAGE") {
+    if (category.toUpperCase() == "LANGUAGES") {
       const selectedLanguages = filterContext?.selectedLanguages as string[];
       const setSelectedLanguages =
         filterContext?.setSelectedLanguages as React.Dispatch<
@@ -28,13 +28,30 @@ const FilterTag = ({ filter, category }: Props) => {
         >;
       filterByCategory(selectedLanguages, setSelectedLanguages, filter);
     }
-    if (category == "ERA") {
+    if (category.toUpperCase() == "ERAS") {
       const selectedDecades = filterContext?.selectedDecades as string[];
       const setSelectedDecades =
         filterContext?.setSelectedDecades as React.Dispatch<
           React.SetStateAction<string[]>
         >;
       filterByCategory(selectedDecades, setSelectedDecades, filter);
+    }
+    if (category.toUpperCase() == "ACCESSIBILITY") {
+      const selectedAccessibility =
+        filterContext?.selectedAccessibility as string[];
+      const setSelectedAccessibility =
+        filterContext?.setSelectedAccessibility as React.Dispatch<
+          React.SetStateAction<string[]>
+        >;
+      filterByCategory(selectedAccessibility, setSelectedAccessibility, filter);
+    }
+    if (category.toUpperCase() == "AMENITIES") {
+      const selectedAmenities = filterContext?.selectedAmenities as string[];
+      const setSelectedAmenities =
+        filterContext?.setSelectedAmenities as React.Dispatch<
+          React.SetStateAction<string[]>
+        >;
+      filterByCategory(selectedAmenities, setSelectedAmenities, filter);
     }
   };
 
@@ -57,8 +74,8 @@ const FilterTag = ({ filter, category }: Props) => {
 
   return (
     <button
-      className={`bg-slate-300 rounded border-black mx-1 my-1 p-0.5 ${
-        isSelected ? "bg-purple-500 text-white" : ""
+      className={`rounded border-black mx-1 my-1 p-0.5 ${
+        isSelected ? "bg-purple-700 text-white" : "bg-slate-300 "
       }`}
       onClick={() => selectFilter(category)}
     >

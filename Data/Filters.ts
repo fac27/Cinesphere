@@ -1,4 +1,4 @@
-export const genres = [
+export const exampleGenres = [
   "Action",
   "Horror",
   "Thriller",
@@ -22,7 +22,7 @@ export const languages = [
 
 export const ageRating = ["U", "PG", "12A", "12", "15", "18", "R18"];
 
-export const era = [
+export const eras = [
   "1930s",
   "1940s",
   "1950s",
@@ -36,3 +36,13 @@ export const era = [
 ];
 
 export const score = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
+
+export const accessibility = [
+  "Wheelchair Accessible",
+  "Relaxed Screenings",
+  "Audio Description",
+  "Closed Captions",
+  "Free Carer Tickets",
+];
+
+export const amenities = ["Bar", "Cafe"];

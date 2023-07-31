@@ -37,7 +37,7 @@ const CinemaFeaturesList: FC<CinemaCardProps> = ({ cinema }) => {
     );
   }
 
-  if (cinema.audioDescription) {
+  if (cinema["Audio Description"]) {
     features.push(
       <li key="audioDescription" className="flex items-center">
         <span role="img" aria-label="Audio Description" className="mr-2">
@@ -48,7 +48,7 @@ const CinemaFeaturesList: FC<CinemaCardProps> = ({ cinema }) => {
     );
   }
 
-  if (cinema.closedCaptions) {
+  if (cinema["Closed Captions"]) {
     features.push(
       <li key="closedCaptions" className="flex items-center">
         <span role="img" aria-label="Closed Captions" className="mr-2">
@@ -59,7 +59,7 @@ const CinemaFeaturesList: FC<CinemaCardProps> = ({ cinema }) => {
     );
   }
 
-  if (cinema.relaxedScreenings) {
+  if (cinema["Relaxed Screenings"]) {
     features.push(
       <li key="relaxedScreenings" className="flex items-center">
         <span role="img" aria-label="Relaxed Screenings" className="mr-2">
@@ -70,9 +70,9 @@ const CinemaFeaturesList: FC<CinemaCardProps> = ({ cinema }) => {
     );
   }
 
-  if (cinema.wheelchairAccessible) {
+  if (cinema["Wheelchair Accessible"]) {
     const wheelchairAccessibility =
-      cinema.wheelchairAccessible === "Partial"
+      cinema["Wheelchair Accessible"] === "Partial"
         ? "Some wheelchair access"
         : "Full wheelchair access";
     features.push(
@@ -85,7 +85,7 @@ const CinemaFeaturesList: FC<CinemaCardProps> = ({ cinema }) => {
     );
   }
 
-  if (cinema.freeCarerTickets) {
+  if (cinema["Free Carer Tickets"]) {
     features.push(
       <li key="freeCarerTickets" className="flex items-center">
         <span role="img" aria-label="Free Carer Tickets" className="mr-2">
