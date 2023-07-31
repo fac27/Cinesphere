@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 import { v4 as uuidv4 } from "uuid";
+import CinemaCard from "../cinemas/components/CinemaCard";
 
 interface LocationType {
   id: string;
@@ -79,7 +80,14 @@ const Map = () => {
             position={{ lat: location.lat, lng: location.lon }}
             icon={customIcon}
           >
-            <Popup>{location.name}</Popup>
+            <Popup className="h-full w-96">
+              <CinemaCard
+                cinema={cinemas.find(
+                  (cinema) => cinema.cinemaName === location.name
+                )}
+                distances={[]}
+              />
+            </Popup>
           </Marker>
         ))}
       </MapContainer>
