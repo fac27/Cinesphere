@@ -25,7 +25,7 @@ const CinemaCard: FC<CinemaCardProps> = ({ cinema, distances }) => {
         />
         <div className="absolute inset-0 bg-black opacity-50 rounded-2xl" />
       </div>
-      <Link href={`/cinemas/${cinema.cinemaName}`}>
+      <Link href={`/cinemas/${cinema.cinema_name}`}>
         <div className="p-5 md:p-10 mt-5 pb-15 absolute top-0 left-0 text-white">
           <h2 className="text-2xl font-bold">{cinema.cinemaName}</h2>
           <h3 className="mb-10">
