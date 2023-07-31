@@ -1,7 +1,7 @@
-import { CinemaType, DbCinemaType } from "@/Types/Object-Interfaces";
+import { CinemaType } from "@/Types/Object-Interfaces";
 
-const transformObj = (arr: DbCinemaType[]): CinemaType[] => {
-  const newArr = arr.map((cinema) => {
+const transformObj = (arr: any): CinemaType[] => {
+  const newArr = arr.map((cinema: any) => {
     let newObj: any = {};
     for (let key in cinema) {
       if (key === "audio_description") {
