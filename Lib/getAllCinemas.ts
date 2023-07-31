@@ -2,7 +2,10 @@
 import supabaseClient from "./supabaseClient";
 
 const getAllCinemas = async () => {
-  const { data, error } = await supabaseClient.from("venue").select("*");
+  const { data, error } = await supabaseClient
+    .from("venue")
+    .select("id")
+    .select("*");
   if (error) {
     console.log(`Error getting cinema data: ${error.message}`);
     throw error;
