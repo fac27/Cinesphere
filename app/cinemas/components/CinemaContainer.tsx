@@ -1,10 +1,10 @@
 import { CinemaType } from "@/Types/Object-Interfaces";
 import CinemaCard from "./CinemaCard";
-import cinemas from "@/Data/Cinemas";
 import { useFilters } from "@/app/Context/store";
 
 interface Props {
   distances: { cinema: string; distance: string }[];
+  cinemas: CinemaType[];
 }
 
 function getTrueKeys(obj: CinemaType) {
@@ -18,10 +18,9 @@ function getTrueKeys(obj: CinemaType) {
   return keys;
 }
 
-const CinemaContainer = ({ distances }: Props) => {
+const CinemaContainer = ({ distances, cinemas }: Props) => {
   const filterContext = useFilters();
   const filteredCinemas = cinemas.filter((cinema) => {
-    console.log(cinema.cinemaName, cinema.Cafe);
     const cinemaAccessibility = getTrueKeys(cinema);
     const cinemaAmenities = getTrueKeys(cinema);
     const selectedAmenities = filterContext?.selectedAmenities as string[];
@@ -33,7 +32,6 @@ const CinemaContainer = ({ distances }: Props) => {
     const isAcccessibilityMatch =
       selectedAccessibility.length === 0 ||
       selectedAccessibility.every((item) => cinemaAccessibility.includes(item));
-    console.log(isAmenityMatch, isAcccessibilityMatch);
     return isAmenityMatch && isAcccessibilityMatch;
   });
 

@@ -1,40 +1,11 @@
-"use client";
+import getAllCinemas from "@/Lib/getAllCinemas";
+import CinemaPage from "./components/CinemaPage";
+import { CinemaType } from "@/Types/Object-Interfaces";
 
-import React, { useState } from "react";
-
-import FilterModal from "../components/FilterModal";
-import CinemaSearchBar from "./components/CinemaSearchBar";
-import { accessibility, amenities } from "@/Data/Filters";
-import CinemaContainer from "./components/CinemaContainer";
-
-const Cinemas = () => {
-  const [postcodeInput, setPostcodeInput] = useState<string>("");
-  const [distances, setDistances] = useState<
-    { cinema: string; distance: string }[]
-  >([]);
-  const [isVisible, setIsVisible] = useState(false);
-
-  const filterArr = [
-    { name: "AMENITIES", filters: amenities },
-    { name: "ACCESSIBILITY", filters: accessibility },
-  ];
-
-  return (
-    <>
-      <FilterModal
-        filterArr={filterArr}
-        isVisible={isVisible}
-        setIsVisible={setIsVisible}
-      />
-      <CinemaSearchBar
-        setDistances={setDistances}
-        postcodeInput={postcodeInput}
-        setPostcodeInput={setPostcodeInput}
-        setIsVisible={setIsVisible}
-      />
-      <CinemaContainer distances={distances} />
-    </>
-  );
+const Page = async () => {
+  const cinemas: CinemaType[] = await getAllCinemas();
+  console.log("page: ", cinemas);
+  return <CinemaPage cinemas={cinemas} />;
 };
 
-export default Cinemas;
+export default Page;
