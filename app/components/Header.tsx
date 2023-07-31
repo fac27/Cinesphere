@@ -24,7 +24,9 @@ const Header = () => {
       </div>
 
       <nav
-        className={`absolute right-0 ${open ? "flex" : "hidden"} flex-column justify-end mr-2 z-50`}
+        className={`absolute right-0 ${
+          open ? "flex" : "hidden"
+        } flex-column justify-end mr-2 z-50`}
       >
         <ul className="my-4 bg-white text-center">
           <li className="p-2.5 border border-black">

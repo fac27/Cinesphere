@@ -24,13 +24,9 @@ interface FilterContextProps {
 const FilterContext = createContext<FilterContextProps | undefined>(undefined);
 
 export const FilterProvider = ({ children }: { children: ReactNode }) => {
-  const [eras, setEras] = useState<string[]>(
-    [] as string[]);
-  const [languages, setLanguages] = useState<string[]>(
-    [] as string[]);
-  const [genres, setGenres] = useState<string[]>(
-    [] as string[]
-  );
+  const [eras, setEras] = useState<string[]>([] as string[]);
+  const [languages, setLanguages] = useState<string[]>([] as string[]);
+  const [genres, setGenres] = useState<string[]>([] as string[]);
   const [selectedGenres, setSelectedGenres] = useState<string[]>(
     [] as string[]
   );

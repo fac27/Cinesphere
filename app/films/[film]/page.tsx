@@ -53,9 +53,9 @@ const Page: React.FC<{}> = (): React.JSX.Element => {
     fetchData();
   }, []);
 
-  const title = filmData?.original_title
+  const title = filmData?.original_title;
   const screeningsFiltered = screenings.filter(
-  (screening) => screening.filmName == title?.toUpperCase()
+    (screening) => screening.filmName == title?.toUpperCase()
   );
 
   const genreElements =
@@ -67,65 +67,68 @@ const Page: React.FC<{}> = (): React.JSX.Element => {
 
   return (
     <>
-    <div className="md:w-1/2 ml-auto mr-auto mb-2">
-      {filmData && director ? (
-        <>
-          <div className="flex justify-between w-80 mt-7 mr-auto ml-auto">
-            <Link href={"/films"} className="uppercase flex gap-2 items-center">
-              <span>
-                <BsArrowLeftCircle />
-              </span>
-              back
-            </Link>
+      <div className="md:w-1/2 ml-auto mr-auto mb-2">
+        {filmData && director ? (
+          <>
+            <div className="flex justify-between w-80 mt-7 mr-auto ml-auto">
+              <Link
+                href={"/films"}
+                className="uppercase flex gap-2 items-center"
+              >
+                <span>
+                  <BsArrowLeftCircle />
+                </span>
+                back
+              </Link>
 
-            <Link href={"/"} className="uppercase">
-              listings
-            </Link>
-          </div>
-          <div className="relative mt-5 w-100 h-56 md:h-96">
-            <Image
-              src={`https://image.tmdb.org/t/p/w500${filmData?.backdrop_path}`}
-              alt={"a snapshot of the film asteroid city"}
-              layout="fill"
-              objectFit="cover"
-            />
-          </div>
-          <div className="p-3 flex flex-col gap-2">
-            <h1 className="uppercase font-bold">{filmData?.title}</h1>
-            <p className="text-gray-500">
-              <span>{filmData?.release_date.split("-")[0]}</span> ·{" "}
-              <span>12A</span> ·{" "}
-              <span>
-                {filmData
-                  ? `${Math.trunc(filmData.runtime / 60)}h ${
-                      filmData.runtime % 60
-                    }m`
-                  : "Unknown"}
-              </span>
-            </p>
-            <p>{genreElements}</p>
-            <p>
-              <span className="font-medium">Director</span>: {director?.name}
-            </p>
-            <p className="mt-2">
-              <span className="uppercase font-medium">Description</span>:{" "}
-              {filmData?.overview}
-            </p>
-          </div>
-          <div className="relative mt-5 w-100 h-56 md:hidden">
-            <Image
-              src={`https://image.tmdb.org/t/p/w500${filmData?.poster_path}`}
-              alt={"a snapshot of the film asteroid city"}
-              layout="fill"
-              objectFit="cover"
-            />
-          </div>
-        </>
-      ) : (
-        ""
-      )}
-    </div>
-    <Screenings screenings={screeningsFiltered} showOnPage="film"/>
+              <Link href={"/"} className="uppercase">
+                listings
+              </Link>
+            </div>
+            <div className="relative mt-5 w-100 h-56 md:h-96">
+              <Image
+                src={`https://image.tmdb.org/t/p/w500${filmData?.backdrop_path}`}
+                alt={"a snapshot of the film asteroid city"}
+                layout="fill"
+                objectFit="cover"
+              />
+            </div>
+            <div className="p-3 flex flex-col gap-2">
+              <h1 className="uppercase font-bold">{filmData?.title}</h1>
+              <p className="text-gray-500">
+                <span>{filmData?.release_date.split("-")[0]}</span> ·{" "}
+                <span>12A</span> ·{" "}
+                <span>
+                  {filmData
+                    ? `${Math.trunc(filmData.runtime / 60)}h ${
+                        filmData.runtime % 60
+                      }m`
+                    : "Unknown"}
+                </span>
+              </p>
+              <p>{genreElements}</p>
+              <p>
+                <span className="font-medium">Director</span>: {director?.name}
+              </p>
+              <p className="mt-2">
+                <span className="uppercase font-medium">Description</span>:{" "}
+                {filmData?.overview}
+              </p>
+            </div>
+            <div className="relative mt-5 w-100 h-56 md:hidden">
+              <Image
+                src={`https://image.tmdb.org/t/p/w500${filmData?.poster_path}`}
+                alt={"a snapshot of the film asteroid city"}
+                layout="fill"
+                objectFit="cover"
+              />
+            </div>
+          </>
+        ) : (
+          ""
+        )}
+      </div>
+      <Screenings screenings={screeningsFiltered} showOnPage="film" />
     </>
   );
 };

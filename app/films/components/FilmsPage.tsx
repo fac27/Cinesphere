@@ -22,10 +22,10 @@ const FilmsContainer = () => {
     React.SetStateAction<string[]>
   >;
   const setLanguages = filterContext?.setLanguages as React.Dispatch<
-  React.SetStateAction<string[]>
+    React.SetStateAction<string[]>
   >;
   const setEras = filterContext?.setEras as React.Dispatch<
-  React.SetStateAction<string[]>
+    React.SetStateAction<string[]>
   >;
 
   useEffect(() => {
@@ -39,29 +39,33 @@ const FilmsContainer = () => {
       } catch (error: unknown) {
         console.error(error);
       }
-      
-      // set genre filters 
+
+      // set genre filters
       const genreSet = new Set();
-      filmData.forEach(film => genreSet.add(film.genres[0].name));
+      filmData.forEach((film) => genreSet.add(film.genres[0].name));
       const genreArr: any = Array.from(genreSet);
       setGenres(genreArr);
 
       // set language filters
-      const languageSet = new Set()
-      filmData.forEach(film => (languageSet.add(film.original_language)))
-      const langCodeArr: any = Array.from(languageSet)
-      const langNameArr = convertCodesToNames(langCodeArr)
-      setLanguages(langNameArr)
-      
+      const languageSet = new Set();
+      filmData.forEach((film) => languageSet.add(film.original_language));
+      const langCodeArr: any = Array.from(languageSet);
+      const langNameArr = convertCodesToNames(langCodeArr);
+      setLanguages(langNameArr);
 
       // set era filters
-      const dateSet = new Set()
-      filmData.forEach(film => (dateSet.add(film.release_date)))
+      const dateSet = new Set();
+      filmData.forEach((film) => dateSet.add(film.release_date));
       const dateArr = Array.from(dateSet);
-      const decadeSet = new Set(dateArr.map((date: any) => String(Math.floor(Number(date.slice(0, 4)) / 10) * 10)));
-      const sortedDecades = Array.from(decadeSet).sort((a, b) => parseInt(a) - parseInt(b));
-      setEras(sortedDecades)
-
+      const decadeSet = new Set(
+        dateArr.map((date: any) =>
+          String(Math.floor(Number(date.slice(0, 4)) / 10) * 10)
+        )
+      );
+      const sortedDecades = Array.from(decadeSet).sort(
+        (a, b) => parseInt(a) - parseInt(b)
+      );
+      setEras(sortedDecades);
     };
     fetchData();
   }, [filmData, setGenres, setEras, setLanguages]);
@@ -126,7 +130,7 @@ const FilmsContainer = () => {
         setIsVisible={setIsVisible}
         filterArr={filterArr}
       />
-      <FilterBar setIsVisible={setIsVisible}/>
+      <FilterBar setIsVisible={setIsVisible} />
       <div className="flex-col flex items-center mt-4">
         {filteredFilmData.map((film: FilmType) => (
           <FilmCard key={film.id} film={film} />
