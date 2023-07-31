@@ -1,4 +1,5 @@
 // import { CinemaType } from "@/Types/Object-Interfaces";
+import transformObj from "@/Utils/transformObj";
 import supabaseClient from "./supabaseClient";
 
 const getAllCinemas = async () => {
@@ -10,7 +11,9 @@ const getAllCinemas = async () => {
     console.log(`Error getting cinema data: ${error.message}`);
     throw error;
   }
-  return data;
+  console.log(data);
+  const transformedData = transformObj(data);
+  return transformedData;
 };
 
 export default getAllCinemas;

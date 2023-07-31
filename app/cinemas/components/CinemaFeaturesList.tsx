@@ -15,7 +15,7 @@ interface CinemaCardProps {
 const CinemaFeaturesList: FC<CinemaCardProps> = ({ cinema }) => {
   const features = [];
 
-  if (cinema.bar) {
+  if (cinema.Bar) {
     features.push(
       <li key="bar" className="flex items-center">
         <span role="img" aria-label="Bar" className="mr-2">
@@ -26,7 +26,7 @@ const CinemaFeaturesList: FC<CinemaCardProps> = ({ cinema }) => {
     );
   }
 
-  if (cinema.cafe) {
+  if (cinema.Cafe) {
     features.push(
       <li key="cafe" className="flex items-center">
         <span role="img" aria-label="Cafe" className="mr-2">
