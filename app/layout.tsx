@@ -1,5 +1,4 @@
 import "./globals.css";
-import "leaflet/dist/leaflet.css";
 import React from "react";
 import type { Metadata } from "next";
 import { IBM_Plex_Mono } from "next/font/google";
