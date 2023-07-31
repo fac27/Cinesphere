@@ -46,35 +46,35 @@ const Cinema = ({ cinema }: Props) => {
         />
       )}
 
-      {cinema.audioDescription && (
+      {cinema["Audio Description"] && (
         <InfoSection
           title="Audio Description"
           IconComponent={FaAudioDescription}
           description={cinema.visualImpairmentDetails as string}
         />
       )}
-      {cinema.closedCaptions && (
+      {cinema["Closed Captions"] && (
         <InfoSection
           title="Closed Captions"
           IconComponent={BiSolidCaptions}
           description={cinema.HoHDetails as string}
         />
       )}
-      {cinema.relaxedScreenings && (
+      {cinema["Relaxed Screenings"] && (
         <InfoSection
           title="Relaxed Screenings"
           IconComponent={FaInfinity}
           description={cinema.neurodiverseDetails as string}
         />
       )}
-      {cinema.wheelchairAccessible && (
+      {cinema["Wheelchair Accessible"] && (
         <InfoSection
           title="Wheelchair Accessibility"
           IconComponent={FaWheelchair}
           description={cinema.wheelchairDetails as string}
         />
       )}
-      {cinema.freeCarerTickets && (
+      {cinema["Free Carer Tickets"] && (
         <InfoSection
           title="Free Carer Tickets"
           IconComponent={BsFillTicketPerforatedFill}

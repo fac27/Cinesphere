@@ -7,7 +7,6 @@ const getAllCinemas = async () => {
     console.log(`Error getting cinema data: ${error.message}`);
     throw error;
   }
-  console.log(data);
   return data;
 };
 

@@ -19,8 +19,6 @@ const CinemaPage = ({ cinemas }: Props) => {
   >([]);
   const [isVisible, setIsVisible] = useState(false);
 
-  const filteredCinemas = cinemas;
-
   const filterArr = [
     { name: "AMENITIES", filters: amenities },
     { name: "ACCESSIBILITY", filters: accessibility },
@@ -39,10 +37,7 @@ const CinemaPage = ({ cinemas }: Props) => {
         setPostcodeInput={setPostcodeInput}
         setIsVisible={setIsVisible}
       />
-      <CinemaContainer
-        distances={distances}
-        filteredCinemas={filteredCinemas}
-      />
+      <CinemaContainer distances={distances} cinemas={cinemas} />
     </>
   );
 };
