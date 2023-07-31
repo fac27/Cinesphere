@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 
-import cinemas from "../../Data/Cinemas";
 import FilterModal from "../components/FilterModal";
 import CinemaSearchBar from "./components/CinemaSearchBar";
 import { accessibility, amenities } from "@/Data/Filters";
@@ -14,8 +13,6 @@ const Cinemas = () => {
     { cinema: string; distance: string }[]
   >([]);
   const [isVisible, setIsVisible] = useState(false);
-
-  const filteredCinemas = cinemas;
 
   const filterArr = [
     { name: "AMENITIES", filters: amenities },
@@ -35,10 +32,7 @@ const Cinemas = () => {
         setPostcodeInput={setPostcodeInput}
         setIsVisible={setIsVisible}
       />
-      <CinemaContainer
-        distances={distances}
-        filteredCinemas={filteredCinemas}
-      />
+      <CinemaContainer distances={distances} />
     </>
   );
 };

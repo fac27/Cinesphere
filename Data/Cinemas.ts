@@ -9,11 +9,11 @@ export const cinemas: CinemaType[] = [
     postcode: "NW10 3JU",
     area: "Kensal Rise",
     website: "https://thelexicinema.co.uk/",
-    audioDescription: true,
-    closedCaptions: true,
-    relaxedScreenings: true,
-    wheelchairAccessible: "Partial",
-    freeCarerTickets: true,
+    "Audio Description": true,
+    "Closed Captions": true,
+    "Relaxed Screenings": true,
+    "Wheelchair Accessible": "Partial",
+    "Free Carer Tickets": true,
     wheelchairDetails:
       "The Lexi Cinema’s retrofitted Edwardian building presents access challenges, but we're committed to improving access. Wheelchair seats can be booked by phone or at the box office. Accessible gender-neutral toilets are available.",
     HoHDetails:
@@ -24,8 +24,8 @@ export const cinemas: CinemaType[] = [
       "Relaxed Screenings offer autism-friendly environment with no ads/trailers, lower volume/lighting. Download Visual Guide for first-time visits.",
     freeCarerTicketsDetails:
       "Free carer tickets available. Book in advance or in-person, no ID required.",
-    bar: true,
-    cafe: false,
+    Bar: true,
+    Cafe: false,
     images: {
       exterior: "/assets/cinema-images/the-lexi-exterior.jpeg",
       Interior1: "/assets/cinema-images/the-lexi-interior-1.jpeg",
@@ -33,6 +33,7 @@ export const cinemas: CinemaType[] = [
       Interior3: "/assets/cinema-images/the-lexi-interior-3.jpeg",
     },
   },
+
   {
     cinemaName: "The David Lean Cinema",
     about:
@@ -42,11 +43,11 @@ export const cinemas: CinemaType[] = [
     postcode: "CR9 1ET",
     area: "Croydon",
     website: "https://www.davidleancinema.org.uk/",
-    audioDescription: false,
-    closedCaptions: true,
-    relaxedScreenings: false,
-    wheelchairAccessible: true,
-    freeCarerTickets: true,
+    "Audio Description": false,
+    "Closed Captions": true,
+    "Relaxed Screenings": false,
+    "Wheelchair Accessible": true,
+    "Free Carer Tickets": true,
     wheelchairDetails:
       "Cinema accessible by ramp and lift. Up to 2 wheelchair spaces available.",
     HoHDetails:
@@ -55,8 +56,8 @@ export const cinemas: CinemaType[] = [
     neurodiverseDetails: false,
     freeCarerTicketsDetails:
       "There is dedicated disabled parking available nearby",
-    bar: true,
-    cafe: true,
+    Bar: true,
+    Cafe: true,
     images: {
       exterior: "/assets/cinema-images/david-lean-exterior.jpeg",
       Interior1: "/assets/cinema-images/david-lean-interior-1.jpeg",
@@ -72,19 +73,19 @@ export const cinemas: CinemaType[] = [
     postcode: "N8 9BT",
     area: "Crouch End",
     website: "https://www.arthousecrouchend.co.uk/",
-    audioDescription: false,
-    closedCaptions: true,
-    relaxedScreenings: false,
-    wheelchairAccessible: true,
-    freeCarerTickets: true,
+    "Audio Description": false,
+    "Closed Captions": true,
+    "Relaxed Screenings": false,
+    "Wheelchair Accessible": true,
+    "Free Carer Tickets": true,
     wheelchairDetails:
       "To book designated space and adjoining seat, email info@arthousecrouchend.co.uk or visit in person. Spaces released if unbooked 24h prior.",
     HoHDetails: false,
     visualImpairmentDetails: false,
     neurodiverseDetails: false,
     freeCarerTicketsDetails: false,
-    bar: true,
-    cafe: true,
+    Bar: true,
+    Cafe: true,
     images: {
       exterior: "/assets/cinema-images/art-house-exterior.jpeg",
       Interior1: "/assets/cinema-images/art-house-interior-1.jpeg",
@@ -100,11 +101,11 @@ export const cinemas: CinemaType[] = [
     postcode: "W3 6NA",
     area: "Acton",
     website: "https://actonecinema.co.uk/",
-    audioDescription: false,
-    closedCaptions: false,
-    relaxedScreenings: true,
-    wheelchairAccessible: true,
-    freeCarerTickets: true,
+    "Audio Description": false,
+    "Closed Captions": false,
+    "Relaxed Screenings": true,
+    "Wheelchair Accessible": true,
+    "Free Carer Tickets": true,
     wheelchairDetails:
       "Fully wheelchair-accessible. Ramp from street level. Wheelchair seats bookable online. Accessible gender-neutral toilets.",
     HoHDetails: false,
@@ -113,8 +114,8 @@ export const cinemas: CinemaType[] = [
       "Relaxed Screenings offer autism-friendly environment. Informal setting, exit anytime.",
     freeCarerTicketsDetails:
       "Carers get free ticket. Book in advance via email or in-person.",
-    bar: true,
-    cafe: true,
+    Bar: true,
+    Cafe: true,
     images: {
       exterior: "/assets/cinema-images/actone-exterior.jpeg",
       Interior1: "/assets/cinema-images/actone-interior-1.jpeg",
@@ -130,11 +131,11 @@ export const cinemas: CinemaType[] = [
     postcode: "SE6 4JU",
     area: "Catford",
     website: "https://catford-mews.co.uk/",
-    audioDescription: false,
-    closedCaptions: true,
-    relaxedScreenings: true,
-    wheelchairAccessible: true,
-    freeCarerTickets: true,
+    "Audio Description": false,
+    "Closed Captions": true,
+    "Relaxed Screenings": true,
+    "Wheelchair Accessible": true,
+    "Free Carer Tickets": true,
     wheelchairDetails:
       "Fully wheelchair-accessible. Wheelchair spaces in front row. Assistance dogs welcome.",
     HoHDetails:
@@ -144,8 +145,8 @@ export const cinemas: CinemaType[] = [
       "We host relaxed screenings of older family films and of new releases. In these screenings the lights are slightly raised and the volume is lower than usual, for a gentler cinema experience. We aim to offer at least one relaxed screening a week, but it’s best to confirm the film and times on our website which will clearly mark any relaxed screening.",
     freeCarerTicketsDetails:
       "CEA cardholders can bring a carer free of charge to any screening they’re purchasing a ticket for. Please ensure that you bring your CEA card to present to a member of staff.",
-    bar: true,
-    cafe: true,
+    Bar: true,
+    Cafe: true,
     images: {
       exterior: "/assets/cinema-images/catford-mews-exterior.jpeg",
       Interior1: "/assets/cinema-images/catford-mews-interior-1.jpeg",
@@ -161,11 +162,11 @@ export const cinemas: CinemaType[] = [
     postcode: "W4 1SH",
     area: "Chiswick",
     website: "https://www.chiswickcinema.co.uk/",
-    audioDescription: true,
-    closedCaptions: true,
-    relaxedScreenings: false,
-    wheelchairAccessible: true,
-    freeCarerTickets: true,
+    "Audio Description": true,
+    "Closed Captions": true,
+    "Relaxed Screenings": false,
+    "Wheelchair Accessible": true,
+    "Free Carer Tickets": true,
     wheelchairDetails:
       "Fully accessible to wheelchair users. Lifts to all levels, step-free access to screens, bar, restaurant, and café. Assistance dogs allowed.",
     HoHDetails: false,
@@ -174,8 +175,8 @@ export const cinemas: CinemaType[] = [
     neurodiverseDetails: false,
     freeCarerTicketsDetails:
       "CEA cardholders get free carer ticket. Book online, in-person, or over the phone.",
-    bar: true,
-    cafe: true,
+    Bar: true,
+    Cafe: true,
     images: {
       exterior: "/assets/cinema-images/chiswick-exterior.jpeg",
       Interior1: "/assets/cinema-images/chiswick-interior-1.jpeg",
@@ -191,11 +192,11 @@ export const cinemas: CinemaType[] = [
     postcode: "WC2H 7BY",
     area: "Leicester Square",
     website: "https://princecharlescinema.com/",
-    audioDescription: true,
-    closedCaptions: true,
-    relaxedScreenings: false,
-    wheelchairAccessible: false,
-    freeCarerTickets: true,
+    "Audio Description": true,
+    "Closed Captions": true,
+    "Relaxed Screenings": false,
+    "Wheelchair Accessible": false,
+    "Free Carer Tickets": true,
     wheelchairDetails:
       "No full wheelchair access due to narrow stairwell. Updates will be provided if possible changes.",
     HoHDetails:
@@ -205,8 +206,8 @@ export const cinemas: CinemaType[] = [
     neurodiverseDetails: false,
     freeCarerTicketsDetails:
       "CEA cardholders get free carer ticket. Book online or in-person.",
-    bar: true,
-    cafe: false,
+    Bar: true,
+    Cafe: false,
     images: {
       exterior: "/assets/cinema-images/prince-charles-exterior.jpeg",
       Interior1: "/assets/cinema-images/prince-charles-interior-1.jpeg",
