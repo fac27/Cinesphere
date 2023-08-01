@@ -36,17 +36,19 @@ const Page: React.FC<{}> = (): React.JSX.Element => {
     fetchData();
   }, []);
 
-  const title = filmData?.original_title
+  console.log(screenings)
+
+  const title = filmData?.english_title
   const screeningsFiltered = screenings.filter(
   (screening) => screening.filmName == title?.toUpperCase()
   );
 
-  // const genreElements =
-  //   filmData && filmData.genres
-  //     ? filmData.genres.map((genre) => {
-  //         return <span key={uuidv4()}>{genre.name} | </span>;
-  //       })
-  //     : null;
+  const genreElements =
+    filmData && filmData.genres
+      ? filmData.genres.map((genre) => {
+          return <span key={uuidv4()}>{genre.name} | </span>;
+        })
+      : null;
 
   return (
     <>
@@ -81,7 +83,7 @@ const Page: React.FC<{}> = (): React.JSX.Element => {
                 {filmData.runtime + "mins"}
               </span>
             </p>
-            <p>{"Genre:" + filmData.genre}</p>
+            <p>{"Genre: " + filmData.genre}</p>
             <p>
               <span className="font-medium">Director</span>: {filmData.director}
             </p>
