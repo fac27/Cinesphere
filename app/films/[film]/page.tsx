@@ -35,8 +35,6 @@ const Page: React.FC<{}> = (): React.JSX.Element => {
     fetchData();
   }, []);
 
-  console.log(screenings)
-
   const title = filmData?.english_title
   const screeningsFiltered = screenings.filter(
   (screening) => screening.filmName == title?.toUpperCase()

@@ -62,72 +62,16 @@ function convertCamelCaseToTitleCase(inputArray: string[]) {
   return outputArray;
 }
 
-
-
 const Screenings = ({ screenings, showOnPage, cinemas }: Props) => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const filterContext = useFilters();
 
-  const filteredScreenings = screenings.filter((screening: any) => {
-    const screeningAccessibility = convertCamelCaseToTitleCase(getTrueKeys(screening));
-    const screeningCinema = screening.cinema;
-    const screeningFilm = screening.filmName;
-
-    let screeningAmenities:string[] = []
-
-    if (cinemas && cinemas.length > 0) {
-      for (const cinema of cinemas) {
-        if (cinema.cinema_name == screeningCinema) {
-          console.log(cinema)
-          if (cinema.Bar) {
-            screeningAmenities.push("Bar")
-            console.log("bar")
-          }
-          if (cinema.Cafe) {
-            screeningAmenities.push("Cafe")
-          }
-        }
-      }
-    }
-
-    const screeningDate = new Date(screening.dateTime);
-    const formattedDate = screeningDate.toLocaleString("en-GB", {
-      day: "numeric",
-      month: "long",
-      year: "numeric",
-    });
-    
-    const selectedAmenities = filterContext?.selectedAmenities as string[];
-    const selectedAccessibility = filterContext?.selectedAccessibility as string[];
-    const selectedCinemas = filterContext?.selectedCinemas as string[];
-    const selectedDates = filterContext?.selectedDates as string[];
-    const selectedFilms =  filterContext?.selectedFilms as string[];
-    
-    const isAmenityMatch =
-    selectedAmenities.length === 0 ||
-    selectedAmenities.every((item) => screeningAmenities.includes(item));
-    const isAcccessibilityMatch =
-    selectedAccessibility.length === 0 ||
-    selectedAccessibility.every((item) => screeningAccessibility.includes(item));
-    const isCinemaMatch = 
-    selectedCinemas.length === 0 ||
-    selectedCinemas.includes(screeningCinema)
-    const isDateMatch =
-    selectedDates.length === 0 ||
-    selectedDates.includes(formattedDate);
-    const isFilmMatch =
-    selectedFilms.length === 0 ||
-    selectedFilms.includes(screeningFilm)
-
-    return isAmenityMatch && isAcccessibilityMatch && isCinemaMatch && isDateMatch && isFilmMatch; 
-  })
-  
   let sortedScreenings: any[] = [];
 
   if (showOnPage === "cinema") {
-    sortedScreenings = getScreeningsByDateAndFilm(filteredScreenings);
+    sortedScreenings = getScreeningsByDateAndFilm(screenings);
   } else {
-    sortedScreenings = getScreeningsByDateAndCinema(filteredScreenings);
+    sortedScreenings = getScreeningsByDateAndCinema(screenings);
   }
 
   const cinemaNames: string[] = sortedScreenings
@@ -181,6 +125,67 @@ const Screenings = ({ screenings, showOnPage, cinemas }: Props) => {
     { name: "FILM", filters: uniqueFilmNames},
     { name: "DATES", filters: sortedDates}
   ] 
+
+  // console.log(sortedScreenings)
+
+  const newFilteredScreenings = sortedScreenings.map((dateObject) => {
+    dateObject.films.map((filmObject) => {
+      console.log(filmObject)
+      const filteredScreenings = filmObject.filter((screening: any) => {
+        const screeningAccessibility = convertCamelCaseToTitleCase(getTrueKeys(screening));
+        const screeningCinema = screening.cinema;
+        const screeningFilm = screening.filmName;
+
+
+        let screeningAmenities:string[] = []
+
+        if (cinemas && cinemas.length > 0) {
+          for (const cinema of cinemas) {
+            if (cinema.cinema_name == screeningCinema) {
+              if (cinema.Bar) {
+                screeningAmenities.push("Bar")
+              }
+              if (cinema.Cafe) {
+                screeningAmenities.push("Cafe")
+              }
+            }
+          }
+        }
+
+        const screeningDate = new Date(screening.dateTime);
+        const formattedDate = screeningDate.toLocaleString("en-GB", {
+          day: "numeric",
+          month: "long",
+          year: "numeric",
+        });
+        
+        const selectedAmenities = filterContext?.selectedAmenities as string[];
+        const selectedAccessibility = filterContext?.selectedAccessibility as string[];
+        const selectedCinemas = filterContext?.selectedCinemas as string[];
+        const selectedDates = filterContext?.selectedDates as string[];
+        const selectedFilms =  filterContext?.selectedFilms as string[];
+
+        const isAmenityMatch =
+        selectedAmenities.length === 0 ||
+        selectedAmenities.every((item) => screeningAmenities.includes(item));
+        const isAcccessibilityMatch =
+        selectedAccessibility.length === 0 ||
+        selectedAccessibility.every((item) => screeningAccessibility.includes(item));
+        const isCinemaMatch = 
+        selectedCinemas.length === 0 ||
+        selectedCinemas.includes(screeningCinema)
+        const isDateMatch =
+        selectedDates.length === 0 ||
+        selectedDates.includes(formattedDate);
+        const isFilmMatch =
+        selectedFilms.length === 0 ||
+        selectedFilms.includes(screeningFilm)
+
+        return isAmenityMatch && isAcccessibilityMatch && isCinemaMatch && isDateMatch && isFilmMatch; 
+      });
+    return filteredScreenings
+    })})
+  
 
   return (
       <div className="m-4 md:w-1/2 md:mx-auto ">
