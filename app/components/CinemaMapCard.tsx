@@ -14,7 +14,7 @@ const CinemaMapCard = ({ cinema }: Props) => {
         <h2 className="font-medium">{cinema.website}</h2>
       </div>
 
-      <Link href={`/cinemas/${cinema.cinemaName}`}>
+      <Link href={`/cinemas/${cinema.cinema_name}`}>
         <button className="mt-5 p-2 text-white bg-black rounded-lg">
           View
         </button>

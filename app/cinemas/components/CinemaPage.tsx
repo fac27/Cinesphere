@@ -7,6 +7,7 @@ import CinemaSearchBar from "./CinemaSearchBar";
 import { accessibility, amenities } from "@/Data/Filters";
 import CinemaContainer from "./CinemaContainer";
 import { CinemaType } from "@/Types/Object-Interfaces";
+import Map from "@/app/components/Map";
 
 interface Props {
   cinemas: CinemaType[];
@@ -24,6 +25,8 @@ const CinemaPage = ({ cinemas }: Props) => {
     { name: "ACCESSIBILITY", filters: accessibility },
   ];
 
+  // console.log(cinemas);
+
   return (
     <>
       <FilterModal
@@ -37,6 +40,8 @@ const CinemaPage = ({ cinemas }: Props) => {
         setPostcodeInput={setPostcodeInput}
         setIsVisible={setIsVisible}
       />
+
+      <Map cinemas={cinemas} />
       <CinemaContainer distances={distances} cinemas={cinemas} />
     </>
   );
