@@ -22,7 +22,7 @@ const Page: React.FC<{}> = (): React.JSX.Element => {
     };
 
     fetchData();
-  }, []);
+  }, [pathname]);
 
   return (
     <>
