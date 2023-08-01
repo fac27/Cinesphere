@@ -1,18 +1,20 @@
 'use client'
 
-import { ScreeningType} from "@/Types/Object-Interfaces";
+import { CinemaType, ScreeningType} from "@/Types/Object-Interfaces";
 import getScreeningsByDateAndFilm from "../../Utils/getScreeningsByDateAndFilm";
 import getScreeningsByDateAndCinema from "@/Utils/getScreeningsByDateAndCinema";
 import Icons from "./Icons";
 import FilterButton from "./FilterButton";
 import { useState } from "react";
 import FilterModal from "./FilterModal";
-import { accessibility, amenities } from "@/Data/Filters";
-
+import { accessibilityForIndividualScreenings, amenities } from "@/Data/Filters";
+import { useFilters } from "../Context/store";
+import { getTrueKeys } from "@/Utils/getTrueKeys";
 
 interface Props {
   screenings: ScreeningType[];
   showOnPage: string
+  cinemas?: CinemaType[]
 }
 
 const renderScreenings = (showOnPage: string, sortedScreenings: any[]) => {
@@ -49,15 +51,80 @@ const renderScreenings = (showOnPage: string, sortedScreenings: any[]) => {
   ));
 };
 
-const Screenings = ({ screenings, showOnPage }: Props) => {
-  const [isVisible, setIsVisible] = useState<boolean>(false);
+function convertCamelCaseToTitleCase(inputArray: string[]) {
+  const capitalizeWord = (word: string) => word.charAt(0).toUpperCase() + word.slice(1);
+  const outputArray = inputArray.map((camelCaseStr) => {
+    const words = camelCaseStr.split(/(?=[A-Z])/); // Split at uppercase letters (lookahead)
+    const titleCaseWords = words.map((word) => capitalizeWord(word));
+    return titleCaseWords.join(' ');
+  });
 
+  return outputArray;
+}
+
+
+
+const Screenings = ({ screenings, showOnPage, cinemas }: Props) => {
+  const [isVisible, setIsVisible] = useState<boolean>(false);
+  const filterContext = useFilters();
+  
+  // just check the bar and cafe from the cinemas
+  const filteredScreenings = screenings.filter((screening: any) => {
+    const screeningAccessibility = convertCamelCaseToTitleCase(getTrueKeys(screening));
+    const screeningCinema = screening.cinema;
+    let screeningAmenities = []
+    
+    let hasBar = false;
+    let hasCafe = false
+    for (const cinema of cinemas) {
+      if (cinema.cinema_name === screeningCinema) {
+        // Check if the 'bar' key for that cinema is true
+        if (cinema.bar === true) {
+          hasBar = true;
+          break; // No need to continue looping once we found the matching cinema with 'bar' as true
+        }
+      }
+    }
+    
+    if (screeningCinema.bar === true) {
+      screeningAmenities.push("Bar")
+    } 
+    if (screeningCinema.cafe === true) {
+      screeningAmenities.push("Cafe")
+    } 
+    const screeningDate = new Date(screening.dateTime);
+    const formattedDate = screeningDate.toLocaleString("en-GB", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    });
+    
+    const selectedAmenities = filterContext?.selectedAmenities as string[];
+    const selectedAccessibility = filterContext?.selectedAccessibility as string[];
+    const selectedCinemas = filterContext?.selectedCinemas as string[];
+    const selectedDates = filterContext?.selectedDates as string[];
+    
+    const isAmenityMatch =
+    selectedAmenities.length === 0 ||
+    selectedAmenities.every((item) => screeningAmenities.includes(item));
+    const isAcccessibilityMatch =
+    selectedAccessibility.length === 0 ||
+    selectedAccessibility.every((item) => screeningAccessibility.includes(item));
+    const isCinemaMatch = 
+    selectedCinemas.length === 0 ||
+    selectedCinemas.includes(screeningCinema)
+    const isDateMatch =
+    selectedDates.length === 0 ||
+    selectedDates.includes(formattedDate);
+    return isAmenityMatch && isAcccessibilityMatch && isCinemaMatch && isDateMatch; 
+  })
+  
   let sortedScreenings = [];
 
   if (showOnPage === "cinema") {
-    sortedScreenings = getScreeningsByDateAndFilm(screenings);
+    sortedScreenings = getScreeningsByDateAndFilm(filteredScreenings);
   } else {
-    sortedScreenings = getScreeningsByDateAndCinema(screenings);
+    sortedScreenings = getScreeningsByDateAndCinema(filteredScreenings);
   }
 
   const cinemaNames: string[] = sortedScreenings
@@ -86,7 +153,7 @@ const Screenings = ({ screenings, showOnPage }: Props) => {
   let filterArr: {name: string, filters: string[]}[]  = [{name: "", filters: [""]}]
   filterArr = [
     { name: "AMENITIES", filters: amenities },
-    { name: "ACCESSIBILITY", filters: accessibility },
+    { name: "ACCESSIBILITY", filters: accessibilityForIndividualScreenings },
     { name: "CINEMA", filters: uniqueCinemaNames},
     { name: "DATES", filters: sortedDates}
   ];

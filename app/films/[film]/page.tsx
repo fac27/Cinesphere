@@ -5,11 +5,12 @@ import Link from "next/link";
 import Image from "next/image";
 import { BsArrowLeftCircle } from "react-icons/bs";
 import { v4 as uuidv4 } from "uuid";
-import { FilmType } from "@/Types/Object-Interfaces";
+import { CinemaType, FilmType } from "@/Types/Object-Interfaces";
 import { getFilmData } from "@/Utils/getFilmData";
 import { getFilmCredits } from "@/Utils/getFilmCredits";
 import screenings from "@/Data/Screenings";
 import Screenings from "@/app/components/Screenings";
+import getAllCinemas from "@/Lib/getAllCinemas";
 
 interface DirectorType {
   adult: boolean;
@@ -28,6 +29,7 @@ interface DirectorType {
 const Page: React.FC<{}> = (): React.JSX.Element => {
   const [filmData, setFilmData] = useState<FilmType | null>(null);
   const [director, setDirector] = useState<DirectorType | null>(null);
+  const [cinemas, setCinemas] = useState<CinemaType[]  | null>(null)
 
   useEffect(() => {
     const link = window.location.href.split("/");
@@ -37,13 +39,14 @@ const Page: React.FC<{}> = (): React.JSX.Element => {
       try {
         const filmDataArr = await getFilmData(imdbId);
         const filmCredits = await getFilmCredits(imdbId);
-
+        const cinemas = await getAllCinemas();
+        
         filmCredits.crew.map((person: DirectorType) => {
           if (person.job === "Director") {
             setDirector(person);
           }
         });
-
+        setCinemas(cinemas)
         setFilmData(filmDataArr);
       } catch (error: unknown) {
         console.error(error);
@@ -125,7 +128,7 @@ const Page: React.FC<{}> = (): React.JSX.Element => {
         ""
       )}
     </div>
-    <Screenings screenings={screeningsFiltered} showOnPage="film"/>
+    <Screenings screenings={screeningsFiltered} showOnPage="film" cinemas={cinemas}/>
     </>
   );
 };
