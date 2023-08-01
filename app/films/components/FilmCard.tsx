@@ -8,6 +8,10 @@ interface Props {
 }
 
 const FilmCard = ({ film }: Props) => {
+  const genres = film.genre;
+  const genreSplit = genres.split(",");
+  const first_genre = genreSplit[0];
+
   return (
     <Link
       href={`/films/${film.id}`}
@@ -29,7 +33,7 @@ const FilmCard = ({ film }: Props) => {
           <h2 className="text-2xl font-bold">{film.english_title}</h2>
           <h2 className="mt-5 font-bold">{film.director}</h2>
           <h2 className="mt-5">
-            {film.genre} / {film.release_date.substring(0, 4)} / {film.runtime}{" "}
+            {first_genre} / {film.release_date.substring(0, 4)} / {film.runtime}{" "}
             mins
           </h2>
         </div>
