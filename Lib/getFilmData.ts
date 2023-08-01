@@ -10,7 +10,7 @@ const getAllFilms = async () => {
     console.log(`Error getting cinema data: ${error.message}`);
     throw error;
   }
-  console.log('GET ALL FILMS:', data);
+  console.log("GET ALL FILMS:", data);
   return data;
 };
 
@@ -28,6 +28,6 @@ export const getIndvFilm = async (id: string) => {
     throw error;
   }
 
-  console.log('GET INDIVIDUAL FILM:', data);
+  console.log("GET INDIVIDUAL FILM:", data);
   return data;
 };
