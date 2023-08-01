@@ -26,11 +26,11 @@ const Header = () => {
       </div>
 
       <nav
-        className={`absolute right-0 ${
-          open ? "flex" : "hidden"
-        } flex-column justify-end mr-2 z-50`}
+        className={`absolute -right-4 transform ${
+          open ? "-translate-x-4" : "translate-x-full"
+        } transition-transform duration-300 ease-in-out flex-column justify-end mr-2 z-50`}
       >
-        <ul className="my-4 bg-white text-center">
+        <ul className="my-4 bg-white text-center text-3xl">
           <li className="p-2.5 border border-black">
             <a href="/">Home</a>
           </li>
