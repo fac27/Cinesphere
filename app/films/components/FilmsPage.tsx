@@ -1,16 +1,17 @@
 "use client";
-import { getImdbIds } from "@/Utils/getImdbIds";
+// import { getImdbIds } from "@/Utils/getImdbIds";
 import FilmCard from "./FilmCard";
 import React, { useEffect, useState } from "react";
 
-import { getFilmData } from "@/Utils/getFilmData";
+// import { getFilmData } from "@/Utils/getFilmData";
 import { useFilters } from "@/app/Context/store";
 import { FilmType } from "@/Types/Object-Interfaces";
-import screenings from "@/Data/Screenings";
+// import screenings from "@/Data/Screenings";
 import { genreCodes, languageCodes } from "@/Data/FilteringCodes";
 import FilterModal from "@/app/components/FilterModal";
 import FilterBar from "./FilterBar";
 import { convertCodesToNames } from "@/Data/FilteringCodes";
+import getAllFilms from "@/Lib/getFilmData";
 
 const FilmsContainer = () => {
   const [filmData, setFilmData] = useState<any[]>([]);
@@ -29,20 +30,13 @@ const FilmsContainer = () => {
   >;
 
   useEffect(() => {
-    const imdb_id_arr = getImdbIds(screenings);
     const fetchData = async () => {
-      try {
-        const filmDataArr = await Promise.all(
-          imdb_id_arr.map((element: any) => getFilmData(element))
-        );
-        setFilmData(filmDataArr);
-      } catch (error: unknown) {
-        console.error(error);
-      }
+      const film_temp_Data = await getAllFilms();
+      setFilmData(film_temp_Data);
 
       // set genre filters
       const genreSet = new Set();
-      filmData.forEach((film) => genreSet.add(film.genres[0].name));
+      filmData.forEach((film) => genreSet.add(film.genre));
       const genreArr: any = Array.from(genreSet);
       setGenres(genreArr);
 

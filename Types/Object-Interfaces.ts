@@ -35,36 +35,17 @@ export interface GenreCodeObjType {
 }
 
 export interface FilmType {
-  adult: boolean;
-  backdrop_path: string;
-  belongs_to_collection: null | any; // Update the type based on the actual data structure
-  budget: number;
-  genres: { id: number; name: string }[];
-  homepage: string;
+  backdrop_img: string;
+  director: string;
+  genre: string;
   id: number;
-  imdb_id: string;
   original_language: string;
-  original_title: string;
+  english_title: string;
   overview: string;
-  popularity: number;
-  poster_path: string;
-  production_companies: {
-    id: number;
-    logo_path: string;
-    name: string;
-    origin_country: string;
-  }[];
-  production_countries: { iso_3166_1: string; name: string }[];
+  poster_img: string;
   release_date: string;
-  revenue: number;
   runtime: number;
-  spoken_languages: { english_name: string; iso_639_1: string; name: string }[];
-  status: string;
-  tagline: string;
-  title: string;
-  video: boolean;
   vote_average: number;
-  vote_count: number;
 }
 
 export interface ScreeningType {
@@ -93,4 +74,30 @@ export interface DirectorType {
   original_name: string;
   popularity: number;
   profile_path: string;
+}
+
+export interface DbCinemaType {
+  id: number;
+  cinema_name: string;
+  about: string;
+  postcode: string;
+  website: string;
+  audio_description: boolean;
+  closed_captions: boolean;
+  relaxed_screenings: boolean;
+  wheelchair_accessible: boolean;
+  free_carer_tickets: boolean;
+  wheelchair_details: string;
+  hoh_details: string;
+  visual_impairment_details: string;
+  neurodiverse_details: string;
+  free_carer_tickets_details: string;
+  bar: boolean;
+  cafe: boolean;
+  img_exterior: string;
+  img_interior_1: string;
+  img_interior_2: string;
+  img_interior_3: string;
+  address: string;
+  area: string;
 }
