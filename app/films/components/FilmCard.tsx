@@ -10,7 +10,7 @@ interface Props {
 const FilmCard = ({ film }: Props) => {
   return (
     <Link
-      href={`/films/${film.id}`} key={film.id} className="mb-10 md:w-1/2 relative w-5/6 rounded-2xl overflow-hidden cursor-pointer">
+      href={`/films/${film.english_title}`} key={film.id} className="mb-10 md:w-1/2 relative w-5/6 rounded-2xl overflow-hidden cursor-pointer">
       <div className="relative h-0 pb-[90%] xs:pb-[70%] sm:pb-[50%]">
         <Image
           className="bg-cover bg-center"
