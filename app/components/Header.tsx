@@ -9,22 +9,26 @@ const Header = () => {
   const [open, setOpen] = useState(false);
   return (
     <>
-      <div className="h-14 flex items-center justify-between bg-bgColour1">
-        <Link href={"/"} className="flex gap-1 items-center">
-          <span className="text-2xl ml-3">
+      <div className="h-14 bg-bgColour1 grid grid-cols-3 items-center">
+        <div></div>
+
+        <Link href={"/"} className="flex gap-1 items-center justify-center">
+          <span className="text-2xl">
             <PiFilmReelLight />
           </span>
-          <h1 className="underline text-2xl">cinesphere</h1>
+          <h1 className="underline text-3xl">cinesphere</h1>
         </Link>
 
         <FiMenu
-          className="cursor-pointer mr-3"
+          className="cursor-pointer text-5xl justify-self-end mr-3"
           onClick={() => setOpen(!open)}
         />
       </div>
 
       <nav
-        className={`absolute right-0 ${open ? "flex" : "hidden"} flex-column justify-end mr-2 z-50`}
+        className={`absolute right-0 ${
+          open ? "flex" : "hidden"
+        } flex-column justify-end mr-2 z-50`}
       >
         <ul className="my-4 bg-white text-center">
           <li className="p-2.5 border border-black">
