@@ -1,10 +1,9 @@
-import { blackBtnStyle } from "@/Styles/Tailwind-Styles";
+import BackButton from "@/app/components/BackButton";
 
 const Buttons = () => {
   return (
     <div className="m-5 flex justify-around">
-      <button>Back</button>
-      <button className={blackBtnStyle}>Listings</button>
+      <BackButton page={"cinemas"} />
     </div>
   );
 };
