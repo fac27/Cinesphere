@@ -21,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html style={{ scrollBehavior: "smooth" }} lang="en">
       <FilterProvider>
         <body className={ibmPlexMono.className}>
           <Header />
