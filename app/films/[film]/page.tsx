@@ -29,7 +29,7 @@ interface DirectorType {
 const Page: React.FC<{}> = (): React.JSX.Element => {
   const [filmData, setFilmData] = useState<FilmType | null>(null);
   const [director, setDirector] = useState<DirectorType | null>(null);
-  const [cinemas, setCinemas] = useState<CinemaType[]  | null>(null)
+  const [cinemas, setCinemas] = useState<CinemaType[]  | undefined>(undefined)
 
   useEffect(() => {
     const link = window.location.href.split("/");

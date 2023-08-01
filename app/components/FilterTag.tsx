@@ -69,6 +69,14 @@ const FilterTag = ({ filter, category }: Props) => {
         >
       filterByCategory(selectedDates, setSelectedDates, filter)
     }
+    if (category.toUpperCase() == "FILM") {
+      const selectedFilms = filterContext?.selectedFilms as string[];
+      const setSelectedFilms =
+        filterContext?.setSelectedFilms as React.Dispatch<
+          React.SetStateAction<string[]>
+        >
+      filterByCategory(selectedFilms, setSelectedFilms, filter)
+    }
   };
 
   function filterByCategory(

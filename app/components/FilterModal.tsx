@@ -1,14 +1,11 @@
 import React, { Dispatch, SetStateAction } from "react";
 
 import Filter from "./Filter";
-// import { eras } from "@/Data/Filters";
-// import { useFilters } from "../Context/store";
 
 interface Props {
   isVisible: boolean;
   setIsVisible: Dispatch<SetStateAction<boolean>>;
   filterArr: { name: string; filters: string[] }[];
-  showOnPage?: string
 }
 
 const FilterModal = ({
@@ -16,8 +13,6 @@ const FilterModal = ({
   setIsVisible,
   filterArr
 }: Props): React.JSX.Element => {
-
-
 
   
   return (

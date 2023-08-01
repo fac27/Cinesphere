@@ -23,6 +23,8 @@ interface FilterContextProps {
   setSelectedCinemas: React.Dispatch<React.SetStateAction<string[]>>;
   selectedDates: string[];
   setSelectedDates: React.Dispatch<React.SetStateAction<string[]>>;
+  selectedFilms: string[];
+  setSelectedFilms: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
 const FilterContext = createContext<FilterContextProps | undefined>(undefined);
@@ -56,6 +58,9 @@ export const FilterProvider = ({ children }: { children: ReactNode }) => {
   const [selectedDates, setSelectedDates] = useState<string[]>(
     [] as string[]
   );
+  const [selectedFilms, setSelectedFilms] = useState<string[]>(
+    [] as string[]
+  );
 
   return (
     <FilterContext.Provider
@@ -79,7 +84,9 @@ export const FilterProvider = ({ children }: { children: ReactNode }) => {
         selectedCinemas,
         setSelectedCinemas,
         selectedDates,
-        setSelectedDates
+        setSelectedDates,
+        selectedFilms,
+        setSelectedFilms
       }}
     >
       {children}
