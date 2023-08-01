@@ -1,9 +1,9 @@
 "use client";
 import React, { useEffect, useState } from "react";
 
-import Link from "next/link";
 import Image from "next/image";
 import BackButton from "./../../components/BackButton";
+import ScreeningsLink from "@/app/components/ScreeningsLink";
 import { v4 as uuidv4 } from "uuid";
 import { FilmType } from "@/Types/Object-Interfaces";
 import { getFilmData } from "@/Utils/getFilmData";
@@ -72,9 +72,7 @@ const Page: React.FC<{}> = (): React.JSX.Element => {
           <>
             <div className="flex justify-between w-80 mt-7 mr-auto ml-auto">
               <BackButton page={"films"} />
-              <Link href={"/"} className="uppercase">
-                listings
-              </Link>
+              <ScreeningsLink />
             </div>
             <div className="relative mt-5 w-100 h-56 md:h-96">
               <Image
