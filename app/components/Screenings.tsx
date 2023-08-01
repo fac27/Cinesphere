@@ -77,7 +77,6 @@ const Screenings = ({ screenings, showOnPage, cinemas }: Props) => {
 
     if (cinemas && cinemas.length > 0) {
       for (const cinema of cinemas) {
-
         if (cinema.cinema_name == screeningCinema) {
           console.log(cinema)
           if (cinema.Bar) {
@@ -134,7 +133,7 @@ const Screenings = ({ screenings, showOnPage, cinemas }: Props) => {
   const cinemaNames: string[] = sortedScreenings
   .flatMap((screening) => {
     if (Array.isArray(screening.cinema)) {
-      return screening.cinema.map((cinema) => cinema.cinema);
+      return screening.cinema.map((cinema: any) => cinema.cinema);
     } else if (typeof screening.cinema === "string") {
       return [screening.cinema];
     } else {
