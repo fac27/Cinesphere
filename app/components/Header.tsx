@@ -26,22 +26,33 @@ const Header = () => {
       </div>
 
       <nav
-        className={`absolute -right-4 transform ${
-          open ? "-translate-x-4" : "translate-x-full"
+        className={`absolute -right-4 transform border shadow ${
+          open ? "-translate-x-0" : "translate-x-full"
         } transition-transform duration-300 ease-in-out flex-column justify-end mr-2 z-50`}
       >
-        <ul className="my-4 bg-white text-center text-3xl">
-          <li className="p-2.5 border border-black">
-            <a href="/">Home</a>
+        <ul className="h-screen w-screen p-12 md:h-auto md:w-auto md:text-left md:mr-5 flex flex-col justify-start gap-14 bg-white text-center text-3xl">
+          <li className="p-2.5 mt-4 ">
+            <a className="hover:text-purple-700" href="/">
+              Home
+            </a>
           </li>
-          <li className="p-2.5 border border-black">
-            <a href="/films">Films</a>
+          <li className="p-2.5 ">
+            <a className="hover:text-purple-700" href="/films">
+              Films
+            </a>
           </li>
-          <li className="p-2.5 border border-black">
-            <a href="/cinemas">Cinemas</a>
+          <li className="p-2.5">
+            <a className="hover:text-purple-700" href="/cinemas">
+              Cinemas
+            </a>
           </li>
-          <li className="p-2.5 border border-black">
-            <a href="/contact">Contact</a>
+          <li className="p-2.5">
+            <a
+              className="hover:text-purple-700 hover:underline-offset-1"
+              href="/contact"
+            >
+              Contact
+            </a>
           </li>
         </ul>
       </nav>
