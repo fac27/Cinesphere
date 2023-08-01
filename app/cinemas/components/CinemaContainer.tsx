@@ -1,7 +1,7 @@
 import { CinemaType } from "@/Types/Object-Interfaces";
 import CinemaCard from "./CinemaCard";
 import { useFilters } from "@/app/Context/store";
-import Map from "@/app/components/Map";
+// import Map from "@/app/components/Map";
 
 interface Props {
   distances: { cinema: string; distance: string }[];
@@ -38,7 +38,7 @@ const CinemaContainer = ({ distances, cinemas }: Props) => {
 
   return (
     <>
-      <Map cinemas={filteredCinemas} />
+      {/* <Map cinemas={filteredCinemas} /> */}
       {filteredCinemas.map((cinema) => (
         <div key={cinema.cinemaName} className="flex flex-col items-center">
           <CinemaCard cinema={cinema} distances={distances} />
