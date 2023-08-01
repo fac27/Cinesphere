@@ -7,6 +7,7 @@ import ScreeningsLink from "@/app/components/ScreeningsLink";
 import Screenings from "@/app/components/Screenings";
 import { FilmType } from "@/Types/Object-Interfaces";
 import { getIndvFilm } from "@/Lib/getFilmData";
+import screenings from "@/Data/Screenings";
 
 const Page: React.FC<{}> = (): React.JSX.Element => {
   const [filmData, setFilmData] = useState<FilmType | any>(null);
@@ -27,13 +28,6 @@ const Page: React.FC<{}> = (): React.JSX.Element => {
   const screeningsFiltered = screenings.filter(
     (screening) => screening.filmName == title?.toUpperCase()
   );
-
-  const genreElements =
-    filmData && filmData.genres
-      ? filmData.genres.map((genre) => {
-          return <span key={uuidv4()}>{genre.name} | </span>;
-        })
-      : null;
 
   return (
     <>
