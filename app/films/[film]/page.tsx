@@ -43,13 +43,6 @@ const Page: React.FC<{}> = (): React.JSX.Element => {
   (screening) => screening.filmName == title?.toUpperCase()
   );
 
-  const genreElements =
-    filmData && filmData.genres
-      ? filmData.genres.map((genre) => {
-          return <span key={uuidv4()}>{genre.name} | </span>;
-        })
-      : null;
-
   return (
     <>
     <div className="md:w-1/2 ml-auto mr-auto mb-2">
