@@ -15,3 +15,19 @@ const getAllFilms = async () => {
 };
 
 export default getAllFilms;
+
+export const getIndvFilm = async (id: string) => {
+  const { data, error } = await supabaseClient
+    .from("film_temp")
+    .select("*")
+    .eq("id", id)
+    .single();
+
+  if (error) {
+    console.log(`Error getting cinema data: ${error.message}`);
+    throw error;
+  }
+
+  console.log('GET INDIVIDUAL FILM:', data);
+  return data;
+};

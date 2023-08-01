@@ -4,38 +4,25 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { BsArrowLeftCircle } from "react-icons/bs";
-import { v4 as uuidv4 } from "uuid";
 import { FilmType } from "@/Types/Object-Interfaces";
-// import { getFilmData } from "@/Utils/getFilmData";
-// import { getFilmCredits } from "@/Utils/getFilmCredits";
-import screenings from "@/Data/Screenings";
-import Screenings from "@/app/components/Screenings";
-import getAllFilms from "@/Lib/getAllFilms";
+import { getIndvFilm } from "@/Lib/getFilmData";
 
 
 const Page: React.FC<{}> = (): React.JSX.Element => {
   const [filmData, setFilmData] = useState<FilmType | any>(null);
-  
+
   useEffect(() => {
+
+    const link = window.location.href.split("/")
+    const id = link[link.length -1]
+
     const fetchData = async () => {
-    const film_temp_data = await getAllFilms()
-    setFilmData(film_temp_data);
+    const indv_film = await getIndvFilm(id) 
+    setFilmData(indv_film);
     };
 
     fetchData();
   }, []);
-
-  const title = filmData?.english_title
-  const screeningsFiltered = screenings.filter(
-  (screening) => screening.filmName == title?.toUpperCase()
-  );
-
-  const genreElements =
-    filmData && filmData.genre
-      ? filmData.genre.map((genre: any) => {
-          return <span key={uuidv4()}>{genre} | </span>;
-        })
-      : null;
 
   return (
     <>
@@ -56,36 +43,33 @@ const Page: React.FC<{}> = (): React.JSX.Element => {
           </div>
           <div className="relative mt-5 w-100 h-56 md:h-96">
             <Image
-              src={`https://image.tmdb.org/t/p/w500${filmData[0].backdrop_img}`}
+              src={`https://image.tmdb.org/t/p/w500${filmData.backdrop_img}`}
               alt={"a snapshot of the film asteroid city"}
               layout="fill"
               objectFit="cover"
             />
           </div>
           <div className="p-3 flex flex-col gap-2">
-            <h1 className="uppercase font-bold">{filmData[0].english_title}</h1>
+            <h1 className="uppercase font-bold">{filmData.english_title}</h1>
             <p className="text-gray-500">
-              <span>{filmData[0].release_date}</span> ·{" "}
+              <span>{filmData.release_date}</span> ·{" "}
               <span>
-                {filmData
-                  ? filmData[0].runtime
-                  : "Unknown"
-                }
+                {filmData.runtime + "mins"}
               </span>
             </p>
-            <p>{genreElements}</p>
+            <p>{"Genre:" + filmData.genre}</p>
             <p>
-              <span className="font-medium">Director</span>: {filmData[0].director}
+              <span className="font-medium">Director</span>: {filmData.director}
             </p>
             <p className="mt-2">
               <span className="uppercase font-medium">Description</span>:{" "}
-              {filmData[0].overview}
+              {filmData.overview}
             </p>
           </div>
           <div className="relative mt-5 w-100 h-56 md:hidden">
             <Image
-              src={`https://image.tmdb.org/t/p/w500${filmData[0].poster_img}`}
-              alt={"a snapshot of the film asteroid city"}
+              src={`https://image.tmdb.org/t/p/w500${filmData.poster_img}`}
+              alt={"a snapshot of" + filmData.english_title}
               layout="fill"
               objectFit="cover"
             />
@@ -95,7 +79,7 @@ const Page: React.FC<{}> = (): React.JSX.Element => {
         ""
       )}
     </div>
-    <Screenings screenings={screeningsFiltered} showOnPage="film"/>
+    {/* <Screenings screenings={screeningsFiltered} showOnPage="film"/> */}
     </>
   );
 };

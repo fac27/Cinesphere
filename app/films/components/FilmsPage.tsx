@@ -11,7 +11,7 @@ import { genreCodes, languageCodes } from "@/Data/FilteringCodes";
 import FilterModal from "@/app/components/FilterModal";
 import FilterBar from "./FilterBar";
 import { convertCodesToNames } from "@/Data/FilteringCodes";
-import getAllFilms from "@/Lib/getAllFilms";
+import getAllFilms from "@/Lib/getFilmData";
 
 const FilmsContainer = () => {
   const [filmData, setFilmData] = useState<any[]>([]);
