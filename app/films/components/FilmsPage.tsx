@@ -31,40 +31,41 @@ const FilmsContainer = () => {
       const film_temp_Data = await getAllFilms();
       setFilmData(film_temp_Data);
     };
-    
-    // set genre filters
-    const genreArr: string[] = [];
-    filmData.forEach((film) => genreArr.push(film.genre));
-    const genreArrFlat = genreArr
-      .join(",")
-      .split(",")
-      .map((word) => word.trim());
-    const genreArrClean = Array.from(new Set(genreArrFlat));
-    setGenres(genreArrClean);
-
-    // set language filters
-    const languageSet = new Set();
-    filmData.forEach((film) => languageSet.add(film.original_language));
-    const langCodeArr: any = Array.from(languageSet);
-    const langNameArr = convertCodesToNames(langCodeArr);
-    setLanguages(langNameArr);
-
-    // set era filters
-    const dateSet = new Set();
-    filmData.forEach((film) => dateSet.add(film.release_date));
-    const dateArr = Array.from(dateSet);
-    const decadeSet = new Set(
-      dateArr.map((date: any) =>
-        String(Math.floor(Number(date.slice(0, 4)) / 10) * 10)
-      )
-    );
-    const sortedDecades = Array.from(decadeSet).sort(
-      (a, b) => parseInt(a) - parseInt(b)
-    );
-    setEras(sortedDecades);
-
     fetchData();
-  }, [filmData, setEras, setLanguages, setGenres]);
+  }, []);
+
+  useEffect(() => {
+        // set genre filters
+        const genreArr: string[] = [];
+        filmData.forEach((film) => genreArr.push(film.genre));
+        const genreArrFlat = genreArr
+          .join(",")
+          .split(",")
+          .map((word) => word.trim());
+        const genreArrClean = Array.from(new Set(genreArrFlat));
+        setGenres(genreArrClean);
+    
+        // set language filters
+        const languageSet = new Set();
+        filmData.forEach((film) => languageSet.add(film.original_language));
+        const langCodeArr: any = Array.from(languageSet);
+        const langNameArr = convertCodesToNames(langCodeArr);
+        setLanguages(langNameArr);
+    
+        // set era filters
+        const dateSet = new Set();
+        filmData.forEach((film) => dateSet.add(film.release_date));
+        const dateArr = Array.from(dateSet);
+        const decadeSet = new Set(
+          dateArr.map((date: any) =>
+            String(Math.floor(Number(date.slice(0, 4)) / 10) * 10)
+          )
+        );
+        const sortedDecades = Array.from(decadeSet).sort(
+          (a, b) => parseInt(a) - parseInt(b)
+        );
+        setEras(sortedDecades);
+  }, [filmData, setEras, setLanguages, setGenres])
 
   const genres = filterContext?.genres as string[];
   const languages = filterContext?.languages as string[];
@@ -77,7 +78,6 @@ const FilmsContainer = () => {
   ];
 
   const filteredFilmData = filmData.filter((film) => {
-    console.log(film);
     const selectedGenres = filterContext?.selectedGenres as string[];
     const selectedLanguages = filterContext?.selectedLanguages as string[];
     const selectedDecades = filterContext?.selectedDecades as string[];
