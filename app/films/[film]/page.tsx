@@ -1,6 +1,8 @@
 "use client";
+
 import React, { useEffect, useState } from "react";
 
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { BsArrowLeftCircle } from "react-icons/bs";
@@ -9,10 +11,10 @@ import { getIndvFilm } from "@/Lib/getFilmData";
 
 const Page: React.FC<{}> = (): React.JSX.Element => {
   const [filmData, setFilmData] = useState<FilmType | any>(null);
+  const pathname = usePathname();
 
   useEffect(() => {
-    const link = window.location.href.split("/");
-    const id = link[link.length - 1];
+    const id = pathname.split("/")[2];
 
     const fetchData = async () => {
       const indv_film = await getIndvFilm(id);
