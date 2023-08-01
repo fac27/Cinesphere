@@ -35,36 +35,17 @@ export interface GenreCodeObjType {
 }
 
 export interface FilmType {
-  adult: boolean;
-  backdrop_path: string;
-  belongs_to_collection: null | any; // Update the type based on the actual data structure
-  budget: number;
-  genres: { id: number; name: string }[];
-  homepage: string;
-  id: number;
-  imdb_id: string;
-  original_language: string;
-  original_title: string;
-  overview: string;
-  popularity: number;
-  poster_path: string;
-  production_companies: {
+    backdrop_img: string;
+    director: string;
+    genre: string;
     id: number;
-    logo_path: string;
-    name: string;
-    origin_country: string;
-  }[];
-  production_countries: { iso_3166_1: string; name: string }[];
-  release_date: string;
-  revenue: number;
-  runtime: number;
-  spoken_languages: { english_name: string; iso_639_1: string; name: string }[];
-  status: string;
-  tagline: string;
-  title: string;
-  video: boolean;
-  vote_average: number;
-  vote_count: number;
+    original_language: string;
+    english_title: string;
+    overview: string;
+    poster_img: string;
+    release_date: string;
+    runtime: number;
+    vote_average: number;
 }
 
 export interface ScreeningType {
