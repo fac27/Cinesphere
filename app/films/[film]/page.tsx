@@ -10,20 +10,7 @@ import { getFilmData } from "@/Utils/getFilmData";
 import { getFilmCredits } from "@/Utils/getFilmCredits";
 import screenings from "@/Data/Screenings";
 import Screenings from "@/app/components/Screenings";
-
-interface DirectorType {
-  adult: boolean;
-  credit_id: string;
-  department: string;
-  gender: number;
-  id: number;
-  job: string;
-  known_for_department: string;
-  name: string;
-  original_name: string;
-  popularity: number;
-  profile_path: string;
-}
+import { DirectorType } from "@/Types/Object-Interfaces";
 
 const Page: React.FC<{}> = (): React.JSX.Element => {
   const [filmData, setFilmData] = useState<FilmType | null>(null);
