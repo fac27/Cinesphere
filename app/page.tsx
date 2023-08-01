@@ -8,9 +8,14 @@ const Home: React.FC = (): React.JSX.Element => {
       <div className="mt-10 mr-auto ml-auto w-80 md:w-1/3 bg-bgColour2 p-6 rounded-2xl border border-black">
         <h1 className="text-2xl font-bold">Cinesphere</h1>
         <p className="mt-5">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a
-          lorem sed felis euismod tristique non in tortor. Phasellus convallis a
-          est eget euismod. Nam consequat porttitor dolor eu hendrerit.
+          Dive into the vibrant world of independent cinema with us! Cinesphere
+          connects you to a vast array of bold, groundbreaking films from
+          creators around the globe. Explore unique stories, participate in
+          lively discussions, and get updates on local indie screenings right in
+          your area. Cinesphere - your local guide to the extraordinary realm of
+          indie film. Join us and discover your next cinematic obsession today.
+          Let&#39;s celebrate the bold, the undiscovered, and the awe-inspiring.
+          Welcome aboard!
         </p>
       </div>
 
