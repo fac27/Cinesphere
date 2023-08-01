@@ -1,4 +1,4 @@
-import { CinemaType } from "@/Types/Object-Interfaces";
+import { DbCinemaType } from "@/Types/Object-Interfaces";
 import { LiaCocktailSolid } from "react-icons/lia";
 import { IoMdCafe } from "react-icons/io";
 import { FaAudioDescription, FaInfinity } from "react-icons/fa";
@@ -9,7 +9,7 @@ import Image from "next/image";
 import InfoSection from "./InfoSection";
 
 interface Props {
-  cinema: CinemaType;
+  cinema: DbCinemaType;
 }
 
 const Cinema = ({ cinema }: Props) => {
@@ -22,19 +22,19 @@ const Cinema = ({ cinema }: Props) => {
         <Image
           className="absolute top-0 left-0 w-full h-full object-cover"
           fill={true}
-          src={cinema.images.exterior}
+          src={cinema.img_exterior}
           alt="External cinema"
         />
       </div>
 
-      <h1 className="text-4xl font-bold">{cinema.cinemaName}</h1>
+      <h1 className="text-4xl font-bold">{cinema.cinema_name}</h1>
       <p>DESCRIPTION: {cinema.about}</p>
 
       {cinema.bar && (
         <InfoSection
           title="Bar"
           IconComponent={LiaCocktailSolid}
-          description={`${cinema.cinemaName} has an on-site bar which serves alcoholic and
+          description={`${cinema.cinema_name} has an on-site bar which serves alcoholic and
         soft drinks.`}
         />
       )}
@@ -42,43 +42,43 @@ const Cinema = ({ cinema }: Props) => {
         <InfoSection
           title="Cafe"
           IconComponent={IoMdCafe}
-          description={`${cinema.cinemaName} has a cafe which serves food and hot drinks`}
+          description={`${cinema.cinema_name} has a cafe which serves food and hot drinks`}
         />
       )}
 
-      {cinema["Audio Description"] && (
+      {cinema.audio_description && (
         <InfoSection
           title="Audio Description"
           IconComponent={FaAudioDescription}
-          description={cinema.visualImpairmentDetails as string}
+          description={cinema.visual_impairment_details as string}
         />
       )}
-      {cinema["Closed Captions"] && (
+      {cinema.closed_captions && (
         <InfoSection
           title="Closed Captions"
           IconComponent={BiSolidCaptions}
-          description={cinema.HoHDetails as string}
+          description={cinema.hoh_details as string}
         />
       )}
-      {cinema["Relaxed Screenings"] && (
+      {cinema.relaxed_screenings && (
         <InfoSection
           title="Relaxed Screenings"
           IconComponent={FaInfinity}
-          description={cinema.neurodiverseDetails as string}
+          description={cinema.neurodiverse_details as string}
         />
       )}
-      {cinema["Wheelchair Accessible"] && (
+      {cinema.wheelchair_accessible && (
         <InfoSection
           title="Wheelchair Accessibility"
           IconComponent={FaWheelchair}
-          description={cinema.wheelchairDetails as string}
+          description={cinema.wheelchair_details as string}
         />
       )}
-      {cinema["Free Carer Tickets"] && (
+      {cinema.free_carer_tickets && (
         <InfoSection
           title="Free Carer Tickets"
           IconComponent={BsFillTicketPerforatedFill}
-          description={cinema.freeCarerTicketsDetails as string}
+          description={cinema.free_carer_tickets_details as string}
         />
       )}
       <InfoSection title="Contact" description={cinema.address} />
@@ -103,7 +103,7 @@ const Cinema = ({ cinema }: Props) => {
             className="absolute top-0 left-0 w-full h-full object-cover"
             fill={true}
             alt="interior2"
-            src={cinema.img.interior_2}
+            src={cinema.img_interior_2}
           />
         </div>
         <div
@@ -114,7 +114,7 @@ const Cinema = ({ cinema }: Props) => {
             className="absolute top-0 left-0 w-full h-full object-cover"
             fill={true}
             alt="interior2"
-            src={cinema.img.interior_3}
+            src={cinema.img_interior_3}
           />
         </div>
       </div>

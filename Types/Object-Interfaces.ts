@@ -80,3 +80,29 @@ export interface ScreeningType {
   babyFriendly: boolean;
   imdbId: string;
 }
+
+export interface DbCinemaType {
+  id: number;
+  cinema_name: string;
+  about: string;
+  postcode: string;
+  website: string;
+  audio_description: boolean;
+  closed_captions: boolean;
+  relaxed_screenings: boolean;
+  wheelchair_accessible: boolean;
+  free_carer_tickets: boolean;
+  wheelchair_details: string;
+  hoh_details: string;
+  visual_impairment_details: string;
+  neurodiverse_details: string;
+  free_carer_tickets_details: string;
+  bar: boolean;
+  cafe: boolean;
+  img_exterior: string;
+  img_interior_1: string;
+  img_interior_2: string;
+  img_interior_3: string;
+  address: string;
+  area: string;
+}
