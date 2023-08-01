@@ -4,7 +4,6 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { BsArrowLeftCircle } from "react-icons/bs";
-import { v4 as uuidv4 } from "uuid";
 import { CinemaType, FilmType } from "@/Types/Object-Interfaces";
 import { getIndvFilm } from "@/Lib/getFilmData";
 import getAllCinemas from "@/Lib/getAllCinemas";
