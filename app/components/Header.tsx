@@ -8,7 +8,7 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <>
-      <div className="h-14 bg-bgColour1 grid grid-cols-3 items-center">
+      <div className=" bg-bgColour1 grid grid-cols-3 items-center">
         {/* this div is to ensure the logo is centered in the grid */}
         <div></div>
 
