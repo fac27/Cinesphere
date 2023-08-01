@@ -5,7 +5,7 @@ interface Props {
   page: string;
 }
 
-export function BackButton({ page }: Props) {
+const BackButton = ({ page }: Props) => {
   return (
     <Link href={`/${page}`} className="uppercase flex gap-2 items-center">
       <span>
@@ -14,4 +14,6 @@ export function BackButton({ page }: Props) {
       back
     </Link>
   );
-}
+};
+
+export default BackButton;

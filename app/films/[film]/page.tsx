@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 
 import Link from "next/link";
 import Image from "next/image";
-import { BackButton } from "./../../components/BackButton";
+import BackButton from "./../../components/BackButton";
 import { v4 as uuidv4 } from "uuid";
 import { FilmType } from "@/Types/Object-Interfaces";
 import { getFilmData } from "@/Utils/getFilmData";
