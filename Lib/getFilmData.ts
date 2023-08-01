@@ -10,7 +10,6 @@ const getAllFilms = async () => {
     console.log(`Error getting cinema data: ${error.message}`);
     throw error;
   }
-  console.log('GET ALL FILMS:', data);
   return data;
 };
 
