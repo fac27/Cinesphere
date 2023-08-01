@@ -40,7 +40,7 @@ export interface FilmType {
     genre: string;
     id: number;
     original_language: string;
-    original_title: string;
+    english_title: string;
     overview: string;
     poster_img: string;
     release_date: string;
