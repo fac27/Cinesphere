@@ -7,6 +7,7 @@ const nextConfig = {
         protocol: "https",
         hostname: "btilmyuegmcrfazewstz.supabase.co",
       },
+      { protocol: "https", hostname: "image.tmdb.org" },
     ],
   },
 };
