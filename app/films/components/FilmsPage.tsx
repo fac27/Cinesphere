@@ -12,15 +12,11 @@ import FilterModal from "@/app/components/FilterModal";
 import FilterBar from "./FilterBar";
 import { convertCodesToNames } from "@/Data/FilteringCodes";
 
-import getAllFilms from "@/Lib/getAllFilms";
-
 const FilmsContainer = () => {
   const [filmData, setFilmData] = useState<any[]>([]);
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
   const filterContext = useFilters();
-
-  getAllFilms()
 
   const setGenres = filterContext?.setGenres as React.Dispatch<
     React.SetStateAction<string[]>
