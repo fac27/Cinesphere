@@ -9,7 +9,7 @@ const CinemaMapCard = ({ cinema }: Props) => {
   return (
     <div className="space-y-1.5 h-full">
       <div className="flex-col space-y-1.5">
-        <h2 className="font-semibold">{cinema.cinemaName}</h2>
+        <h2 className="font-semibold">{cinema.cinema_name}</h2>
         <h2 className="font-medium">{cinema.address}</h2>
         <h2 className="font-medium">{cinema.website}</h2>
       </div>

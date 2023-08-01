@@ -19,7 +19,7 @@ const CinemaCard: FC<CinemaCardProps> = ({ cinema, distances }) => {
       <div className="relative h-0 pb-[200%] xs:pb-[180%] sm:pb-[80%] md:pb-[75%]">
         <Image
           className="bg-cover bg-center"
-          src={cinema.img_interior_2}
+          src={cinema.img_exterior_2}
           alt={`a photo of the interior of ${cinema}`}
           fill={true}
           objectFit="cover"
@@ -28,7 +28,7 @@ const CinemaCard: FC<CinemaCardProps> = ({ cinema, distances }) => {
       </div>
       <Link href={`/cinemas/${cinema.cinema_name}`}>
         <div className="p-5 md:p-10 mt-5 pb-15 absolute top-0 left-0 text-white">
-          <h2 className="text-2xl font-bold">{cinema.cinemaName}</h2>
+          <h2 className="text-2xl font-bold">{cinema.cinema_name}</h2>
           <h3 className="mb-10">
             {distance !== undefined ? distance.distance : ""}
           </h3>
