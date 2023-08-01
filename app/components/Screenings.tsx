@@ -67,31 +67,25 @@ function convertCamelCaseToTitleCase(inputArray: string[]) {
 const Screenings = ({ screenings, showOnPage, cinemas }: Props) => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const filterContext = useFilters();
-  
   // just check the bar and cafe from the cinemas
   const filteredScreenings = screenings.filter((screening: any) => {
     const screeningAccessibility = convertCamelCaseToTitleCase(getTrueKeys(screening));
     const screeningCinema = screening.cinema;
-    let screeningAmenities = []
+    let screeningAmenities:string[] = []
     
-    let hasBar = false;
-    let hasCafe = false
-    for (const cinema of cinemas) {
-      if (cinema.cinema_name === screeningCinema) {
-        // Check if the 'bar' key for that cinema is true
-        if (cinema.bar === true) {
-          hasBar = true;
-          break; // No need to continue looping once we found the matching cinema with 'bar' as true
+    if (cinemas && cinemas.length > 0) {
+      for (const cinema of cinemas) {
+        if (cinema.cinema_name === screeningCinema) {
+          if (cinema.bar) {
+            screeningAmenities.push("Bar")
+          }
+          if (cinema.cafe) {
+            screeningAmenities.push("Cafe")
+          }
         }
       }
     }
-    
-    if (screeningCinema.bar === true) {
-      screeningAmenities.push("Bar")
-    } 
-    if (screeningCinema.cafe === true) {
-      screeningAmenities.push("Cafe")
-    } 
+
     const screeningDate = new Date(screening.dateTime);
     const formattedDate = screeningDate.toLocaleString("en-GB", {
       day: "numeric",
