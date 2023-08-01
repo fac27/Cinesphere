@@ -19,6 +19,7 @@ const renderScreenings = (showOnPage: string, sortedScreenings: any[]) => {
     screenings: any[];
   }) => (
     <>
+      <div id="screenings" className="invisible"></div>
       <h3 className="text-md font-bold mb-3">{screeningData.name}</h3>
       <div className="flex gap-2">
         {screeningData.screenings.map((screening, index) => (

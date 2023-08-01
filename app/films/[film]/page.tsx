@@ -3,11 +3,12 @@
 import React, { useEffect, useState } from "react";
 
 import { usePathname } from "next/navigation";
-import Link from "next/link";
 import Image from "next/image";
-import { BsArrowLeftCircle } from "react-icons/bs";
+import BackButton from "./../../components/BackButton";
+import Screenings from "@/app/components/Screenings";
 import { FilmType } from "@/Types/Object-Interfaces";
 import { getIndvFilm } from "@/Lib/getFilmData";
+import screenings from "@/Data/Screenings";
 
 const Page: React.FC<{}> = (): React.JSX.Element => {
   const [filmData, setFilmData] = useState<FilmType | any>(null);
@@ -24,25 +25,18 @@ const Page: React.FC<{}> = (): React.JSX.Element => {
     fetchData();
   }, [pathname]);
 
+  const title = filmData?.original_title;
+  const screeningsFiltered = screenings.filter(
+    (screening) => screening.filmName == title?.toUpperCase()
+  );
+
   return (
     <>
       <div className="md:w-1/2 ml-auto mr-auto mb-2">
         {filmData ? (
           <>
-            <div className="flex justify-between w-80 mt-7 mr-auto ml-auto">
-              <Link
-                href={"/films"}
-                className="uppercase flex gap-2 items-center"
-              >
-                <span>
-                  <BsArrowLeftCircle />
-                </span>
-                back
-              </Link>
-
-              <Link href={"/"} className="uppercase">
-                listings
-              </Link>
+            <div className="flex justify-around w-80 mt-7 mr-auto ml-auto">
+              <BackButton page={"films"} />
             </div>
             <div className="relative mt-5 w-100 h-56 md:h-96">
               <Image
@@ -81,7 +75,7 @@ const Page: React.FC<{}> = (): React.JSX.Element => {
           ""
         )}
       </div>
-      {/* <Screenings screenings={screeningsFiltered} showOnPage="film"/> */}
+      <Screenings screenings={screeningsFiltered} showOnPage="film" />
     </>
   );
 };
