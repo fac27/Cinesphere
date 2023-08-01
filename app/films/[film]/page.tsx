@@ -4,50 +4,20 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import BackButton from "./../../components/BackButton";
 import ScreeningsLink from "@/app/components/ScreeningsLink";
-import { v4 as uuidv4 } from "uuid";
-import { FilmType } from "@/Types/Object-Interfaces";
-import { getFilmData } from "@/Utils/getFilmData";
-import { getFilmCredits } from "@/Utils/getFilmCredits";
-import screenings from "@/Data/Screenings";
 import Screenings from "@/app/components/Screenings";
-
-interface DirectorType {
-  adult: boolean;
-  credit_id: string;
-  department: string;
-  gender: number;
-  id: number;
-  job: string;
-  known_for_department: string;
-  name: string;
-  original_name: string;
-  popularity: number;
-  profile_path: string;
-}
+import { FilmType } from "@/Types/Object-Interfaces";
+import { getIndvFilm } from "@/Lib/getFilmData";
 
 const Page: React.FC<{}> = (): React.JSX.Element => {
-  const [filmData, setFilmData] = useState<FilmType | null>(null);
-  const [director, setDirector] = useState<DirectorType | null>(null);
+  const [filmData, setFilmData] = useState<FilmType | any>(null);
 
   useEffect(() => {
     const link = window.location.href.split("/");
-    const imdbId = link[link.length - 1];
+    const id = link[link.length - 1];
 
     const fetchData = async () => {
-      try {
-        const filmDataArr = await getFilmData(imdbId);
-        const filmCredits = await getFilmCredits(imdbId);
-
-        filmCredits.crew.map((person: DirectorType) => {
-          if (person.job === "Director") {
-            setDirector(person);
-          }
-        });
-
-        setFilmData(filmDataArr);
-      } catch (error: unknown) {
-        console.error(error);
-      }
+      const indv_film = await getIndvFilm(id);
+      setFilmData(indv_film);
     };
 
     fetchData();
@@ -68,7 +38,7 @@ const Page: React.FC<{}> = (): React.JSX.Element => {
   return (
     <>
       <div className="md:w-1/2 ml-auto mr-auto mb-2">
-        {filmData && director ? (
+        {filmData ? (
           <>
             <div className="flex justify-between w-80 mt-7 mr-auto ml-auto">
               <BackButton page={"films"} />
@@ -76,38 +46,32 @@ const Page: React.FC<{}> = (): React.JSX.Element => {
             </div>
             <div className="relative mt-5 w-100 h-56 md:h-96">
               <Image
-                src={`https://image.tmdb.org/t/p/w500${filmData?.backdrop_path}`}
+                src={`https://image.tmdb.org/t/p/w500${filmData.backdrop_img}`}
                 alt={"a snapshot of the film asteroid city"}
                 layout="fill"
                 objectFit="cover"
               />
             </div>
             <div className="p-3 flex flex-col gap-2">
-              <h1 className="uppercase font-bold">{filmData?.title}</h1>
+              <h1 className="uppercase font-bold">{filmData.english_title}</h1>
               <p className="text-gray-500">
-                <span>{filmData?.release_date.split("-")[0]}</span> ·{" "}
-                <span>12A</span> ·{" "}
-                <span>
-                  {filmData
-                    ? `${Math.trunc(filmData.runtime / 60)}h ${
-                        filmData.runtime % 60
-                      }m`
-                    : "Unknown"}
-                </span>
+                <span>{filmData.release_date}</span> ·{" "}
+                <span>{filmData.runtime + "mins"}</span>
               </p>
-              <p>{genreElements}</p>
+              <p>{"Genre:" + filmData.genre}</p>
               <p>
-                <span className="font-medium">Director</span>: {director?.name}
+                <span className="font-medium">Director</span>:{" "}
+                {filmData.director}
               </p>
               <p className="mt-2">
                 <span className="uppercase font-medium">Description</span>:{" "}
-                {filmData?.overview}
+                {filmData.overview}
               </p>
             </div>
             <div className="relative mt-5 w-100 h-56 md:hidden">
               <Image
-                src={`https://image.tmdb.org/t/p/w500${filmData?.poster_path}`}
-                alt={"a snapshot of the film asteroid city"}
+                src={`https://image.tmdb.org/t/p/w500${filmData.poster_img}`}
+                alt={"a snapshot of" + filmData.english_title}
                 layout="fill"
                 objectFit="cover"
               />
