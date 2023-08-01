@@ -34,9 +34,8 @@ const Page: React.FC<{}> = (): React.JSX.Element => {
       <div className="md:w-1/2 ml-auto mr-auto mb-2">
         {filmData ? (
           <>
-            <div className="flex justify-between w-80 mt-7 mr-auto ml-auto">
+            <div className="flex justify-around w-80 mt-7 mr-auto ml-auto">
               <BackButton page={"films"} />
-              <ScreeningsLink />
             </div>
             <div className="relative mt-5 w-100 h-56 md:h-96">
               <Image
