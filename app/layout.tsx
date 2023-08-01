@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <html style={{ scrollBehavior: "smooth" }} lang="en">
       <FilterProvider>
-        <body className={ibmPlexMono.className}>
+        <body className={ibmPlexMono.className + " overflow-x-hidden"}>
           <Header />
           {children}
         </body>

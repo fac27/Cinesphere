@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 
 import Image from "next/image";
 import BackButton from "./../../components/BackButton";
-import ScreeningsLink from "@/app/components/ScreeningsLink";
 import Screenings from "@/app/components/Screenings";
 import { FilmType } from "@/Types/Object-Interfaces";
 import { getIndvFilm } from "@/Lib/getFilmData";
