@@ -42,8 +42,6 @@ const Map = ({ cinemas }: Props) => {
     getCinemaLocations();
   }, [cinemas]);
 
-  console.log(newCinemas);
-
   const customIcon = new L.Icon({
     iconUrl: "/assets/pin1.png",
     iconSize: [35, 41],
