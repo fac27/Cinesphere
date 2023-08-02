@@ -1,11 +1,12 @@
 import React, { Dispatch, SetStateAction } from "react";
 import { BiSliderAlt } from "react-icons/bi";
 
-interface Props {
+type Props = {
   setIsVisible: Dispatch<SetStateAction<boolean>>;
 }
 
-const FilterButton = ({ setIsVisible }: Props) => {
+const FilterButton = ({ setIsVisible}: Props) => {
+  
   return (
     <button
       onClick={() => {

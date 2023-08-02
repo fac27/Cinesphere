@@ -5,7 +5,7 @@ interface CinemaArrType {
   screenings: ScreeningType[];
 }
 
-interface FilmPageDateArrType {
+export interface FilmPageDateArrType {
   date: string;
   cinema: CinemaArrType[];
 }
