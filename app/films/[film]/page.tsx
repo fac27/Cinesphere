@@ -5,13 +5,12 @@ import React, { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import BackButton from "./../../components/BackButton";
-import Screenings from "@/app/components/Screenings";
 import { CinemaType, FilmType } from "@/Types/Object-Interfaces";
 import { getIndvFilm } from "@/Lib/getFilmData";
 import getAllCinemas from "@/Lib/getAllCinemas";
 import screenings from "@/Data/Screenings";
 import ScreeningsContainer from "@/app/components/ScreeningsContainer";
-import screenings from "@/Data/Screenings";
+
 
 const Page: React.FC<{}> = (): React.JSX.Element => {
   const [filmData, setFilmData] = useState<FilmType | any>(null);

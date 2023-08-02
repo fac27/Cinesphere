@@ -82,7 +82,9 @@ const ScreeningsContainer = ({ screenings, showOnPage, cinemas }: Props) => {
     { name: "DATES", filters: sortedDates}
   ] 
 
-  const filteredScreeningsArr = sortedScreenings.map((dateObject) => {
+  
+
+  const filteredScreeningsArr = sortedScreenings.map((dateObject: any) => {
     const filmsOrCinema = showOnPage === "film" ? dateObject.cinema : dateObject.films;
     const filteredFilmsOrCinema = filmsOrCinema.map((filmObject: any) => {
       const filteredScreenings = filmObject.screenings.filter((screening: any) => {
@@ -139,7 +141,7 @@ const ScreeningsContainer = ({ screenings, showOnPage, cinemas }: Props) => {
         return isAmenityMatch && isAcccessibilityMatch && isCinemaMatch && isDateMatch && isFilmMatch; 
       });
       return {...filmObject, screenings: filteredScreenings};
-    }).filter(filmObject => filmObject.screenings.length !== 0);
+    }).filter((filmObject : any) => filmObject.screenings.length !== 0);
     const filmsOrCinemaKey = showOnPage === "film" ? 'cinema' : 'films';
     return {...dateObject, [filmsOrCinemaKey]: filteredFilmsOrCinema};
   }).filter(dateObject => {
