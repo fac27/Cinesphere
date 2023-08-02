@@ -37,13 +37,13 @@ const CinemaContainer = ({ distances, cinemas }: Props) => {
   });
 
   return (
-    <div>
+    <>
       {filteredCinemas.map((cinema) => (
         <div key={uuidv4()} className="flex flex-col items-center">
           <CinemaCard cinema={cinema} distances={distances} />
         </div>
       ))}
-    </div>
+    </>
   );
 };
 
