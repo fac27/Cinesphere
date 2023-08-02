@@ -128,10 +128,14 @@ const Screenings = ({ screenings, showOnPage, cinemas }: Props) => {
 
   // console.log(sortedScreenings)
 
-  const newFilteredScreenings = sortedScreenings.map((dateObject) => {
-    dateObject.films.map((filmObject) => {
+  // const newFilteredScreenings = 
+  sortedScreenings.map((dateObject) => {
+    console.log(dateObject)
+
+    dateObject.films.map((filmObject: any ) => {
       console.log(filmObject)
-      const filteredScreenings = filmObject.filter((screening: any) => {
+      const filteredScreenings = filmObject.screenings.filter((screening: any) => {
+        console.log('screening object:', screening)
         const screeningAccessibility = convertCamelCaseToTitleCase(getTrueKeys(screening));
         const screeningCinema = screening.cinema;
         const screeningFilm = screening.filmName;
