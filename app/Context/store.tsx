@@ -51,12 +51,8 @@ export const FilterProvider = ({ children }: { children: ReactNode }) => {
   const [selectedCinemas, setSelectedCinemas] = useState<string[]>(
     [] as string[]
   );
-  const [selectedDates, setSelectedDates] = useState<string[]>(
-    [] as string[]
-  );
-  const [selectedFilms, setSelectedFilms] = useState<string[]>(
-    [] as string[]
-  );
+  const [selectedDates, setSelectedDates] = useState<string[]>([] as string[]);
+  const [selectedFilms, setSelectedFilms] = useState<string[]>([] as string[]);
 
   return (
     <FilterContext.Provider
@@ -82,7 +78,7 @@ export const FilterProvider = ({ children }: { children: ReactNode }) => {
         selectedDates,
         setSelectedDates,
         selectedFilms,
-        setSelectedFilms
+        setSelectedFilms,
       }}
     >
       {children}
