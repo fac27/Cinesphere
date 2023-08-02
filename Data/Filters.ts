@@ -9,7 +9,6 @@ export const accessibility = [
 ];
 
 export const accessibilityForIndividualScreenings = [
-  "Wheelchair Accessible",
   "Relaxed Screening",
   "Audio Description",
   "Closed Captions",

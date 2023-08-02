@@ -33,20 +33,20 @@ const CinemaPage = ({ cinemas }: Props) => {
 
   return (
     <>
-      <FilterModal
-        filterArr={filterArr}
-        isVisible={isVisible}
-        setIsVisible={setIsVisible}
-      />
       <CinemaSearchBar
         setDistances={setDistances}
         postcodeInput={postcodeInput}
         setPostcodeInput={setPostcodeInput}
         setIsVisible={setIsVisible}
       />
-
       <Map cinemas={cinemas} />
+      <FilterModal
+        filterArr={filterArr}
+        isVisible={isVisible}
+        setIsVisible={setIsVisible}
+      />
       <CinemaContainer distances={distances} cinemas={cinemas} />
+
     </>
   );
 };

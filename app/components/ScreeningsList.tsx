@@ -7,8 +7,8 @@ interface ScreeningsListProps {
 
 const ScreeningsList = ({showOnPage, filteredScreeningsArr }: ScreeningsListProps) => {
 
-   return <div className="border-b-4 flex flex-col gap-8">{filteredScreeningsArr.map((date, index) => (
-      <div className="border-t border-black flex flex-col gap-4" key={index}>
+   return <div className="border-t border-black flex flex-col gap-8" style={{height: 500}}>{filteredScreeningsArr.map((date, index) => (
+      <div className="border-b border-black flex flex-col gap-4" key={index}>
         <h3 className="text-xl border-b border-gray">{date.date}</h3>
         {showOnPage === "cinema"
           ? date.films.map((film: any, index: number) => (
