@@ -14,8 +14,6 @@ const CinemaCard: FC<CinemaCardProps> = ({ cinema, distances }) => {
   const distance: { cinema: string; distance: string } | undefined =
     distances.find((distance) => distance.cinema === cinema.cinemaName);
 
-  console.log(cinema);
-
   return (
     <div className="mb-10 md:w-1/2 relative w-5/6 rounded-2xl overflow-hidden cursor-pointer">
       <div className="relative h-0 pb-[200%] xs:pb-[180%] sm:pb-[80%] md:pb-[75%]">

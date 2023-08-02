@@ -19,6 +19,12 @@ interface FilterContextProps {
   setSelectedAmenities: React.Dispatch<React.SetStateAction<string[]>>;
   selectedAccessibility: string[];
   setSelectedAccessibility: React.Dispatch<React.SetStateAction<string[]>>;
+  selectedCinemas: string[];
+  setSelectedCinemas: React.Dispatch<React.SetStateAction<string[]>>;
+  selectedDates: string[];
+  setSelectedDates: React.Dispatch<React.SetStateAction<string[]>>;
+  selectedFilms: string[];
+  setSelectedFilms: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
 const FilterContext = createContext<FilterContextProps | undefined>(undefined);
@@ -42,6 +48,15 @@ export const FilterProvider = ({ children }: { children: ReactNode }) => {
   const [selectedAmenities, setSelectedAmenities] = useState<string[]>(
     [] as string[]
   );
+  const [selectedCinemas, setSelectedCinemas] = useState<string[]>(
+    [] as string[]
+  );
+  const [selectedDates, setSelectedDates] = useState<string[]>(
+    [] as string[]
+  );
+  const [selectedFilms, setSelectedFilms] = useState<string[]>(
+    [] as string[]
+  );
 
   return (
     <FilterContext.Provider
@@ -62,6 +77,12 @@ export const FilterProvider = ({ children }: { children: ReactNode }) => {
         setSelectedAmenities,
         selectedAccessibility,
         setSelectedAccessibility,
+        selectedCinemas,
+        setSelectedCinemas,
+        selectedDates,
+        setSelectedDates,
+        selectedFilms,
+        setSelectedFilms
       }}
     >
       {children}

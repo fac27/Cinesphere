@@ -5,30 +5,41 @@ import React, { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import BackButton from "./../../components/BackButton";
-import Screenings from "@/app/components/Screenings";
-import { FilmType } from "@/Types/Object-Interfaces";
+import { CinemaType, FilmType } from "@/Types/Object-Interfaces";
 import { getIndvFilm } from "@/Lib/getFilmData";
+import getAllCinemas from "@/Lib/getAllCinemas";
 import screenings from "@/Data/Screenings";
+import ScreeningsContainer from "@/app/components/ScreeningsContainer";
 
 const Page: React.FC<{}> = (): React.JSX.Element => {
   const [filmData, setFilmData] = useState<FilmType | any>(null);
+  const [cinemas, setCinemas] = useState<CinemaType[] | undefined>(undefined);
   const pathname = usePathname();
 
   useEffect(() => {
     const id = pathname.split("/")[2];
 
     const fetchData = async () => {
-      const indv_film = await getIndvFilm(id);
-      setFilmData(indv_film);
+      try {
+        const indv_film = await getIndvFilm(id);
+        const cinemas = await getAllCinemas();
+
+        setCinemas(cinemas);
+        setFilmData(indv_film);
+      } catch (error: unknown) {
+        console.error(error);
+      }
     };
 
     fetchData();
   }, [pathname]);
 
-  const title = filmData?.original_title;
+  const title = filmData?.english_title;
   const screeningsFiltered = screenings.filter(
     (screening) => screening.filmName == title?.toUpperCase()
   );
+
+  const cinema = cinemas?.[0];
 
   return (
     <>
@@ -52,7 +63,7 @@ const Page: React.FC<{}> = (): React.JSX.Element => {
                 <span>{filmData.release_date}</span> ·{" "}
                 <span>{filmData.runtime + "mins"}</span>
               </p>
-              <p>{"Genre:" + filmData.genre}</p>
+              <p>{"Genre: " + filmData.genre}</p>
               <p>
                 <span className="font-medium">Director</span>:{" "}
                 {filmData.director}
@@ -75,10 +86,11 @@ const Page: React.FC<{}> = (): React.JSX.Element => {
           ""
         )}
       </div>
-      <Screenings
-        cinema={"cool"}
+      <ScreeningsContainer
         screenings={screeningsFiltered}
         showOnPage="film"
+        cinemas={cinemas}
+        cinema={cinema}
       />
     </>
   );

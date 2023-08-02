@@ -1,4 +1,4 @@
-import Screenings from "@/app/components/Screenings";
+import ScreeningsContainer from "@/app/components/ScreeningsContainer";
 import Buttons from "./components/Buttons";
 import Cinema from "./components/Cinema";
 import screenings from "@/Data/Screenings";
@@ -21,7 +21,7 @@ const Page = async ({ params }: { params: { cinema: string } }) => {
     <>
       <Buttons />
       <Cinema cinema={cinema} />
-      <Screenings
+      <ScreeningsContainer
         screenings={screeningsFiltered}
         showOnPage="cinema"
         cinema={cinema}
