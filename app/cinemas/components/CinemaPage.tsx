@@ -1,13 +1,17 @@
 "use client";
 
 import React, { useState } from "react";
+import dynamic from "next/dynamic";
 
 import FilterModal from "../../components/FilterModal";
 import CinemaSearchBar from "./CinemaSearchBar";
 import { accessibility, amenities } from "@/Data/Filters";
 import CinemaContainer from "./CinemaContainer";
 import { CinemaType } from "@/Types/Object-Interfaces";
-import Map from "@/app/components/Map";
+
+const Map = dynamic(() => import("@/app/components/Map"), {
+  ssr: false,
+});
 
 interface Props {
   cinemas: CinemaType[];
