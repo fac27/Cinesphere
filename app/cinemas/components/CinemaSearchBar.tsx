@@ -66,7 +66,7 @@ const CinemaSearchBar = ({
 
 
   return (
-    <div className="m-5 mb-10 flex justify-between">
+    <div className="m-5 mb-10 flex justify-center">
       <form
         onSubmit={handleSubmit}
         className="cinemas__searchbar flex items-center gap-1"
