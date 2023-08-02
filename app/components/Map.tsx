@@ -1,10 +1,10 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { MapContainer, TileLayer, Marker } from "react-leaflet";
 import L from "leaflet";
 import { CinemaType } from "@/Types/Object-Interfaces";
-import CinemaMapCard from "./CinemaMapCard";
+// import CinemaMapCard from "./CinemaMapCard";
 
 interface Props {
   cinemas: CinemaType[];
@@ -71,9 +71,9 @@ const Map = ({ cinemas }: Props) => {
             position={newCinema.location}
             icon={customIcon}
           >
-            <Popup>
+            {/* <Popup>
               <CinemaMapCard cinema={newCinema} />
-            </Popup>
+            </Popup> */}
           </Marker>
         ))}
       </MapContainer>
