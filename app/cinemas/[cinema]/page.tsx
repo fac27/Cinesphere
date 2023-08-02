@@ -23,8 +23,8 @@ const Page = async ({ params }: { params: { cinema: string } }) => {
       <Cinema cinema={cinema} />
       <Screenings
         screenings={screeningsFiltered}
-        cinema={cinema}
         showOnPage="cinema"
+        cinema={cinema}
       />
     </>
   );
