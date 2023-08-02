@@ -8,4 +8,12 @@ export const accessibility = [
   "Free Carer Tickets",
 ];
 
+export const accessibilityForIndividualScreenings = [
+  "Wheelchair Accessible",
+  "Relaxed Screening",
+  "Audio Description",
+  "Closed Captions",
+  "Free Carer Tickets",
+];
+
 export const amenities = ["Bar", "Cafe"];

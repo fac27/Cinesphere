@@ -8,6 +8,7 @@ export interface FilmArrType {
 interface CinemaPageDateArrType {
   date: string;
   films: FilmArrType[];
+  cinema?: string
 }
 
 export interface CinemaScheduleData extends Array<CinemaPageDateArrType> {}
