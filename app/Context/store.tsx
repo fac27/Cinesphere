@@ -3,9 +3,8 @@
 import React, { useContext, createContext, useState, ReactNode } from "react";
 
 interface FilterContextProps {
-  distance: string;
-  setDistance: React.Dispatch<React.SetStateAction<{ cinema: string; distance: string }[]>
-  >;
+  distance: { cinema: string, distance: string }[]| undefined;
+  setDistance: React.Dispatch<React.SetStateAction<{ cinema: string, distance: string }[]| undefined>>;
   postcode: string;
   setPostcode: React.Dispatch<React.SetStateAction<string>>;
   eras: string[];
@@ -29,10 +28,9 @@ interface FilterContextProps {
 const FilterContext = createContext<FilterContextProps | undefined>(undefined);
 
 export const FilterProvider = ({ children }: { children: ReactNode }) => {
-  const [distance, setDistance] = useState<string[]>(
-    [] as string[]);
-  const [postcode, setPostcode] = useState<string[]>(
-    [] as string[]);
+  const [distance, setDistance] = useState<{ cinema: string, distance: string }[]>();
+  const [postcode, setPostcode] = useState<string>(
+    "" as string);
   const [eras, setEras] = useState<string[]>(
     [] as string[]);
   const [languages, setLanguages] = useState<string[]>(

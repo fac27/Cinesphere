@@ -15,18 +15,6 @@ interface Props {
 }
 
 const CinemaPage = ({ cinemas }: Props) => {
-
-  //get distance value
-  // const filterContext = useFilters();
-
-  // const distance = filterContext?.distance as any;
-  // console.log('cinema page distance', distance)
-
-
-
-  // const [distances, setDistances] = useState<
-  //   { cinema: string; distance: string }[]
-  // >([]);
   const [isVisible, setIsVisible] = useState(false);
 
   const filterArr = [

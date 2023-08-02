@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 
 import { CinemaType } from "@/Types/Object-Interfaces";
 import CinemaFeaturesList from "./CinemaFeaturesList";
@@ -10,14 +10,16 @@ interface CinemaCardProps {
   cinema: CinemaType;
 }
 const CinemaCard: FC<CinemaCardProps> = ({ cinema }) => {
-  // get distance values
   const filterContext = useFilters();
   const distance = filterContext?.distance as any;
 
-  // match distance value to film
-  const displayDistance = distance.find(
-    (distance: any) => distance.cinema === cinema.cinema_name
-  );
+  const [displayDistance, setDisplayDistance] = useState<{ cinema: string, distance: string }>()
+
+  useEffect(() => {
+    setDisplayDistance(
+      distance.find((distance:{ cinema: string, distance: string }) => distance.cinema === cinema.cinema_name)
+    );
+  }, [distance, cinema.cinema_name]);
 
   return (
     <div className="mb-10 md:w-1/2 relative w-5/6 rounded-2xl overflow-hidden cursor-pointer">
@@ -35,7 +37,7 @@ const CinemaCard: FC<CinemaCardProps> = ({ cinema }) => {
         <div className="p-5 md:p-10 mt-5 pb-15 absolute top-0 left-0 text-white">
           <h2 className="text-2xl font-bold">{cinema.cinema_name}</h2>
           <h3 className="mb-10">
-            {displayDistance.distance ? displayDistance.distance : " "}
+            {displayDistance == undefined ? " " : displayDistance.distance}
           </h3>
           <h3 className="mb-10">{cinema.area}</h3>
           <p className="mb-10">{cinema.about}</p>

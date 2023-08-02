@@ -3,7 +3,6 @@ import CinemaCard from "./CinemaCard";
 import { useFilters } from "@/app/Context/store";
 
 interface Props {
-  // distance: { cinema: string; distance: string }[];
   cinemas: CinemaType[];
 }
 

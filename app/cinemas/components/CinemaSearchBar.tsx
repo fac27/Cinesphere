@@ -5,9 +5,6 @@ import React, { Dispatch, SetStateAction } from "react";
 import { useFilters } from "@/app/Context/store";
 
 interface Props {
-  // setDistances: Dispatch<
-  //   SetStateAction<{ cinema: string; distance: string }[]>
-  // >;
   setIsVisible: Dispatch<SetStateAction<boolean>>;
 }
 
@@ -25,9 +22,9 @@ const CinemaSearchBar = ({
   const postcode = filterContext?.postcode as string;
 
   const setDistance = filterContext?.setDistance as React.Dispatch<
-    React.SetStateAction<{ cinema: string; distance: string }[]>
+    React.SetStateAction<{ cinema: string, distance: string }[]>
   >;
-  const distance = filterContext?.distance as string;
+  const distance = filterContext?.distance as { cinema: string, distance: string }[]
 
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
