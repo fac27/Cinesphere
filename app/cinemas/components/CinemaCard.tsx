@@ -13,12 +13,17 @@ const CinemaCard: FC<CinemaCardProps> = ({ cinema }) => {
   const filterContext = useFilters();
   const distance = filterContext?.distance as any;
 
-  const [displayDistance, setDisplayDistance] = useState<{ cinema: string, distance: string }>()
+  const [displayDistance, setDisplayDistance] = useState<any>()
 
   useEffect(() => {
-    setDisplayDistance(
-      distance.find((distance:{ cinema: string, distance: string }) => distance.cinema === cinema.cinema_name)
-    );
+    if (distance) {
+      setDisplayDistance(
+        distance.find(
+          (distance: { cinema: string; distance: string }) =>
+            distance.cinema === cinema.cinema_name
+        )
+      );
+    } else setDisplayDistance(" ");
   }, [distance, cinema.cinema_name]);
 
   return (
