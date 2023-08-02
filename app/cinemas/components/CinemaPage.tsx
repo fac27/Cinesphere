@@ -18,10 +18,6 @@ interface Props {
 }
 
 const CinemaPage = ({ cinemas }: Props) => {
-  const [postcodeInput, setPostcodeInput] = useState<string>("");
-  const [distances, setDistances] = useState<
-    { cinema: string; distance: string }[]
-  >([]);
   const [isVisible, setIsVisible] = useState(false);
 
   const filterArr = [
@@ -29,23 +25,21 @@ const CinemaPage = ({ cinemas }: Props) => {
     { name: "ACCESSIBILITY", filters: accessibility },
   ];
 
-  // console.log(cinemas);
-
   return (
     <>
-      <CinemaSearchBar
-        setDistances={setDistances}
-        postcodeInput={postcodeInput}
-        setPostcodeInput={setPostcodeInput}
+      <FilterModal
+        filterArr={filterArr}
+        isVisible={isVisible}
         setIsVisible={setIsVisible}
       />
+      <CinemaSearchBar setIsVisible={setIsVisible} />
       <Map cinemas={cinemas} />
       <FilterModal
         filterArr={filterArr}
         isVisible={isVisible}
         setIsVisible={setIsVisible}
       />
-      <CinemaContainer distances={distances} cinemas={cinemas} />
+      <CinemaContainer cinemas={cinemas} />
 
     </>
   );

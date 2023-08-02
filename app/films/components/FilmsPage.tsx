@@ -1,4 +1,5 @@
 "use client";
+
 import FilmCard from "./FilmCard";
 import React, { useEffect, useState } from "react";
 

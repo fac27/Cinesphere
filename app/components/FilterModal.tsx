@@ -13,8 +13,6 @@ const FilterModal = ({
   setIsVisible,
   filterArr,
 }: Props): React.JSX.Element => {
-
-  
   return (
     <dialog open={isVisible} className="w-5/6 md:w-1/2 p-5 rounded-2xl border border-black text-center my-4 z-40">
       {filterArr.map((filter, index) => {
