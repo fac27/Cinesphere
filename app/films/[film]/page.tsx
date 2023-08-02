@@ -1,6 +1,8 @@
 "use client";
+
 import React, { useEffect, useState } from "react";
 
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import BackButton from "./../../components/BackButton";
 import Screenings from "@/app/components/Screenings";
@@ -10,10 +12,10 @@ import screenings from "@/Data/Screenings";
 
 const Page: React.FC<{}> = (): React.JSX.Element => {
   const [filmData, setFilmData] = useState<FilmType | any>(null);
+  const pathname = usePathname();
 
   useEffect(() => {
-    const link = window.location.href.split("/");
-    const id = link[link.length - 1];
+    const id = pathname.split("/")[2];
 
     const fetchData = async () => {
       const indv_film = await getIndvFilm(id);
@@ -21,7 +23,7 @@ const Page: React.FC<{}> = (): React.JSX.Element => {
     };
 
     fetchData();
-  }, []);
+  }, [pathname]);
 
   const title = filmData?.original_title;
   const screeningsFiltered = screenings.filter(
