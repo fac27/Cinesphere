@@ -36,8 +36,6 @@ const CinemaPage = ({ cinemas }: Props) => {
       <CinemaSearchBar
         setIsVisible={setIsVisible}
       />
-      <CinemaContainer cinemas={cinemas} />
-
       <Map cinemas={cinemas} />
       <CinemaContainer cinemas={cinemas} />
     </>
