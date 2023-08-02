@@ -213,14 +213,16 @@ export const languageCodes: LanguageCodeObjType = {
   Zulu: "zu",
 };
 
-export const convertCodesToNames = (langCodeArr : string[]) => {
-  const languageNamesArray = langCodeArr.map(code => {
-    const languageName = Object.keys(languageCodes).find(key => languageCodes[key] === code);
+export const convertCodesToNames = (langCodeArr: string[]) => {
+  const languageNamesArray = langCodeArr.map((code) => {
+    const languageName = Object.keys(languageCodes).find(
+      (key) => languageCodes[key] === code
+    );
     return languageName || "Unknown";
   });
 
   return languageNamesArray;
-}
+};
 
 export const filterLabels = {
   bar: "Bar",

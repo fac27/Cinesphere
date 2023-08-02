@@ -1,12 +1,17 @@
 "use client";
 
 import React, { useState } from "react";
+import dynamic from "next/dynamic";
 
 import FilterModal from "../../components/FilterModal";
 import CinemaSearchBar from "./CinemaSearchBar";
 import { accessibility, amenities } from "@/Data/Filters";
 import CinemaContainer from "./CinemaContainer";
 import { CinemaType } from "@/Types/Object-Interfaces";
+
+const Map = dynamic(() => import("@/app/components/Map"), {
+  ssr: false,
+});
 
 interface Props {
   cinemas: CinemaType[];
@@ -24,6 +29,8 @@ const CinemaPage = ({ cinemas }: Props) => {
     { name: "ACCESSIBILITY", filters: accessibility },
   ];
 
+  // console.log(cinemas);
+
   return (
     <>
       <FilterModal
@@ -37,6 +44,8 @@ const CinemaPage = ({ cinemas }: Props) => {
         setPostcodeInput={setPostcodeInput}
         setIsVisible={setIsVisible}
       />
+
+      <Map cinemas={cinemas} />
       <CinemaContainer distances={distances} cinemas={cinemas} />
     </>
   );

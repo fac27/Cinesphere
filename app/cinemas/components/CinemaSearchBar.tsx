@@ -16,7 +16,7 @@ const CinemaSearchBar = ({
   setDistances,
   postcodeInput,
   setPostcodeInput,
-  setIsVisible
+  setIsVisible,
 }: Props) => {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();

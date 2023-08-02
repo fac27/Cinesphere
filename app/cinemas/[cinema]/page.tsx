@@ -4,7 +4,6 @@ import Cinema from "./components/Cinema";
 import screenings from "@/Data/Screenings";
 import getCinemaByName from "@/Lib/getCinemaByName";
 
-
 const Page = async ({ params }: { params: { cinema: string } }) => {
   const paramsCinema = params.cinema.replaceAll("%20", " ");
   const cinema = await getCinemaByName(paramsCinema);

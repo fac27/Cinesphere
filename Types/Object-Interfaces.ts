@@ -35,17 +35,17 @@ export interface GenreCodeObjType {
 }
 
 export interface FilmType {
-    backdrop_img: string;
-    director: string;
-    genre: string;
-    id: number;
-    original_language: string;
-    english_title: string;
-    overview: string;
-    poster_img: string;
-    release_date: string;
-    runtime: number;
-    vote_average: number;
+  backdrop_img: string;
+  director: string;
+  genre: string;
+  id: number;
+  original_language: string;
+  english_title: string;
+  overview: string;
+  poster_img: string;
+  release_date: string;
+  runtime: number;
+  vote_average: number;
 }
 
 export interface ScreeningType {
@@ -60,6 +60,20 @@ export interface ScreeningType {
   relaxedScreening: boolean;
   babyFriendly: boolean;
   imdbId: string;
+}
+
+export interface DirectorType {
+  adult: boolean;
+  credit_id: string;
+  department: string;
+  gender: number;
+  id: number;
+  job: string;
+  known_for_department: string;
+  name: string;
+  original_name: string;
+  popularity: number;
+  profile_path: string;
 }
 
 export interface DbCinemaType {
