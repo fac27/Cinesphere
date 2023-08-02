@@ -8,7 +8,7 @@ const ContactForm = () => {
   const [message, setMessage] = useState("");
 
   return (
-    <div className="flex flex-col justify-center items-center h-full">
+    <div className="flex flex-col m-0">
       <form className="flex flex-col gap-4 bg-bgColour1 p-6">
         <h1 className={"text-center " + h2style}>Contact Us</h1>
         <label htmlFor="name">Name:</label>

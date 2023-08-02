@@ -1,6 +1,7 @@
 import { CinemaType } from "@/Types/Object-Interfaces";
 import CinemaCard from "./CinemaCard";
 import { useFilters } from "@/app/Context/store";
+import { v4 as uuidv4 } from "uuid";
 
 interface Props {
   distances: { cinema: string; distance: string }[];
@@ -38,7 +39,7 @@ const CinemaContainer = ({ distances, cinemas }: Props) => {
   return (
     <div>
       {filteredCinemas.map((cinema) => (
-        <div key={cinema.cinemaName} className="flex flex-col items-center">
+        <div key={uuidv4()} className="flex flex-col items-center">
           <CinemaCard cinema={cinema} distances={distances} />
         </div>
       ))}
