@@ -15,7 +15,6 @@ const Map = dynamic(() => import("@/app/components/Map"), {
 
 interface Props {
   cinemas: CinemaType[];
-  postcodeInput: string;
 }
 
 const CinemaPage = ({ cinemas }: Props) => {
