@@ -82,11 +82,9 @@ const ScreeningsContainer = ({ screenings, showOnPage, cinemas }: Props) => {
     { name: "DATES", filters: sortedDates}
   ] 
 
-
-
-
   const filteredScreeningsArr = sortedScreenings.map((dateObject) => {
-    dateObject.films = dateObject.films.map((filmObject: any) => {
+    const filmsOrCinema = showOnPage === "film" ? dateObject.cinema : dateObject.films;
+    const filteredFilmsOrCinema = filmsOrCinema.map((filmObject: any) => {
       const filteredScreenings = filmObject.screenings.filter((screening: any) => {
         const screeningAccessibility = convertCamelCaseToTitleCase(getTrueKeys(screening));
         const screeningCinema = screening.cinema;
@@ -142,8 +140,12 @@ const ScreeningsContainer = ({ screenings, showOnPage, cinemas }: Props) => {
       });
       return {...filmObject, screenings: filteredScreenings};
     }).filter(filmObject => filmObject.screenings.length !== 0);
-    return dateObject;
-  }).filter(dateObject => dateObject.films.length !== 0);
+    const filmsOrCinemaKey = showOnPage === "film" ? 'cinema' : 'films';
+    return {...dateObject, [filmsOrCinemaKey]: filteredFilmsOrCinema};
+  }).filter(dateObject => {
+    const filmsOrCinema = showOnPage === "film" ? dateObject.cinema : dateObject.films;
+    return filmsOrCinema.length !== 0
+  });
 
   return (
       <div className="m-4 md:w-1/2 md:mx-auto ">

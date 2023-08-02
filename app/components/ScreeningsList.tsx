@@ -18,7 +18,7 @@ const ScreeningsList = ({showOnPage, filteredScreeningsArr }: ScreeningsListProp
             ))
           : date.cinema.map((cinema: any, index: number) => (
               <div className="bg-slate-50 p-5" key={index}>
-                <ScreeningsInstance screeningData={{name: cinema.cinema, screenings: cinema.screening}} />
+                <ScreeningsInstance screeningData={{name: cinema.cinema, screenings: cinema.screenings}} />
               </div>
             ))
           }
