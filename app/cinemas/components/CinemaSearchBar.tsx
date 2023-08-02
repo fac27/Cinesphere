@@ -8,11 +8,7 @@ interface Props {
   setIsVisible: Dispatch<SetStateAction<boolean>>;
 }
 
-const CinemaSearchBar = ({
-  setIsVisible
-}: Props) => {
-
-
+const CinemaSearchBar = ({ setIsVisible }: Props) => {
   const filterContext = useFilters();
   const setPostcode = filterContext?.setPostcode as React.Dispatch<
     React.SetStateAction<string>
@@ -20,13 +16,10 @@ const CinemaSearchBar = ({
   const postcode = filterContext?.postcode as string;
 
   const setDistance = filterContext?.setDistance as React.Dispatch<
-    React.SetStateAction<{ cinema: string, distance: string }[]>
+    React.SetStateAction<{ cinema: string; distance: string }[]>
   >;
 
-
-
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-
     event.preventDefault();
     const getCoordinates = async (postcode: string) => {
       const response = await fetch("/api/coordinates", {
@@ -44,7 +37,7 @@ const CinemaSearchBar = ({
       const distances = cinemas.map(async (cinema) => {
         const cinemaPostcode = cinema.postcode;
         const userCoordinates = await getCoordinates(postcode);
-        console.log('user coordinates', userCoordinates)
+        console.log("user coordinates", userCoordinates);
         const cinemaCoordinates = await getCoordinates(cinemaPostcode);
         const distance = haversine(
           userCoordinates.lat,
@@ -61,9 +54,7 @@ const CinemaSearchBar = ({
     };
 
     getDistances();
-
   };
-
 
   return (
     <div className="m-5 mb-10 flex justify-center">
