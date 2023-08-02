@@ -49,9 +49,6 @@ const Map = ({ cinemas }: Props) => {
     popupAnchor: [1, -34],
   });
 
-  console.log(cinemas);
-  console.log(newCinemas);
-
   return (
     <>
       <MapContainer
