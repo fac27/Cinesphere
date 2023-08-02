@@ -27,11 +27,6 @@ const CinemaPage = ({ cinemas }: Props) => {
 
   return (
     <>
-      <FilterModal
-        filterArr={filterArr}
-        isVisible={isVisible}
-        setIsVisible={setIsVisible}
-      />
       <CinemaSearchBar setIsVisible={setIsVisible} />
       <Map cinemas={cinemas} />
       <FilterModal
