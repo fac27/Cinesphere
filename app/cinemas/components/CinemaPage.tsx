@@ -25,7 +25,6 @@ const CinemaPage = ({ cinemas }: Props) => {
     { name: "ACCESSIBILITY", filters: accessibility },
   ];
 
-
   return (
     <>
       <FilterModal
@@ -33,9 +32,7 @@ const CinemaPage = ({ cinemas }: Props) => {
         isVisible={isVisible}
         setIsVisible={setIsVisible}
       />
-      <CinemaSearchBar
-        setIsVisible={setIsVisible}
-      />
+      <CinemaSearchBar setIsVisible={setIsVisible} />
       <Map cinemas={cinemas} />
       <CinemaContainer cinemas={cinemas} />
     </>

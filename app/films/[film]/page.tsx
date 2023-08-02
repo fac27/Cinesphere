@@ -11,10 +11,9 @@ import getAllCinemas from "@/Lib/getAllCinemas";
 import screenings from "@/Data/Screenings";
 import ScreeningsContainer from "@/app/components/ScreeningsContainer";
 
-
 const Page: React.FC<{}> = (): React.JSX.Element => {
   const [filmData, setFilmData] = useState<FilmType | any>(null);
-  const [cinemas, setCinemas] = useState<CinemaType[]  | undefined>(undefined)
+  const [cinemas, setCinemas] = useState<CinemaType[] | undefined>(undefined);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -22,10 +21,10 @@ const Page: React.FC<{}> = (): React.JSX.Element => {
 
     const fetchData = async () => {
       try {
-        const indv_film = await getIndvFilm(id)
+        const indv_film = await getIndvFilm(id);
         const cinemas = await getAllCinemas();
 
-        setCinemas(cinemas)
+        setCinemas(cinemas);
         setFilmData(indv_film);
       } catch (error: unknown) {
         console.error(error);
@@ -35,9 +34,9 @@ const Page: React.FC<{}> = (): React.JSX.Element => {
     fetchData();
   }, [pathname]);
 
-  const title = filmData?.english_title
+  const title = filmData?.english_title;
   const screeningsFiltered = screenings.filter(
-  (screening) => screening.filmName == title?.toUpperCase()
+    (screening) => screening.filmName == title?.toUpperCase()
   );
 
   return (
@@ -85,7 +84,11 @@ const Page: React.FC<{}> = (): React.JSX.Element => {
           ""
         )}
       </div>
-      <ScreeningsContainer screenings={screeningsFiltered} showOnPage="film" cinemas={cinemas}/>
+      <ScreeningsContainer
+        screenings={screeningsFiltered}
+        showOnPage="film"
+        cinemas={cinemas}
+      />
     </>
   );
 };

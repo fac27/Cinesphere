@@ -3,8 +3,10 @@
 import React, { useContext, createContext, useState, ReactNode } from "react";
 
 interface FilterContextProps {
-  distance: { cinema: string, distance: string }[]| undefined;
-  setDistance: React.Dispatch<React.SetStateAction<{ cinema: string, distance: string }[]| undefined>>;
+  distance: { cinema: string; distance: string }[] | undefined;
+  setDistance: React.Dispatch<
+    React.SetStateAction<{ cinema: string; distance: string }[] | undefined>
+  >;
   postcode: string;
   setPostcode: React.Dispatch<React.SetStateAction<string>>;
   eras: string[];
@@ -34,16 +36,12 @@ interface FilterContextProps {
 const FilterContext = createContext<FilterContextProps | undefined>(undefined);
 
 export const FilterProvider = ({ children }: { children: ReactNode }) => {
-  const [distance, setDistance] = useState<{ cinema: string, distance: string }[]>();
-  const [postcode, setPostcode] = useState<string>(
-    "" as string);
-  const [eras, setEras] = useState<string[]>(
-    [] as string[]);
-  const [languages, setLanguages] = useState<string[]>(
-    [] as string[]);
-  const [genres, setGenres] = useState<string[]>(
-    [] as string[]
-  );
+  const [distance, setDistance] =
+    useState<{ cinema: string; distance: string }[]>();
+  const [postcode, setPostcode] = useState<string>("" as string);
+  const [eras, setEras] = useState<string[]>([] as string[]);
+  const [languages, setLanguages] = useState<string[]>([] as string[]);
+  const [genres, setGenres] = useState<string[]>([] as string[]);
   const [selectedGenres, setSelectedGenres] = useState<string[]>(
     [] as string[]
   );
@@ -62,12 +60,8 @@ export const FilterProvider = ({ children }: { children: ReactNode }) => {
   const [selectedCinemas, setSelectedCinemas] = useState<string[]>(
     [] as string[]
   );
-  const [selectedDates, setSelectedDates] = useState<string[]>(
-    [] as string[]
-  );
-  const [selectedFilms, setSelectedFilms] = useState<string[]>(
-    [] as string[]
-  );
+  const [selectedDates, setSelectedDates] = useState<string[]>([] as string[]);
+  const [selectedFilms, setSelectedFilms] = useState<string[]>([] as string[]);
 
   return (
     <FilterContext.Provider
@@ -97,7 +91,7 @@ export const FilterProvider = ({ children }: { children: ReactNode }) => {
         selectedDates,
         setSelectedDates,
         selectedFilms,
-        setSelectedFilms
+        setSelectedFilms,
       }}
     >
       {children}
