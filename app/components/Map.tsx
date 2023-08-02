@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { MapContainer, TileLayer, Marker } from "react-leaflet";
-import L from "leaflet";
+import { MapContainer, TileLayer } from "react-leaflet";
+// import L from "leaflet";
 import { CinemaType } from "@/Types/Object-Interfaces";
 // import CinemaMapCard from "./CinemaMapCard";
 
@@ -42,12 +42,12 @@ const Map = ({ cinemas }: Props) => {
     getCinemaLocations();
   }, [cinemas]);
 
-  const customIcon = new L.Icon({
-    iconUrl: "/assets/pin1.png",
-    iconSize: [35, 41],
-    iconAnchor: [12, 41],
-    popupAnchor: [1, -34],
-  });
+  // const customIcon = new L.Icon({
+  //   iconUrl: "/assets/pin1.png",
+  //   iconSize: [35, 41],
+  //   iconAnchor: [12, 41],
+  //   popupAnchor: [1, -34],
+  // });
 
   console.log(cinemas);
   console.log(newCinemas);
@@ -65,17 +65,17 @@ const Map = ({ cinemas }: Props) => {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
 
-        {newCinemas.map((newCinema) => (
+        {/* {newCinemas.map((newCinema) => (
           <Marker
             key={newCinema.postcode}
             position={newCinema.location}
             icon={customIcon}
           >
-            {/* <Popup>
+            <Popup>
               <CinemaMapCard cinema={newCinema} />
-            </Popup> */}
+            </Popup>
           </Marker>
-        ))}
+        ))} */}
       </MapContainer>
     </>
   );
