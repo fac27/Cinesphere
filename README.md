@@ -1,33 +1,27 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Cinesphere
 
-## Getting Started
+This is a [Next.js](https://nextjs.org/) project created for the Tech For Better programme run by Founders and Coders. Cinesphere was designed and created to improve access to independent films and independent cinemas.
 
-First, run the development server:
+#### Getting Started
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+Clone the repo
+` git clone https://github.com/fac27/Cinesphere`
+
+Install dependencies
+`npm install`
+
+Run the development server:
+`npm run dev`
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Or, visit the deployed site [cinesphere-alpha.vercel.app](cinesphere-alpha.vercel.app)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+#### Design Sprint
 
-## Learn More
+![Screenshot 2023-08-02 at 15 43 24](https://github.com/fac27/Cinesphere/assets/114364165/dbeef6f4-a098-43eb-8f1a-687877f5c56f)
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
+## Build Sprint
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
