@@ -75,7 +75,11 @@ const Page: React.FC<{}> = (): React.JSX.Element => {
           ""
         )}
       </div>
-      <Screenings screenings={screeningsFiltered} showOnPage="film" />
+      <Screenings
+        cinema={"cool"}
+        screenings={screeningsFiltered}
+        showOnPage="film"
+      />
     </>
   );
 };

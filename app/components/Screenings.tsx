@@ -13,7 +13,7 @@ import { v4 as uuidv4 } from "uuid";
 interface Props {
   screenings: ScreeningType[];
   showOnPage: string;
-  cinema: CinemaType;
+  cinema: any;
 }
 
 const renderScreenings = (
