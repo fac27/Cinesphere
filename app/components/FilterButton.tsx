@@ -7,16 +7,16 @@ interface Props {
 
 const FilterButton = ({ setIsVisible }: Props) => {
   return (
-      <button
-        onClick={() => {
-          setIsVisible((prev: boolean) => !prev);
-        }}
-        type="button"
-        className="p-2 flex items-center gap-1 rounded-lg border border-black ml-3"
-      >
-        <BiSliderAlt />
-        Filter
-      </button>
+    <button
+      onClick={() => {
+        setIsVisible((prev: boolean) => !prev);
+      }}
+      type="button"
+      className="p-2 flex items-center gap-1 rounded-lg border border-black ml-3"
+    >
+      <BiSliderAlt />
+      Filter
+    </button>
   );
 };
 

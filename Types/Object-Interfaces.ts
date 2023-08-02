@@ -35,17 +35,17 @@ export interface GenreCodeObjType {
 }
 
 export interface FilmType {
-    backdrop_img: string;
-    director: string;
-    genre: string;
-    id: number;
-    original_language: string;
-    english_title: string;
-    overview: string;
-    poster_img: string;
-    release_date: string;
-    runtime: number;
-    vote_average: number;
+  backdrop_img: string;
+  director: string;
+  genre: string;
+  id: number;
+  original_language: string;
+  english_title: string;
+  overview: string;
+  poster_img: string;
+  release_date: string;
+  runtime: number;
+  vote_average: number;
 }
 
 export interface ScreeningType {
