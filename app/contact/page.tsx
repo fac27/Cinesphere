@@ -2,8 +2,8 @@ import ContactForm from "./components/ContactForm";
 
 const Page = () => {
   return (
-    <div className="flex flex-col gap-5 items-center">
-      <div className="flex bg-bgColour2 p-6 mt-4 shadow-sm">
+    <div className="flex flex-col gap-5 items-center ">
+      <div className="bg-bgColour2 p-6 mt-4 shadow-sm w-5/6 md:w-1/2">
         <p>
           We love movies just as much as you do. That&#39;s why we&#39;re always
           here to help you explore the world of independent films. Have a
