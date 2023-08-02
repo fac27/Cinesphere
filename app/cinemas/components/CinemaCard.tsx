@@ -1,18 +1,30 @@
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 
 import { CinemaType } from "@/Types/Object-Interfaces";
 import CinemaFeaturesList from "./CinemaFeaturesList";
 import Image from "next/image";
 import Link from "next/link";
+import { useFilters } from "@/app/Context/store";
 
 interface CinemaCardProps {
   cinema: CinemaType;
-  distances: { cinema: string; distance: string }[];
 }
+const CinemaCard: FC<CinemaCardProps> = ({ cinema }) => {
+  const filterContext = useFilters();
+  const distance = filterContext?.distance as any;
 
-const CinemaCard: FC<CinemaCardProps> = ({ cinema, distances }) => {
-  const distance: { cinema: string; distance: string } | undefined =
-    distances.find((distance) => distance.cinema === cinema.cinemaName);
+  const [displayDistance, setDisplayDistance] = useState<any>();
+
+  useEffect(() => {
+    if (distance) {
+      setDisplayDistance(
+        distance.find(
+          (distance: { cinema: string; distance: string }) =>
+            distance.cinema === cinema.cinema_name
+        )
+      );
+    } else setDisplayDistance(" ");
+  }, [distance, cinema.cinema_name]);
 
   return (
     <div className="mb-10 md:w-1/2 relative w-5/6 rounded-2xl overflow-hidden cursor-pointer">
@@ -30,7 +42,7 @@ const CinemaCard: FC<CinemaCardProps> = ({ cinema, distances }) => {
         <div className="p-5 md:p-10 mt-5 pb-15 absolute top-0 left-0 text-white">
           <h2 className="text-2xl font-bold">{cinema.cinema_name}</h2>
           <h3 className="mb-10">
-            {distance !== undefined ? distance.distance : ""}
+            {displayDistance == undefined ? " " : displayDistance.distance}
           </h3>
           <h3 className="mb-10">{cinema.area}</h3>
           <p className="mb-10">{cinema.about}</p>
