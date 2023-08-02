@@ -3,16 +3,14 @@ import { BiSliderAlt } from "react-icons/bi";
 
 type Props = {
   setIsVisible: Dispatch<SetStateAction<boolean>>;
-  showOnPage?: string
 }
 
-const FilterButton = ({ setIsVisible, showOnPage }: Props) => {
+const FilterButton = ({ setIsVisible}: Props) => {
   
   return (
       <button
         onClick={() => {
           setIsVisible((prev: boolean) => !prev);
-          console.log(showOnPage)
         }}
         type="button"
         className="p-2 flex items-center gap-1 rounded-lg border border-black ml-3"

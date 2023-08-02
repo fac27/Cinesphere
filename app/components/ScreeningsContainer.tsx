@@ -3,13 +3,14 @@
 import { CinemaType, ScreeningType} from "@/Types/Object-Interfaces";
 import getScreeningsByDateAndFilm from "../../Utils/getScreeningsByDateAndFilm";
 import getScreeningsByDateAndCinema from "@/Utils/getScreeningsByDateAndCinema";
-import Icons from "./Icons";
 import FilterButton from "./FilterButton";
 import { useState } from "react";
 import FilterModal from "./FilterModal";
 import { accessibilityForIndividualScreenings, amenities } from "@/Data/Filters";
 import { useFilters } from "../Context/store";
 import { getTrueKeys } from "@/Utils/getTrueKeys";
+import ScreeningsList from "./ScreeningsList";
+import convertCamelCaseToTitleCase from "@/Utils/convertCamelCaseToTitleCase";
 
 interface Props {
   screenings: ScreeningType[];
@@ -17,52 +18,7 @@ interface Props {
   cinemas?: CinemaType[]
 }
 
-const renderScreenings = (showOnPage: string, sortedScreenings: any[]) => {
-  const renderContent = (screeningData: { name: string; screenings: any[] }) => (
-    <>
-      <h3 className="text-md font-bold mb-3">{screeningData.name}</h3>
-      <div className="flex gap-2">
-        {screeningData.screenings.map((screening, index) => (
-          <div className="flex justify-center align-middle gap-2" key={index}>
-            <h3> {screening.time}</h3>
-            <Icons screening={screening} />
-            {index !== screeningData.screenings.length - 1 && <h3>/</h3>}
-          </div>
-        ))}
-      </div>
-    </>
-  );
-  return sortedScreenings.map((date, index) => (
-    <div className="border-t border-black flex flex-col gap-4" key={index}>
-      <h3 className="text-xl border-b border-gray">{date.date}</h3>
-      {showOnPage === "cinema"
-        ? date.films.map((film: any, index: number) => (
-            <div className="bg-slate-50 p-5" key={index}>
-              {renderContent({ name: film.filmName, screenings: film.screenings })}
-            </div>
-          ))
-        : date.cinema.map((cinema: any, index: number) => (
-            <div className="bg-slate-50 p-5" key={index}>
-              {renderContent({ name: cinema.cinema, screenings: cinema.screenings })}
-            </div>
-          ))
-        }
-    </div>
-  ));
-};
-
-function convertCamelCaseToTitleCase(inputArray: string[]) {
-  const capitalizeWord = (word: string) => word.charAt(0).toUpperCase() + word.slice(1);
-  const outputArray = inputArray.map((camelCaseStr) => {
-    const words = camelCaseStr.split(/(?=[A-Z])/);
-    const titleCaseWords = words.map((word) => capitalizeWord(word));
-    return titleCaseWords.join(' ');
-  });
-
-  return outputArray;
-}
-
-const Screenings = ({ screenings, showOnPage, cinemas }: Props) => {
+const ScreeningsContainer = ({ screenings, showOnPage, cinemas }: Props) => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const filterContext = useFilters();
 
@@ -126,16 +82,12 @@ const Screenings = ({ screenings, showOnPage, cinemas }: Props) => {
     { name: "DATES", filters: sortedDates}
   ] 
 
-  // console.log(sortedScreenings)
 
-  // const newFilteredScreenings = 
-  sortedScreenings.map((dateObject) => {
-    console.log(dateObject)
 
-    dateObject.films.map((filmObject: any ) => {
-      console.log(filmObject)
+
+  const filteredScreeningsArr = sortedScreenings.map((dateObject) => {
+    dateObject.films = dateObject.films.map((filmObject: any) => {
       const filteredScreenings = filmObject.screenings.filter((screening: any) => {
-        console.log('screening object:', screening)
         const screeningAccessibility = convertCamelCaseToTitleCase(getTrueKeys(screening));
         const screeningCinema = screening.cinema;
         const screeningFilm = screening.filmName;
@@ -185,24 +137,24 @@ const Screenings = ({ screenings, showOnPage, cinemas }: Props) => {
         selectedFilms.length === 0 ||
         selectedFilms.includes(screeningFilm)
 
+
         return isAmenityMatch && isAcccessibilityMatch && isCinemaMatch && isDateMatch && isFilmMatch; 
       });
-    return filteredScreenings
-    })})
-  
+      return {...filmObject, screenings: filteredScreenings};
+    }).filter(filmObject => filmObject.screenings.length !== 0);
+    return dateObject;
+  }).filter(dateObject => dateObject.films.length !== 0);
 
   return (
       <div className="m-4 md:w-1/2 md:mx-auto ">
         <div className="flex justify-around align-middle mb-4">
           <h2 className="text-3xl regular">SCREENINGS</h2>
           <FilterModal filterArr={filterArr} isVisible={isVisible} setIsVisible={setIsVisible}/>
-          <FilterButton setIsVisible={setIsVisible} showOnPage={showOnPage}/>
+          <FilterButton setIsVisible={setIsVisible} />
         </div>
-        <div className="border-b-4 flex flex-col gap-8">
-          {renderScreenings(showOnPage, sortedScreenings)}
-        </div>  
+          <ScreeningsList showOnPage={showOnPage} filteredScreeningsArr={filteredScreeningsArr} />
       </div>
     );
 };
 
-export default Screenings;
+export default ScreeningsContainer;

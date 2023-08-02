@@ -8,7 +8,7 @@ import { CinemaType, FilmType } from "@/Types/Object-Interfaces";
 import { getIndvFilm } from "@/Lib/getFilmData";
 import getAllCinemas from "@/Lib/getAllCinemas";
 import screenings from "@/Data/Screenings";
-import Screenings from "@/app/components/Screenings";
+import ScreeningsContainer from "@/app/components/ScreeningsContainer";
 
 
 const Page: React.FC<{}> = (): React.JSX.Element => {
@@ -95,7 +95,7 @@ const Page: React.FC<{}> = (): React.JSX.Element => {
         ""
       )}
     </div>
-    <Screenings screenings={screeningsFiltered} showOnPage="film" cinemas={cinemas}/>
+    <ScreeningsContainer screenings={screeningsFiltered} showOnPage="film" cinemas={cinemas}/>
     </>
   );
 };
