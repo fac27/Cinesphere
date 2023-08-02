@@ -13,9 +13,7 @@ const CinemaSearchBar = ({
 }: Props) => {
 
 
-  //import postcode and distance from store
   const filterContext = useFilters();
-
   const setPostcode = filterContext?.setPostcode as React.Dispatch<
     React.SetStateAction<string>
   >;
@@ -24,7 +22,7 @@ const CinemaSearchBar = ({
   const setDistance = filterContext?.setDistance as React.Dispatch<
     React.SetStateAction<{ cinema: string, distance: string }[]>
   >;
-  const distance = filterContext?.distance as { cinema: string, distance: string }[]
+
 
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -66,7 +64,6 @@ const CinemaSearchBar = ({
 
   };
 
-  console.log('calculated distance', distance)
 
   return (
     <div className="m-5 mb-10 flex justify-between">
