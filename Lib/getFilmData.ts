@@ -1,4 +1,4 @@
-// import { CinemaType } from "@/Types/Object-Interfaces";
+// import { FilmType } from "@/Types/Object-Interfaces";
 import supabaseClient from "./supabaseClient";
 
 const getAllFilms = async () => {

@@ -11,7 +11,7 @@ interface Props {
 const FilterModal = ({
   isVisible,
   setIsVisible,
-  filterArr
+  filterArr,
 }: Props): React.JSX.Element => {
 
   

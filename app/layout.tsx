@@ -1,4 +1,5 @@
 import "./globals.css";
+import "leaflet/dist/leaflet.css";
 import React from "react";
 import type { Metadata } from "next";
 import { IBM_Plex_Mono } from "next/font/google";
@@ -21,9 +22,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html style={{ scrollBehavior: "smooth" }} lang="en">
       <FilterProvider>
-        <body className={ibmPlexMono.className}>
+        <body className={ibmPlexMono.className + " overflow-x-hidden"}>
           <Header />
           {children}
         </body>
