@@ -21,9 +21,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html style={{ scrollBehavior: "smooth" }} lang="en">
+    <html
+      style={{ scrollBehavior: "smooth" }}
+      className="overflow-x-hidden"
+      lang="en"
+    >
       <FilterProvider>
-        <body className={ibmPlexMono.className + " overflow-x-hidden"}>
+        <body className={ibmPlexMono.className + "  overflow-x-hidden"}>
           <Header />
           {children}
         </body>
