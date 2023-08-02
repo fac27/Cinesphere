@@ -1,28 +1,25 @@
-
 # Cinesphere
 
 This is a [Next.js](https://nextjs.org/) project created for the Tech For Better programme run by Founders and Coders. Cinesphere was designed and created to improve access to independent films and independent cinemas.
 
 #### Getting Started
 
-Clone the repo 
-``` git clone https://github.com/fac27/Cinesphere```
+Clone the repo
+` git clone https://github.com/fac27/Cinesphere`
 
 Install dependencies
-```npm install```
+`npm install`
 
 Run the development server:
-```npm run dev```
+`npm run dev`
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 Or, visit the deployed site [cinesphere-alpha.vercel.app](cinesphere-alpha.vercel.app)
 
-
-
 #### Design Sprint
-![Screenshot 2023-08-02 at 15 43 24](https://github.com/fac27/Cinesphere/assets/114364165/dbeef6f4-a098-43eb-8f1a-687877f5c56f)
 
+![Screenshot 2023-08-02 at 15 43 24](https://github.com/fac27/Cinesphere/assets/114364165/dbeef6f4-a098-43eb-8f1a-687877f5c56f)
 
 ## Build Sprint
 

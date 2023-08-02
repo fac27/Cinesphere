@@ -13,7 +13,7 @@ const CinemaCard: FC<CinemaCardProps> = ({ cinema }) => {
   const filterContext = useFilters();
   const distance = filterContext?.distance as any;
 
-  const [displayDistance, setDisplayDistance] = useState<any>()
+  const [displayDistance, setDisplayDistance] = useState<any>();
 
   useEffect(() => {
     if (distance) {

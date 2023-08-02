@@ -58,24 +58,24 @@ const FilterTag = ({ filter, category }: Props) => {
       const setSelectedCinemas =
         filterContext?.setSelectedCinemas as React.Dispatch<
           React.SetStateAction<string[]>
-        >
-      filterByCategory(selectedCinemas, setSelectedCinemas, filter)
+        >;
+      filterByCategory(selectedCinemas, setSelectedCinemas, filter);
     }
     if (category.toUpperCase() == "DATES") {
       const selectedDates = filterContext?.selectedDates as string[];
       const setSelectedDates =
         filterContext?.setSelectedDates as React.Dispatch<
           React.SetStateAction<string[]>
-        >
-      filterByCategory(selectedDates, setSelectedDates, filter)
+        >;
+      filterByCategory(selectedDates, setSelectedDates, filter);
     }
     if (category.toUpperCase() == "FILM") {
       const selectedFilms = filterContext?.selectedFilms as string[];
       const setSelectedFilms =
         filterContext?.setSelectedFilms as React.Dispatch<
           React.SetStateAction<string[]>
-        >
-      filterByCategory(selectedFilms, setSelectedFilms, filter)
+        >;
+      filterByCategory(selectedFilms, setSelectedFilms, filter);
     }
   };
 

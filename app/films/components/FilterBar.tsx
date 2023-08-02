@@ -7,12 +7,7 @@ interface Props {
 
 const FilterBar = ({ setIsVisible }: Props) => {
   return (
-    <div className="flex flex-row justify-center mt-4">
-      <input
-        type="text"
-        className="p-2 w-40 flex border border-black rounded-lg"
-        placeholder="search"
-      ></input>
+    <div className="flex justify-end mt-4 w-5/6 md:w-1/2 mr-auto ml-auto">
       <FilterButton setIsVisible={setIsVisible} />
     </div>
   );
