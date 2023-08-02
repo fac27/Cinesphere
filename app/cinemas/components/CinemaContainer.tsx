@@ -37,7 +37,7 @@ const CinemaContainer = ({ cinemas }: Props) => {
   return (
     <>
       {filteredCinemas.map((cinema) => (
-        <div key={cinema.cinemaName} className="flex flex-col items-center">
+        <div key={cinema.cinema_name} className="flex flex-col items-center">
           <CinemaCard cinema={cinema} />
         </div>
       ))}
