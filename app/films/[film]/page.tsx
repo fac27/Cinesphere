@@ -39,8 +39,6 @@ const Page: React.FC<{}> = (): React.JSX.Element => {
     (screening) => screening.filmName == title?.toUpperCase()
   );
 
-  console.log(filmData);
-
   return (
     <>
       <div className="md:w-1/2 ml-auto mr-auto mb-2">
