@@ -7,16 +7,26 @@ import CinemaSearchBar from "./CinemaSearchBar";
 import { accessibility, amenities } from "@/Data/Filters";
 import CinemaContainer from "./CinemaContainer";
 import { CinemaType } from "@/Types/Object-Interfaces";
+// import { useFilters } from "@/app/Context/store";
 
 interface Props {
   cinemas: CinemaType[];
+  postcodeInput: string;
 }
 
 const CinemaPage = ({ cinemas }: Props) => {
-  const [postcodeInput, setPostcodeInput] = useState<string>("");
-  const [distances, setDistances] = useState<
-    { cinema: string; distance: string }[]
-  >([]);
+
+  //get distance value
+  // const filterContext = useFilters();
+
+  // const distance = filterContext?.distance as any;
+  // console.log('cinema page distance', distance)
+
+
+
+  // const [distances, setDistances] = useState<
+  //   { cinema: string; distance: string }[]
+  // >([]);
   const [isVisible, setIsVisible] = useState(false);
 
   const filterArr = [
@@ -32,12 +42,9 @@ const CinemaPage = ({ cinemas }: Props) => {
         setIsVisible={setIsVisible}
       />
       <CinemaSearchBar
-        setDistances={setDistances}
-        postcodeInput={postcodeInput}
-        setPostcodeInput={setPostcodeInput}
         setIsVisible={setIsVisible}
       />
-      <CinemaContainer distances={distances} cinemas={cinemas} />
+      <CinemaContainer cinemas={cinemas} />
     </>
   );
 };

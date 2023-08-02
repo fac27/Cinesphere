@@ -3,7 +3,7 @@ import CinemaCard from "./CinemaCard";
 import { useFilters } from "@/app/Context/store";
 
 interface Props {
-  distances: { cinema: string; distance: string }[];
+  // distance: { cinema: string; distance: string }[];
   cinemas: CinemaType[];
 }
 
@@ -18,7 +18,7 @@ function getTrueKeys(obj: CinemaType) {
   return keys;
 }
 
-const CinemaContainer = ({ distances, cinemas }: Props) => {
+const CinemaContainer = ({ cinemas }: Props) => {
   const filterContext = useFilters();
   const filteredCinemas = cinemas.filter((cinema) => {
     const cinemaAccessibility = getTrueKeys(cinema);
@@ -39,7 +39,7 @@ const CinemaContainer = ({ distances, cinemas }: Props) => {
     <div>
       {filteredCinemas.map((cinema) => (
         <div key={cinema.cinemaName} className="flex flex-col items-center">
-          <CinemaCard cinema={cinema} distances={distances} />
+          <CinemaCard cinema={cinema} />
         </div>
       ))}
     </div>
