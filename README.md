@@ -2,7 +2,7 @@
 
 This is a [Next.js](https://nextjs.org/) project created for the Tech For Better programme run by Founders and Coders. Cinesphere was designed and created to improve access to independent film and independent cinemas.
 
-#### Contributors
+### Contributors
 
 🦩 Sonia - Product Owner
 
@@ -61,7 +61,7 @@ View our design process on [miro](https://miro.com/app/board/uXjVMF81Y4Y=/)
 The development team came up with version "Alpha" and decided what features would be completed by the end of the first build sprint. We used agile practices and incorporated daily stand ups into our workflow. Weekly sgcs/ retros were conducted to improve our process.
 
 ### Test
-To view tests, run cypress: `npm run cypress`
+To view tests, run `npm run test` in your terminal
 - Initial tests were created using Cypress to test that the home route is functioning and that the user can navigate to cinema and films browsing pages. 
 - The system is currently minimal and was set up to be built upon in future iterations of the project
 
