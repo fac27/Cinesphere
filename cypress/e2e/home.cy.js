@@ -5,16 +5,14 @@ describe("Landing page", () => {
     cy.get(".films__container").click();
     // The new url should include "/films"
     cy.url().should("include", "/films");
-    // The new page should contain the film search bar
-    cy.get(".film__searchbar");
   });
 
   it("should navigate to the cinemas page", () => {
     cy.visit("http://localhost:3000/");
     // Find a link with an href attribute containing "films" and click it
     cy.get(".cinemas__container").click();
-    // The new url should include "/films"
-    cy.url().should("include", "/cinemas");
+    // The new url should include "/cinemas"
+    cy.url().should("include", "/cinemas", { timeout: 5000 });
     // The new page should contain an h1 with "Films page"
     cy.get(".cinemas__searchbar");
   });

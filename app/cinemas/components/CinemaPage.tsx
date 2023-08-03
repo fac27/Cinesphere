@@ -35,7 +35,6 @@ const CinemaPage = ({ cinemas }: Props) => {
         setIsVisible={setIsVisible}
       />
       <CinemaContainer cinemas={cinemas} />
-
     </>
   );
 };
