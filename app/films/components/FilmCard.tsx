@@ -18,7 +18,7 @@ const FilmCard = ({ film }: Props) => {
       key={film.id}
       className="mb-10 md:w-1/2 relative w-5/6 rounded-2xl overflow-hidden cursor-pointer"
     >
-      <div className="relative h-0 pb-[90%] xs:pb-[70%] sm:pb-[50%]">
+      <div className="relative h-0 pb-[100%] xs:pb-[80%] sm:pb-[50%]">
         <Image
           className="bg-cover bg-center"
           src={`https://image.tmdb.org/t/p/w500${film.backdrop_img}`}

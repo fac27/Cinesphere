@@ -50,12 +50,12 @@ const Map = ({ cinemas }: Props) => {
   });
 
   return (
-    <>
+    <div>
       <MapContainer
         center={{ lat: 51.505, lng: -0.09 }}
         zoom={11}
         scrollWheelZoom={false}
-        className="mb-10 mt-3 mr-auto ml-auto h-96 md:w-1/2 rounded-2xl w-4/5"
+        className="mb-10 mt-3 mr-auto ml-auto h-96 md:w-1/2 rounded-2xl w-4/5 z-1"
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -74,7 +74,7 @@ const Map = ({ cinemas }: Props) => {
           </Marker>
         ))}
       </MapContainer>
-    </>
+    </div>
   );
 };
 

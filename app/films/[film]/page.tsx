@@ -60,8 +60,8 @@ const Page: React.FC<{}> = (): React.JSX.Element => {
             <div className="p-3 flex flex-col gap-2">
               <h1 className="uppercase font-bold">{filmData.english_title}</h1>
               <p className="text-gray-500">
-                <span>{filmData.release_date}</span> ·{" "}
-                <span>{filmData.runtime + "mins"}</span>
+                <span>{filmData.release_date.substring(0, 4)}</span> ·{" "}
+                <span>{filmData.runtime + " mins"}</span>
               </p>
               <p>{"Genre: " + filmData.genre}</p>
               <p>
@@ -69,7 +69,7 @@ const Page: React.FC<{}> = (): React.JSX.Element => {
                 {filmData.director}
               </p>
               <p className="mt-2">
-                <span className="uppercase font-medium">Description</span>:{" "}
+                <span className="font-medium">Description</span>:{" "}
                 {filmData.overview}
               </p>
             </div>

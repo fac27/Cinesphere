@@ -186,8 +186,8 @@ const ScreeningsContainer = ({
     });
 
   return (
-    <div className="m-4 md:w-1/2 md:mx-auto ">
-      <div className="flex justify-around align-middle mb-4">
+    <div className="m-4 md:w-1/2 md:mx-auto">
+      <div className="flex justify-around mb-3">
         <h2 className="text-3xl regular">SCREENINGS</h2>
         <FilterModal
           filterArr={filterArr}

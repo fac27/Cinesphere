@@ -57,7 +57,7 @@ const CinemaSearchBar = ({ setIsVisible }: Props) => {
   };
 
   return (
-    <div className="m-5 mb-10 flex justify-center">
+    <div className="mx-auto w-1/2 mt-5 mb-5 flex justify-between">
       <form
         onSubmit={handleSubmit}
         className="cinemas__searchbar flex items-center gap-1"

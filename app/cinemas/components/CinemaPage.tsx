@@ -27,14 +27,15 @@ const CinemaPage = ({ cinemas }: Props) => {
 
   return (
     <>
+      <CinemaSearchBar setIsVisible={setIsVisible} />
+      <Map cinemas={cinemas} />
       <FilterModal
         filterArr={filterArr}
         isVisible={isVisible}
         setIsVisible={setIsVisible}
       />
-      <CinemaSearchBar setIsVisible={setIsVisible} />
-      <Map cinemas={cinemas} />
       <CinemaContainer cinemas={cinemas} />
+
     </>
   );
 };
