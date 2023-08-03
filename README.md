@@ -15,23 +15,18 @@ This is a [Next.js](https://nextjs.org/) project created for the Tech For Better
 🦐 [Taha](https://github.com/Taha-Hassan-Git) - DevOps
 
 
-#### Getting Started
+### Getting Started
 
 - Clone the repo
-` git clone https://github.com/fac27/Cinesphere`
-
+ ` git clone https://github.com/fac27/Cinesphere`
 - Env variables can be found in the Cinesphere supabase organisation 
-`NEXT_PUBLIC_SUPABASE_URL=`
-`NEXT_PUBLIC_SUPABASE_ANON_KEY=`
-
+ `NEXT_PUBLIC_SUPABASE_URL=`
+ `NEXT_PUBLIC_SUPABASE_ANON_KEY=`
 - Install dependencies
-`npm install`
-
+ `npm install`
 - Run the development server:
-`npm run dev`
-
+ `npm run dev`
 - Open [http://localhost:3000](http://localhost:3000) with your browser to see the result
-
 - Or, visit the deployed site [cinesphere-alpha.vercel.app](cinesphere-alpha.vercel.app)
 
 ### Known Issues 
@@ -50,11 +45,19 @@ This is a [Next.js](https://nextjs.org/) project created for the Tech For Better
 - Vercel
 
 #### Design Sprint
+- We built a prototype using Figma and conducted user research. We incorporated user feedback into our final design. This process allowed us to create a refined design that was both visually appealing and functional.
 View our design process on [miro](https://miro.com/app/board/uXjVMF81Y4Y=/)
 ![Screenshot 2023-08-02 at 15 43 24](https://github.com/fac27/Cinesphere/assets/114364165/dbeef6f4-a098-43eb-8f1a-687877f5c56f)
 
-## Build Sprint
+### Build Sprint
+The development team came up with version "Alpha" and decided what features would be completed by the end of the first build sprint. We used agile practices and incorporated daily stand ups into our workflow. Weekly sgcs/ retros were conducted to improve our process.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Test
+`npm run cypress`
+- Initial tests were created using Cypress to test that the home route is functioning and that the user can navigate to cinema and films browsing pages. 
+- The system is currently minimal and was set up to be built upon in future iterations of the project
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Maintain
+
+- The codebase is structured logically and adheres as much as possible to industry standards
+- Handover documentation can be found [https://hackmd.io/@x2nsvz4mQ6Cndvg7q24hKg/Byr5RWYo2/edit](here)
