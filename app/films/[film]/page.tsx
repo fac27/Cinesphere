@@ -39,6 +39,8 @@ const Page: React.FC<{}> = (): React.JSX.Element => {
     (screening) => screening.filmName == title?.toUpperCase()
   );
 
+  const cinema = cinemas?.[0];
+
   return (
     <>
       <div className="md:w-1/2 ml-auto mr-auto mb-2">
@@ -47,14 +49,14 @@ const Page: React.FC<{}> = (): React.JSX.Element => {
             <div className="flex justify-around w-80 mt-7 mr-auto ml-auto">
               <BackButton page={"films"} />
             </div>
-            <div className="relative mt-5 w-100 h-56 md:h-96">
-              <Image
-                src={`https://image.tmdb.org/t/p/w500${filmData.backdrop_img}`}
-                alt={"a snapshot of the film asteroid city"}
-                layout="fill"
-                objectFit="cover"
-              />
-            </div>
+            <iframe
+              className="relative mt-5 pl-3 w-full md:h-96"
+              src={`https://www.youtube.com/embed/${filmData.youtube_id}`}
+              title="YouTube video player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            ></iframe>
+
             <div className="p-3 flex flex-col gap-2">
               <h1 className="uppercase font-bold">{filmData.english_title}</h1>
               <p className="text-gray-500">
@@ -88,6 +90,7 @@ const Page: React.FC<{}> = (): React.JSX.Element => {
         screenings={screeningsFiltered}
         showOnPage="film"
         cinemas={cinemas}
+        cinema={cinema}
       />
     </>
   );

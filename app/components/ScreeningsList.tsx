@@ -1,13 +1,17 @@
+import { CinemaType } from "@/Types/Object-Interfaces";
 import Icons from "./Icons";
+import Ticket from "./Ticket";
 
 interface ScreeningsListProps {
   showOnPage: string;
   filteredScreeningsArr: any[];
+  cinema?: CinemaType;
 }
 
 const ScreeningsList = ({
   showOnPage,
   filteredScreeningsArr,
+  cinema,
 }: ScreeningsListProps) => {
   return (
     <div className="border-t border-black flex flex-col gap-8" style={{height: 500}}>
@@ -35,6 +39,8 @@ const ScreeningsList = ({
                   />
                 </div>
               ))}
+
+          <Ticket cinema={cinema} />
         </div>
       ))}{" "}
     </div>
