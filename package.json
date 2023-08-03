@@ -11,7 +11,8 @@
     "format": "prettier --check --ignore-path .gitignore .",
     "format:fix": "prettier --write --ignore-path .gitignore .",
     "lint-staged": "lint-staged",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "test": "cypress run --headless"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.31.0",
