@@ -24,6 +24,7 @@ const Page = async ({ params }: { params: { cinema: string } }) => {
       <ScreeningsContainer
         screenings={screeningsFiltered}
         showOnPage="cinema"
+        cinema={cinema}
       />
     </>
   );

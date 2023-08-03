@@ -39,6 +39,8 @@ const Page: React.FC<{}> = (): React.JSX.Element => {
     (screening) => screening.filmName == title?.toUpperCase()
   );
 
+  const cinema = cinemas?.[0];
+
   return (
     <>
       <div className="md:w-1/2 ml-auto mr-auto mb-2">
@@ -88,6 +90,7 @@ const Page: React.FC<{}> = (): React.JSX.Element => {
         screenings={screeningsFiltered}
         showOnPage="film"
         cinemas={cinemas}
+        cinema={cinema}
       />
     </>
   );

@@ -19,9 +19,15 @@ interface Props {
   screenings: ScreeningType[];
   showOnPage: string;
   cinemas?: CinemaType[];
+  cinema?: CinemaType;
 }
 
-const ScreeningsContainer = ({ screenings, showOnPage, cinemas }: Props) => {
+const ScreeningsContainer = ({
+  screenings,
+  showOnPage,
+  cinemas,
+  cinema,
+}: Props) => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const filterContext = useFilters();
 
@@ -193,6 +199,7 @@ const ScreeningsContainer = ({ screenings, showOnPage, cinemas }: Props) => {
       <ScreeningsList
         showOnPage={showOnPage}
         filteredScreeningsArr={filteredScreeningsArr}
+        cinema={cinema}
       />
     </div>
   );
